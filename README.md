@@ -45,7 +45,11 @@ BaseEntity --> params + GMTDate + OpUser
     - 在OSS模块基础上简单加点东西
     - 所以命名是service-oss-blog(依赖module-oss+module-oss-blog)
     - http://localhost:8110/swagger-ui.html
-    
+
+- DataV模块 @todo
+    - 在OSS模块基础上简单加点东西
+    - http://localhost:8112/swagger-ui.html
+        
 - App模块集成(OkHttp??) @todo
 - IM模块(WebSocket) @todo
 

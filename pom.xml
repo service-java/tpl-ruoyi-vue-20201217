@@ -358,7 +358,7 @@
 
             <dependency>
                 <groupId>com.ruoyi</groupId>
-                <artifactId>framework-system</artifactId>
+                <artifactId>framework-sys</artifactId>
                 <version>${ruoyi.version}</version>
             </dependency>
 
@@ -389,7 +389,7 @@
             <!-- 系统模块-->
             <dependency>
                 <groupId>com.ruoyi</groupId>
-                <artifactId>module-system</artifactId>
+                <artifactId>module-sys</artifactId>
                 <version>${ruoyi.version}</version>
             </dependency>
 
@@ -397,20 +397,20 @@
             <!-- 示例模块-->
             <dependency>
                 <groupId>com.ruoyi</groupId>
-                <artifactId>module-system-demo</artifactId>
+                <artifactId>module-sys-demo</artifactId>
                 <version>${ruoyi.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>com.ruoyi</groupId>
-                <artifactId>module-system-quartz</artifactId>
+                <artifactId>module-sys-qrtz</artifactId>
                 <version>${ruoyi.version}</version>
             </dependency>
 
             <!-- 代码生成-->
             <dependency>
                 <groupId>com.ruoyi</groupId>
-                <artifactId>module-system-generator</artifactId>
+                <artifactId>module-sys-gen</artifactId>
                 <version>${ruoyi.version}</version>
             </dependency>
 
@@ -428,20 +428,20 @@
     <modules>
         <module>common</module>
         <module>framework-oss</module>
-        <module>framework-system</module>
+        <module>framework-sys</module>
         <module>framework-crawler</module>
         <module>module-oss</module>
         <module>module-oss-blog</module>
         <module>module-oss-datav</module>
-        <module>module-system</module>
-        <module>module-system-generator</module>
-        <module>module-system-quartz</module>
-        <module>module-system-demo</module>
+        <module>module-sys</module>
+        <module>module-sys-gen</module>
+        <module>module-sys-qrtz</module>
+        <module>module-sys-demo</module>
         <module>module-crawler</module>
         <module>service-oss-blog</module>
         <module>service-oss-datav</module>
         <module>service-oss</module>
-        <module>service-system</module>
+        <module>service-sys</module>
         <module>service-crawler</module>
     </modules>
     <packaging>pom</packaging>
