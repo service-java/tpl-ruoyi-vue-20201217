@@ -9,9 +9,9 @@
 package com.ruoyi.oss.cloud;
 
 
-import com.ruoyi.common.validator.group.AliyunGroup;
-import com.ruoyi.common.validator.group.QcloudGroup;
-import com.ruoyi.common.validator.group.QiniuGroup;
+import com.ruoyi.oss.annotation.AliyunGroup;
+import com.ruoyi.oss.annotation.QcloudGroup;
+import com.ruoyi.oss.annotation.QiniuGroup;
 import lombok.Data;
 import org.hibernate.validator.constraints.Range;
 import org.hibernate.validator.constraints.URL;
