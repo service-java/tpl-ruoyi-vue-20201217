@@ -2,14 +2,13 @@ package com.ruoyi.blog.controller;
 
 import com.ruoyi.blog.domain.BlogArticle;
 import com.ruoyi.blog.service.BlogArticleService;
+import com.ruoyi.common.annotation.Log;
 import com.ruoyi.common.validator.ValidatorUtils;
 import com.ruoyi.common.validator.group.AddGroup;
 import com.ruoyi.common.vo.ResultVo;
-import com.ruoyi.oss.domain.OssBucket;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -30,6 +29,7 @@ public class BlogController {
     @Autowired
     private BlogArticleService blogArticleService;
 
+    @Log(title = "列出Blog操作")
     @ApiOperation("listBlog")
     @GetMapping("/listBlog")
     public ResultVo listBlog() {

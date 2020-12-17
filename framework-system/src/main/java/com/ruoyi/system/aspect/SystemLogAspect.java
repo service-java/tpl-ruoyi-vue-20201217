@@ -40,8 +40,8 @@ import com.ruoyi.common.domain.sys.SysOperLog;
  */
 @Aspect
 @Component
-public class LogAspect {
-    private static final Logger log = LoggerFactory.getLogger(LogAspect.class);
+public class SystemLogAspect {
+    private static final Logger log = LoggerFactory.getLogger(SystemLogAspect.class);
 
     // 配置织入点
     @Pointcut("@annotation(com.ruoyi.common.annotation.Log)")
@@ -76,6 +76,8 @@ public class LogAspect {
             if (controllerLog == null) {
                 return;
             }
+
+            log.info("输出日志 ~~~");
 
             // 获取当前的用户
             LoginUser loginUser = SpringUtils.getBean(TokenService.class).getLoginUser(ServletUtils.getRequest());

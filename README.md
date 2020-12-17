@@ -15,9 +15,7 @@
 
 # 代办列表
 
-- Redis未开启的处理 @todo
-- 参考renren-fast的多数据源配置功能 @todo
-- hibernate-validator的分组校验功能 @building
+- Redis未开启时的报错处理 @todo
 - 去掉BaseController与BaseEntity部分内容, 因为JSON数量大时很浪费带宽 @todo
 
 ```
@@ -34,6 +32,7 @@ BaseEntity --> params + GMTDate + OpUser
     - http://localhost:8099/beetlsql/checkEmailUnique
 
 - OSS模块集成(shiro + mybatis-plus + cqengine + easyexcel) @building
+    - RefreshToken的操作 @todo
     - IDEA的MybatisCodeHelperPro($)/EasyCode插件可以支持(大部分)代码的自动生成
     - IDEA的JRebel-MybatisPlus插件可以支持xml改动时触发热更新
     - http://localhost:8100/swagger-ui.html

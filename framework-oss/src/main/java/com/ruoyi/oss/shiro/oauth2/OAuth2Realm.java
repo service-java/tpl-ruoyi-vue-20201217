@@ -8,6 +8,7 @@
 
 package com.ruoyi.oss.shiro.oauth2;
 
+import com.ruoyi.common.exception.CustomException;
 import com.ruoyi.oss.domain.OssUser;
 import com.ruoyi.oss.service.IShiroService;
 import com.ruoyi.oss.service.TokenService;
@@ -66,6 +67,10 @@ public class OAuth2Realm extends AuthorizingRealm {
         OssUser user = tokenService.getLoginUser(accessToken);
 
         log.info("{} ==> ", user);
+        if (user == null) {
+            throw new CustomException("身份授权已失效");
+        }
+
         return new SimpleAuthenticationInfo(user, accessToken, getName());
     }
 }
