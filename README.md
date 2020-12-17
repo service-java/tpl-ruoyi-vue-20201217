@@ -23,7 +23,7 @@ BaseController --> initBinder
 BaseEntity --> params + GMTDate + OpUser
 ```
 
-- Crawler爬虫模块(beetlsql + webmagic) @building
+- Crawler爬虫模块(beetlsql + webmagic + OpenFeign) @building
     - http://localhost:8099/swagger-ui.html
     - http://localhost:8099/beetlsql/demo
     - http://localhost:8099/beetlsql/countDept
@@ -46,7 +46,7 @@ BaseEntity --> params + GMTDate + OpUser
     - 所以命名是service-oss-blog(依赖module-oss+module-oss-blog)
     - http://localhost:8110/swagger-ui.html
     
-- App模块集成(OkHttp+OpenFeign??) @todo
+- App模块集成(OkHttp??) @todo
 - IM模块(WebSocket) @todo
 
 # 常见问题 @faq
@@ -175,6 +175,14 @@ public interface OssBucketMapper extends BaseMapper<OssBucket> {
     </where>
 </select>
 ```
+
+- 怎么在spring中使用 feign，解决上传文件的痛点
+    - https://blog.csdn.net/sinat_27639721/article/details/81218357
+
+- Feign get接口传输对象引发一场追寻 @todo
+    - 目前GET方法设计时尽量保持参数简单
+    - 直接传对象貌似还会 --> Request method 'POST' not supported
+    - https://www.cnblogs.com/killbug/p/9776287.html
 
 # 参考
 

@@ -30,3 +30,6 @@ spring:
 swagger:
   # 生产环境关闭swagger
   enabled: false
+
+feign-url:
+  oss: http://localhost:8100

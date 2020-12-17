@@ -1,4 +1,4 @@
-package com.ruoyi.oss.exception;
+package com.ruoyi.crawler.exception;
 
 import com.ruoyi.common.constant.HttpStatusConstants;
 import com.ruoyi.common.exception.BaseException;
@@ -6,11 +6,8 @@ import com.ruoyi.common.exception.CustomException;
 import com.ruoyi.common.exception.DemoModeException;
 import com.ruoyi.common.util.StringUtils;
 import com.ruoyi.common.vo.ResultVo;
-import org.apache.shiro.authz.UnauthorizedException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import org.springframework.dao.DuplicateKeyException;
 import org.springframework.validation.BindException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -49,18 +46,6 @@ public class GlobalExceptionHandler {
     public ResultVo handlerNoFoundException(Exception e) {
         log.error(e.getMessage(), e);
         return ResultVo.error(HttpStatusConstants.NOT_FOUND, "路径不存在，请检查路径是否正确");
-    }
-
-    @ExceptionHandler(UnauthorizedException.class)
-    public ResultVo handlerUnauthorizedException(Exception e) {
-        log.error(e.getMessage(), e);
-        return ResultVo.error(HttpStatusConstants.UNAUTHORIZED, "权限不足");
-    }
-
-    @ExceptionHandler(DuplicateKeyException.class)
-    public ResultVo handlerDuplicateKeyException(Exception e) {
-        log.error(e.getMessage(), e);
-        return ResultVo.error(HttpStatusConstants.ERROR, "编码重复, 操作失败");
     }
 
 

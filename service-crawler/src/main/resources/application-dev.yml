@@ -26,3 +26,6 @@ spring:
     url: jdbc:mysql://example.com:3306/ry-vue?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=true&serverTimezone=GMT%2B8
     username: root
     password: 潜龙勿用
+
+feign-url:
+  oss: http://localhost:8100

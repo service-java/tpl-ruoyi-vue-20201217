@@ -3,6 +3,7 @@ package com.ruoyi.web.controller.common;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,7 +38,7 @@ public class CommonController {
      * @param fileName 文件名称
      * @param delete   是否删除
      */
-    @GetMapping("common/download")
+    @GetMapping("/common/download")
     public void fileDownload(String fileName, Boolean delete, HttpServletResponse response, HttpServletRequest request) {
         try {
             if (!FileUtils.checkAllowDownload(fileName)) {
@@ -60,6 +61,7 @@ public class CommonController {
     /**
      * 通用上传请求
      */
+    @ApiOperation("通用上传")
     @PostMapping("/common/upload")
     public ResultVo uploadFile(MultipartFile file) throws Exception {
         try {
@@ -80,6 +82,7 @@ public class CommonController {
     /**
      * 本地资源通用下载
      */
+    @ApiOperation("通用下载")
     @GetMapping("/common/download/resource")
     public void resourceDownload(String resource, HttpServletRequest request, HttpServletResponse response)
             throws Exception {

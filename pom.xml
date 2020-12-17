@@ -54,6 +54,9 @@
         <hutool.version>5.5.1</hutool.version>
         <guava.version>30.0-jre</guava.version>
         <lombok.version>1.18.4</lombok.version>
+        <feign.version>11.0</feign.version>
+        <feign-form.version>3.8.0</feign-form.version>
+
     </properties>
 
     <!-- 依赖声明 -->
@@ -305,6 +308,40 @@
             </dependency>
 
 
+            <!-- https://mvnrepository.com/artifact/io.github.openfeign/feign-core -->
+            <dependency>
+                <groupId>io.github.openfeign</groupId>
+                <artifactId>feign-core</artifactId>
+                <version>${feign.version}</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/io.github.openfeign/feign-httpclient -->
+            <dependency>
+                <groupId>io.github.openfeign</groupId>
+                <artifactId>feign-httpclient</artifactId>
+                <version>${feign.version}</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/io.github.openfeign/feign-jackson -->
+            <dependency>
+                <groupId>io.github.openfeign</groupId>
+                <artifactId>feign-jackson</artifactId>
+                <version>${feign.version}</version>
+            </dependency>
+
+
+            <dependency>
+                <groupId>io.github.openfeign.form</groupId>
+                <artifactId>feign-form</artifactId>
+                <version>${feign-form.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.github.openfeign.form</groupId>
+                <artifactId>feign-form-spring</artifactId>
+                <version>${feign-form.version}</version>
+            </dependency>
+
             <!-- 通用工具-->
             <dependency>
                 <groupId>com.ruoyi</groupId>
@@ -340,6 +377,12 @@
             <dependency>
                 <groupId>com.ruoyi</groupId>
                 <artifactId>module-oss-blog</artifactId>
+                <version>${ruoyi.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.ruoyi</groupId>
+                <artifactId>module-oss-datav</artifactId>
                 <version>${ruoyi.version}</version>
             </dependency>
 
@@ -389,12 +432,14 @@
         <module>framework-crawler</module>
         <module>module-oss</module>
         <module>module-oss-blog</module>
+        <module>module-oss-datav</module>
         <module>module-system</module>
         <module>module-system-generator</module>
         <module>module-system-quartz</module>
         <module>module-system-demo</module>
         <module>module-crawler</module>
         <module>service-oss-blog</module>
+        <module>service-oss-datav</module>
         <module>service-oss</module>
         <module>service-system</module>
         <module>service-crawler</module>
