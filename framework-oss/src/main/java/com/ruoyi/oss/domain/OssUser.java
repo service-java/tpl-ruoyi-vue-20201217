@@ -18,7 +18,7 @@ import javax.validation.constraints.NotNull;
  * User: luo0412
  * Date: 2020-12-16 9:11
  */
-@ApiModel(value="com-ruoyi-oss-domain-OssUser")
+@ApiModel
 @Data
 public class OssUser {
     /**

@@ -13,14 +13,13 @@ import java.util.Set;
 
 @Slf4j
 @Service
-public class ShiroServiceImpl implements IShiroService {
+public class ShiroService {
 
 
     @Autowired
     private OssUserMapper ossUserMapper;
 
 
-    @Override
     public Set<String> getUserPermissions(long userId) {
         // @todo
         HashSet<String> permissions = Sets.newHashSet();
@@ -30,7 +29,6 @@ public class ShiroServiceImpl implements IShiroService {
 
 
 
-    @Override
     public OssUser queryUser(Long userId) {
         return ossUserMapper.selectById(userId);
     }

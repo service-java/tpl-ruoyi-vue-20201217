@@ -20,17 +20,17 @@ public class OssConfigRedisUtils {
         if (config == null) {
             return;
         }
-        String key = Constants.SYS_CONFIG_KEY + config.getParamKey();
+        String key = Constants.OSS_CONFIG_KEY + config.getParamKey();
         redisUtils.set(key, config);
     }
 
     public void delete(String configKey) {
-        String key = Constants.SYS_CONFIG_KEY + configKey;
+        String key = Constants.OSS_CONFIG_KEY + configKey;
         redisUtils.delete(key);
     }
 
     public OssConfig get(String configKey) {
-        String key = Constants.SYS_CONFIG_KEY + configKey;
+        String key = Constants.OSS_CONFIG_KEY + configKey;
         return redisUtils.get(key, OssConfig.class);
     }
 }

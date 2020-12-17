@@ -10,10 +10,13 @@ package com.ruoyi.oss.shiro.oauth2;
 
 import com.ruoyi.common.exception.CustomException;
 import com.ruoyi.oss.domain.OssUser;
-import com.ruoyi.oss.service.IShiroService;
+import com.ruoyi.oss.service.ShiroService;
 import com.ruoyi.oss.service.TokenService;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.shiro.authc.*;
+import org.apache.shiro.authc.AuthenticationException;
+import org.apache.shiro.authc.AuthenticationInfo;
+import org.apache.shiro.authc.AuthenticationToken;
+import org.apache.shiro.authc.SimpleAuthenticationInfo;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
@@ -32,7 +35,7 @@ import java.util.Set;
 @Slf4j
 public class OAuth2Realm extends AuthorizingRealm {
     @Autowired
-    private IShiroService shiroService;
+    private ShiroService shiroService;
 
     @Autowired
     private TokenService tokenService;

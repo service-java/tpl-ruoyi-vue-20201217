@@ -19,7 +19,7 @@ import lombok.Data;
 /**
  * 系统配置信息表
  */
-@ApiModel(value = "com-ruoyi-oss-domain-OssConfig")
+@ApiModel
 @Data
 public class OssConfig implements Serializable {
     @TableId(value = "id", type = IdType.AUTO)

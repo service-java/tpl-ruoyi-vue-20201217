@@ -8,7 +8,7 @@
 
 package com.ruoyi.oss.cloud;
 
-import com.ruoyi.oss.util.DateUtils;
+import cn.hutool.core.date.DateUtil;
 import org.apache.commons.lang.StringUtils;
 
 import java.io.InputStream;
@@ -34,7 +34,7 @@ public abstract class CloudStorageService {
         //生成uuid
         String uuid = UUID.randomUUID().toString().replaceAll("-", "");
         //文件路径
-        String path = DateUtils.format(new Date(), "yyyyMMdd") + "/" + uuid;
+        String path = DateUtil.format(new Date(), "yyyyMMdd") + "/" + uuid;
 
         if (StringUtils.isNotBlank(prefix)) {
             path = prefix + "/" + path;

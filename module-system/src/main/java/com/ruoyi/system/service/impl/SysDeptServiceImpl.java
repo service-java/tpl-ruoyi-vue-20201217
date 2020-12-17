@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.ruoyi.common.annotation.DataScope;
 import com.ruoyi.common.constant.UserConstants;
-import com.ruoyi.common.domain.TreeSelect;
+import com.ruoyi.common.domain.TreeSelectEntity;
 import com.ruoyi.common.domain.sys.SysDept;
 import com.ruoyi.common.domain.sys.SysRole;
 import com.ruoyi.common.exception.CustomException;
@@ -77,9 +77,9 @@ public class SysDeptServiceImpl implements ISysDeptService {
      * @return 下拉树结构列表
      */
     @Override
-    public List<TreeSelect> buildDeptTreeSelect(List<SysDept> depts) {
+    public List<TreeSelectEntity> buildDeptTreeSelect(List<SysDept> depts) {
         List<SysDept> deptTrees = buildDeptTree(depts);
-        return deptTrees.stream().map(TreeSelect::new).collect(Collectors.toList());
+        return deptTrees.stream().map(TreeSelectEntity::new).collect(Collectors.toList());
     }
 
     /**

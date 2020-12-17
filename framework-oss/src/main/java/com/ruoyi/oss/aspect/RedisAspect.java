@@ -1,4 +1,4 @@
-package com.ruoyi.common.aspect;
+package com.ruoyi.oss.aspect;
 
 import com.ruoyi.common.exception.CustomException;
 import org.aspectj.lang.ProceedingJoinPoint;

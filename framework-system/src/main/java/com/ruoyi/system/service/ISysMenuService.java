@@ -3,7 +3,7 @@ package com.ruoyi.system.service;
 import java.util.List;
 import java.util.Set;
 
-import com.ruoyi.common.domain.TreeSelect;
+import com.ruoyi.common.domain.TreeSelectEntity;
 import com.ruoyi.common.domain.sys.SysMenu;
 import com.ruoyi.common.vo.RouterVo;
 
@@ -76,7 +76,7 @@ public interface ISysMenuService {
      * @param menus 菜单列表
      * @return 下拉树结构列表
      */
-    public List<TreeSelect> buildMenuTreeSelect(List<SysMenu> menus);
+    public List<TreeSelectEntity> buildMenuTreeSelect(List<SysMenu> menus);
 
     /**
      * 根据菜单ID查询信息

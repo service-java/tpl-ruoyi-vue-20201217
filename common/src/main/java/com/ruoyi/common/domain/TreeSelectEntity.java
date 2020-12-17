@@ -13,7 +13,7 @@ import com.ruoyi.common.domain.sys.SysMenu;
  *
  * @author ruoyi
  */
-public class TreeSelect implements Serializable {
+public class TreeSelectEntity implements Serializable {
     private static final long serialVersionUID = 1L;
 
     /**
@@ -30,22 +30,22 @@ public class TreeSelect implements Serializable {
      * 子节点
      */
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
-    private List<TreeSelect> children;
+    private List<TreeSelectEntity> children;
 
-    public TreeSelect() {
+    public TreeSelectEntity() {
 
     }
 
-    public TreeSelect(SysDept dept) {
+    public TreeSelectEntity(SysDept dept) {
         this.id = dept.getDeptId();
         this.label = dept.getDeptName();
-        this.children = dept.getChildren().stream().map(TreeSelect::new).collect(Collectors.toList());
+        this.children = dept.getChildren().stream().map(TreeSelectEntity::new).collect(Collectors.toList());
     }
 
-    public TreeSelect(SysMenu menu) {
+    public TreeSelectEntity(SysMenu menu) {
         this.id = menu.getMenuId();
         this.label = menu.getMenuName();
-        this.children = menu.getChildren().stream().map(TreeSelect::new).collect(Collectors.toList());
+        this.children = menu.getChildren().stream().map(TreeSelectEntity::new).collect(Collectors.toList());
     }
 
     public Long getId() {
@@ -64,11 +64,11 @@ public class TreeSelect implements Serializable {
         this.label = label;
     }
 
-    public List<TreeSelect> getChildren() {
+    public List<TreeSelectEntity> getChildren() {
         return children;
     }
 
-    public void setChildren(List<TreeSelect> children) {
+    public void setChildren(List<TreeSelectEntity> children) {
         this.children = children;
     }
 }

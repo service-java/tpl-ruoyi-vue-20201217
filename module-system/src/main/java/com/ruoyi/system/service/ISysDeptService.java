@@ -2,7 +2,7 @@ package com.ruoyi.system.service;
 
 import java.util.List;
 
-import com.ruoyi.common.domain.TreeSelect;
+import com.ruoyi.common.domain.TreeSelectEntity;
 import com.ruoyi.common.domain.sys.SysDept;
 
 /**
@@ -33,7 +33,7 @@ public interface ISysDeptService {
      * @param depts 部门列表
      * @return 下拉树结构列表
      */
-    public List<TreeSelect> buildDeptTreeSelect(List<SysDept> depts);
+    public List<TreeSelectEntity> buildDeptTreeSelect(List<SysDept> depts);
 
     /**
      * 根据角色ID查询部门树信息

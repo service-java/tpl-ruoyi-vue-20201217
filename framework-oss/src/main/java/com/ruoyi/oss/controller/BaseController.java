@@ -3,8 +3,6 @@ package com.ruoyi.oss.controller;
 import com.ruoyi.common.util.DateUtils;
 import com.ruoyi.oss.domain.OssUser;
 import org.apache.shiro.SecurityUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 
@@ -17,7 +15,6 @@ import java.util.Date;
  * @author ruoyi
  */
 public class BaseController {
-    protected final Logger logger = LoggerFactory.getLogger(BaseController.class);
 
     /**
      * 将前台传递过来的日期格式的字符串，自动转化为Date类型

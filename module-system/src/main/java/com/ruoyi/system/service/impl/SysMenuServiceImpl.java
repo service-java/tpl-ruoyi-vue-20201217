@@ -13,7 +13,7 @@ import com.ruoyi.system.service.ISysMenuService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.ruoyi.common.constant.UserConstants;
-import com.ruoyi.common.domain.TreeSelect;
+import com.ruoyi.common.domain.TreeSelectEntity;
 import com.ruoyi.common.domain.sys.SysMenu;
 import com.ruoyi.common.domain.sys.SysRole;
 import com.ruoyi.common.domain.sys.SysUser;
@@ -190,9 +190,9 @@ public class SysMenuServiceImpl implements ISysMenuService {
      * @return 下拉树结构列表
      */
     @Override
-    public List<TreeSelect> buildMenuTreeSelect(List<SysMenu> menus) {
+    public List<TreeSelectEntity> buildMenuTreeSelect(List<SysMenu> menus) {
         List<SysMenu> menuTrees = buildMenuTree(menus);
-        return menuTrees.stream().map(TreeSelect::new).collect(Collectors.toList());
+        return menuTrees.stream().map(TreeSelectEntity::new).collect(Collectors.toList());
     }
 
     /**
