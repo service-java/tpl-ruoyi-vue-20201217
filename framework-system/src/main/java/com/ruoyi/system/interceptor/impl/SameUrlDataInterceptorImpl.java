@@ -23,7 +23,7 @@ import com.ruoyi.system.interceptor.AbstractRepeatSubmitInterceptor;
  * @author ruoyi
  */
 @Component
-public class SameUrlDataInterceptorImplAbstract extends AbstractRepeatSubmitInterceptor {
+public class SameUrlDataInterceptorImpl extends AbstractRepeatSubmitInterceptor {
     public final String REPEAT_PARAMS = "repeatParams";
 
     public final String REPEAT_TIME = "repeatTime";
