@@ -53,7 +53,7 @@ import java.util.List;
  *
  * @author Mark sunlightcs@gmail.com
  */
-@Api(tags="OSS")
+@Api(tags="OSS模块")
 @RestController
 @RequestMapping("/oss")
 @Slf4j

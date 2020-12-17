@@ -26,6 +26,7 @@ BaseEntity --> params + GMTDate + OpUser
 ```
 
 - Crawler爬虫模块(beetlsql + webmagic) @building
+    - http://localhost:8099/swagger-ui.html
     - http://localhost:8099/beetlsql/demo
     - http://localhost:8099/beetlsql/countDept
     - http://localhost:8099/beetlsql/countDict
@@ -33,9 +34,13 @@ BaseEntity --> params + GMTDate + OpUser
     - http://localhost:8099/beetlsql/checkEmailUnique
 
 - OSS模块集成(shiro + mybatis-plus + cqengine + easyexcel) @building
+    - IDEA的MybatisCodeHelperPro($)/EasyCode插件可以支持(大部分)代码的自动生成
+    - IDEA的JRebel-MybatisPlus插件可以支持xml改动时触发热更新
     - http://localhost:8100/swagger-ui.html
     - http://localhost:8100/oss/listDemo --> 因为配了个不存在的权限, 登录后访问会返回权限不足
-    - http://localhost:8100/oss/list 
+    - http://localhost:8100/oss/list
+    - http://localhost:8110/oss/page?isAsc=false&orderByColumn=name&pageNum=1&pageSize=3
+    - http://localhost:8110/oss/pageByXml?isAsc=false&orderByColumn=name&pageNum=1&pageSize=3
 
 - Blog模块 @todo
     - 在OSS模块基础上简单加点东西
