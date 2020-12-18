@@ -26,10 +26,5 @@ spring:
     username: root
     password: 潜龙勿用
 
-# Swagger配置
-swagger:
-  # 生产环境关闭swagger
-  enabled: false
-
 feign-url:
   oss: http://localhost:8100

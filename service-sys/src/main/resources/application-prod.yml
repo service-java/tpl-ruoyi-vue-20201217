@@ -77,3 +77,8 @@ spring:
         wall:
           config:
             multi-statement-allow: true
+
+# Swagger配置
+swagger:
+  # 生产环境关闭swagger
+  enabled: false

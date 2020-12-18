@@ -3,7 +3,7 @@
 <mapper namespace="com.ruoyi.oss.mapper.OssConfigMapper">
   <resultMap id="BaseResultMap" type="com.ruoyi.oss.domain.OssConfig">
     <!--@mbg.generated-->
-    <!--@Table ry-vue.oss_config-->
+    <!--@Table oss_config-->
     <id column="id" jdbcType="BIGINT" property="id" />
     <result column="param_key" jdbcType="VARCHAR" property="paramKey" />
     <result column="param_value" jdbcType="VARCHAR" property="paramValue" />
@@ -16,7 +16,7 @@
   </sql>
   <update id="updateBatch" parameterType="java.util.List">
     <!--@mbg.generated-->
-    update ry-vue.oss_config
+    update oss_config
     <trim prefix="set" suffixOverrides=",">
       <trim prefix="param_key = case" suffix="end,">
         <foreach collection="list" index="index" item="item">
@@ -46,7 +46,7 @@
   </update>
   <update id="updateBatchSelective" parameterType="java.util.List">
     <!--@mbg.generated-->
-    update ry-vue.oss_config
+    update oss_config
     <trim prefix="set" suffixOverrides=",">
       <trim prefix="param_key = case" suffix="end,">
         <foreach collection="list" index="index" item="item">
@@ -84,7 +84,7 @@
   </update>
   <insert id="batchInsert" keyColumn="id" keyProperty="id" parameterType="map" useGeneratedKeys="true">
     <!--@mbg.generated-->
-    insert into ry-vue.oss_config
+    insert into oss_config
     (param_key, param_value, `status`, remark)
     values
     <foreach collection="list" item="item" separator=",">
@@ -94,7 +94,7 @@
   </insert>
   <insert id="insertOrUpdate" keyColumn="id" keyProperty="id" parameterType="com.ruoyi.oss.domain.OssConfig" useGeneratedKeys="true">
     <!--@mbg.generated-->
-    insert into ry-vue.oss_config
+    insert into oss_config
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
         id,
@@ -127,7 +127,7 @@
   </insert>
   <insert id="insertOrUpdateSelective" keyColumn="id" keyProperty="id" parameterType="com.ruoyi.oss.domain.OssConfig" useGeneratedKeys="true">
     <!--@mbg.generated-->
-    insert into ry-vue.oss_config
+    insert into oss_config
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
         id,
