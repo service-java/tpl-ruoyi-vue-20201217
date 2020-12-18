@@ -10,7 +10,7 @@ import org.apache.ibatis.annotations.Param;
  * Description: 模块功能描述
  * <p>
  * User: luo0412
- * Date: 2020-12-17 10:14
+ * Date: 2020-12-18 9:00
  */
 @Mapper
 public interface BlogArticleMapper extends BaseMapper<BlogArticle> {

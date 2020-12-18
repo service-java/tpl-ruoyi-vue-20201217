@@ -22,5 +22,6 @@ DROP TABLE IF EXISTS `blog_article`;
 CREATE TABLE `blog_article` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键ID',
   `name` varchar(255) NOT NULL COMMENT '文章名称',
+  `content` longblob default null comment '公告内容',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

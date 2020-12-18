@@ -8,6 +8,7 @@
 
 target/
 !.mvn/wrapper/maven-wrapper.jar
+!.idea/MyBatisCodeHelperDatasource.xml
 
 ######################################################################
 # IDE

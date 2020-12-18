@@ -2,6 +2,6 @@
 # abort on errors
 set -e
 
-java -jar -Xms256m -Xmx1024m -XX:MetaspaceSize=128m -XX:MaxMetaspaceSize=512m ./service-oss-blog.jar --spring.profiles.active=prod
+java -jar -Xms256m -Xmx1024m -XX:MetaspaceSize=128m -XX:MaxMetaspaceSize=512m ./service-oss-datav.jar --spring.profiles.active=prod
 
 cd -
