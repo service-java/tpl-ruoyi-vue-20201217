@@ -11,6 +11,7 @@
 ===
 5) _bin/xxx.sh文件 gbk转为utf-8
 6) 外部域名统一成example.com, 使用switchhost映射真实IP
+7) 数据库表前缀决定模块名称 @eg sys, oss ==> sql放在对应模块下
 ```
 
 # 代办列表
