@@ -150,6 +150,11 @@ public class ResultVo extends HashMap<String, Object> {
     /**
      * 给AjaxResult扩展方法
      */
+    public ResultVo set(String key, Object value) {
+        super.put(key, value);
+        return this;
+    }
+
     public ResultVo setCode(int code) {
         super.put(CODE_TAG, code);
         return this;

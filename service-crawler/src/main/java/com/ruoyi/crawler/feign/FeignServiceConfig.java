@@ -1,16 +1,12 @@
-package com.ruoyi.crawler.service;
+package com.ruoyi.crawler.feign;
 
-import com.alibaba.fastjson.JSONObject;
 import feign.Feign;
 import feign.Logger;
-import feign.Param;
-import feign.RequestLine;
 import feign.jackson.JacksonDecoder;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.multipart.MultipartFile;
 
 /**
  * Description: 模块功能描述

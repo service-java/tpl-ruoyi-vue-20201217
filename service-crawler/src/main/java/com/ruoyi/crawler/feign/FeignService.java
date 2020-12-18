@@ -1,13 +1,10 @@
-package com.ruoyi.crawler.service;
+package com.ruoyi.crawler.feign;
 
 import com.alibaba.fastjson.JSONObject;
-import com.ruoyi.common.dto.PageQuery;
 import com.ruoyi.common.vo.ResultVo;
 import feign.Param;
 import feign.RequestLine;
 import org.springframework.web.multipart.MultipartFile;
-
-import java.util.Map;
 
 /**
  * Description: 模块功能描述

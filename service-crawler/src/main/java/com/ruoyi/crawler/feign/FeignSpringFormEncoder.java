@@ -1,4 +1,4 @@
-package com.ruoyi.crawler.service;
+package com.ruoyi.crawler.feign;
 
 /**
  * Description: 模块功能描述

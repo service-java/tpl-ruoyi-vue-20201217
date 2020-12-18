@@ -1,15 +1,16 @@
 package com.ruoyi.crawler.controller;
 
 import cn.hutool.core.bean.BeanUtil;
-import cn.hutool.core.convert.Convert;
 import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.io.FileUtil;
 import cn.hutool.http.HttpRequest;
 import cn.hutool.http.HttpUtil;
-import cn.hutool.json.JSON;
 import cn.hutool.json.JSONObject;
 import cn.hutool.json.JSONUtil;
+import com.alibaba.fastjson.JSON;
 import com.ruoyi.common.config.CommonConfig;
+import com.ruoyi.common.constant.Constants;
+import com.ruoyi.common.util.StringUtils;
 import com.ruoyi.common.util.file.FileUploadUtils;
 import com.ruoyi.common.vo.ResultVo;
 import com.ruoyi.crawler.domain.SysDept;
@@ -20,14 +21,7 @@ import com.ruoyi.crawler.mapper.SysDeptMapper;
 import com.ruoyi.crawler.mapper.SysDictDataMapper;
 import com.ruoyi.crawler.mapper.SysMenuMapper;
 import com.ruoyi.crawler.mapper.SysUserMapper;
-import com.ruoyi.crawler.service.FeignService;
-import com.ruoyi.crawler.service.FeignSpringFormEncoder;
-import feign.Feign;
-import feign.Logger;
-import feign.Response;
-import feign.codec.StringDecoder;
-import feign.jackson.JacksonDecoder;
-import feign.jackson.JacksonEncoder;
+import com.ruoyi.crawler.feign.FeignService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
@@ -47,7 +41,7 @@ import java.util.*;
 @Controller
 @RequestMapping("/beetlsql")
 @Slf4j
-public class BeetlsqlController {
+public class CrawlerController {
 
     @Autowired
     SysUserMapper sysUserMapper;
@@ -152,15 +146,29 @@ public class BeetlsqlController {
     @ResponseBody
     public Object remoteUploadByHutool(@RequestParam("file") MultipartFile file) throws IOException {
         log.info("文件为空： {}", file.isEmpty());
-
         HashMap<String, Object> paramMap = new HashMap<>();
+
+        // 1) @todo MultipartFile直接转File估计是会报错的
+        // org.springframework.web.multipart.commons.CommonsMultipartFile cannot be cast to java.io.File
+        // paramMap.put("file", FileUtil.file((File) file));
+
+        // 2) 先存储到本地再发送, 权当备份了
         // 文件上传只需将参数中的键指定（默认file），值设为文件对象即可
         // 对于使用者来说，文件上传与普通表单提交并无区别
-        String uploadPath = FileUploadUtils.upload(CommonConfig.getUploadPath(), file);
+        String fileName = FileUploadUtils.upload(CommonConfig.getUploadPath(), file);
+        log.info("fileName {} :", fileName);
+        String downloadPath = CommonConfig.getProfile() + StringUtils.substringAfter(fileName, Constants.RESOURCE_PREFIX);
+        String downloadName = StringUtils.substringAfterLast(downloadPath, "/");
+        log.info("downloadPath {} :", downloadPath);
+        log.info("downloadName {} :", downloadName);
+        paramMap.put("file", FileUtil.file(downloadPath));
 
-        paramMap.put("file", FileUtil.file(uploadPath));
+        String result = HttpUtil.post(ossUrl + "/oss/upload", paramMap);
+        log.info("result: {}", result);
 
-        return HttpUtil.post(ossUrl + "/oss/upload", paramMap);
+        return JSON.parseObject(result ,ResultVo.class)
+                .set("fileName", downloadName)
+                .set("localPath", downloadPath);
     }
 
     /**
@@ -196,7 +204,7 @@ public class BeetlsqlController {
                 .body();
 
 //        return JSONUtil.parseObj(result);
-        return result;
+        return JSON.parse(result);
     }
 
 

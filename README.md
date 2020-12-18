@@ -12,6 +12,7 @@
 5) _bin/xxx.sh文件 gbk转为utf-8
 6) 外部域名统一成example.com, 使用switchhost映射真实IP
 7) 数据库表前缀决定模块名称 @eg sys, oss ==> sql放在对应模块下
+8) 开发热部署 --> springboot-devtools的重启方式好像不太合拍, 目前JRebel+RUN模式+log.info()
 ```
 
 # 代办列表
@@ -25,6 +26,7 @@ BaseEntity --> params + GMTDate + OpUser
 ```
 
 - Crawler模块 (beetlsql + webmagic + OpenFeign) @building
+    - feign不放在SpringCloud里单独用很不顺手, 这时候感觉Hutool的HttpUtil比较趁手
     - http://localhost:8099/swagger-ui.html
     - http://localhost:8099/beetlsql/demo
     - http://localhost:8099/beetlsql/countDept
@@ -130,7 +132,6 @@ List<SysDept> list2 = sysDeptMapper.createLambdaQuery()
     .select();
 ```
 
-- 关于开发热部署 --> springboot-devtools的重启方式好像不太合拍, 目前`JRebel + RUN-Mode + log.info()`进行开发
 - MyBatis-Plus的Could not set property ‘id‘ of xxx @fix
     - 配置一下主建生成规则??
     - https://blog.csdn.net/qq_27632921/article/details/109743382
@@ -199,6 +200,10 @@ public interface OssBucketMapper extends BaseMapper<OssBucket> {
     - 直接传对象貌似还会 --> Request method 'POST' not supported
     - https://www.cnblogs.com/killbug/p/9776287.html
 
+- How to convert a multipart file to File?
+    - https://stackoverflow.com/questions/24339990/how-to-convert-a-multipart-file-to-file
+    - https://segmentfault.com/q/1010000011629098
+    
 # 参考
 
 - ruoyi-vue

@@ -6,7 +6,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.context.annotation.AnnotationBeanNameGenerator;
+import org.springframework.context.annotation.Bean;
 import org.springframework.util.StringUtils;
+import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 
 /**
  * 启动程序
@@ -31,7 +33,6 @@ public class CrawlerApplication {
             return text;
         }
     }
-
 
     public static void main(String[] args) {
         // System.setProperty("spring.devtools.restart.enabled", "false");
