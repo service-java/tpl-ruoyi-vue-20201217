@@ -21,6 +21,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpEntity;
@@ -36,6 +37,7 @@ import org.springframework.web.multipart.MultipartFile;
  * @author 参数编码的类，默认是 jacksonEncode，有文件就是 springformFeign
  * @create 2018-07-27 9:35
  **/
+@Slf4j
 public class FeignSpringFormEncoder implements Encoder {
 
 
@@ -165,6 +167,7 @@ public class FeignSpringFormEncoder implements Encoder {
             MediaType requestContentType = requestHeaders.getContentType();
             for (HttpMessageConverter<?> messageConverter : converters) {
                 if (messageConverter.canWrite(requestType, requestContentType)) {
+                    log.info("feign重写的encoder开始写入本地 ~~");
                     ((HttpMessageConverter<Object>) messageConverter).write(
                             value, requestContentType, dummyRequest);
                     break;

@@ -26,7 +26,7 @@ BaseEntity --> params + GMTDate + OpUser
 ```
 
 - Crawler模块 (beetlsql + webmagic + OpenFeign) @building
-    - feign不放在SpringCloud里单独用很不顺手, 这时候感觉Hutool的HttpUtil比较趁手
+    - feign不放在SpringCloud里而单独使用很不顺手, 这时候Hutool的HttpUtil好用多了
     - http://localhost:8099/swagger-ui.html
     - http://localhost:8099/beetlsql/demo
     - http://localhost:8099/beetlsql/countDept
@@ -192,8 +192,13 @@ public interface OssBucketMapper extends BaseMapper<OssBucket> {
 </select>
 ```
 
-- 怎么在spring中使用 feign，解决上传文件的痛点
+- 怎么在spring中使用 feign，解决上传文件的痛点 @digest
     - https://blog.csdn.net/sinat_27639721/article/details/81218357
+
+```
+encoder自定义
+FeignSpringFormEncoder
+```
 
 - Feign get接口传输对象引发一场追寻 @todo
     - 目前GET方法设计时尽量保持参数简单
@@ -203,6 +208,17 @@ public interface OssBucketMapper extends BaseMapper<OssBucket> {
 - How to convert a multipart file to File?
     - https://stackoverflow.com/questions/24339990/how-to-convert-a-multipart-file-to-file
     - https://segmentfault.com/q/1010000011629098
+
+```java
+String fileName = FileUploadUtils.upload(CommonConfig.getUploadPath(), file);
+String downloadPath = CommonConfig.getProfile() + StringUtils.substringAfter(fileName, Constants.RESOURCE_PREFIX);
+String downloadName = StringUtils.substringAfterLast(downloadPath, "/");
+
+// 发送请求
+HashMap<String, Object> paramMap = new HashMap<>();
+paramMap.put("file", FileUtil.file(downloadPath));
+HttpUtil.post(ossUrl + "/oss/upload", paramMap);
+```
     
 # 参考
 
