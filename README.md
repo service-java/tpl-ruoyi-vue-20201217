@@ -24,7 +24,7 @@ BaseController --> initBinder
 BaseEntity --> params + GMTDate + OpUser
 ```
 
-- Crawler爬虫模块(beetlsql + webmagic + OpenFeign) @building
+- Crawler模块 (beetlsql + webmagic + OpenFeign) @building
     - http://localhost:8099/swagger-ui.html
     - http://localhost:8099/beetlsql/demo
     - http://localhost:8099/beetlsql/countDept
@@ -32,7 +32,7 @@ BaseEntity --> params + GMTDate + OpUser
     - http://localhost:8099/beetlsql/listMenu
     - http://localhost:8099/beetlsql/checkEmailUnique
 
-- OSS模块集成(shiro + mybatis-plus + cqengine + easyexcel) @building
+- OSS模块 (shiro + mybatis-plus + cqengine + easyexcel) @building
     - RefreshToken的操作 @todo
     - IDEA的MybatisCodeHelperPro($)/EasyCode插件可以支持(大部分)代码的自动生成
     - IDEA的JRebel-MybatisPlus插件可以支持xml改动时触发热更新
@@ -43,16 +43,25 @@ BaseEntity --> params + GMTDate + OpUser
     - http://localhost:8110/oss/pageByXml?isAsc=false&orderByColumn=name&pageNum=1&pageSize=3
 
 - Blog模块 @todo
-    - 在OSS模块基础上简单加点东西
+    - 在OSS模块基础上加点东西
+    - 分享内容卡片
     - 所以命名是service-oss-blog(依赖module-oss+module-oss-blog)
     - http://localhost:8110/swagger-ui.html
 
 - DataV模块 @todo
-    - 在OSS模块基础上简单加点东西
+    - 在OSS模块基础上加点东西
+    - 统计材料特征
     - http://localhost:8112/swagger-ui.html
-        
-- App模块集成(OkHttp??) @todo
-- IM模块(WebSocket) @todo
+
+- Exam模块 (WebSocket) @todo 
+    - 在OSS模块基础上加点东西
+
+- Mall模块 (EasyRules) @todo
+    - 在OSS模块基础上加点东西
+
+- Game模块 (JCTools) @todo           
+- Book模块 (App向 + OkHttp + Token验证??) @todo
+
 
 # 常见问题 @faq
 
