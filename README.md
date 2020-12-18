@@ -54,6 +54,7 @@ BaseEntity --> params + GMTDate + OpUser
     - http://localhost:8112/swagger-ui.html
 
 - Exam模块 (WebSocket) @todo 
+    - 类似冲顶大会, 题目是服务端推送过去的
     - 在OSS模块基础上加点东西
 
 - Mall模块 (EasyRules) @todo

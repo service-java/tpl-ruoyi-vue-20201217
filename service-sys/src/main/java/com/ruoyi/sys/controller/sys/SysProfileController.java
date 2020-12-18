@@ -1,4 +1,4 @@
-package com.ruoyi.web.controller.sys;
+package com.ruoyi.sys.controller.sys;
 
 import java.io.IOException;
 

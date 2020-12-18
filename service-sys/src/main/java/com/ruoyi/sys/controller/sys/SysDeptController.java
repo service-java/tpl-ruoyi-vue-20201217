@@ -1,4 +1,4 @@
-package com.ruoyi.web.controller.sys;
+package com.ruoyi.sys.controller.sys;
 
 import java.util.Iterator;
 import java.util.List;

@@ -8,9 +8,9 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
  *
  * @author ruoyi
  */
-public class SystemServletInitializer extends SpringBootServletInitializer {
+public class SysServletInitializer extends SpringBootServletInitializer {
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-        return application.sources(SystemApplication.class);
+        return application.sources(SysApplication.class);
     }
 }

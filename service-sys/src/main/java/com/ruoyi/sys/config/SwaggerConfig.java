@@ -1,4 +1,4 @@
-package com.ruoyi.web.config;
+package com.ruoyi.sys.config;
 
 import java.util.ArrayList;
 import java.util.List;
