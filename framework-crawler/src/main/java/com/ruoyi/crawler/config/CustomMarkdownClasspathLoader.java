@@ -1,5 +1,6 @@
 package com.ruoyi.crawler.config;
 
+import cn.hutool.core.date.StopWatch;
 import lombok.extern.slf4j.Slf4j;
 import org.beetl.sql.core.*;
 import org.beetl.sql.core.db.DBStyle;
@@ -40,6 +41,7 @@ public class CustomMarkdownClasspathLoader implements SQLLoader {
     }
 
     public CustomMarkdownClasspathLoader(String root, DBStyle dbs) {
+//        log.info("beetsql-root {}", root);
         this.sqlRoot = null;
         this.lineSeparator = System.getProperty("line.separator", "\n");
         this.sqlSourceMap = new ConcurrentHashMap();
@@ -55,11 +57,18 @@ public class CustomMarkdownClasspathLoader implements SQLLoader {
     }
 
     public SQLSource getSQL(String id) {
+        log.info("获取SQL ~~");
+        StopWatch watch = new StopWatch();
+        watch.start();
         SQLSource ss = this.tryLoadSQL(id);
+        watch.stop();
+        log.info("用时 {}ms", watch.getTotalTimeMillis());
         return ss;
     }
 
     private SQLSource tryLoadSQL(String id) {
+        log.info("尝试加载SQL ~~");
+
         SQLSource ss = (SQLSource) this.sqlSourceMap.get(id);
         boolean hasLoad = false;
         if (ss == null) {
@@ -81,15 +90,18 @@ public class CustomMarkdownClasspathLoader implements SQLLoader {
     }
 
     public boolean isModified(String id) {
+        log.info("判断是否改变 ~~");
         SQLSource source = (SQLSource) this.sqlSourceMap.get(id);
         if (source != null && source instanceof SQLTableSource && source == this.NO_EXIST) {
             return false;
         } else {
             long oldRootVersion = source.getVersion().root;
-            long oldDbVersion = source.getVersion().db;
+//            long oldDbVersion = source.getVersion().db;
             URL root = this.getRootFile(id);
-            URL db = this.getDBRootFile(id);
-            return getURLVersion(root) != oldRootVersion || getURLVersion(db) != oldDbVersion;
+            log.info("改变了吗? {}", getURLVersion(root) != oldRootVersion);
+//            URL db = this.getDBRootFile(id);
+//            return getURLVersion(root) != oldRootVersion || getURLVersion(db) != oldDbVersion;
+            return getURLVersion(root) != oldRootVersion;
         }
     }
 
@@ -105,6 +117,7 @@ public class CustomMarkdownClasspathLoader implements SQLLoader {
     }
 
     public boolean exist(String id) {
+         log.info("是否存在");
         return this.tryLoadSQL(id) != null;
     }
 
@@ -115,9 +128,10 @@ public class CustomMarkdownClasspathLoader implements SQLLoader {
     private boolean loadSql(String id) {
         URL ins = this.getRootFile(id);
         boolean rootResult = this.readSqlFile(id, ins, true);
-        ins = this.getDBRootFile(id);
-        boolean dbResult = this.readSqlFile(id, ins, false);
-        return rootResult || dbResult;
+//        ins = this.getDBRootFile(id);
+//        boolean dbResult = this.readSqlFile(id, ins, false);
+//        return rootResult || dbResult;
+        return rootResult;
     }
 
     private boolean readSqlFile(String id, URL url, boolean isRoot) {
@@ -192,32 +206,46 @@ public class CustomMarkdownClasspathLoader implements SQLLoader {
         String mapperLocation = ResourcePatternResolver.CLASSPATH_ALL_URL_PREFIX + sqlRoot;
         ResourcePatternResolver resourceResolver = new PathMatchingResourcePatternResolver();
 
-
-
+//        log.info("sqlRoot {} ==>", sqlRoot);
+//        log.info("prefixPath {} ==>", prefixPath);
+//        log.info("mapperLocation {} ==>", mapperLocation);
         try {
             Resource[] mappers = resourceResolver.getResources(mapperLocation);
+//            log.info("匹配到{}个路径", mappers.length);
+            InputStream ins = null;
+            URL is = null;
             for (Resource mapper : mappers) {
                 log.info("md位置路径 {} ==>", mapper.getURL() + prefixPath + path);
                 String filePath0 = mapper.getURL() + prefixPath + path + ".md";
-                String filePath1 = mapper.getURL() + prefixPath + path + ".sql";
-                URL is = new URL(filePath0);
-                InputStream ins = null;
+                is = new URL(filePath0);
+
                 try {
                     // 校验地址能否打开
                     ins = is.openStream();
-                } catch (IOException var23) {
-                    // 换sql文件格式再试一次, 因为我用md格式更多一点
-                    is = new URL(filePath1);
-                    // @todo 失败先直接报错好了
-                    ins = is.openStream();
-                } finally {
                     if (ins != null) {
-                        ins.close();
+                        // 再试试其他路径
+                        log.info("md找到了");
+                        break;
                     }
+                } catch (IOException var23) {
+
+                    if (ins == null) {
+                        // 再试试其他路径
+                        continue;
+                    }
+
+                } finally {
+                   /* if (ins != null) {
+                        ins.close();
+                        break;
+                    }*/
                 }
-                // 最后需要返回这个URL
-                return is;
+
             }
+
+            log.info("啥, 找找了?");
+            // 最后需要返回这个URL
+            return is;
 
         } catch (IOException e) {
             // ignore
@@ -235,7 +263,8 @@ public class CustomMarkdownClasspathLoader implements SQLLoader {
     }
 
     public boolean exsitResource(String id) {
-        return this.getRootFile(id) != null || this.getDBRootFile(id) != null;
+//        return this.getRootFile(id) != null || this.getDBRootFile(id) != null;
+        return this.getRootFile(id) != null;
     }
 
 

@@ -82,8 +82,8 @@ public class BeetlsqlDataSourceConfig {
         idAutoGens.put("uuid", new UuidAutoGen());
         factory.setIdAutoGens(idAutoGens);
 
-
         // @todo md文件的全路径扫描加载功能, 但改成数组或逗号连接还是有点麻烦
+        // 现在还出现了getSQL()执行两遍的情况, 整个人抓狂, 也无精力升级到v3.x.x接着玩了
         // https://gitee.com/xiandafu/beetlsql/issues/IKEVZ
         // factory.setSqlLoader(new ClasspathLoader("/sql"));
         factory.setSqlLoader(new CustomMarkdownClasspathLoader("/com/ruoyi/**/mapper/mapping"));

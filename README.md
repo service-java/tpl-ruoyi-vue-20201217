@@ -15,7 +15,6 @@
 8) 开发热部署 --> springboot-devtools的重启方式好像不太合拍, 目前JRebel+RUN模式+log.info()
 
 ===
-
 // framework-sys
 ruoyi-vue的底子
 后台功能比较完善
@@ -25,9 +24,9 @@ ruoyi-vue的底子
 renren-fast的底子
 集成了一些流行框架, 适合快速开发
 
-// framework-crawler
-因为贪图beetlsql能直接在markdown里写sql的beetl(js-like)语法 ==> 天下苦xml久矣
-但因为实在非主流, 主要用在联表sql查询统计的地方
+// framework-crawler @ignore
+因为贪图beetlsql能直接在markdown里写sql --> beetl(js-like)语法 ==> 天下苦xml久矣
+但因为非主流, 主要用在联表查询统计的地方(不涉及增删改)
 ```
 
 # 代办列表
@@ -51,7 +50,7 @@ BaseEntity --> params + GMTDate + OpUser
 
 - DataV模块 @todo
     - 在Crawler模块基础上加点东西
-    - 仅统计材料特征, 没有删改的SQL操作, 不需要权限
+    - 仅统计材料特征, 没有增删改操作, 不需要权限
     - http://localhost:8112/swagger-ui.html
     
 - OSS模块 (shiro + mybatis-plus + cqengine + easyexcel) @building
@@ -69,8 +68,6 @@ BaseEntity --> params + GMTDate + OpUser
     - 分享内容卡片
     - 所以命名是service-oss-blog(依赖module-oss+module-oss-blog)
     - http://localhost:8110/swagger-ui.html
-
-
 
 - Exam模块 (WebSocket) @todo 
     - 类似冲顶大会, 题目是服务端推送过去的
@@ -90,6 +87,9 @@ BaseEntity --> params + GMTDate + OpUser
 - 在idea内新增或调整module之后typeAlias一直诡异报错 --> 删除./idea后重启就好了(或者顺便mvn clean)
 - BeetlSql没有在 '[com]' 包中找到任何Mapper，请检查配置 @ignore --> 暂时只是提示不影响实际运行
 - 怎么把beetlsql的markdown文件放到com/ruoyi/**/mapper下也能找到并生效
+    - 目前的写法是很low的, 性能就更不用说了, 等我变强了再来优化吧ε=(´ο｀*))
+    - 不知道干了啥, getSQL() 每次都会执行两遍... , 40ms打底的查询时间 @todo
+    - https://gitee.com/xiandafu/beetlsql/issues/IKEVZ
    
 ```
 1) 拷贝源码里的ClasspathLoader, 重写一个MarkdownClasspathLoader, 
@@ -240,13 +240,17 @@ HttpUtil.post(ossUrl + "/oss/upload", paramMap);
 # 参考
 
 - ruoyi-vue
+    - 目前我最钟意的模块拆分方法
     - https://gitee.com/y_project/RuoYi-Vue
 
 - renren-fast
+    - 单模块快速开发, 适合用来做外包
     - https://gitee.com/renrenio/renren-fast
 
 - ruoyi-plus 
+    - 集成了很多扩展功能, 值得参考
     - https://gitee.com/markbro/ruoyi-plus
 
-- ruoyi-beetlsql
+- ruoyi-beetlsql @old
+    - 单模块结构, 作者貌似不维护了
     - https://gitee.com/iehyou/ruoyi-beetlsql
