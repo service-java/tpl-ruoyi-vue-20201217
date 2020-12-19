@@ -1,6 +1,7 @@
 package com.ruoyi.crawler.config;
 
 import cn.hutool.core.date.StopWatch;
+import cn.hutool.core.io.FileUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.beetl.sql.core.*;
 import org.beetl.sql.core.db.DBStyle;
@@ -219,7 +220,13 @@ public class CustomMarkdownClasspathLoader implements SQLLoader {
                 String filePath0 = mapper.getURL() + prefixPath + path + ".md";
                 is = new URL(filePath0);
 
-                try {
+                boolean exists = FileUtil.file(is).exists();
+                if (exists) {
+                    log.info("md找到了");
+                    break;
+                }
+
+             /*   try {
                     // 校验地址能否打开
                     ins = is.openStream();
                     if (ins != null) {
@@ -235,11 +242,11 @@ public class CustomMarkdownClasspathLoader implements SQLLoader {
                     }
 
                 } finally {
-                   /* if (ins != null) {
+                   *//* if (ins != null) {
                         ins.close();
                         break;
-                    }*/
-                }
+                    }*//*
+                }*/
 
             }
 
