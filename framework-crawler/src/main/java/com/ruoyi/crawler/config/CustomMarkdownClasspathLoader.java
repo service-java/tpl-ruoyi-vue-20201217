@@ -192,9 +192,12 @@ public class CustomMarkdownClasspathLoader implements SQLLoader {
         String mapperLocation = ResourcePatternResolver.CLASSPATH_ALL_URL_PREFIX + sqlRoot;
         ResourcePatternResolver resourceResolver = new PathMatchingResourcePatternResolver();
 
+
+
         try {
             Resource[] mappers = resourceResolver.getResources(mapperLocation);
             for (Resource mapper : mappers) {
+                log.info("md位置路径 {} ==>", mapper.getURL() + prefixPath + path);
                 String filePath0 = mapper.getURL() + prefixPath + path + ".md";
                 String filePath1 = mapper.getURL() + prefixPath + path + ".sql";
                 URL is = new URL(filePath0);

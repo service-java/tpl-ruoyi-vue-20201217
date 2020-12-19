@@ -13,8 +13,11 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.google.gson.Gson;
+import com.ruoyi.common.config.CommonConfig;
+import com.ruoyi.common.constant.Constants;
 import com.ruoyi.common.dto.PageQuery;
 import com.ruoyi.common.exception.CustomException;
+import com.ruoyi.common.util.file.FileUploadUtils;
 import com.ruoyi.common.validator.ValidatorUtils;
 import com.ruoyi.common.validator.group.AddGroup;
 import com.ruoyi.oss.annotation.AliyunGroup;
@@ -37,6 +40,7 @@ import com.ruoyi.oss.vo.PageDataVo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -219,12 +223,19 @@ public class OssController {
         String suffix = file.getOriginalFilename().substring(file.getOriginalFilename().lastIndexOf("."));
         String url = OSSFactory.build().uploadSuffix(file.getBytes(), suffix);
 
+        String fileName = FileUploadUtils.upload(CommonConfig.getUploadPath(), file);
+        String downloadPath = CommonConfig.getProfile() + StringUtils.substringAfter(fileName, Constants.RESOURCE_PREFIX);
+        String downloadName = StringUtils.substringAfterLast(downloadPath, "/");
+
         //保存文件信息
         OssBucket ossEntity = new OssBucket();
         ossEntity.setName(url);
         ossBucketService.save(ossEntity);
 
-        return ResultVo.success().setData(ossEntity.getName());
+        return ResultVo.success()
+                .setData(ossEntity.getName())
+                .set("fileName", downloadName)
+                .set("localPath", downloadPath);
     }
 
 

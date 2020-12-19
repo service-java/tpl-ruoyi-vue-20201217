@@ -131,7 +131,7 @@ public class CrawlerController {
     }
 
     @ApiOperation("调用远程接口上传")
-    @PostMapping("/remoteUpload")
+    @PostMapping("/remoteUploadByFeign")
     @ResponseBody
     public Object remoteUpload(@RequestParam("file") MultipartFile file) {
         log.info("文件为空： {}", file.isEmpty());
@@ -177,7 +177,7 @@ public class CrawlerController {
      * @return
      */
     @ApiOperation("调用远程接口分页")
-    @GetMapping("/remotePage")
+    @GetMapping("/remotePageByFeign")
     @ResponseBody
     public Object remotePage(com.ruoyi.common.dto.PageQuery pageQuery) {
 //        return feignService.page(BeanUtil.beanToMap(pageQuery));

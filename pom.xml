@@ -380,19 +380,12 @@
                 <version>${ruoyi.version}</version>
             </dependency>
 
-            <dependency>
-                <groupId>com.ruoyi</groupId>
-                <artifactId>module-oss-datav</artifactId>
-                <version>${ruoyi.version}</version>
-            </dependency>
-
             <!-- 系统模块-->
             <dependency>
                 <groupId>com.ruoyi</groupId>
                 <artifactId>module-sys</artifactId>
                 <version>${ruoyi.version}</version>
             </dependency>
-
 
             <!-- 示例模块-->
             <dependency>
@@ -422,6 +415,14 @@
             </dependency>
 
 
+            <dependency>
+                <groupId>com.ruoyi</groupId>
+                <artifactId>module-crawler-datav</artifactId>
+                <version>${ruoyi.version}</version>
+            </dependency>
+
+
+
         </dependencies>
     </dependencyManagement>
 
@@ -432,17 +433,17 @@
         <module>framework-crawler</module>
         <module>module-oss</module>
         <module>module-oss-blog</module>
-        <module>module-oss-datav</module>
+        <module>module-crawler-datav</module>
         <module>module-sys</module>
         <module>module-sys-gen</module>
         <module>module-sys-qrtz</module>
         <module>module-sys-demo</module>
         <module>module-crawler</module>
         <module>service-oss-blog</module>
-        <module>service-oss-datav</module>
         <module>service-oss</module>
         <module>service-sys</module>
         <module>service-crawler</module>
+        <module>service-crawler-datav</module>
     </modules>
     <packaging>pom</packaging>
 

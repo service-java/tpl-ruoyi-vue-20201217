@@ -13,6 +13,21 @@
 6) 外部域名统一成example.com, 使用switchhost映射真实IP
 7) 数据库表前缀决定模块名称 @eg sys, oss ==> sql放在对应模块下
 8) 开发热部署 --> springboot-devtools的重启方式好像不太合拍, 目前JRebel+RUN模式+log.info()
+
+===
+
+// framework-sys
+ruoyi-vue的底子
+后台功能比较完善
+几乎都是原始技术，比较纯粹，不用担心别人不会其中某个框架
+
+// framework-oss
+renren-fast的底子
+集成了一些流行框架, 适合快速开发
+
+// framework-crawler
+因为贪图beetlsql能直接在markdown里写sql的beetl(js-like)语法 ==> 天下苦xml久矣
+但因为实在非主流, 主要用在联表sql查询统计的地方
 ```
 
 # 代办列表
@@ -34,6 +49,11 @@ BaseEntity --> params + GMTDate + OpUser
     - http://localhost:8099/beetlsql/listMenu
     - http://localhost:8099/beetlsql/checkEmailUnique
 
+- DataV模块 @todo
+    - 在Crawler模块基础上加点东西
+    - 仅统计材料特征, 没有删改的SQL操作, 不需要权限
+    - http://localhost:8112/swagger-ui.html
+    
 - OSS模块 (shiro + mybatis-plus + cqengine + easyexcel) @building
     - RefreshToken的操作 @todo
     - IDEA的MybatisCodeHelperPro($)/EasyCode插件可以支持(大部分)代码的自动生成
@@ -50,10 +70,7 @@ BaseEntity --> params + GMTDate + OpUser
     - 所以命名是service-oss-blog(依赖module-oss+module-oss-blog)
     - http://localhost:8110/swagger-ui.html
 
-- DataV模块 @todo
-    - 在OSS模块基础上加点东西
-    - 统计材料特征
-    - http://localhost:8112/swagger-ui.html
+
 
 - Exam模块 (WebSocket) @todo 
     - 类似冲顶大会, 题目是服务端推送过去的
