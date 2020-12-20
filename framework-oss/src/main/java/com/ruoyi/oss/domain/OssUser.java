@@ -46,7 +46,7 @@ public class OssUser {
     @Transient
     @TableField(exist = false)
     @JsonIgnore
-    private String token;
+    private String uuid;
 
     @Transient
     @TableField(exist = false)

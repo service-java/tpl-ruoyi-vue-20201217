@@ -79,7 +79,7 @@ public class TokenService {
      * 设置用户身份信息
      */
     public void setLoginUser(OssUser loginUser) {
-        if (StringUtils.isNotNull(loginUser) && StringUtils.isNotEmpty(loginUser.getToken())) {
+        if (StringUtils.isNotNull(loginUser) && StringUtils.isNotEmpty(loginUser.getUuid())) {
             refreshToken(loginUser);
         }
     }
@@ -87,9 +87,9 @@ public class TokenService {
     /**
      * 删除用户身份信息
      */
-    public void delLoginUser(String token) {
-        if (StringUtils.isNotEmpty(token)) {
-            String userKey = getTokenKey(token);
+    public void delLoginUser(String uuid) {
+        if (StringUtils.isNotEmpty(uuid)) {
+            String userKey = getTokenKey(uuid);
             redisCache.deleteObject(userKey);
         }
     }
@@ -117,7 +117,7 @@ public class TokenService {
      */
     public String createToken(OssUser loginUser) {
         String uuid = IdUtils.fastUUID();
-        loginUser.setToken(uuid);
+        loginUser.setUuid(uuid);
         refreshToken(loginUser);
 
         Map<String, Object> claims = new HashMap<>();
@@ -134,7 +134,7 @@ public class TokenService {
      */
     public void refreshToken(OssUser loginUser) {
         // 根据uuid将loginUser缓存
-        String userKey = getTokenKey(loginUser.getToken());
+        String userKey = getTokenKey(loginUser.getUuid());
         redisCache.setCacheObject(userKey, loginUser, expireTime, TimeUnit.MINUTES);
     }
 

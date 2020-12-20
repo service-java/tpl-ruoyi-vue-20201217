@@ -97,7 +97,8 @@ public class OssController {
             return ResultVo.error("账号或密码不正确");
         }
 
-        String token = tokenService.createToken(ossUser);
+        // @fix 之前错误存成ossUser(--> user)
+        String token = tokenService.createToken(user);
         return ResultVo.success().setData(token);
     }
 
