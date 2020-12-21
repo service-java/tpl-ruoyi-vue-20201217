@@ -2,6 +2,7 @@ package com.ruoyi.common.vo;
 
 import java.util.HashMap;
 
+import com.ruoyi.common.constant.Constants;
 import com.ruoyi.common.constant.HttpStatusConstants;
 import com.ruoyi.common.util.StringUtils;
 
@@ -96,7 +97,7 @@ public class ResultVo extends HashMap<String, Object> {
      * @return 成功消息
      */
     public static ResultVo success(String msg, Object data) {
-        return new ResultVo(HttpStatusConstants.SUCCESS, msg, data);
+        return new ResultVo(0, msg, data);
     }
 
     /**

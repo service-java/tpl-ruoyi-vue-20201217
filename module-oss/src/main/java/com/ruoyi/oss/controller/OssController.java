@@ -85,7 +85,6 @@ public class OssController {
     @PostMapping("/login")
     @ResponseBody
     public ResultVo login(@RequestBody OssUser ossUser) {
-
         //用户信息
         OssUser user = ossUserMapper.selectOne(new QueryWrapper<OssUser>().eq("username", ossUser.getUsername()));
 

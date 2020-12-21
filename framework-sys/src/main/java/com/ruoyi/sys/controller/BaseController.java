@@ -60,7 +60,7 @@ public class BaseController {
     @SuppressWarnings({"rawtypes", "unchecked"})
     protected TableDataVo getDataTable(List<?> list) {
         TableDataVo rspData = new TableDataVo();
-        rspData.setCode(HttpStatusConstants.SUCCESS);
+        rspData.setCode(0);
         rspData.setMsg("查询成功");
         rspData.setRows(list);
         rspData.setTotal(new PageInfo(list).getTotal());
