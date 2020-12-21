@@ -30,9 +30,9 @@ public class RefreshTokenFilter extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain)
             throws ServletException, IOException {
-        log.info("判断下是否需要RefreshToken ~~");
+        log.info("RefreshToken??");
         OssUser loginUser = tokenService.getLoginUser(request);
-        if (StringUtils.isNotNull(loginUser) && StringUtils.isNull(ShiroUtils.getUserId())) {
+        if (loginUser != null) {
             tokenService.verifyToken(loginUser);
         }
         chain.doFilter(request, response);

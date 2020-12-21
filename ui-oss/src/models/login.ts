@@ -38,7 +38,6 @@ const Model: LoginModelType = {
         type: 'changeLoginStatus',
         payload: response,
       });
-      debugger
       // Login successfully
       if (response.code === 0) {
         const urlParams = new URL(window.location.href);
@@ -47,7 +46,6 @@ const Model: LoginModelType = {
         console.info("返回数据" + JSON.stringify(response))
         localStorage.setItem("token", response.data)
 
-        debugger
         let { redirect } = params as { redirect: string };
         if (redirect) {
           const redirectUrlParams = new URL(redirect);

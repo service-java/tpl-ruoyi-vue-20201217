@@ -94,4 +94,4 @@ swagger:
 # token配置
 token:
   # 开发环境把令牌有效期设置短些, 便于测试refreshToken
-  expireTime: 1
+  expireTime: 1000

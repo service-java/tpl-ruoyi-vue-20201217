@@ -105,7 +105,7 @@ public class TokenService {
         long currentTime = System.currentTimeMillis();
         if (expireTime - currentTime <= MILLIS_MINUTE_TEN) {
             refreshToken(ossUser);
-            log.info("{} RefreshToken刷新");
+            log.info("Token被后台刷新了");
         }
     }
 
