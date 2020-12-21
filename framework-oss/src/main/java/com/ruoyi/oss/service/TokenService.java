@@ -67,7 +67,7 @@ public class TokenService {
         if (StringUtils.isNotEmpty(token)) {
             Claims claims = parseToken(token);
             // 解析对应的权限以及用户信息
-            String uuid = (String) claims.get(Constants.LOGIN_USER_KEY);
+            String uuid = (String) claims.get(Constants.OSS_USER_KEY);
             String userKey = getTokenKey(uuid);
             OssUser user = redisCache.getCacheObject(userKey);
             return user;
@@ -97,14 +97,14 @@ public class TokenService {
     /**
      * 验证令牌有效期，相差不足20分钟，自动刷新缓存
      *
-     * @param loginUser
+     * @param ossUser
      * @return 令牌
      */
-    public void verifyToken(OssUser loginUser) {
-        long expireTime = loginUser.getExpireTime();
+    public void verifyToken(OssUser ossUser) {
+        long expireTime = ossUser.getExpireTime();
         long currentTime = System.currentTimeMillis();
         if (expireTime - currentTime <= MILLIS_MINUTE_TEN) {
-            refreshToken(loginUser);
+            refreshToken(ossUser);
             log.info("{} RefreshToken刷新");
         }
     }
@@ -112,16 +112,17 @@ public class TokenService {
     /**
      * 创建令牌
      *
-     * @param loginUser 用户信息
+     * @param ossUser 用户信息
      * @return 令牌
      */
-    public String createToken(OssUser loginUser) {
+    public String createToken(OssUser ossUser) {
         String uuid = IdUtils.fastUUID();
-        loginUser.setUuid(uuid);
-        refreshToken(loginUser);
+        ossUser.setUuid(uuid);
+        refreshToken(ossUser);
 
         Map<String, Object> claims = new HashMap<>();
-        claims.put(Constants.LOGIN_USER_KEY, uuid);
+        // 用于获取redis里用户信息的UUID
+        claims.put(Constants.OSS_USER_KEY, uuid);
         String token = createToken(claims);
         log.info("生成token ==> {} \n {}", uuid, token);
         return token;
@@ -130,12 +131,12 @@ public class TokenService {
     /**
      * 刷新令牌有效期
      *
-     * @param loginUser 登录信息
+     * @param ossUser 登录信息
      */
-    public void refreshToken(OssUser loginUser) {
+    public void refreshToken(OssUser ossUser) {
         // 根据uuid将loginUser缓存
-        String userKey = getTokenKey(loginUser.getUuid());
-        redisCache.setCacheObject(userKey, loginUser, expireTime, TimeUnit.MINUTES);
+        String userKey = getTokenKey(ossUser.getUuid());
+        redisCache.setCacheObject(userKey, ossUser, expireTime, TimeUnit.MINUTES);
     }
 
 

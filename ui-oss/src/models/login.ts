@@ -67,6 +67,8 @@ const Model: LoginModelType = {
 
     logout() {
       localStorage.removeItem("token")
+      console.info("清空本地token")
+
       const { redirect } = getPageQuery();
       // Note: There may be security issues, please note
       if (window.location.pathname !== '/user/login' && !redirect) {

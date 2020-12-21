@@ -54,7 +54,7 @@ BaseEntity --> params + GMTDate + OpUser
     - http://localhost:8112/swagger-ui.html
     
 - OSS模块 (shiro + mybatis-plus + cqengine + easyexcel) @building
-    - RefreshToken的操作 @todo
+    - RefreshToken的操作 @ok
     - IDEA的MybatisCodeHelperPro($)/EasyCode插件可以支持(大部分)代码的自动生成
     - IDEA的JRebel-MybatisPlus插件可以支持xml改动时触发热更新
     - http://localhost:8100/swagger-ui.html

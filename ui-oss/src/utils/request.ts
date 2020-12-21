@@ -51,12 +51,14 @@ const errorHandler = (error: { response: Response }): Response => {
       message: '网络异常',
     });*/
 
-    window.g_app._store.dispatch({
+/*    window.g_app._store.dispatch({
       type: 'login/logout',
       callback: () => {
-        window.location.reload();
+        location.href = "/user/login"
       }
-    });
+    });*/
+
+    location.href = "/user/login"
 
 
   }
@@ -142,7 +144,9 @@ request.interceptors.response.use(async (response, info) => {
       window.g_app._store.dispatch({
         type: 'login/logout',
         callback: () => {
-          window.location.reload();
+          // debugger
+          // window.location.reload();
+          location.href = "/user/login"
         }
       });
       return
