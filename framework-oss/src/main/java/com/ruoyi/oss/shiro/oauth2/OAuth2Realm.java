@@ -8,6 +8,7 @@
 
 package com.ruoyi.oss.shiro.oauth2;
 
+import com.ruoyi.common.constant.HttpStatusConstants;
 import com.ruoyi.common.exception.CustomException;
 import com.ruoyi.oss.domain.OssUser;
 import com.ruoyi.oss.service.ShiroService;
@@ -69,9 +70,9 @@ public class OAuth2Realm extends AuthorizingRealm {
         String accessToken = (String) token.getPrincipal();
         OssUser user = tokenService.getLoginUser(accessToken);
 
-        log.info("{} ==> ", user);
+        log.info("用户 {} ==> ", user);
         if (user == null) {
-            throw new CustomException("身份授权已失效");
+            throw new CustomException("身份授权已失效", HttpStatusConstants.UNAUTHORIZED);
         }
 
         return new SimpleAuthenticationInfo(user, accessToken, getName());

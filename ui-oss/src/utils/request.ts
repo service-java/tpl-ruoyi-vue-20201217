@@ -32,6 +32,9 @@ const errorHandler = (error: { response: Response }): Response => {
   const {response} = error;
   console.info("response ~~")
   console.info(response)
+
+
+
   // @ts-ignore
   if (response && response.code != 0) {
     const errorText = codeMessage[response.status] || response.statusText;
@@ -42,11 +45,22 @@ const errorHandler = (error: { response: Response }): Response => {
       description: errorText,
     });
   } else if (!response) {
-    notification.error({
+
+ /*   notification.error({
       description: '您的网络发生异常，无法连接服务器',
       message: '网络异常',
+    });*/
+
+    window.g_app._store.dispatch({
+      type: 'login/logout',
+      callback: () => {
+        window.location.reload();
+      }
     });
+
+
   }
+
   return response;
 };
 
@@ -96,6 +110,7 @@ request.interceptors.request.use(async (url, options) => {
 request.interceptors.response.use(async (response, info) => {
 
   let data: any = {}
+
   try {
     data = await response.clone().json()
   } catch (e) {
@@ -121,7 +136,7 @@ request.interceptors.response.use(async (response, info) => {
 
     // 登录超时
     // 16 -> token格式可能被改了
-    if ([16, 17, 18].includes(data.code)) {
+    if ([401].includes(data.code)) {
       // @fixme 登录判断 是否已经提示过踢人
       // @ts-ignore
       window.g_app._store.dispatch({

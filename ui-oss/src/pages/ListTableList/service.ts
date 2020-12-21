@@ -2,7 +2,7 @@ import request from '@/utils/request';
 import { TableListParams, TableListItem } from './data.d';
 
 export async function queryRule(params?: TableListParams) {
-  return request('/api/sync/listNote', {
+  return request('/api/oss/list', {
     params,
   });
 }
@@ -18,7 +18,7 @@ export async function removeRule(params: { key: number[] }) {
 }
 
 export async function addRule(params: TableListItem) {
-  return request('/api/sync/saveNote', {
+  return request('/api/oss/save', {
     method: 'POST',
     data: {
       ...params,

@@ -58,7 +58,7 @@ import java.util.List;
  */
 @Api(tags="OSS模块")
 @RestController
-@RequestMapping("/oss")
+@RequestMapping("/api/oss")
 @Slf4j
 public class OssController {
     @Autowired

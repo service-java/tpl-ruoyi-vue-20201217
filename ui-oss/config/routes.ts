@@ -16,8 +16,8 @@
       },
       {
         path: '/',
-        // component: '../layouts/SecurityLayout',
-        component: '../layouts/UserLayout',
+        component: '../layouts/SecurityLayout',
+        // component: '../layouts/UserLayout',
         routes: [
           {
             path: '/',

@@ -44,7 +44,7 @@ export default defineConfig({
     basePath: '/',
   },
   define: {
-    "process.env.API_ROOT": REACT_APP_ENV == 'prod' ? "" : "http://localhost:8119",
+    "process.env.API_ROOT": REACT_APP_ENV == 'prod' ? "" : "http://localhost:8100",
   },
   esbuild: {},
   // https://github.com/zthxxx/react-dev-inspector
