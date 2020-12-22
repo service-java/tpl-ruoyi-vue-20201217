@@ -1,5 +1,7 @@
 package com.ruoyi.oss.domain;
 
+import com.alibaba.excel.annotation.ExcelIgnore;
+import com.alibaba.excel.annotation.ExcelProperty;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -26,6 +28,7 @@ public class OssUser {
     */
     @TableId
     @ApiModelProperty(value="主键ID")
+    @ExcelProperty("用户ID")
     @NotNull(groups = {UpdateGroup.class})
     private Long id;
 
@@ -34,6 +37,7 @@ public class OssUser {
     */
     @ApiModelProperty(value="OSS用户名")
     @NotNull(groups = {AddGroup.class})
+    @ExcelProperty("用户名")
     private String username;
 
     /**
@@ -41,15 +45,18 @@ public class OssUser {
     */
     @ApiModelProperty(value="OSS用户密码")
     @NotNull(groups = {AddGroup.class})
+    @ExcelIgnore
     private String password;
 
     @Transient
     @TableField(exist = false)
     @JsonIgnore
+    @ExcelIgnore
     private String uuid;
 
     @Transient
     @TableField(exist = false)
     @JsonIgnore
+    @ExcelIgnore
     private long expireTime;
 }

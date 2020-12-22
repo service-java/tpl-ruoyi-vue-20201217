@@ -236,6 +236,11 @@ HashMap<String, Object> paramMap = new HashMap<>();
 paramMap.put("file", FileUtil.file(downloadPath));
 HttpUtil.post(ossUrl + "/oss/upload", paramMap);
 ```
+
+- EasyExcel为什么不把poi版本升级到4.x呢??
+    - 也就是目前得暂时稳定在3.17的版本
+    - https://github.com/alibaba/easyexcel/issues/1653
+    
     
 # 参考
 
