@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.pms.mapper.PmsProductCategoryAttributeRelationMapper">
+  <resultMap id="BaseResultMap" type="com.ruoyi.pms.domain.PmsProductCategoryAttributeRelation">
+    <!--@mbg.generated-->
+    <!--@Table pms_product_category_attribute_relation-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="product_category_id" jdbcType="BIGINT" property="productCategoryId" />
+    <result column="product_attribute_id" jdbcType="BIGINT" property="productAttributeId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, product_category_id, product_attribute_id
+  </sql>
+  <update id="updateBatch" parameterType="java.util.List">
+    <!--@mbg.generated-->
+    update pms_product_category_attribute_relation
+    <trim prefix="set" suffixOverrides=",">
+      <trim prefix="product_category_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.productCategoryId,jdbcType=BIGINT}
+        </foreach>
+      </trim>
+      <trim prefix="product_attribute_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.productAttributeId,jdbcType=BIGINT}
+        </foreach>
+      </trim>
+    </trim>
+    where id in
+    <foreach close=")" collection="list" item="item" open="(" separator=", ">
+      #{item.id,jdbcType=BIGINT}
+    </foreach>
+  </update>
+  <update id="updateBatchSelective" parameterType="java.util.List">
+    <!--@mbg.generated-->
+    update pms_product_category_attribute_relation
+    <trim prefix="set" suffixOverrides=",">
+      <trim prefix="product_category_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.productCategoryId != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.productCategoryId,jdbcType=BIGINT}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="product_attribute_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.productAttributeId != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.productAttributeId,jdbcType=BIGINT}
+          </if>
+        </foreach>
+      </trim>
+    </trim>
+    where id in
+    <foreach close=")" collection="list" item="item" open="(" separator=", ">
+      #{item.id,jdbcType=BIGINT}
+    </foreach>
+  </update>
+  <insert id="batchInsert" keyColumn="id" keyProperty="id" parameterType="map" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into pms_product_category_attribute_relation
+    (product_category_id, product_attribute_id)
+    values
+    <foreach collection="list" item="item" separator=",">
+      (#{item.productCategoryId,jdbcType=BIGINT}, #{item.productAttributeId,jdbcType=BIGINT}
+        )
+    </foreach>
+  </insert>
+  <insert id="insertOrUpdate" keyColumn="id" keyProperty="id" parameterType="com.ruoyi.pms.domain.PmsProductCategoryAttributeRelation" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into pms_product_category_attribute_relation
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      product_category_id,
+      product_attribute_id,
+    </trim>
+    values
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      #{productCategoryId,jdbcType=BIGINT},
+      #{productAttributeId,jdbcType=BIGINT},
+    </trim>
+    on duplicate key update 
+    <trim suffixOverrides=",">
+      <if test="id != null">
+        id = #{id,jdbcType=BIGINT},
+      </if>
+      product_category_id = #{productCategoryId,jdbcType=BIGINT},
+      product_attribute_id = #{productAttributeId,jdbcType=BIGINT},
+    </trim>
+  </insert>
+  <insert id="insertOrUpdateSelective" keyColumn="id" keyProperty="id" parameterType="com.ruoyi.pms.domain.PmsProductCategoryAttributeRelation" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into pms_product_category_attribute_relation
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="productCategoryId != null">
+        product_category_id,
+      </if>
+      <if test="productAttributeId != null">
+        product_attribute_id,
+      </if>
+    </trim>
+    values
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="productCategoryId != null">
+        #{productCategoryId,jdbcType=BIGINT},
+      </if>
+      <if test="productAttributeId != null">
+        #{productAttributeId,jdbcType=BIGINT},
+      </if>
+    </trim>
+    on duplicate key update 
+    <trim suffixOverrides=",">
+      <if test="id != null">
+        id = #{id,jdbcType=BIGINT},
+      </if>
+      <if test="productCategoryId != null">
+        product_category_id = #{productCategoryId,jdbcType=BIGINT},
+      </if>
+      <if test="productAttributeId != null">
+        product_attribute_id = #{productAttributeId,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+</mapper>

@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.cms.mapper.CmsMemberReportMapper">
+  <resultMap id="BaseResultMap" type="com.ruoyi.cms.domain.CmsMemberReport">
+    <!--@mbg.generated-->
+    <!--@Table cms_member_report-->
+    <result column="id" jdbcType="BIGINT" property="id" />
+    <result column="report_type" jdbcType="INTEGER" property="reportType" />
+    <result column="report_member_name" jdbcType="VARCHAR" property="reportMemberName" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="report_object" jdbcType="VARCHAR" property="reportObject" />
+    <result column="report_status" jdbcType="INTEGER" property="reportStatus" />
+    <result column="handle_status" jdbcType="INTEGER" property="handleStatus" />
+    <result column="note" jdbcType="VARCHAR" property="note" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, report_type, report_member_name, create_time, report_object, report_status, handle_status, 
+    note
+  </sql>
+  <insert id="batchInsert" parameterType="map">
+    <!--@mbg.generated-->
+    insert into cms_member_report
+    (id, report_type, report_member_name, create_time, report_object, report_status, 
+      handle_status, note)
+    values
+    <foreach collection="list" item="item" separator=",">
+      (#{item.id,jdbcType=BIGINT}, #{item.reportType,jdbcType=INTEGER}, #{item.reportMemberName,jdbcType=VARCHAR}, 
+        #{item.createTime,jdbcType=TIMESTAMP}, #{item.reportObject,jdbcType=VARCHAR}, #{item.reportStatus,jdbcType=INTEGER}, 
+        #{item.handleStatus,jdbcType=INTEGER}, #{item.note,jdbcType=VARCHAR})
+    </foreach>
+  </insert>
+  <insert id="insertOrUpdate" parameterType="com.ruoyi.cms.domain.CmsMemberReport">
+    <!--@mbg.generated-->
+    insert into cms_member_report
+    (id, report_type, report_member_name, create_time, report_object, report_status, 
+      handle_status, note)
+    values
+    (#{id,jdbcType=BIGINT}, #{reportType,jdbcType=INTEGER}, #{reportMemberName,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{reportObject,jdbcType=VARCHAR}, #{reportStatus,jdbcType=INTEGER}, 
+      #{handleStatus,jdbcType=INTEGER}, #{note,jdbcType=VARCHAR})
+    on duplicate key update 
+    id = #{id,jdbcType=BIGINT}, 
+    report_type = #{reportType,jdbcType=INTEGER}, 
+    report_member_name = #{reportMemberName,jdbcType=VARCHAR}, 
+    create_time = #{createTime,jdbcType=TIMESTAMP}, 
+    report_object = #{reportObject,jdbcType=VARCHAR}, 
+    report_status = #{reportStatus,jdbcType=INTEGER}, 
+    handle_status = #{handleStatus,jdbcType=INTEGER}, 
+    note = #{note,jdbcType=VARCHAR}
+  </insert>
+  <insert id="insertOrUpdateSelective" parameterType="com.ruoyi.cms.domain.CmsMemberReport">
+    <!--@mbg.generated-->
+    insert into cms_member_report
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="reportType != null">
+        report_type,
+      </if>
+      <if test="reportMemberName != null">
+        report_member_name,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="reportObject != null">
+        report_object,
+      </if>
+      <if test="reportStatus != null">
+        report_status,
+      </if>
+      <if test="handleStatus != null">
+        handle_status,
+      </if>
+      <if test="note != null">
+        note,
+      </if>
+    </trim>
+    values
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="reportType != null">
+        #{reportType,jdbcType=INTEGER},
+      </if>
+      <if test="reportMemberName != null">
+        #{reportMemberName,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="reportObject != null">
+        #{reportObject,jdbcType=VARCHAR},
+      </if>
+      <if test="reportStatus != null">
+        #{reportStatus,jdbcType=INTEGER},
+      </if>
+      <if test="handleStatus != null">
+        #{handleStatus,jdbcType=INTEGER},
+      </if>
+      <if test="note != null">
+        #{note,jdbcType=VARCHAR},
+      </if>
+    </trim>
+    on duplicate key update 
+    <trim suffixOverrides=",">
+      <if test="id != null">
+        id = #{id,jdbcType=BIGINT},
+      </if>
+      <if test="reportType != null">
+        report_type = #{reportType,jdbcType=INTEGER},
+      </if>
+      <if test="reportMemberName != null">
+        report_member_name = #{reportMemberName,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="reportObject != null">
+        report_object = #{reportObject,jdbcType=VARCHAR},
+      </if>
+      <if test="reportStatus != null">
+        report_status = #{reportStatus,jdbcType=INTEGER},
+      </if>
+      <if test="handleStatus != null">
+        handle_status = #{handleStatus,jdbcType=INTEGER},
+      </if>
+      <if test="note != null">
+        note = #{note,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

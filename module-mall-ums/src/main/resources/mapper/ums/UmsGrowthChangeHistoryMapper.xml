@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.ums.mapper.UmsGrowthChangeHistoryMapper">
+  <resultMap id="BaseResultMap" type="com.ruoyi.ums.domain.UmsGrowthChangeHistory">
+    <!--@mbg.generated-->
+    <!--@Table ums_growth_change_history-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="member_id" jdbcType="BIGINT" property="memberId" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="change_type" jdbcType="INTEGER" property="changeType" />
+    <result column="change_count" jdbcType="INTEGER" property="changeCount" />
+    <result column="operate_man" jdbcType="VARCHAR" property="operateMan" />
+    <result column="operate_note" jdbcType="VARCHAR" property="operateNote" />
+    <result column="source_type" jdbcType="INTEGER" property="sourceType" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, member_id, create_time, change_type, change_count, operate_man, operate_note, 
+    source_type
+  </sql>
+  <update id="updateBatch" parameterType="java.util.List">
+    <!--@mbg.generated-->
+    update ums_growth_change_history
+    <trim prefix="set" suffixOverrides=",">
+      <trim prefix="member_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.memberId,jdbcType=BIGINT}
+        </foreach>
+      </trim>
+      <trim prefix="create_time = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.createTime,jdbcType=TIMESTAMP}
+        </foreach>
+      </trim>
+      <trim prefix="change_type = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.changeType,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="change_count = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.changeCount,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="operate_man = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.operateMan,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="operate_note = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.operateNote,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="source_type = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.sourceType,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+    </trim>
+    where id in
+    <foreach close=")" collection="list" item="item" open="(" separator=", ">
+      #{item.id,jdbcType=BIGINT}
+    </foreach>
+  </update>
+  <update id="updateBatchSelective" parameterType="java.util.List">
+    <!--@mbg.generated-->
+    update ums_growth_change_history
+    <trim prefix="set" suffixOverrides=",">
+      <trim prefix="member_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.memberId != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.memberId,jdbcType=BIGINT}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="create_time = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.createTime != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.createTime,jdbcType=TIMESTAMP}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="change_type = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.changeType != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.changeType,jdbcType=INTEGER}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="change_count = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.changeCount != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.changeCount,jdbcType=INTEGER}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="operate_man = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.operateMan != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.operateMan,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="operate_note = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.operateNote != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.operateNote,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="source_type = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.sourceType != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.sourceType,jdbcType=INTEGER}
+          </if>
+        </foreach>
+      </trim>
+    </trim>
+    where id in
+    <foreach close=")" collection="list" item="item" open="(" separator=", ">
+      #{item.id,jdbcType=BIGINT}
+    </foreach>
+  </update>
+  <insert id="batchInsert" keyColumn="id" keyProperty="id" parameterType="map" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into ums_growth_change_history
+    (member_id, create_time, change_type, change_count, operate_man, operate_note, source_type
+      )
+    values
+    <foreach collection="list" item="item" separator=",">
+      (#{item.memberId,jdbcType=BIGINT}, #{item.createTime,jdbcType=TIMESTAMP}, #{item.changeType,jdbcType=INTEGER}, 
+        #{item.changeCount,jdbcType=INTEGER}, #{item.operateMan,jdbcType=VARCHAR}, #{item.operateNote,jdbcType=VARCHAR}, 
+        #{item.sourceType,jdbcType=INTEGER})
+    </foreach>
+  </insert>
+  <insert id="insertOrUpdate" keyColumn="id" keyProperty="id" parameterType="com.ruoyi.ums.domain.UmsGrowthChangeHistory" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into ums_growth_change_history
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      member_id,
+      create_time,
+      change_type,
+      change_count,
+      operate_man,
+      operate_note,
+      source_type,
+    </trim>
+    values
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      #{memberId,jdbcType=BIGINT},
+      #{createTime,jdbcType=TIMESTAMP},
+      #{changeType,jdbcType=INTEGER},
+      #{changeCount,jdbcType=INTEGER},
+      #{operateMan,jdbcType=VARCHAR},
+      #{operateNote,jdbcType=VARCHAR},
+      #{sourceType,jdbcType=INTEGER},
+    </trim>
+    on duplicate key update 
+    <trim suffixOverrides=",">
+      <if test="id != null">
+        id = #{id,jdbcType=BIGINT},
+      </if>
+      member_id = #{memberId,jdbcType=BIGINT},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      change_type = #{changeType,jdbcType=INTEGER},
+      change_count = #{changeCount,jdbcType=INTEGER},
+      operate_man = #{operateMan,jdbcType=VARCHAR},
+      operate_note = #{operateNote,jdbcType=VARCHAR},
+      source_type = #{sourceType,jdbcType=INTEGER},
+    </trim>
+  </insert>
+  <insert id="insertOrUpdateSelective" keyColumn="id" keyProperty="id" parameterType="com.ruoyi.ums.domain.UmsGrowthChangeHistory" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into ums_growth_change_history
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="memberId != null">
+        member_id,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="changeType != null">
+        change_type,
+      </if>
+      <if test="changeCount != null">
+        change_count,
+      </if>
+      <if test="operateMan != null">
+        operate_man,
+      </if>
+      <if test="operateNote != null">
+        operate_note,
+      </if>
+      <if test="sourceType != null">
+        source_type,
+      </if>
+    </trim>
+    values
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="memberId != null">
+        #{memberId,jdbcType=BIGINT},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="changeType != null">
+        #{changeType,jdbcType=INTEGER},
+      </if>
+      <if test="changeCount != null">
+        #{changeCount,jdbcType=INTEGER},
+      </if>
+      <if test="operateMan != null">
+        #{operateMan,jdbcType=VARCHAR},
+      </if>
+      <if test="operateNote != null">
+        #{operateNote,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceType != null">
+        #{sourceType,jdbcType=INTEGER},
+      </if>
+    </trim>
+    on duplicate key update 
+    <trim suffixOverrides=",">
+      <if test="id != null">
+        id = #{id,jdbcType=BIGINT},
+      </if>
+      <if test="memberId != null">
+        member_id = #{memberId,jdbcType=BIGINT},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="changeType != null">
+        change_type = #{changeType,jdbcType=INTEGER},
+      </if>
+      <if test="changeCount != null">
+        change_count = #{changeCount,jdbcType=INTEGER},
+      </if>
+      <if test="operateMan != null">
+        operate_man = #{operateMan,jdbcType=VARCHAR},
+      </if>
+      <if test="operateNote != null">
+        operate_note = #{operateNote,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceType != null">
+        source_type = #{sourceType,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

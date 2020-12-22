@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.cms.mapper.CmsTopicCommentMapper">
+  <resultMap id="BaseResultMap" type="com.ruoyi.cms.domain.CmsTopicComment">
+    <!--@mbg.generated-->
+    <!--@Table cms_topic_comment-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="member_nick_name" jdbcType="VARCHAR" property="memberNickName" />
+    <result column="topic_id" jdbcType="BIGINT" property="topicId" />
+    <result column="member_icon" jdbcType="VARCHAR" property="memberIcon" />
+    <result column="content" jdbcType="VARCHAR" property="content" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="show_status" jdbcType="INTEGER" property="showStatus" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, member_nick_name, topic_id, member_icon, content, create_time, show_status
+  </sql>
+  <update id="updateBatch" parameterType="java.util.List">
+    <!--@mbg.generated-->
+    update cms_topic_comment
+    <trim prefix="set" suffixOverrides=",">
+      <trim prefix="member_nick_name = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.memberNickName,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="topic_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.topicId,jdbcType=BIGINT}
+        </foreach>
+      </trim>
+      <trim prefix="member_icon = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.memberIcon,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="content = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.content,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="create_time = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.createTime,jdbcType=TIMESTAMP}
+        </foreach>
+      </trim>
+      <trim prefix="show_status = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.showStatus,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+    </trim>
+    where id in
+    <foreach close=")" collection="list" item="item" open="(" separator=", ">
+      #{item.id,jdbcType=BIGINT}
+    </foreach>
+  </update>
+  <update id="updateBatchSelective" parameterType="java.util.List">
+    <!--@mbg.generated-->
+    update cms_topic_comment
+    <trim prefix="set" suffixOverrides=",">
+      <trim prefix="member_nick_name = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.memberNickName != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.memberNickName,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="topic_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.topicId != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.topicId,jdbcType=BIGINT}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="member_icon = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.memberIcon != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.memberIcon,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="content = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.content != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.content,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="create_time = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.createTime != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.createTime,jdbcType=TIMESTAMP}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="show_status = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.showStatus != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.showStatus,jdbcType=INTEGER}
+          </if>
+        </foreach>
+      </trim>
+    </trim>
+    where id in
+    <foreach close=")" collection="list" item="item" open="(" separator=", ">
+      #{item.id,jdbcType=BIGINT}
+    </foreach>
+  </update>
+  <insert id="batchInsert" keyColumn="id" keyProperty="id" parameterType="map" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into cms_topic_comment
+    (member_nick_name, topic_id, member_icon, content, create_time, show_status)
+    values
+    <foreach collection="list" item="item" separator=",">
+      (#{item.memberNickName,jdbcType=VARCHAR}, #{item.topicId,jdbcType=BIGINT}, #{item.memberIcon,jdbcType=VARCHAR}, 
+        #{item.content,jdbcType=VARCHAR}, #{item.createTime,jdbcType=TIMESTAMP}, #{item.showStatus,jdbcType=INTEGER}
+        )
+    </foreach>
+  </insert>
+  <insert id="insertOrUpdate" keyColumn="id" keyProperty="id" parameterType="com.ruoyi.cms.domain.CmsTopicComment" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into cms_topic_comment
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      member_nick_name,
+      topic_id,
+      member_icon,
+      content,
+      create_time,
+      show_status,
+    </trim>
+    values
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      #{memberNickName,jdbcType=VARCHAR},
+      #{topicId,jdbcType=BIGINT},
+      #{memberIcon,jdbcType=VARCHAR},
+      #{content,jdbcType=VARCHAR},
+      #{createTime,jdbcType=TIMESTAMP},
+      #{showStatus,jdbcType=INTEGER},
+    </trim>
+    on duplicate key update 
+    <trim suffixOverrides=",">
+      <if test="id != null">
+        id = #{id,jdbcType=BIGINT},
+      </if>
+      member_nick_name = #{memberNickName,jdbcType=VARCHAR},
+      topic_id = #{topicId,jdbcType=BIGINT},
+      member_icon = #{memberIcon,jdbcType=VARCHAR},
+      content = #{content,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      show_status = #{showStatus,jdbcType=INTEGER},
+    </trim>
+  </insert>
+  <insert id="insertOrUpdateSelective" keyColumn="id" keyProperty="id" parameterType="com.ruoyi.cms.domain.CmsTopicComment" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into cms_topic_comment
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="memberNickName != null">
+        member_nick_name,
+      </if>
+      <if test="topicId != null">
+        topic_id,
+      </if>
+      <if test="memberIcon != null">
+        member_icon,
+      </if>
+      <if test="content != null">
+        content,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="showStatus != null">
+        show_status,
+      </if>
+    </trim>
+    values
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="memberNickName != null">
+        #{memberNickName,jdbcType=VARCHAR},
+      </if>
+      <if test="topicId != null">
+        #{topicId,jdbcType=BIGINT},
+      </if>
+      <if test="memberIcon != null">
+        #{memberIcon,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null">
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="showStatus != null">
+        #{showStatus,jdbcType=INTEGER},
+      </if>
+    </trim>
+    on duplicate key update 
+    <trim suffixOverrides=",">
+      <if test="id != null">
+        id = #{id,jdbcType=BIGINT},
+      </if>
+      <if test="memberNickName != null">
+        member_nick_name = #{memberNickName,jdbcType=VARCHAR},
+      </if>
+      <if test="topicId != null">
+        topic_id = #{topicId,jdbcType=BIGINT},
+      </if>
+      <if test="memberIcon != null">
+        member_icon = #{memberIcon,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null">
+        content = #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="showStatus != null">
+        show_status = #{showStatus,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

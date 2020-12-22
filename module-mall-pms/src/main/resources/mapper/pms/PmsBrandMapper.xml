@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.pms.mapper.PmsBrandMapper">
+  <resultMap id="BaseResultMap" type="com.ruoyi.pms.domain.PmsBrand">
+    <!--@mbg.generated-->
+    <!--@Table pms_brand-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="first_letter" jdbcType="VARCHAR" property="firstLetter" />
+    <result column="sort" jdbcType="INTEGER" property="sort" />
+    <result column="factory_status" jdbcType="INTEGER" property="factoryStatus" />
+    <result column="show_status" jdbcType="INTEGER" property="showStatus" />
+    <result column="product_count" jdbcType="INTEGER" property="productCount" />
+    <result column="product_comment_count" jdbcType="INTEGER" property="productCommentCount" />
+    <result column="logo" jdbcType="VARCHAR" property="logo" />
+    <result column="big_pic" jdbcType="VARCHAR" property="bigPic" />
+    <result column="brand_story" jdbcType="LONGVARCHAR" property="brandStory" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, `name`, first_letter, sort, factory_status, show_status, product_count, product_comment_count, 
+    logo, big_pic, brand_story
+  </sql>
+  <update id="updateBatch" parameterType="java.util.List">
+    <!--@mbg.generated-->
+    update pms_brand
+    <trim prefix="set" suffixOverrides=",">
+      <trim prefix="`name` = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.name,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="first_letter = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.firstLetter,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="sort = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.sort,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="factory_status = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.factoryStatus,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="show_status = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.showStatus,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="product_count = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.productCount,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="product_comment_count = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.productCommentCount,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="logo = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.logo,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="big_pic = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.bigPic,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="brand_story = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.brandStory,jdbcType=LONGVARCHAR}
+        </foreach>
+      </trim>
+    </trim>
+    where id in
+    <foreach close=")" collection="list" item="item" open="(" separator=", ">
+      #{item.id,jdbcType=BIGINT}
+    </foreach>
+  </update>
+  <update id="updateBatchSelective" parameterType="java.util.List">
+    <!--@mbg.generated-->
+    update pms_brand
+    <trim prefix="set" suffixOverrides=",">
+      <trim prefix="`name` = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.name != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.name,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="first_letter = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.firstLetter != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.firstLetter,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="sort = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.sort != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.sort,jdbcType=INTEGER}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="factory_status = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.factoryStatus != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.factoryStatus,jdbcType=INTEGER}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="show_status = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.showStatus != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.showStatus,jdbcType=INTEGER}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="product_count = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.productCount != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.productCount,jdbcType=INTEGER}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="product_comment_count = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.productCommentCount != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.productCommentCount,jdbcType=INTEGER}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="logo = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.logo != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.logo,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="big_pic = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.bigPic != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.bigPic,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="brand_story = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.brandStory != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.brandStory,jdbcType=LONGVARCHAR}
+          </if>
+        </foreach>
+      </trim>
+    </trim>
+    where id in
+    <foreach close=")" collection="list" item="item" open="(" separator=", ">
+      #{item.id,jdbcType=BIGINT}
+    </foreach>
+  </update>
+  <insert id="batchInsert" keyColumn="id" keyProperty="id" parameterType="map" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into pms_brand
+    (`name`, first_letter, sort, factory_status, show_status, product_count, product_comment_count, 
+      logo, big_pic, brand_story)
+    values
+    <foreach collection="list" item="item" separator=",">
+      (#{item.name,jdbcType=VARCHAR}, #{item.firstLetter,jdbcType=VARCHAR}, #{item.sort,jdbcType=INTEGER}, 
+        #{item.factoryStatus,jdbcType=INTEGER}, #{item.showStatus,jdbcType=INTEGER}, #{item.productCount,jdbcType=INTEGER}, 
+        #{item.productCommentCount,jdbcType=INTEGER}, #{item.logo,jdbcType=VARCHAR}, #{item.bigPic,jdbcType=VARCHAR}, 
+        #{item.brandStory,jdbcType=LONGVARCHAR})
+    </foreach>
+  </insert>
+  <insert id="insertOrUpdate" keyColumn="id" keyProperty="id" parameterType="com.ruoyi.pms.domain.PmsBrand" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into pms_brand
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      `name`,
+      first_letter,
+      sort,
+      factory_status,
+      show_status,
+      product_count,
+      product_comment_count,
+      logo,
+      big_pic,
+      brand_story,
+    </trim>
+    values
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      #{name,jdbcType=VARCHAR},
+      #{firstLetter,jdbcType=VARCHAR},
+      #{sort,jdbcType=INTEGER},
+      #{factoryStatus,jdbcType=INTEGER},
+      #{showStatus,jdbcType=INTEGER},
+      #{productCount,jdbcType=INTEGER},
+      #{productCommentCount,jdbcType=INTEGER},
+      #{logo,jdbcType=VARCHAR},
+      #{bigPic,jdbcType=VARCHAR},
+      #{brandStory,jdbcType=LONGVARCHAR},
+    </trim>
+    on duplicate key update 
+    <trim suffixOverrides=",">
+      <if test="id != null">
+        id = #{id,jdbcType=BIGINT},
+      </if>
+      `name` = #{name,jdbcType=VARCHAR},
+      first_letter = #{firstLetter,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=INTEGER},
+      factory_status = #{factoryStatus,jdbcType=INTEGER},
+      show_status = #{showStatus,jdbcType=INTEGER},
+      product_count = #{productCount,jdbcType=INTEGER},
+      product_comment_count = #{productCommentCount,jdbcType=INTEGER},
+      logo = #{logo,jdbcType=VARCHAR},
+      big_pic = #{bigPic,jdbcType=VARCHAR},
+      brand_story = #{brandStory,jdbcType=LONGVARCHAR},
+    </trim>
+  </insert>
+  <insert id="insertOrUpdateSelective" keyColumn="id" keyProperty="id" parameterType="com.ruoyi.pms.domain.PmsBrand" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into pms_brand
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        `name`,
+      </if>
+      <if test="firstLetter != null">
+        first_letter,
+      </if>
+      <if test="sort != null">
+        sort,
+      </if>
+      <if test="factoryStatus != null">
+        factory_status,
+      </if>
+      <if test="showStatus != null">
+        show_status,
+      </if>
+      <if test="productCount != null">
+        product_count,
+      </if>
+      <if test="productCommentCount != null">
+        product_comment_count,
+      </if>
+      <if test="logo != null">
+        logo,
+      </if>
+      <if test="bigPic != null">
+        big_pic,
+      </if>
+      <if test="brandStory != null">
+        brand_story,
+      </if>
+    </trim>
+    values
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="firstLetter != null">
+        #{firstLetter,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null">
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="factoryStatus != null">
+        #{factoryStatus,jdbcType=INTEGER},
+      </if>
+      <if test="showStatus != null">
+        #{showStatus,jdbcType=INTEGER},
+      </if>
+      <if test="productCount != null">
+        #{productCount,jdbcType=INTEGER},
+      </if>
+      <if test="productCommentCount != null">
+        #{productCommentCount,jdbcType=INTEGER},
+      </if>
+      <if test="logo != null">
+        #{logo,jdbcType=VARCHAR},
+      </if>
+      <if test="bigPic != null">
+        #{bigPic,jdbcType=VARCHAR},
+      </if>
+      <if test="brandStory != null">
+        #{brandStory,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+    on duplicate key update 
+    <trim suffixOverrides=",">
+      <if test="id != null">
+        id = #{id,jdbcType=BIGINT},
+      </if>
+      <if test="name != null">
+        `name` = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="firstLetter != null">
+        first_letter = #{firstLetter,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null">
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="factoryStatus != null">
+        factory_status = #{factoryStatus,jdbcType=INTEGER},
+      </if>
+      <if test="showStatus != null">
+        show_status = #{showStatus,jdbcType=INTEGER},
+      </if>
+      <if test="productCount != null">
+        product_count = #{productCount,jdbcType=INTEGER},
+      </if>
+      <if test="productCommentCount != null">
+        product_comment_count = #{productCommentCount,jdbcType=INTEGER},
+      </if>
+      <if test="logo != null">
+        logo = #{logo,jdbcType=VARCHAR},
+      </if>
+      <if test="bigPic != null">
+        big_pic = #{bigPic,jdbcType=VARCHAR},
+      </if>
+      <if test="brandStory != null">
+        brand_story = #{brandStory,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

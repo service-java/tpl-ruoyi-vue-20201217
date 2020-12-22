@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.sms.mapper.SmsCouponHistoryMapper">
+  <resultMap id="BaseResultMap" type="com.ruoyi.sms.domain.SmsCouponHistory">
+    <!--@mbg.generated-->
+    <!--@Table sms_coupon_history-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="coupon_id" jdbcType="BIGINT" property="couponId" />
+    <result column="member_id" jdbcType="BIGINT" property="memberId" />
+    <result column="coupon_code" jdbcType="VARCHAR" property="couponCode" />
+    <result column="member_nickname" jdbcType="VARCHAR" property="memberNickname" />
+    <result column="get_type" jdbcType="INTEGER" property="getType" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="use_status" jdbcType="INTEGER" property="useStatus" />
+    <result column="use_time" jdbcType="TIMESTAMP" property="useTime" />
+    <result column="order_id" jdbcType="BIGINT" property="orderId" />
+    <result column="order_sn" jdbcType="VARCHAR" property="orderSn" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, coupon_id, member_id, coupon_code, member_nickname, get_type, create_time, use_status, 
+    use_time, order_id, order_sn
+  </sql>
+  <update id="updateBatch" parameterType="java.util.List">
+    <!--@mbg.generated-->
+    update sms_coupon_history
+    <trim prefix="set" suffixOverrides=",">
+      <trim prefix="coupon_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.couponId,jdbcType=BIGINT}
+        </foreach>
+      </trim>
+      <trim prefix="member_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.memberId,jdbcType=BIGINT}
+        </foreach>
+      </trim>
+      <trim prefix="coupon_code = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.couponCode,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="member_nickname = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.memberNickname,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="get_type = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.getType,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="create_time = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.createTime,jdbcType=TIMESTAMP}
+        </foreach>
+      </trim>
+      <trim prefix="use_status = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.useStatus,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="use_time = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.useTime,jdbcType=TIMESTAMP}
+        </foreach>
+      </trim>
+      <trim prefix="order_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.orderId,jdbcType=BIGINT}
+        </foreach>
+      </trim>
+      <trim prefix="order_sn = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.orderSn,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+    </trim>
+    where id in
+    <foreach close=")" collection="list" item="item" open="(" separator=", ">
+      #{item.id,jdbcType=BIGINT}
+    </foreach>
+  </update>
+  <update id="updateBatchSelective" parameterType="java.util.List">
+    <!--@mbg.generated-->
+    update sms_coupon_history
+    <trim prefix="set" suffixOverrides=",">
+      <trim prefix="coupon_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.couponId != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.couponId,jdbcType=BIGINT}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="member_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.memberId != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.memberId,jdbcType=BIGINT}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="coupon_code = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.couponCode != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.couponCode,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="member_nickname = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.memberNickname != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.memberNickname,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="get_type = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.getType != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.getType,jdbcType=INTEGER}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="create_time = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.createTime != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.createTime,jdbcType=TIMESTAMP}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="use_status = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.useStatus != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.useStatus,jdbcType=INTEGER}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="use_time = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.useTime != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.useTime,jdbcType=TIMESTAMP}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="order_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.orderId != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.orderId,jdbcType=BIGINT}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="order_sn = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.orderSn != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.orderSn,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+    </trim>
+    where id in
+    <foreach close=")" collection="list" item="item" open="(" separator=", ">
+      #{item.id,jdbcType=BIGINT}
+    </foreach>
+  </update>
+  <insert id="batchInsert" keyColumn="id" keyProperty="id" parameterType="map" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into sms_coupon_history
+    (coupon_id, member_id, coupon_code, member_nickname, get_type, create_time, use_status, 
+      use_time, order_id, order_sn)
+    values
+    <foreach collection="list" item="item" separator=",">
+      (#{item.couponId,jdbcType=BIGINT}, #{item.memberId,jdbcType=BIGINT}, #{item.couponCode,jdbcType=VARCHAR}, 
+        #{item.memberNickname,jdbcType=VARCHAR}, #{item.getType,jdbcType=INTEGER}, #{item.createTime,jdbcType=TIMESTAMP}, 
+        #{item.useStatus,jdbcType=INTEGER}, #{item.useTime,jdbcType=TIMESTAMP}, #{item.orderId,jdbcType=BIGINT}, 
+        #{item.orderSn,jdbcType=VARCHAR})
+    </foreach>
+  </insert>
+  <insert id="insertOrUpdate" keyColumn="id" keyProperty="id" parameterType="com.ruoyi.sms.domain.SmsCouponHistory" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into sms_coupon_history
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      coupon_id,
+      member_id,
+      coupon_code,
+      member_nickname,
+      get_type,
+      create_time,
+      use_status,
+      use_time,
+      order_id,
+      order_sn,
+    </trim>
+    values
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      #{couponId,jdbcType=BIGINT},
+      #{memberId,jdbcType=BIGINT},
+      #{couponCode,jdbcType=VARCHAR},
+      #{memberNickname,jdbcType=VARCHAR},
+      #{getType,jdbcType=INTEGER},
+      #{createTime,jdbcType=TIMESTAMP},
+      #{useStatus,jdbcType=INTEGER},
+      #{useTime,jdbcType=TIMESTAMP},
+      #{orderId,jdbcType=BIGINT},
+      #{orderSn,jdbcType=VARCHAR},
+    </trim>
+    on duplicate key update 
+    <trim suffixOverrides=",">
+      <if test="id != null">
+        id = #{id,jdbcType=BIGINT},
+      </if>
+      coupon_id = #{couponId,jdbcType=BIGINT},
+      member_id = #{memberId,jdbcType=BIGINT},
+      coupon_code = #{couponCode,jdbcType=VARCHAR},
+      member_nickname = #{memberNickname,jdbcType=VARCHAR},
+      get_type = #{getType,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      use_status = #{useStatus,jdbcType=INTEGER},
+      use_time = #{useTime,jdbcType=TIMESTAMP},
+      order_id = #{orderId,jdbcType=BIGINT},
+      order_sn = #{orderSn,jdbcType=VARCHAR},
+    </trim>
+  </insert>
+  <insert id="insertOrUpdateSelective" keyColumn="id" keyProperty="id" parameterType="com.ruoyi.sms.domain.SmsCouponHistory" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into sms_coupon_history
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="couponId != null">
+        coupon_id,
+      </if>
+      <if test="memberId != null">
+        member_id,
+      </if>
+      <if test="couponCode != null">
+        coupon_code,
+      </if>
+      <if test="memberNickname != null">
+        member_nickname,
+      </if>
+      <if test="getType != null">
+        get_type,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="useStatus != null">
+        use_status,
+      </if>
+      <if test="useTime != null">
+        use_time,
+      </if>
+      <if test="orderId != null">
+        order_id,
+      </if>
+      <if test="orderSn != null">
+        order_sn,
+      </if>
+    </trim>
+    values
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="couponId != null">
+        #{couponId,jdbcType=BIGINT},
+      </if>
+      <if test="memberId != null">
+        #{memberId,jdbcType=BIGINT},
+      </if>
+      <if test="couponCode != null">
+        #{couponCode,jdbcType=VARCHAR},
+      </if>
+      <if test="memberNickname != null">
+        #{memberNickname,jdbcType=VARCHAR},
+      </if>
+      <if test="getType != null">
+        #{getType,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="useStatus != null">
+        #{useStatus,jdbcType=INTEGER},
+      </if>
+      <if test="useTime != null">
+        #{useTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="orderId != null">
+        #{orderId,jdbcType=BIGINT},
+      </if>
+      <if test="orderSn != null">
+        #{orderSn,jdbcType=VARCHAR},
+      </if>
+    </trim>
+    on duplicate key update 
+    <trim suffixOverrides=",">
+      <if test="id != null">
+        id = #{id,jdbcType=BIGINT},
+      </if>
+      <if test="couponId != null">
+        coupon_id = #{couponId,jdbcType=BIGINT},
+      </if>
+      <if test="memberId != null">
+        member_id = #{memberId,jdbcType=BIGINT},
+      </if>
+      <if test="couponCode != null">
+        coupon_code = #{couponCode,jdbcType=VARCHAR},
+      </if>
+      <if test="memberNickname != null">
+        member_nickname = #{memberNickname,jdbcType=VARCHAR},
+      </if>
+      <if test="getType != null">
+        get_type = #{getType,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="useStatus != null">
+        use_status = #{useStatus,jdbcType=INTEGER},
+      </if>
+      <if test="useTime != null">
+        use_time = #{useTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="orderId != null">
+        order_id = #{orderId,jdbcType=BIGINT},
+      </if>
+      <if test="orderSn != null">
+        order_sn = #{orderSn,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

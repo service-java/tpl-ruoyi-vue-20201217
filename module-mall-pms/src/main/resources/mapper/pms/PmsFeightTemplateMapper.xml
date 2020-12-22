@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.pms.mapper.PmsFeightTemplateMapper">
+  <resultMap id="BaseResultMap" type="com.ruoyi.pms.domain.PmsFeightTemplate">
+    <!--@mbg.generated-->
+    <!--@Table pms_feight_template-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="charge_type" jdbcType="INTEGER" property="chargeType" />
+    <result column="first_weight" jdbcType="DECIMAL" property="firstWeight" />
+    <result column="first_fee" jdbcType="DECIMAL" property="firstFee" />
+    <result column="continue_weight" jdbcType="DECIMAL" property="continueWeight" />
+    <result column="continme_fee" jdbcType="DECIMAL" property="continmeFee" />
+    <result column="dest" jdbcType="VARCHAR" property="dest" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, `name`, charge_type, first_weight, first_fee, continue_weight, continme_fee, 
+    dest
+  </sql>
+  <update id="updateBatch" parameterType="java.util.List">
+    <!--@mbg.generated-->
+    update pms_feight_template
+    <trim prefix="set" suffixOverrides=",">
+      <trim prefix="`name` = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.name,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="charge_type = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.chargeType,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="first_weight = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.firstWeight,jdbcType=DECIMAL}
+        </foreach>
+      </trim>
+      <trim prefix="first_fee = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.firstFee,jdbcType=DECIMAL}
+        </foreach>
+      </trim>
+      <trim prefix="continue_weight = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.continueWeight,jdbcType=DECIMAL}
+        </foreach>
+      </trim>
+      <trim prefix="continme_fee = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.continmeFee,jdbcType=DECIMAL}
+        </foreach>
+      </trim>
+      <trim prefix="dest = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.dest,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+    </trim>
+    where id in
+    <foreach close=")" collection="list" item="item" open="(" separator=", ">
+      #{item.id,jdbcType=BIGINT}
+    </foreach>
+  </update>
+  <update id="updateBatchSelective" parameterType="java.util.List">
+    <!--@mbg.generated-->
+    update pms_feight_template
+    <trim prefix="set" suffixOverrides=",">
+      <trim prefix="`name` = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.name != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.name,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="charge_type = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.chargeType != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.chargeType,jdbcType=INTEGER}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="first_weight = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.firstWeight != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.firstWeight,jdbcType=DECIMAL}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="first_fee = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.firstFee != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.firstFee,jdbcType=DECIMAL}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="continue_weight = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.continueWeight != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.continueWeight,jdbcType=DECIMAL}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="continme_fee = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.continmeFee != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.continmeFee,jdbcType=DECIMAL}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="dest = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.dest != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.dest,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+    </trim>
+    where id in
+    <foreach close=")" collection="list" item="item" open="(" separator=", ">
+      #{item.id,jdbcType=BIGINT}
+    </foreach>
+  </update>
+  <insert id="batchInsert" keyColumn="id" keyProperty="id" parameterType="map" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into pms_feight_template
+    (`name`, charge_type, first_weight, first_fee, continue_weight, continme_fee, dest
+      )
+    values
+    <foreach collection="list" item="item" separator=",">
+      (#{item.name,jdbcType=VARCHAR}, #{item.chargeType,jdbcType=INTEGER}, #{item.firstWeight,jdbcType=DECIMAL}, 
+        #{item.firstFee,jdbcType=DECIMAL}, #{item.continueWeight,jdbcType=DECIMAL}, #{item.continmeFee,jdbcType=DECIMAL}, 
+        #{item.dest,jdbcType=VARCHAR})
+    </foreach>
+  </insert>
+  <insert id="insertOrUpdate" keyColumn="id" keyProperty="id" parameterType="com.ruoyi.pms.domain.PmsFeightTemplate" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into pms_feight_template
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      `name`,
+      charge_type,
+      first_weight,
+      first_fee,
+      continue_weight,
+      continme_fee,
+      dest,
+    </trim>
+    values
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      #{name,jdbcType=VARCHAR},
+      #{chargeType,jdbcType=INTEGER},
+      #{firstWeight,jdbcType=DECIMAL},
+      #{firstFee,jdbcType=DECIMAL},
+      #{continueWeight,jdbcType=DECIMAL},
+      #{continmeFee,jdbcType=DECIMAL},
+      #{dest,jdbcType=VARCHAR},
+    </trim>
+    on duplicate key update 
+    <trim suffixOverrides=",">
+      <if test="id != null">
+        id = #{id,jdbcType=BIGINT},
+      </if>
+      `name` = #{name,jdbcType=VARCHAR},
+      charge_type = #{chargeType,jdbcType=INTEGER},
+      first_weight = #{firstWeight,jdbcType=DECIMAL},
+      first_fee = #{firstFee,jdbcType=DECIMAL},
+      continue_weight = #{continueWeight,jdbcType=DECIMAL},
+      continme_fee = #{continmeFee,jdbcType=DECIMAL},
+      dest = #{dest,jdbcType=VARCHAR},
+    </trim>
+  </insert>
+  <insert id="insertOrUpdateSelective" keyColumn="id" keyProperty="id" parameterType="com.ruoyi.pms.domain.PmsFeightTemplate" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into pms_feight_template
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        `name`,
+      </if>
+      <if test="chargeType != null">
+        charge_type,
+      </if>
+      <if test="firstWeight != null">
+        first_weight,
+      </if>
+      <if test="firstFee != null">
+        first_fee,
+      </if>
+      <if test="continueWeight != null">
+        continue_weight,
+      </if>
+      <if test="continmeFee != null">
+        continme_fee,
+      </if>
+      <if test="dest != null">
+        dest,
+      </if>
+    </trim>
+    values
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="chargeType != null">
+        #{chargeType,jdbcType=INTEGER},
+      </if>
+      <if test="firstWeight != null">
+        #{firstWeight,jdbcType=DECIMAL},
+      </if>
+      <if test="firstFee != null">
+        #{firstFee,jdbcType=DECIMAL},
+      </if>
+      <if test="continueWeight != null">
+        #{continueWeight,jdbcType=DECIMAL},
+      </if>
+      <if test="continmeFee != null">
+        #{continmeFee,jdbcType=DECIMAL},
+      </if>
+      <if test="dest != null">
+        #{dest,jdbcType=VARCHAR},
+      </if>
+    </trim>
+    on duplicate key update 
+    <trim suffixOverrides=",">
+      <if test="id != null">
+        id = #{id,jdbcType=BIGINT},
+      </if>
+      <if test="name != null">
+        `name` = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="chargeType != null">
+        charge_type = #{chargeType,jdbcType=INTEGER},
+      </if>
+      <if test="firstWeight != null">
+        first_weight = #{firstWeight,jdbcType=DECIMAL},
+      </if>
+      <if test="firstFee != null">
+        first_fee = #{firstFee,jdbcType=DECIMAL},
+      </if>
+      <if test="continueWeight != null">
+        continue_weight = #{continueWeight,jdbcType=DECIMAL},
+      </if>
+      <if test="continmeFee != null">
+        continme_fee = #{continmeFee,jdbcType=DECIMAL},
+      </if>
+      <if test="dest != null">
+        dest = #{dest,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

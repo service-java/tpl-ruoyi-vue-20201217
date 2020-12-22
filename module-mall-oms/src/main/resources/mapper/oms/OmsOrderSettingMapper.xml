@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.oms.mapper.OmsOrderSettingMapper">
+  <resultMap id="BaseResultMap" type="com.ruoyi.oms.domain.OmsOrderSetting">
+    <!--@mbg.generated-->
+    <!--@Table oms_order_setting-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="flash_order_overtime" jdbcType="INTEGER" property="flashOrderOvertime" />
+    <result column="normal_order_overtime" jdbcType="INTEGER" property="normalOrderOvertime" />
+    <result column="confirm_overtime" jdbcType="INTEGER" property="confirmOvertime" />
+    <result column="finish_overtime" jdbcType="INTEGER" property="finishOvertime" />
+    <result column="comment_overtime" jdbcType="INTEGER" property="commentOvertime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, flash_order_overtime, normal_order_overtime, confirm_overtime, finish_overtime, 
+    comment_overtime
+  </sql>
+  <update id="updateBatch" parameterType="java.util.List">
+    <!--@mbg.generated-->
+    update oms_order_setting
+    <trim prefix="set" suffixOverrides=",">
+      <trim prefix="flash_order_overtime = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.flashOrderOvertime,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="normal_order_overtime = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.normalOrderOvertime,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="confirm_overtime = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.confirmOvertime,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="finish_overtime = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.finishOvertime,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="comment_overtime = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.commentOvertime,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+    </trim>
+    where id in
+    <foreach close=")" collection="list" item="item" open="(" separator=", ">
+      #{item.id,jdbcType=BIGINT}
+    </foreach>
+  </update>
+  <update id="updateBatchSelective" parameterType="java.util.List">
+    <!--@mbg.generated-->
+    update oms_order_setting
+    <trim prefix="set" suffixOverrides=",">
+      <trim prefix="flash_order_overtime = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.flashOrderOvertime != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.flashOrderOvertime,jdbcType=INTEGER}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="normal_order_overtime = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.normalOrderOvertime != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.normalOrderOvertime,jdbcType=INTEGER}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="confirm_overtime = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.confirmOvertime != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.confirmOvertime,jdbcType=INTEGER}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="finish_overtime = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.finishOvertime != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.finishOvertime,jdbcType=INTEGER}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="comment_overtime = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.commentOvertime != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.commentOvertime,jdbcType=INTEGER}
+          </if>
+        </foreach>
+      </trim>
+    </trim>
+    where id in
+    <foreach close=")" collection="list" item="item" open="(" separator=", ">
+      #{item.id,jdbcType=BIGINT}
+    </foreach>
+  </update>
+  <insert id="batchInsert" keyColumn="id" keyProperty="id" parameterType="map" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into oms_order_setting
+    (flash_order_overtime, normal_order_overtime, confirm_overtime, finish_overtime, 
+      comment_overtime)
+    values
+    <foreach collection="list" item="item" separator=",">
+      (#{item.flashOrderOvertime,jdbcType=INTEGER}, #{item.normalOrderOvertime,jdbcType=INTEGER}, 
+        #{item.confirmOvertime,jdbcType=INTEGER}, #{item.finishOvertime,jdbcType=INTEGER}, 
+        #{item.commentOvertime,jdbcType=INTEGER})
+    </foreach>
+  </insert>
+  <insert id="insertOrUpdate" keyColumn="id" keyProperty="id" parameterType="com.ruoyi.oms.domain.OmsOrderSetting" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into oms_order_setting
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      flash_order_overtime,
+      normal_order_overtime,
+      confirm_overtime,
+      finish_overtime,
+      comment_overtime,
+    </trim>
+    values
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      #{flashOrderOvertime,jdbcType=INTEGER},
+      #{normalOrderOvertime,jdbcType=INTEGER},
+      #{confirmOvertime,jdbcType=INTEGER},
+      #{finishOvertime,jdbcType=INTEGER},
+      #{commentOvertime,jdbcType=INTEGER},
+    </trim>
+    on duplicate key update 
+    <trim suffixOverrides=",">
+      <if test="id != null">
+        id = #{id,jdbcType=BIGINT},
+      </if>
+      flash_order_overtime = #{flashOrderOvertime,jdbcType=INTEGER},
+      normal_order_overtime = #{normalOrderOvertime,jdbcType=INTEGER},
+      confirm_overtime = #{confirmOvertime,jdbcType=INTEGER},
+      finish_overtime = #{finishOvertime,jdbcType=INTEGER},
+      comment_overtime = #{commentOvertime,jdbcType=INTEGER},
+    </trim>
+  </insert>
+  <insert id="insertOrUpdateSelective" keyColumn="id" keyProperty="id" parameterType="com.ruoyi.oms.domain.OmsOrderSetting" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into oms_order_setting
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="flashOrderOvertime != null">
+        flash_order_overtime,
+      </if>
+      <if test="normalOrderOvertime != null">
+        normal_order_overtime,
+      </if>
+      <if test="confirmOvertime != null">
+        confirm_overtime,
+      </if>
+      <if test="finishOvertime != null">
+        finish_overtime,
+      </if>
+      <if test="commentOvertime != null">
+        comment_overtime,
+      </if>
+    </trim>
+    values
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="flashOrderOvertime != null">
+        #{flashOrderOvertime,jdbcType=INTEGER},
+      </if>
+      <if test="normalOrderOvertime != null">
+        #{normalOrderOvertime,jdbcType=INTEGER},
+      </if>
+      <if test="confirmOvertime != null">
+        #{confirmOvertime,jdbcType=INTEGER},
+      </if>
+      <if test="finishOvertime != null">
+        #{finishOvertime,jdbcType=INTEGER},
+      </if>
+      <if test="commentOvertime != null">
+        #{commentOvertime,jdbcType=INTEGER},
+      </if>
+    </trim>
+    on duplicate key update 
+    <trim suffixOverrides=",">
+      <if test="id != null">
+        id = #{id,jdbcType=BIGINT},
+      </if>
+      <if test="flashOrderOvertime != null">
+        flash_order_overtime = #{flashOrderOvertime,jdbcType=INTEGER},
+      </if>
+      <if test="normalOrderOvertime != null">
+        normal_order_overtime = #{normalOrderOvertime,jdbcType=INTEGER},
+      </if>
+      <if test="confirmOvertime != null">
+        confirm_overtime = #{confirmOvertime,jdbcType=INTEGER},
+      </if>
+      <if test="finishOvertime != null">
+        finish_overtime = #{finishOvertime,jdbcType=INTEGER},
+      </if>
+      <if test="commentOvertime != null">
+        comment_overtime = #{commentOvertime,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

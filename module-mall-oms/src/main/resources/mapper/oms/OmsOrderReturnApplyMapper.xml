@@ -1,0 +1,749 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.oms.mapper.OmsOrderReturnApplyMapper">
+  <resultMap id="BaseResultMap" type="com.ruoyi.oms.domain.OmsOrderReturnApply">
+    <!--@mbg.generated-->
+    <!--@Table oms_order_return_apply-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="order_id" jdbcType="BIGINT" property="orderId" />
+    <result column="company_address_id" jdbcType="BIGINT" property="companyAddressId" />
+    <result column="product_id" jdbcType="BIGINT" property="productId" />
+    <result column="order_sn" jdbcType="VARCHAR" property="orderSn" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="member_username" jdbcType="VARCHAR" property="memberUsername" />
+    <result column="return_amount" jdbcType="DECIMAL" property="returnAmount" />
+    <result column="return_name" jdbcType="VARCHAR" property="returnName" />
+    <result column="return_phone" jdbcType="VARCHAR" property="returnPhone" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="handle_time" jdbcType="TIMESTAMP" property="handleTime" />
+    <result column="product_pic" jdbcType="VARCHAR" property="productPic" />
+    <result column="product_name" jdbcType="VARCHAR" property="productName" />
+    <result column="product_brand" jdbcType="VARCHAR" property="productBrand" />
+    <result column="product_attr" jdbcType="VARCHAR" property="productAttr" />
+    <result column="product_count" jdbcType="INTEGER" property="productCount" />
+    <result column="product_price" jdbcType="DECIMAL" property="productPrice" />
+    <result column="product_real_price" jdbcType="DECIMAL" property="productRealPrice" />
+    <result column="reason" jdbcType="VARCHAR" property="reason" />
+    <result column="description" jdbcType="VARCHAR" property="description" />
+    <result column="proof_pics" jdbcType="VARCHAR" property="proofPics" />
+    <result column="handle_note" jdbcType="VARCHAR" property="handleNote" />
+    <result column="handle_man" jdbcType="VARCHAR" property="handleMan" />
+    <result column="receive_man" jdbcType="VARCHAR" property="receiveMan" />
+    <result column="receive_time" jdbcType="TIMESTAMP" property="receiveTime" />
+    <result column="receive_note" jdbcType="VARCHAR" property="receiveNote" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, order_id, company_address_id, product_id, order_sn, create_time, member_username, 
+    return_amount, return_name, return_phone, `status`, handle_time, product_pic, product_name, 
+    product_brand, product_attr, product_count, product_price, product_real_price, reason, 
+    description, proof_pics, handle_note, handle_man, receive_man, receive_time, receive_note
+  </sql>
+  <update id="updateBatch" parameterType="java.util.List">
+    <!--@mbg.generated-->
+    update oms_order_return_apply
+    <trim prefix="set" suffixOverrides=",">
+      <trim prefix="order_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.orderId,jdbcType=BIGINT}
+        </foreach>
+      </trim>
+      <trim prefix="company_address_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.companyAddressId,jdbcType=BIGINT}
+        </foreach>
+      </trim>
+      <trim prefix="product_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.productId,jdbcType=BIGINT}
+        </foreach>
+      </trim>
+      <trim prefix="order_sn = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.orderSn,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="create_time = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.createTime,jdbcType=TIMESTAMP}
+        </foreach>
+      </trim>
+      <trim prefix="member_username = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.memberUsername,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="return_amount = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.returnAmount,jdbcType=DECIMAL}
+        </foreach>
+      </trim>
+      <trim prefix="return_name = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.returnName,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="return_phone = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.returnPhone,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="`status` = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.status,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="handle_time = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.handleTime,jdbcType=TIMESTAMP}
+        </foreach>
+      </trim>
+      <trim prefix="product_pic = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.productPic,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="product_name = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.productName,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="product_brand = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.productBrand,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="product_attr = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.productAttr,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="product_count = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.productCount,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="product_price = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.productPrice,jdbcType=DECIMAL}
+        </foreach>
+      </trim>
+      <trim prefix="product_real_price = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.productRealPrice,jdbcType=DECIMAL}
+        </foreach>
+      </trim>
+      <trim prefix="reason = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.reason,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="description = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.description,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="proof_pics = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.proofPics,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="handle_note = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.handleNote,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="handle_man = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.handleMan,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="receive_man = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.receiveMan,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="receive_time = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.receiveTime,jdbcType=TIMESTAMP}
+        </foreach>
+      </trim>
+      <trim prefix="receive_note = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.receiveNote,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+    </trim>
+    where id in
+    <foreach close=")" collection="list" item="item" open="(" separator=", ">
+      #{item.id,jdbcType=BIGINT}
+    </foreach>
+  </update>
+  <update id="updateBatchSelective" parameterType="java.util.List">
+    <!--@mbg.generated-->
+    update oms_order_return_apply
+    <trim prefix="set" suffixOverrides=",">
+      <trim prefix="order_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.orderId != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.orderId,jdbcType=BIGINT}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="company_address_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.companyAddressId != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.companyAddressId,jdbcType=BIGINT}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="product_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.productId != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.productId,jdbcType=BIGINT}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="order_sn = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.orderSn != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.orderSn,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="create_time = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.createTime != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.createTime,jdbcType=TIMESTAMP}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="member_username = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.memberUsername != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.memberUsername,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="return_amount = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.returnAmount != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.returnAmount,jdbcType=DECIMAL}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="return_name = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.returnName != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.returnName,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="return_phone = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.returnPhone != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.returnPhone,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="`status` = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.status != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.status,jdbcType=INTEGER}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="handle_time = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.handleTime != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.handleTime,jdbcType=TIMESTAMP}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="product_pic = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.productPic != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.productPic,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="product_name = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.productName != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.productName,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="product_brand = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.productBrand != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.productBrand,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="product_attr = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.productAttr != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.productAttr,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="product_count = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.productCount != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.productCount,jdbcType=INTEGER}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="product_price = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.productPrice != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.productPrice,jdbcType=DECIMAL}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="product_real_price = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.productRealPrice != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.productRealPrice,jdbcType=DECIMAL}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="reason = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.reason != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.reason,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="description = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.description != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.description,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="proof_pics = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.proofPics != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.proofPics,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="handle_note = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.handleNote != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.handleNote,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="handle_man = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.handleMan != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.handleMan,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="receive_man = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.receiveMan != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.receiveMan,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="receive_time = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.receiveTime != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.receiveTime,jdbcType=TIMESTAMP}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="receive_note = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.receiveNote != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.receiveNote,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+    </trim>
+    where id in
+    <foreach close=")" collection="list" item="item" open="(" separator=", ">
+      #{item.id,jdbcType=BIGINT}
+    </foreach>
+  </update>
+  <insert id="batchInsert" keyColumn="id" keyProperty="id" parameterType="map" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into oms_order_return_apply
+    (order_id, company_address_id, product_id, order_sn, create_time, member_username, 
+      return_amount, return_name, return_phone, `status`, handle_time, product_pic, product_name, 
+      product_brand, product_attr, product_count, product_price, product_real_price, 
+      reason, description, proof_pics, handle_note, handle_man, receive_man, receive_time, 
+      receive_note)
+    values
+    <foreach collection="list" item="item" separator=",">
+      (#{item.orderId,jdbcType=BIGINT}, #{item.companyAddressId,jdbcType=BIGINT}, #{item.productId,jdbcType=BIGINT}, 
+        #{item.orderSn,jdbcType=VARCHAR}, #{item.createTime,jdbcType=TIMESTAMP}, #{item.memberUsername,jdbcType=VARCHAR}, 
+        #{item.returnAmount,jdbcType=DECIMAL}, #{item.returnName,jdbcType=VARCHAR}, #{item.returnPhone,jdbcType=VARCHAR}, 
+        #{item.status,jdbcType=INTEGER}, #{item.handleTime,jdbcType=TIMESTAMP}, #{item.productPic,jdbcType=VARCHAR}, 
+        #{item.productName,jdbcType=VARCHAR}, #{item.productBrand,jdbcType=VARCHAR}, #{item.productAttr,jdbcType=VARCHAR}, 
+        #{item.productCount,jdbcType=INTEGER}, #{item.productPrice,jdbcType=DECIMAL}, #{item.productRealPrice,jdbcType=DECIMAL}, 
+        #{item.reason,jdbcType=VARCHAR}, #{item.description,jdbcType=VARCHAR}, #{item.proofPics,jdbcType=VARCHAR}, 
+        #{item.handleNote,jdbcType=VARCHAR}, #{item.handleMan,jdbcType=VARCHAR}, #{item.receiveMan,jdbcType=VARCHAR}, 
+        #{item.receiveTime,jdbcType=TIMESTAMP}, #{item.receiveNote,jdbcType=VARCHAR})
+    </foreach>
+  </insert>
+  <insert id="insertOrUpdate" keyColumn="id" keyProperty="id" parameterType="com.ruoyi.oms.domain.OmsOrderReturnApply" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into oms_order_return_apply
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      order_id,
+      company_address_id,
+      product_id,
+      order_sn,
+      create_time,
+      member_username,
+      return_amount,
+      return_name,
+      return_phone,
+      `status`,
+      handle_time,
+      product_pic,
+      product_name,
+      product_brand,
+      product_attr,
+      product_count,
+      product_price,
+      product_real_price,
+      reason,
+      description,
+      proof_pics,
+      handle_note,
+      handle_man,
+      receive_man,
+      receive_time,
+      receive_note,
+    </trim>
+    values
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      #{orderId,jdbcType=BIGINT},
+      #{companyAddressId,jdbcType=BIGINT},
+      #{productId,jdbcType=BIGINT},
+      #{orderSn,jdbcType=VARCHAR},
+      #{createTime,jdbcType=TIMESTAMP},
+      #{memberUsername,jdbcType=VARCHAR},
+      #{returnAmount,jdbcType=DECIMAL},
+      #{returnName,jdbcType=VARCHAR},
+      #{returnPhone,jdbcType=VARCHAR},
+      #{status,jdbcType=INTEGER},
+      #{handleTime,jdbcType=TIMESTAMP},
+      #{productPic,jdbcType=VARCHAR},
+      #{productName,jdbcType=VARCHAR},
+      #{productBrand,jdbcType=VARCHAR},
+      #{productAttr,jdbcType=VARCHAR},
+      #{productCount,jdbcType=INTEGER},
+      #{productPrice,jdbcType=DECIMAL},
+      #{productRealPrice,jdbcType=DECIMAL},
+      #{reason,jdbcType=VARCHAR},
+      #{description,jdbcType=VARCHAR},
+      #{proofPics,jdbcType=VARCHAR},
+      #{handleNote,jdbcType=VARCHAR},
+      #{handleMan,jdbcType=VARCHAR},
+      #{receiveMan,jdbcType=VARCHAR},
+      #{receiveTime,jdbcType=TIMESTAMP},
+      #{receiveNote,jdbcType=VARCHAR},
+    </trim>
+    on duplicate key update 
+    <trim suffixOverrides=",">
+      <if test="id != null">
+        id = #{id,jdbcType=BIGINT},
+      </if>
+      order_id = #{orderId,jdbcType=BIGINT},
+      company_address_id = #{companyAddressId,jdbcType=BIGINT},
+      product_id = #{productId,jdbcType=BIGINT},
+      order_sn = #{orderSn,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      member_username = #{memberUsername,jdbcType=VARCHAR},
+      return_amount = #{returnAmount,jdbcType=DECIMAL},
+      return_name = #{returnName,jdbcType=VARCHAR},
+      return_phone = #{returnPhone,jdbcType=VARCHAR},
+      `status` = #{status,jdbcType=INTEGER},
+      handle_time = #{handleTime,jdbcType=TIMESTAMP},
+      product_pic = #{productPic,jdbcType=VARCHAR},
+      product_name = #{productName,jdbcType=VARCHAR},
+      product_brand = #{productBrand,jdbcType=VARCHAR},
+      product_attr = #{productAttr,jdbcType=VARCHAR},
+      product_count = #{productCount,jdbcType=INTEGER},
+      product_price = #{productPrice,jdbcType=DECIMAL},
+      product_real_price = #{productRealPrice,jdbcType=DECIMAL},
+      reason = #{reason,jdbcType=VARCHAR},
+      description = #{description,jdbcType=VARCHAR},
+      proof_pics = #{proofPics,jdbcType=VARCHAR},
+      handle_note = #{handleNote,jdbcType=VARCHAR},
+      handle_man = #{handleMan,jdbcType=VARCHAR},
+      receive_man = #{receiveMan,jdbcType=VARCHAR},
+      receive_time = #{receiveTime,jdbcType=TIMESTAMP},
+      receive_note = #{receiveNote,jdbcType=VARCHAR},
+    </trim>
+  </insert>
+  <insert id="insertOrUpdateSelective" keyColumn="id" keyProperty="id" parameterType="com.ruoyi.oms.domain.OmsOrderReturnApply" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into oms_order_return_apply
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="orderId != null">
+        order_id,
+      </if>
+      <if test="companyAddressId != null">
+        company_address_id,
+      </if>
+      <if test="productId != null">
+        product_id,
+      </if>
+      <if test="orderSn != null">
+        order_sn,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="memberUsername != null">
+        member_username,
+      </if>
+      <if test="returnAmount != null">
+        return_amount,
+      </if>
+      <if test="returnName != null">
+        return_name,
+      </if>
+      <if test="returnPhone != null">
+        return_phone,
+      </if>
+      <if test="status != null">
+        `status`,
+      </if>
+      <if test="handleTime != null">
+        handle_time,
+      </if>
+      <if test="productPic != null">
+        product_pic,
+      </if>
+      <if test="productName != null">
+        product_name,
+      </if>
+      <if test="productBrand != null">
+        product_brand,
+      </if>
+      <if test="productAttr != null">
+        product_attr,
+      </if>
+      <if test="productCount != null">
+        product_count,
+      </if>
+      <if test="productPrice != null">
+        product_price,
+      </if>
+      <if test="productRealPrice != null">
+        product_real_price,
+      </if>
+      <if test="reason != null">
+        reason,
+      </if>
+      <if test="description != null">
+        description,
+      </if>
+      <if test="proofPics != null">
+        proof_pics,
+      </if>
+      <if test="handleNote != null">
+        handle_note,
+      </if>
+      <if test="handleMan != null">
+        handle_man,
+      </if>
+      <if test="receiveMan != null">
+        receive_man,
+      </if>
+      <if test="receiveTime != null">
+        receive_time,
+      </if>
+      <if test="receiveNote != null">
+        receive_note,
+      </if>
+    </trim>
+    values
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="orderId != null">
+        #{orderId,jdbcType=BIGINT},
+      </if>
+      <if test="companyAddressId != null">
+        #{companyAddressId,jdbcType=BIGINT},
+      </if>
+      <if test="productId != null">
+        #{productId,jdbcType=BIGINT},
+      </if>
+      <if test="orderSn != null">
+        #{orderSn,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="memberUsername != null">
+        #{memberUsername,jdbcType=VARCHAR},
+      </if>
+      <if test="returnAmount != null">
+        #{returnAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="returnName != null">
+        #{returnName,jdbcType=VARCHAR},
+      </if>
+      <if test="returnPhone != null">
+        #{returnPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="handleTime != null">
+        #{handleTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="productPic != null">
+        #{productPic,jdbcType=VARCHAR},
+      </if>
+      <if test="productName != null">
+        #{productName,jdbcType=VARCHAR},
+      </if>
+      <if test="productBrand != null">
+        #{productBrand,jdbcType=VARCHAR},
+      </if>
+      <if test="productAttr != null">
+        #{productAttr,jdbcType=VARCHAR},
+      </if>
+      <if test="productCount != null">
+        #{productCount,jdbcType=INTEGER},
+      </if>
+      <if test="productPrice != null">
+        #{productPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="productRealPrice != null">
+        #{productRealPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="reason != null">
+        #{reason,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null">
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="proofPics != null">
+        #{proofPics,jdbcType=VARCHAR},
+      </if>
+      <if test="handleNote != null">
+        #{handleNote,jdbcType=VARCHAR},
+      </if>
+      <if test="handleMan != null">
+        #{handleMan,jdbcType=VARCHAR},
+      </if>
+      <if test="receiveMan != null">
+        #{receiveMan,jdbcType=VARCHAR},
+      </if>
+      <if test="receiveTime != null">
+        #{receiveTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="receiveNote != null">
+        #{receiveNote,jdbcType=VARCHAR},
+      </if>
+    </trim>
+    on duplicate key update 
+    <trim suffixOverrides=",">
+      <if test="id != null">
+        id = #{id,jdbcType=BIGINT},
+      </if>
+      <if test="orderId != null">
+        order_id = #{orderId,jdbcType=BIGINT},
+      </if>
+      <if test="companyAddressId != null">
+        company_address_id = #{companyAddressId,jdbcType=BIGINT},
+      </if>
+      <if test="productId != null">
+        product_id = #{productId,jdbcType=BIGINT},
+      </if>
+      <if test="orderSn != null">
+        order_sn = #{orderSn,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="memberUsername != null">
+        member_username = #{memberUsername,jdbcType=VARCHAR},
+      </if>
+      <if test="returnAmount != null">
+        return_amount = #{returnAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="returnName != null">
+        return_name = #{returnName,jdbcType=VARCHAR},
+      </if>
+      <if test="returnPhone != null">
+        return_phone = #{returnPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        `status` = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="handleTime != null">
+        handle_time = #{handleTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="productPic != null">
+        product_pic = #{productPic,jdbcType=VARCHAR},
+      </if>
+      <if test="productName != null">
+        product_name = #{productName,jdbcType=VARCHAR},
+      </if>
+      <if test="productBrand != null">
+        product_brand = #{productBrand,jdbcType=VARCHAR},
+      </if>
+      <if test="productAttr != null">
+        product_attr = #{productAttr,jdbcType=VARCHAR},
+      </if>
+      <if test="productCount != null">
+        product_count = #{productCount,jdbcType=INTEGER},
+      </if>
+      <if test="productPrice != null">
+        product_price = #{productPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="productRealPrice != null">
+        product_real_price = #{productRealPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="reason != null">
+        reason = #{reason,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null">
+        description = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="proofPics != null">
+        proof_pics = #{proofPics,jdbcType=VARCHAR},
+      </if>
+      <if test="handleNote != null">
+        handle_note = #{handleNote,jdbcType=VARCHAR},
+      </if>
+      <if test="handleMan != null">
+        handle_man = #{handleMan,jdbcType=VARCHAR},
+      </if>
+      <if test="receiveMan != null">
+        receive_man = #{receiveMan,jdbcType=VARCHAR},
+      </if>
+      <if test="receiveTime != null">
+        receive_time = #{receiveTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="receiveNote != null">
+        receive_note = #{receiveNote,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

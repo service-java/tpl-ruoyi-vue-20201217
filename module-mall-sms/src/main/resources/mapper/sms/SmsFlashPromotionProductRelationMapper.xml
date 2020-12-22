@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.sms.mapper.SmsFlashPromotionProductRelationMapper">
+  <resultMap id="BaseResultMap" type="com.ruoyi.sms.domain.SmsFlashPromotionProductRelation">
+    <!--@mbg.generated-->
+    <!--@Table sms_flash_promotion_product_relation-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="flash_promotion_id" jdbcType="BIGINT" property="flashPromotionId" />
+    <result column="flash_promotion_session_id" jdbcType="BIGINT" property="flashPromotionSessionId" />
+    <result column="product_id" jdbcType="BIGINT" property="productId" />
+    <result column="flash_promotion_price" jdbcType="DECIMAL" property="flashPromotionPrice" />
+    <result column="flash_promotion_count" jdbcType="INTEGER" property="flashPromotionCount" />
+    <result column="flash_promotion_limit" jdbcType="INTEGER" property="flashPromotionLimit" />
+    <result column="sort" jdbcType="INTEGER" property="sort" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, flash_promotion_id, flash_promotion_session_id, product_id, flash_promotion_price, 
+    flash_promotion_count, flash_promotion_limit, sort
+  </sql>
+  <update id="updateBatch" parameterType="java.util.List">
+    <!--@mbg.generated-->
+    update sms_flash_promotion_product_relation
+    <trim prefix="set" suffixOverrides=",">
+      <trim prefix="flash_promotion_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.flashPromotionId,jdbcType=BIGINT}
+        </foreach>
+      </trim>
+      <trim prefix="flash_promotion_session_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.flashPromotionSessionId,jdbcType=BIGINT}
+        </foreach>
+      </trim>
+      <trim prefix="product_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.productId,jdbcType=BIGINT}
+        </foreach>
+      </trim>
+      <trim prefix="flash_promotion_price = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.flashPromotionPrice,jdbcType=DECIMAL}
+        </foreach>
+      </trim>
+      <trim prefix="flash_promotion_count = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.flashPromotionCount,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="flash_promotion_limit = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.flashPromotionLimit,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="sort = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.sort,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+    </trim>
+    where id in
+    <foreach close=")" collection="list" item="item" open="(" separator=", ">
+      #{item.id,jdbcType=BIGINT}
+    </foreach>
+  </update>
+  <update id="updateBatchSelective" parameterType="java.util.List">
+    <!--@mbg.generated-->
+    update sms_flash_promotion_product_relation
+    <trim prefix="set" suffixOverrides=",">
+      <trim prefix="flash_promotion_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.flashPromotionId != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.flashPromotionId,jdbcType=BIGINT}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="flash_promotion_session_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.flashPromotionSessionId != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.flashPromotionSessionId,jdbcType=BIGINT}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="product_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.productId != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.productId,jdbcType=BIGINT}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="flash_promotion_price = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.flashPromotionPrice != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.flashPromotionPrice,jdbcType=DECIMAL}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="flash_promotion_count = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.flashPromotionCount != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.flashPromotionCount,jdbcType=INTEGER}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="flash_promotion_limit = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.flashPromotionLimit != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.flashPromotionLimit,jdbcType=INTEGER}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="sort = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.sort != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.sort,jdbcType=INTEGER}
+          </if>
+        </foreach>
+      </trim>
+    </trim>
+    where id in
+    <foreach close=")" collection="list" item="item" open="(" separator=", ">
+      #{item.id,jdbcType=BIGINT}
+    </foreach>
+  </update>
+  <insert id="batchInsert" keyColumn="id" keyProperty="id" parameterType="map" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into sms_flash_promotion_product_relation
+    (flash_promotion_id, flash_promotion_session_id, product_id, flash_promotion_price, 
+      flash_promotion_count, flash_promotion_limit, sort)
+    values
+    <foreach collection="list" item="item" separator=",">
+      (#{item.flashPromotionId,jdbcType=BIGINT}, #{item.flashPromotionSessionId,jdbcType=BIGINT}, 
+        #{item.productId,jdbcType=BIGINT}, #{item.flashPromotionPrice,jdbcType=DECIMAL}, 
+        #{item.flashPromotionCount,jdbcType=INTEGER}, #{item.flashPromotionLimit,jdbcType=INTEGER}, 
+        #{item.sort,jdbcType=INTEGER})
+    </foreach>
+  </insert>
+  <insert id="insertOrUpdate" keyColumn="id" keyProperty="id" parameterType="com.ruoyi.sms.domain.SmsFlashPromotionProductRelation" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into sms_flash_promotion_product_relation
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      flash_promotion_id,
+      flash_promotion_session_id,
+      product_id,
+      flash_promotion_price,
+      flash_promotion_count,
+      flash_promotion_limit,
+      sort,
+    </trim>
+    values
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      #{flashPromotionId,jdbcType=BIGINT},
+      #{flashPromotionSessionId,jdbcType=BIGINT},
+      #{productId,jdbcType=BIGINT},
+      #{flashPromotionPrice,jdbcType=DECIMAL},
+      #{flashPromotionCount,jdbcType=INTEGER},
+      #{flashPromotionLimit,jdbcType=INTEGER},
+      #{sort,jdbcType=INTEGER},
+    </trim>
+    on duplicate key update 
+    <trim suffixOverrides=",">
+      <if test="id != null">
+        id = #{id,jdbcType=BIGINT},
+      </if>
+      flash_promotion_id = #{flashPromotionId,jdbcType=BIGINT},
+      flash_promotion_session_id = #{flashPromotionSessionId,jdbcType=BIGINT},
+      product_id = #{productId,jdbcType=BIGINT},
+      flash_promotion_price = #{flashPromotionPrice,jdbcType=DECIMAL},
+      flash_promotion_count = #{flashPromotionCount,jdbcType=INTEGER},
+      flash_promotion_limit = #{flashPromotionLimit,jdbcType=INTEGER},
+      sort = #{sort,jdbcType=INTEGER},
+    </trim>
+  </insert>
+  <insert id="insertOrUpdateSelective" keyColumn="id" keyProperty="id" parameterType="com.ruoyi.sms.domain.SmsFlashPromotionProductRelation" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into sms_flash_promotion_product_relation
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="flashPromotionId != null">
+        flash_promotion_id,
+      </if>
+      <if test="flashPromotionSessionId != null">
+        flash_promotion_session_id,
+      </if>
+      <if test="productId != null">
+        product_id,
+      </if>
+      <if test="flashPromotionPrice != null">
+        flash_promotion_price,
+      </if>
+      <if test="flashPromotionCount != null">
+        flash_promotion_count,
+      </if>
+      <if test="flashPromotionLimit != null">
+        flash_promotion_limit,
+      </if>
+      <if test="sort != null">
+        sort,
+      </if>
+    </trim>
+    values
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="flashPromotionId != null">
+        #{flashPromotionId,jdbcType=BIGINT},
+      </if>
+      <if test="flashPromotionSessionId != null">
+        #{flashPromotionSessionId,jdbcType=BIGINT},
+      </if>
+      <if test="productId != null">
+        #{productId,jdbcType=BIGINT},
+      </if>
+      <if test="flashPromotionPrice != null">
+        #{flashPromotionPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="flashPromotionCount != null">
+        #{flashPromotionCount,jdbcType=INTEGER},
+      </if>
+      <if test="flashPromotionLimit != null">
+        #{flashPromotionLimit,jdbcType=INTEGER},
+      </if>
+      <if test="sort != null">
+        #{sort,jdbcType=INTEGER},
+      </if>
+    </trim>
+    on duplicate key update 
+    <trim suffixOverrides=",">
+      <if test="id != null">
+        id = #{id,jdbcType=BIGINT},
+      </if>
+      <if test="flashPromotionId != null">
+        flash_promotion_id = #{flashPromotionId,jdbcType=BIGINT},
+      </if>
+      <if test="flashPromotionSessionId != null">
+        flash_promotion_session_id = #{flashPromotionSessionId,jdbcType=BIGINT},
+      </if>
+      <if test="productId != null">
+        product_id = #{productId,jdbcType=BIGINT},
+      </if>
+      <if test="flashPromotionPrice != null">
+        flash_promotion_price = #{flashPromotionPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="flashPromotionCount != null">
+        flash_promotion_count = #{flashPromotionCount,jdbcType=INTEGER},
+      </if>
+      <if test="flashPromotionLimit != null">
+        flash_promotion_limit = #{flashPromotionLimit,jdbcType=INTEGER},
+      </if>
+      <if test="sort != null">
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

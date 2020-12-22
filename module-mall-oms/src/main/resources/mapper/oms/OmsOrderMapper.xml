@@ -1,0 +1,1189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.oms.mapper.OmsOrderMapper">
+  <resultMap id="BaseResultMap" type="com.ruoyi.oms.domain.OmsOrder">
+    <!--@mbg.generated-->
+    <!--@Table oms_order-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="member_id" jdbcType="BIGINT" property="memberId" />
+    <result column="coupon_id" jdbcType="BIGINT" property="couponId" />
+    <result column="order_sn" jdbcType="VARCHAR" property="orderSn" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="member_username" jdbcType="VARCHAR" property="memberUsername" />
+    <result column="total_amount" jdbcType="DECIMAL" property="totalAmount" />
+    <result column="pay_amount" jdbcType="DECIMAL" property="payAmount" />
+    <result column="freight_amount" jdbcType="DECIMAL" property="freightAmount" />
+    <result column="promotion_amount" jdbcType="DECIMAL" property="promotionAmount" />
+    <result column="integration_amount" jdbcType="DECIMAL" property="integrationAmount" />
+    <result column="coupon_amount" jdbcType="DECIMAL" property="couponAmount" />
+    <result column="discount_amount" jdbcType="DECIMAL" property="discountAmount" />
+    <result column="pay_type" jdbcType="INTEGER" property="payType" />
+    <result column="source_type" jdbcType="INTEGER" property="sourceType" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="order_type" jdbcType="INTEGER" property="orderType" />
+    <result column="delivery_company" jdbcType="VARCHAR" property="deliveryCompany" />
+    <result column="delivery_sn" jdbcType="VARCHAR" property="deliverySn" />
+    <result column="auto_confirm_day" jdbcType="INTEGER" property="autoConfirmDay" />
+    <result column="integration" jdbcType="INTEGER" property="integration" />
+    <result column="growth" jdbcType="INTEGER" property="growth" />
+    <result column="promotion_info" jdbcType="VARCHAR" property="promotionInfo" />
+    <result column="bill_type" jdbcType="INTEGER" property="billType" />
+    <result column="bill_header" jdbcType="VARCHAR" property="billHeader" />
+    <result column="bill_content" jdbcType="VARCHAR" property="billContent" />
+    <result column="bill_receiver_phone" jdbcType="VARCHAR" property="billReceiverPhone" />
+    <result column="bill_receiver_email" jdbcType="VARCHAR" property="billReceiverEmail" />
+    <result column="receiver_name" jdbcType="VARCHAR" property="receiverName" />
+    <result column="receiver_phone" jdbcType="VARCHAR" property="receiverPhone" />
+    <result column="receiver_post_code" jdbcType="VARCHAR" property="receiverPostCode" />
+    <result column="receiver_province" jdbcType="VARCHAR" property="receiverProvince" />
+    <result column="receiver_city" jdbcType="VARCHAR" property="receiverCity" />
+    <result column="receiver_region" jdbcType="VARCHAR" property="receiverRegion" />
+    <result column="receiver_detail_address" jdbcType="VARCHAR" property="receiverDetailAddress" />
+    <result column="note" jdbcType="VARCHAR" property="note" />
+    <result column="confirm_status" jdbcType="INTEGER" property="confirmStatus" />
+    <result column="delete_status" jdbcType="INTEGER" property="deleteStatus" />
+    <result column="use_integration" jdbcType="INTEGER" property="useIntegration" />
+    <result column="payment_time" jdbcType="TIMESTAMP" property="paymentTime" />
+    <result column="delivery_time" jdbcType="TIMESTAMP" property="deliveryTime" />
+    <result column="receive_time" jdbcType="TIMESTAMP" property="receiveTime" />
+    <result column="comment_time" jdbcType="TIMESTAMP" property="commentTime" />
+    <result column="modify_time" jdbcType="TIMESTAMP" property="modifyTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, member_id, coupon_id, order_sn, create_time, member_username, total_amount, pay_amount, 
+    freight_amount, promotion_amount, integration_amount, coupon_amount, discount_amount, 
+    pay_type, source_type, `status`, order_type, delivery_company, delivery_sn, auto_confirm_day, 
+    integration, growth, promotion_info, bill_type, bill_header, bill_content, bill_receiver_phone, 
+    bill_receiver_email, receiver_name, receiver_phone, receiver_post_code, receiver_province, 
+    receiver_city, receiver_region, receiver_detail_address, note, confirm_status, delete_status, 
+    use_integration, payment_time, delivery_time, receive_time, comment_time, modify_time
+  </sql>
+  <update id="updateBatch" parameterType="java.util.List">
+    <!--@mbg.generated-->
+    update oms_order
+    <trim prefix="set" suffixOverrides=",">
+      <trim prefix="member_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.memberId,jdbcType=BIGINT}
+        </foreach>
+      </trim>
+      <trim prefix="coupon_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.couponId,jdbcType=BIGINT}
+        </foreach>
+      </trim>
+      <trim prefix="order_sn = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.orderSn,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="create_time = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.createTime,jdbcType=TIMESTAMP}
+        </foreach>
+      </trim>
+      <trim prefix="member_username = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.memberUsername,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="total_amount = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.totalAmount,jdbcType=DECIMAL}
+        </foreach>
+      </trim>
+      <trim prefix="pay_amount = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.payAmount,jdbcType=DECIMAL}
+        </foreach>
+      </trim>
+      <trim prefix="freight_amount = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.freightAmount,jdbcType=DECIMAL}
+        </foreach>
+      </trim>
+      <trim prefix="promotion_amount = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.promotionAmount,jdbcType=DECIMAL}
+        </foreach>
+      </trim>
+      <trim prefix="integration_amount = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.integrationAmount,jdbcType=DECIMAL}
+        </foreach>
+      </trim>
+      <trim prefix="coupon_amount = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.couponAmount,jdbcType=DECIMAL}
+        </foreach>
+      </trim>
+      <trim prefix="discount_amount = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.discountAmount,jdbcType=DECIMAL}
+        </foreach>
+      </trim>
+      <trim prefix="pay_type = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.payType,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="source_type = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.sourceType,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="`status` = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.status,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="order_type = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.orderType,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="delivery_company = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.deliveryCompany,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="delivery_sn = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.deliverySn,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="auto_confirm_day = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.autoConfirmDay,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="integration = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.integration,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="growth = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.growth,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="promotion_info = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.promotionInfo,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="bill_type = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.billType,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="bill_header = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.billHeader,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="bill_content = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.billContent,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="bill_receiver_phone = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.billReceiverPhone,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="bill_receiver_email = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.billReceiverEmail,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="receiver_name = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.receiverName,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="receiver_phone = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.receiverPhone,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="receiver_post_code = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.receiverPostCode,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="receiver_province = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.receiverProvince,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="receiver_city = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.receiverCity,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="receiver_region = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.receiverRegion,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="receiver_detail_address = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.receiverDetailAddress,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="note = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.note,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="confirm_status = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.confirmStatus,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="delete_status = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.deleteStatus,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="use_integration = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.useIntegration,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="payment_time = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.paymentTime,jdbcType=TIMESTAMP}
+        </foreach>
+      </trim>
+      <trim prefix="delivery_time = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.deliveryTime,jdbcType=TIMESTAMP}
+        </foreach>
+      </trim>
+      <trim prefix="receive_time = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.receiveTime,jdbcType=TIMESTAMP}
+        </foreach>
+      </trim>
+      <trim prefix="comment_time = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.commentTime,jdbcType=TIMESTAMP}
+        </foreach>
+      </trim>
+      <trim prefix="modify_time = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.modifyTime,jdbcType=TIMESTAMP}
+        </foreach>
+      </trim>
+    </trim>
+    where id in
+    <foreach close=")" collection="list" item="item" open="(" separator=", ">
+      #{item.id,jdbcType=BIGINT}
+    </foreach>
+  </update>
+  <update id="updateBatchSelective" parameterType="java.util.List">
+    <!--@mbg.generated-->
+    update oms_order
+    <trim prefix="set" suffixOverrides=",">
+      <trim prefix="member_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.memberId != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.memberId,jdbcType=BIGINT}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="coupon_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.couponId != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.couponId,jdbcType=BIGINT}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="order_sn = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.orderSn != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.orderSn,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="create_time = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.createTime != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.createTime,jdbcType=TIMESTAMP}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="member_username = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.memberUsername != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.memberUsername,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="total_amount = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.totalAmount != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.totalAmount,jdbcType=DECIMAL}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="pay_amount = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.payAmount != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.payAmount,jdbcType=DECIMAL}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="freight_amount = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.freightAmount != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.freightAmount,jdbcType=DECIMAL}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="promotion_amount = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.promotionAmount != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.promotionAmount,jdbcType=DECIMAL}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="integration_amount = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.integrationAmount != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.integrationAmount,jdbcType=DECIMAL}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="coupon_amount = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.couponAmount != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.couponAmount,jdbcType=DECIMAL}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="discount_amount = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.discountAmount != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.discountAmount,jdbcType=DECIMAL}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="pay_type = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.payType != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.payType,jdbcType=INTEGER}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="source_type = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.sourceType != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.sourceType,jdbcType=INTEGER}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="`status` = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.status != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.status,jdbcType=INTEGER}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="order_type = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.orderType != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.orderType,jdbcType=INTEGER}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="delivery_company = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.deliveryCompany != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.deliveryCompany,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="delivery_sn = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.deliverySn != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.deliverySn,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="auto_confirm_day = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.autoConfirmDay != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.autoConfirmDay,jdbcType=INTEGER}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="integration = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.integration != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.integration,jdbcType=INTEGER}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="growth = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.growth != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.growth,jdbcType=INTEGER}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="promotion_info = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.promotionInfo != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.promotionInfo,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="bill_type = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.billType != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.billType,jdbcType=INTEGER}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="bill_header = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.billHeader != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.billHeader,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="bill_content = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.billContent != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.billContent,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="bill_receiver_phone = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.billReceiverPhone != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.billReceiverPhone,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="bill_receiver_email = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.billReceiverEmail != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.billReceiverEmail,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="receiver_name = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.receiverName != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.receiverName,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="receiver_phone = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.receiverPhone != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.receiverPhone,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="receiver_post_code = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.receiverPostCode != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.receiverPostCode,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="receiver_province = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.receiverProvince != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.receiverProvince,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="receiver_city = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.receiverCity != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.receiverCity,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="receiver_region = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.receiverRegion != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.receiverRegion,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="receiver_detail_address = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.receiverDetailAddress != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.receiverDetailAddress,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="note = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.note != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.note,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="confirm_status = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.confirmStatus != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.confirmStatus,jdbcType=INTEGER}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="delete_status = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.deleteStatus != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.deleteStatus,jdbcType=INTEGER}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="use_integration = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.useIntegration != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.useIntegration,jdbcType=INTEGER}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="payment_time = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.paymentTime != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.paymentTime,jdbcType=TIMESTAMP}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="delivery_time = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.deliveryTime != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.deliveryTime,jdbcType=TIMESTAMP}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="receive_time = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.receiveTime != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.receiveTime,jdbcType=TIMESTAMP}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="comment_time = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.commentTime != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.commentTime,jdbcType=TIMESTAMP}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="modify_time = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.modifyTime != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.modifyTime,jdbcType=TIMESTAMP}
+          </if>
+        </foreach>
+      </trim>
+    </trim>
+    where id in
+    <foreach close=")" collection="list" item="item" open="(" separator=", ">
+      #{item.id,jdbcType=BIGINT}
+    </foreach>
+  </update>
+  <insert id="batchInsert" keyColumn="id" keyProperty="id" parameterType="map" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into oms_order
+    (member_id, coupon_id, order_sn, create_time, member_username, total_amount, pay_amount, 
+      freight_amount, promotion_amount, integration_amount, coupon_amount, discount_amount, 
+      pay_type, source_type, `status`, order_type, delivery_company, delivery_sn, auto_confirm_day, 
+      integration, growth, promotion_info, bill_type, bill_header, bill_content, bill_receiver_phone, 
+      bill_receiver_email, receiver_name, receiver_phone, receiver_post_code, receiver_province, 
+      receiver_city, receiver_region, receiver_detail_address, note, confirm_status, 
+      delete_status, use_integration, payment_time, delivery_time, receive_time, comment_time, 
+      modify_time)
+    values
+    <foreach collection="list" item="item" separator=",">
+      (#{item.memberId,jdbcType=BIGINT}, #{item.couponId,jdbcType=BIGINT}, #{item.orderSn,jdbcType=VARCHAR}, 
+        #{item.createTime,jdbcType=TIMESTAMP}, #{item.memberUsername,jdbcType=VARCHAR}, 
+        #{item.totalAmount,jdbcType=DECIMAL}, #{item.payAmount,jdbcType=DECIMAL}, #{item.freightAmount,jdbcType=DECIMAL}, 
+        #{item.promotionAmount,jdbcType=DECIMAL}, #{item.integrationAmount,jdbcType=DECIMAL}, 
+        #{item.couponAmount,jdbcType=DECIMAL}, #{item.discountAmount,jdbcType=DECIMAL}, 
+        #{item.payType,jdbcType=INTEGER}, #{item.sourceType,jdbcType=INTEGER}, #{item.status,jdbcType=INTEGER}, 
+        #{item.orderType,jdbcType=INTEGER}, #{item.deliveryCompany,jdbcType=VARCHAR}, #{item.deliverySn,jdbcType=VARCHAR}, 
+        #{item.autoConfirmDay,jdbcType=INTEGER}, #{item.integration,jdbcType=INTEGER}, 
+        #{item.growth,jdbcType=INTEGER}, #{item.promotionInfo,jdbcType=VARCHAR}, #{item.billType,jdbcType=INTEGER}, 
+        #{item.billHeader,jdbcType=VARCHAR}, #{item.billContent,jdbcType=VARCHAR}, #{item.billReceiverPhone,jdbcType=VARCHAR}, 
+        #{item.billReceiverEmail,jdbcType=VARCHAR}, #{item.receiverName,jdbcType=VARCHAR}, 
+        #{item.receiverPhone,jdbcType=VARCHAR}, #{item.receiverPostCode,jdbcType=VARCHAR}, 
+        #{item.receiverProvince,jdbcType=VARCHAR}, #{item.receiverCity,jdbcType=VARCHAR}, 
+        #{item.receiverRegion,jdbcType=VARCHAR}, #{item.receiverDetailAddress,jdbcType=VARCHAR}, 
+        #{item.note,jdbcType=VARCHAR}, #{item.confirmStatus,jdbcType=INTEGER}, #{item.deleteStatus,jdbcType=INTEGER}, 
+        #{item.useIntegration,jdbcType=INTEGER}, #{item.paymentTime,jdbcType=TIMESTAMP}, 
+        #{item.deliveryTime,jdbcType=TIMESTAMP}, #{item.receiveTime,jdbcType=TIMESTAMP}, 
+        #{item.commentTime,jdbcType=TIMESTAMP}, #{item.modifyTime,jdbcType=TIMESTAMP})
+    </foreach>
+  </insert>
+  <insert id="insertOrUpdate" keyColumn="id" keyProperty="id" parameterType="com.ruoyi.oms.domain.OmsOrder" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into oms_order
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      member_id,
+      coupon_id,
+      order_sn,
+      create_time,
+      member_username,
+      total_amount,
+      pay_amount,
+      freight_amount,
+      promotion_amount,
+      integration_amount,
+      coupon_amount,
+      discount_amount,
+      pay_type,
+      source_type,
+      `status`,
+      order_type,
+      delivery_company,
+      delivery_sn,
+      auto_confirm_day,
+      integration,
+      growth,
+      promotion_info,
+      bill_type,
+      bill_header,
+      bill_content,
+      bill_receiver_phone,
+      bill_receiver_email,
+      receiver_name,
+      receiver_phone,
+      receiver_post_code,
+      receiver_province,
+      receiver_city,
+      receiver_region,
+      receiver_detail_address,
+      note,
+      confirm_status,
+      delete_status,
+      use_integration,
+      payment_time,
+      delivery_time,
+      receive_time,
+      comment_time,
+      modify_time,
+    </trim>
+    values
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      #{memberId,jdbcType=BIGINT},
+      #{couponId,jdbcType=BIGINT},
+      #{orderSn,jdbcType=VARCHAR},
+      #{createTime,jdbcType=TIMESTAMP},
+      #{memberUsername,jdbcType=VARCHAR},
+      #{totalAmount,jdbcType=DECIMAL},
+      #{payAmount,jdbcType=DECIMAL},
+      #{freightAmount,jdbcType=DECIMAL},
+      #{promotionAmount,jdbcType=DECIMAL},
+      #{integrationAmount,jdbcType=DECIMAL},
+      #{couponAmount,jdbcType=DECIMAL},
+      #{discountAmount,jdbcType=DECIMAL},
+      #{payType,jdbcType=INTEGER},
+      #{sourceType,jdbcType=INTEGER},
+      #{status,jdbcType=INTEGER},
+      #{orderType,jdbcType=INTEGER},
+      #{deliveryCompany,jdbcType=VARCHAR},
+      #{deliverySn,jdbcType=VARCHAR},
+      #{autoConfirmDay,jdbcType=INTEGER},
+      #{integration,jdbcType=INTEGER},
+      #{growth,jdbcType=INTEGER},
+      #{promotionInfo,jdbcType=VARCHAR},
+      #{billType,jdbcType=INTEGER},
+      #{billHeader,jdbcType=VARCHAR},
+      #{billContent,jdbcType=VARCHAR},
+      #{billReceiverPhone,jdbcType=VARCHAR},
+      #{billReceiverEmail,jdbcType=VARCHAR},
+      #{receiverName,jdbcType=VARCHAR},
+      #{receiverPhone,jdbcType=VARCHAR},
+      #{receiverPostCode,jdbcType=VARCHAR},
+      #{receiverProvince,jdbcType=VARCHAR},
+      #{receiverCity,jdbcType=VARCHAR},
+      #{receiverRegion,jdbcType=VARCHAR},
+      #{receiverDetailAddress,jdbcType=VARCHAR},
+      #{note,jdbcType=VARCHAR},
+      #{confirmStatus,jdbcType=INTEGER},
+      #{deleteStatus,jdbcType=INTEGER},
+      #{useIntegration,jdbcType=INTEGER},
+      #{paymentTime,jdbcType=TIMESTAMP},
+      #{deliveryTime,jdbcType=TIMESTAMP},
+      #{receiveTime,jdbcType=TIMESTAMP},
+      #{commentTime,jdbcType=TIMESTAMP},
+      #{modifyTime,jdbcType=TIMESTAMP},
+    </trim>
+    on duplicate key update 
+    <trim suffixOverrides=",">
+      <if test="id != null">
+        id = #{id,jdbcType=BIGINT},
+      </if>
+      member_id = #{memberId,jdbcType=BIGINT},
+      coupon_id = #{couponId,jdbcType=BIGINT},
+      order_sn = #{orderSn,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      member_username = #{memberUsername,jdbcType=VARCHAR},
+      total_amount = #{totalAmount,jdbcType=DECIMAL},
+      pay_amount = #{payAmount,jdbcType=DECIMAL},
+      freight_amount = #{freightAmount,jdbcType=DECIMAL},
+      promotion_amount = #{promotionAmount,jdbcType=DECIMAL},
+      integration_amount = #{integrationAmount,jdbcType=DECIMAL},
+      coupon_amount = #{couponAmount,jdbcType=DECIMAL},
+      discount_amount = #{discountAmount,jdbcType=DECIMAL},
+      pay_type = #{payType,jdbcType=INTEGER},
+      source_type = #{sourceType,jdbcType=INTEGER},
+      `status` = #{status,jdbcType=INTEGER},
+      order_type = #{orderType,jdbcType=INTEGER},
+      delivery_company = #{deliveryCompany,jdbcType=VARCHAR},
+      delivery_sn = #{deliverySn,jdbcType=VARCHAR},
+      auto_confirm_day = #{autoConfirmDay,jdbcType=INTEGER},
+      integration = #{integration,jdbcType=INTEGER},
+      growth = #{growth,jdbcType=INTEGER},
+      promotion_info = #{promotionInfo,jdbcType=VARCHAR},
+      bill_type = #{billType,jdbcType=INTEGER},
+      bill_header = #{billHeader,jdbcType=VARCHAR},
+      bill_content = #{billContent,jdbcType=VARCHAR},
+      bill_receiver_phone = #{billReceiverPhone,jdbcType=VARCHAR},
+      bill_receiver_email = #{billReceiverEmail,jdbcType=VARCHAR},
+      receiver_name = #{receiverName,jdbcType=VARCHAR},
+      receiver_phone = #{receiverPhone,jdbcType=VARCHAR},
+      receiver_post_code = #{receiverPostCode,jdbcType=VARCHAR},
+      receiver_province = #{receiverProvince,jdbcType=VARCHAR},
+      receiver_city = #{receiverCity,jdbcType=VARCHAR},
+      receiver_region = #{receiverRegion,jdbcType=VARCHAR},
+      receiver_detail_address = #{receiverDetailAddress,jdbcType=VARCHAR},
+      note = #{note,jdbcType=VARCHAR},
+      confirm_status = #{confirmStatus,jdbcType=INTEGER},
+      delete_status = #{deleteStatus,jdbcType=INTEGER},
+      use_integration = #{useIntegration,jdbcType=INTEGER},
+      payment_time = #{paymentTime,jdbcType=TIMESTAMP},
+      delivery_time = #{deliveryTime,jdbcType=TIMESTAMP},
+      receive_time = #{receiveTime,jdbcType=TIMESTAMP},
+      comment_time = #{commentTime,jdbcType=TIMESTAMP},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+    </trim>
+  </insert>
+  <insert id="insertOrUpdateSelective" keyColumn="id" keyProperty="id" parameterType="com.ruoyi.oms.domain.OmsOrder" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into oms_order
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="memberId != null">
+        member_id,
+      </if>
+      <if test="couponId != null">
+        coupon_id,
+      </if>
+      <if test="orderSn != null">
+        order_sn,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="memberUsername != null">
+        member_username,
+      </if>
+      <if test="totalAmount != null">
+        total_amount,
+      </if>
+      <if test="payAmount != null">
+        pay_amount,
+      </if>
+      <if test="freightAmount != null">
+        freight_amount,
+      </if>
+      <if test="promotionAmount != null">
+        promotion_amount,
+      </if>
+      <if test="integrationAmount != null">
+        integration_amount,
+      </if>
+      <if test="couponAmount != null">
+        coupon_amount,
+      </if>
+      <if test="discountAmount != null">
+        discount_amount,
+      </if>
+      <if test="payType != null">
+        pay_type,
+      </if>
+      <if test="sourceType != null">
+        source_type,
+      </if>
+      <if test="status != null">
+        `status`,
+      </if>
+      <if test="orderType != null">
+        order_type,
+      </if>
+      <if test="deliveryCompany != null">
+        delivery_company,
+      </if>
+      <if test="deliverySn != null">
+        delivery_sn,
+      </if>
+      <if test="autoConfirmDay != null">
+        auto_confirm_day,
+      </if>
+      <if test="integration != null">
+        integration,
+      </if>
+      <if test="growth != null">
+        growth,
+      </if>
+      <if test="promotionInfo != null">
+        promotion_info,
+      </if>
+      <if test="billType != null">
+        bill_type,
+      </if>
+      <if test="billHeader != null">
+        bill_header,
+      </if>
+      <if test="billContent != null">
+        bill_content,
+      </if>
+      <if test="billReceiverPhone != null">
+        bill_receiver_phone,
+      </if>
+      <if test="billReceiverEmail != null">
+        bill_receiver_email,
+      </if>
+      <if test="receiverName != null">
+        receiver_name,
+      </if>
+      <if test="receiverPhone != null">
+        receiver_phone,
+      </if>
+      <if test="receiverPostCode != null">
+        receiver_post_code,
+      </if>
+      <if test="receiverProvince != null">
+        receiver_province,
+      </if>
+      <if test="receiverCity != null">
+        receiver_city,
+      </if>
+      <if test="receiverRegion != null">
+        receiver_region,
+      </if>
+      <if test="receiverDetailAddress != null">
+        receiver_detail_address,
+      </if>
+      <if test="note != null">
+        note,
+      </if>
+      <if test="confirmStatus != null">
+        confirm_status,
+      </if>
+      <if test="deleteStatus != null">
+        delete_status,
+      </if>
+      <if test="useIntegration != null">
+        use_integration,
+      </if>
+      <if test="paymentTime != null">
+        payment_time,
+      </if>
+      <if test="deliveryTime != null">
+        delivery_time,
+      </if>
+      <if test="receiveTime != null">
+        receive_time,
+      </if>
+      <if test="commentTime != null">
+        comment_time,
+      </if>
+      <if test="modifyTime != null">
+        modify_time,
+      </if>
+    </trim>
+    values
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="memberId != null">
+        #{memberId,jdbcType=BIGINT},
+      </if>
+      <if test="couponId != null">
+        #{couponId,jdbcType=BIGINT},
+      </if>
+      <if test="orderSn != null">
+        #{orderSn,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="memberUsername != null">
+        #{memberUsername,jdbcType=VARCHAR},
+      </if>
+      <if test="totalAmount != null">
+        #{totalAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="payAmount != null">
+        #{payAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="freightAmount != null">
+        #{freightAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="promotionAmount != null">
+        #{promotionAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="integrationAmount != null">
+        #{integrationAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="couponAmount != null">
+        #{couponAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="discountAmount != null">
+        #{discountAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="payType != null">
+        #{payType,jdbcType=INTEGER},
+      </if>
+      <if test="sourceType != null">
+        #{sourceType,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="orderType != null">
+        #{orderType,jdbcType=INTEGER},
+      </if>
+      <if test="deliveryCompany != null">
+        #{deliveryCompany,jdbcType=VARCHAR},
+      </if>
+      <if test="deliverySn != null">
+        #{deliverySn,jdbcType=VARCHAR},
+      </if>
+      <if test="autoConfirmDay != null">
+        #{autoConfirmDay,jdbcType=INTEGER},
+      </if>
+      <if test="integration != null">
+        #{integration,jdbcType=INTEGER},
+      </if>
+      <if test="growth != null">
+        #{growth,jdbcType=INTEGER},
+      </if>
+      <if test="promotionInfo != null">
+        #{promotionInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="billType != null">
+        #{billType,jdbcType=INTEGER},
+      </if>
+      <if test="billHeader != null">
+        #{billHeader,jdbcType=VARCHAR},
+      </if>
+      <if test="billContent != null">
+        #{billContent,jdbcType=VARCHAR},
+      </if>
+      <if test="billReceiverPhone != null">
+        #{billReceiverPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="billReceiverEmail != null">
+        #{billReceiverEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="receiverName != null">
+        #{receiverName,jdbcType=VARCHAR},
+      </if>
+      <if test="receiverPhone != null">
+        #{receiverPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="receiverPostCode != null">
+        #{receiverPostCode,jdbcType=VARCHAR},
+      </if>
+      <if test="receiverProvince != null">
+        #{receiverProvince,jdbcType=VARCHAR},
+      </if>
+      <if test="receiverCity != null">
+        #{receiverCity,jdbcType=VARCHAR},
+      </if>
+      <if test="receiverRegion != null">
+        #{receiverRegion,jdbcType=VARCHAR},
+      </if>
+      <if test="receiverDetailAddress != null">
+        #{receiverDetailAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="note != null">
+        #{note,jdbcType=VARCHAR},
+      </if>
+      <if test="confirmStatus != null">
+        #{confirmStatus,jdbcType=INTEGER},
+      </if>
+      <if test="deleteStatus != null">
+        #{deleteStatus,jdbcType=INTEGER},
+      </if>
+      <if test="useIntegration != null">
+        #{useIntegration,jdbcType=INTEGER},
+      </if>
+      <if test="paymentTime != null">
+        #{paymentTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deliveryTime != null">
+        #{deliveryTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="receiveTime != null">
+        #{receiveTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="commentTime != null">
+        #{commentTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyTime != null">
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+    on duplicate key update 
+    <trim suffixOverrides=",">
+      <if test="id != null">
+        id = #{id,jdbcType=BIGINT},
+      </if>
+      <if test="memberId != null">
+        member_id = #{memberId,jdbcType=BIGINT},
+      </if>
+      <if test="couponId != null">
+        coupon_id = #{couponId,jdbcType=BIGINT},
+      </if>
+      <if test="orderSn != null">
+        order_sn = #{orderSn,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="memberUsername != null">
+        member_username = #{memberUsername,jdbcType=VARCHAR},
+      </if>
+      <if test="totalAmount != null">
+        total_amount = #{totalAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="payAmount != null">
+        pay_amount = #{payAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="freightAmount != null">
+        freight_amount = #{freightAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="promotionAmount != null">
+        promotion_amount = #{promotionAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="integrationAmount != null">
+        integration_amount = #{integrationAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="couponAmount != null">
+        coupon_amount = #{couponAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="discountAmount != null">
+        discount_amount = #{discountAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="payType != null">
+        pay_type = #{payType,jdbcType=INTEGER},
+      </if>
+      <if test="sourceType != null">
+        source_type = #{sourceType,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        `status` = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="orderType != null">
+        order_type = #{orderType,jdbcType=INTEGER},
+      </if>
+      <if test="deliveryCompany != null">
+        delivery_company = #{deliveryCompany,jdbcType=VARCHAR},
+      </if>
+      <if test="deliverySn != null">
+        delivery_sn = #{deliverySn,jdbcType=VARCHAR},
+      </if>
+      <if test="autoConfirmDay != null">
+        auto_confirm_day = #{autoConfirmDay,jdbcType=INTEGER},
+      </if>
+      <if test="integration != null">
+        integration = #{integration,jdbcType=INTEGER},
+      </if>
+      <if test="growth != null">
+        growth = #{growth,jdbcType=INTEGER},
+      </if>
+      <if test="promotionInfo != null">
+        promotion_info = #{promotionInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="billType != null">
+        bill_type = #{billType,jdbcType=INTEGER},
+      </if>
+      <if test="billHeader != null">
+        bill_header = #{billHeader,jdbcType=VARCHAR},
+      </if>
+      <if test="billContent != null">
+        bill_content = #{billContent,jdbcType=VARCHAR},
+      </if>
+      <if test="billReceiverPhone != null">
+        bill_receiver_phone = #{billReceiverPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="billReceiverEmail != null">
+        bill_receiver_email = #{billReceiverEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="receiverName != null">
+        receiver_name = #{receiverName,jdbcType=VARCHAR},
+      </if>
+      <if test="receiverPhone != null">
+        receiver_phone = #{receiverPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="receiverPostCode != null">
+        receiver_post_code = #{receiverPostCode,jdbcType=VARCHAR},
+      </if>
+      <if test="receiverProvince != null">
+        receiver_province = #{receiverProvince,jdbcType=VARCHAR},
+      </if>
+      <if test="receiverCity != null">
+        receiver_city = #{receiverCity,jdbcType=VARCHAR},
+      </if>
+      <if test="receiverRegion != null">
+        receiver_region = #{receiverRegion,jdbcType=VARCHAR},
+      </if>
+      <if test="receiverDetailAddress != null">
+        receiver_detail_address = #{receiverDetailAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="note != null">
+        note = #{note,jdbcType=VARCHAR},
+      </if>
+      <if test="confirmStatus != null">
+        confirm_status = #{confirmStatus,jdbcType=INTEGER},
+      </if>
+      <if test="deleteStatus != null">
+        delete_status = #{deleteStatus,jdbcType=INTEGER},
+      </if>
+      <if test="useIntegration != null">
+        use_integration = #{useIntegration,jdbcType=INTEGER},
+      </if>
+      <if test="paymentTime != null">
+        payment_time = #{paymentTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deliveryTime != null">
+        delivery_time = #{deliveryTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="receiveTime != null">
+        receive_time = #{receiveTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="commentTime != null">
+        comment_time = #{commentTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyTime != null">
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

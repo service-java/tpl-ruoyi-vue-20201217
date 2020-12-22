@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.ums.mapper.UmsIntegrationConsumeSettingMapper">
+  <resultMap id="BaseResultMap" type="com.ruoyi.ums.domain.UmsIntegrationConsumeSetting">
+    <!--@mbg.generated-->
+    <!--@Table ums_integration_consume_setting-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="deduction_per_amount" jdbcType="INTEGER" property="deductionPerAmount" />
+    <result column="max_percent_per_order" jdbcType="INTEGER" property="maxPercentPerOrder" />
+    <result column="use_unit" jdbcType="INTEGER" property="useUnit" />
+    <result column="coupon_status" jdbcType="INTEGER" property="couponStatus" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, deduction_per_amount, max_percent_per_order, use_unit, coupon_status
+  </sql>
+  <update id="updateBatch" parameterType="java.util.List">
+    <!--@mbg.generated-->
+    update ums_integration_consume_setting
+    <trim prefix="set" suffixOverrides=",">
+      <trim prefix="deduction_per_amount = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.deductionPerAmount,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="max_percent_per_order = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.maxPercentPerOrder,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="use_unit = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.useUnit,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="coupon_status = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.couponStatus,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+    </trim>
+    where id in
+    <foreach close=")" collection="list" item="item" open="(" separator=", ">
+      #{item.id,jdbcType=BIGINT}
+    </foreach>
+  </update>
+  <update id="updateBatchSelective" parameterType="java.util.List">
+    <!--@mbg.generated-->
+    update ums_integration_consume_setting
+    <trim prefix="set" suffixOverrides=",">
+      <trim prefix="deduction_per_amount = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.deductionPerAmount != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.deductionPerAmount,jdbcType=INTEGER}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="max_percent_per_order = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.maxPercentPerOrder != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.maxPercentPerOrder,jdbcType=INTEGER}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="use_unit = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.useUnit != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.useUnit,jdbcType=INTEGER}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="coupon_status = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.couponStatus != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.couponStatus,jdbcType=INTEGER}
+          </if>
+        </foreach>
+      </trim>
+    </trim>
+    where id in
+    <foreach close=")" collection="list" item="item" open="(" separator=", ">
+      #{item.id,jdbcType=BIGINT}
+    </foreach>
+  </update>
+  <insert id="batchInsert" keyColumn="id" keyProperty="id" parameterType="map" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into ums_integration_consume_setting
+    (deduction_per_amount, max_percent_per_order, use_unit, coupon_status)
+    values
+    <foreach collection="list" item="item" separator=",">
+      (#{item.deductionPerAmount,jdbcType=INTEGER}, #{item.maxPercentPerOrder,jdbcType=INTEGER}, 
+        #{item.useUnit,jdbcType=INTEGER}, #{item.couponStatus,jdbcType=INTEGER})
+    </foreach>
+  </insert>
+  <insert id="insertOrUpdate" keyColumn="id" keyProperty="id" parameterType="com.ruoyi.ums.domain.UmsIntegrationConsumeSetting" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into ums_integration_consume_setting
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      deduction_per_amount,
+      max_percent_per_order,
+      use_unit,
+      coupon_status,
+    </trim>
+    values
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      #{deductionPerAmount,jdbcType=INTEGER},
+      #{maxPercentPerOrder,jdbcType=INTEGER},
+      #{useUnit,jdbcType=INTEGER},
+      #{couponStatus,jdbcType=INTEGER},
+    </trim>
+    on duplicate key update 
+    <trim suffixOverrides=",">
+      <if test="id != null">
+        id = #{id,jdbcType=BIGINT},
+      </if>
+      deduction_per_amount = #{deductionPerAmount,jdbcType=INTEGER},
+      max_percent_per_order = #{maxPercentPerOrder,jdbcType=INTEGER},
+      use_unit = #{useUnit,jdbcType=INTEGER},
+      coupon_status = #{couponStatus,jdbcType=INTEGER},
+    </trim>
+  </insert>
+  <insert id="insertOrUpdateSelective" keyColumn="id" keyProperty="id" parameterType="com.ruoyi.ums.domain.UmsIntegrationConsumeSetting" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into ums_integration_consume_setting
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="deductionPerAmount != null">
+        deduction_per_amount,
+      </if>
+      <if test="maxPercentPerOrder != null">
+        max_percent_per_order,
+      </if>
+      <if test="useUnit != null">
+        use_unit,
+      </if>
+      <if test="couponStatus != null">
+        coupon_status,
+      </if>
+    </trim>
+    values
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="deductionPerAmount != null">
+        #{deductionPerAmount,jdbcType=INTEGER},
+      </if>
+      <if test="maxPercentPerOrder != null">
+        #{maxPercentPerOrder,jdbcType=INTEGER},
+      </if>
+      <if test="useUnit != null">
+        #{useUnit,jdbcType=INTEGER},
+      </if>
+      <if test="couponStatus != null">
+        #{couponStatus,jdbcType=INTEGER},
+      </if>
+    </trim>
+    on duplicate key update 
+    <trim suffixOverrides=",">
+      <if test="id != null">
+        id = #{id,jdbcType=BIGINT},
+      </if>
+      <if test="deductionPerAmount != null">
+        deduction_per_amount = #{deductionPerAmount,jdbcType=INTEGER},
+      </if>
+      <if test="maxPercentPerOrder != null">
+        max_percent_per_order = #{maxPercentPerOrder,jdbcType=INTEGER},
+      </if>
+      <if test="useUnit != null">
+        use_unit = #{useUnit,jdbcType=INTEGER},
+      </if>
+      <if test="couponStatus != null">
+        coupon_status = #{couponStatus,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

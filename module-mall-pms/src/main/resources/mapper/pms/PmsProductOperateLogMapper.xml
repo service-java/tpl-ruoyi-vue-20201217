@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.pms.mapper.PmsProductOperateLogMapper">
+  <resultMap id="BaseResultMap" type="com.ruoyi.pms.domain.PmsProductOperateLog">
+    <!--@mbg.generated-->
+    <!--@Table pms_product_operate_log-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="product_id" jdbcType="BIGINT" property="productId" />
+    <result column="price_old" jdbcType="DECIMAL" property="priceOld" />
+    <result column="price_new" jdbcType="DECIMAL" property="priceNew" />
+    <result column="sale_price_old" jdbcType="DECIMAL" property="salePriceOld" />
+    <result column="sale_price_new" jdbcType="DECIMAL" property="salePriceNew" />
+    <result column="gift_point_old" jdbcType="INTEGER" property="giftPointOld" />
+    <result column="gift_point_new" jdbcType="INTEGER" property="giftPointNew" />
+    <result column="use_point_limit_old" jdbcType="INTEGER" property="usePointLimitOld" />
+    <result column="use_point_limit_new" jdbcType="INTEGER" property="usePointLimitNew" />
+    <result column="operate_man" jdbcType="VARCHAR" property="operateMan" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, product_id, price_old, price_new, sale_price_old, sale_price_new, gift_point_old, 
+    gift_point_new, use_point_limit_old, use_point_limit_new, operate_man, create_time
+  </sql>
+  <update id="updateBatch" parameterType="java.util.List">
+    <!--@mbg.generated-->
+    update pms_product_operate_log
+    <trim prefix="set" suffixOverrides=",">
+      <trim prefix="product_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.productId,jdbcType=BIGINT}
+        </foreach>
+      </trim>
+      <trim prefix="price_old = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.priceOld,jdbcType=DECIMAL}
+        </foreach>
+      </trim>
+      <trim prefix="price_new = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.priceNew,jdbcType=DECIMAL}
+        </foreach>
+      </trim>
+      <trim prefix="sale_price_old = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.salePriceOld,jdbcType=DECIMAL}
+        </foreach>
+      </trim>
+      <trim prefix="sale_price_new = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.salePriceNew,jdbcType=DECIMAL}
+        </foreach>
+      </trim>
+      <trim prefix="gift_point_old = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.giftPointOld,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="gift_point_new = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.giftPointNew,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="use_point_limit_old = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.usePointLimitOld,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="use_point_limit_new = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.usePointLimitNew,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="operate_man = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.operateMan,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="create_time = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.createTime,jdbcType=TIMESTAMP}
+        </foreach>
+      </trim>
+    </trim>
+    where id in
+    <foreach close=")" collection="list" item="item" open="(" separator=", ">
+      #{item.id,jdbcType=BIGINT}
+    </foreach>
+  </update>
+  <update id="updateBatchSelective" parameterType="java.util.List">
+    <!--@mbg.generated-->
+    update pms_product_operate_log
+    <trim prefix="set" suffixOverrides=",">
+      <trim prefix="product_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.productId != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.productId,jdbcType=BIGINT}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="price_old = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.priceOld != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.priceOld,jdbcType=DECIMAL}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="price_new = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.priceNew != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.priceNew,jdbcType=DECIMAL}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="sale_price_old = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.salePriceOld != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.salePriceOld,jdbcType=DECIMAL}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="sale_price_new = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.salePriceNew != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.salePriceNew,jdbcType=DECIMAL}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="gift_point_old = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.giftPointOld != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.giftPointOld,jdbcType=INTEGER}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="gift_point_new = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.giftPointNew != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.giftPointNew,jdbcType=INTEGER}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="use_point_limit_old = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.usePointLimitOld != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.usePointLimitOld,jdbcType=INTEGER}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="use_point_limit_new = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.usePointLimitNew != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.usePointLimitNew,jdbcType=INTEGER}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="operate_man = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.operateMan != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.operateMan,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="create_time = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.createTime != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.createTime,jdbcType=TIMESTAMP}
+          </if>
+        </foreach>
+      </trim>
+    </trim>
+    where id in
+    <foreach close=")" collection="list" item="item" open="(" separator=", ">
+      #{item.id,jdbcType=BIGINT}
+    </foreach>
+  </update>
+  <insert id="batchInsert" keyColumn="id" keyProperty="id" parameterType="map" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into pms_product_operate_log
+    (product_id, price_old, price_new, sale_price_old, sale_price_new, gift_point_old, 
+      gift_point_new, use_point_limit_old, use_point_limit_new, operate_man, create_time
+      )
+    values
+    <foreach collection="list" item="item" separator=",">
+      (#{item.productId,jdbcType=BIGINT}, #{item.priceOld,jdbcType=DECIMAL}, #{item.priceNew,jdbcType=DECIMAL}, 
+        #{item.salePriceOld,jdbcType=DECIMAL}, #{item.salePriceNew,jdbcType=DECIMAL}, #{item.giftPointOld,jdbcType=INTEGER}, 
+        #{item.giftPointNew,jdbcType=INTEGER}, #{item.usePointLimitOld,jdbcType=INTEGER}, 
+        #{item.usePointLimitNew,jdbcType=INTEGER}, #{item.operateMan,jdbcType=VARCHAR}, 
+        #{item.createTime,jdbcType=TIMESTAMP})
+    </foreach>
+  </insert>
+  <insert id="insertOrUpdate" keyColumn="id" keyProperty="id" parameterType="com.ruoyi.pms.domain.PmsProductOperateLog" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into pms_product_operate_log
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      product_id,
+      price_old,
+      price_new,
+      sale_price_old,
+      sale_price_new,
+      gift_point_old,
+      gift_point_new,
+      use_point_limit_old,
+      use_point_limit_new,
+      operate_man,
+      create_time,
+    </trim>
+    values
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      #{productId,jdbcType=BIGINT},
+      #{priceOld,jdbcType=DECIMAL},
+      #{priceNew,jdbcType=DECIMAL},
+      #{salePriceOld,jdbcType=DECIMAL},
+      #{salePriceNew,jdbcType=DECIMAL},
+      #{giftPointOld,jdbcType=INTEGER},
+      #{giftPointNew,jdbcType=INTEGER},
+      #{usePointLimitOld,jdbcType=INTEGER},
+      #{usePointLimitNew,jdbcType=INTEGER},
+      #{operateMan,jdbcType=VARCHAR},
+      #{createTime,jdbcType=TIMESTAMP},
+    </trim>
+    on duplicate key update 
+    <trim suffixOverrides=",">
+      <if test="id != null">
+        id = #{id,jdbcType=BIGINT},
+      </if>
+      product_id = #{productId,jdbcType=BIGINT},
+      price_old = #{priceOld,jdbcType=DECIMAL},
+      price_new = #{priceNew,jdbcType=DECIMAL},
+      sale_price_old = #{salePriceOld,jdbcType=DECIMAL},
+      sale_price_new = #{salePriceNew,jdbcType=DECIMAL},
+      gift_point_old = #{giftPointOld,jdbcType=INTEGER},
+      gift_point_new = #{giftPointNew,jdbcType=INTEGER},
+      use_point_limit_old = #{usePointLimitOld,jdbcType=INTEGER},
+      use_point_limit_new = #{usePointLimitNew,jdbcType=INTEGER},
+      operate_man = #{operateMan,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+    </trim>
+  </insert>
+  <insert id="insertOrUpdateSelective" keyColumn="id" keyProperty="id" parameterType="com.ruoyi.pms.domain.PmsProductOperateLog" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into pms_product_operate_log
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="productId != null">
+        product_id,
+      </if>
+      <if test="priceOld != null">
+        price_old,
+      </if>
+      <if test="priceNew != null">
+        price_new,
+      </if>
+      <if test="salePriceOld != null">
+        sale_price_old,
+      </if>
+      <if test="salePriceNew != null">
+        sale_price_new,
+      </if>
+      <if test="giftPointOld != null">
+        gift_point_old,
+      </if>
+      <if test="giftPointNew != null">
+        gift_point_new,
+      </if>
+      <if test="usePointLimitOld != null">
+        use_point_limit_old,
+      </if>
+      <if test="usePointLimitNew != null">
+        use_point_limit_new,
+      </if>
+      <if test="operateMan != null">
+        operate_man,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+    </trim>
+    values
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="productId != null">
+        #{productId,jdbcType=BIGINT},
+      </if>
+      <if test="priceOld != null">
+        #{priceOld,jdbcType=DECIMAL},
+      </if>
+      <if test="priceNew != null">
+        #{priceNew,jdbcType=DECIMAL},
+      </if>
+      <if test="salePriceOld != null">
+        #{salePriceOld,jdbcType=DECIMAL},
+      </if>
+      <if test="salePriceNew != null">
+        #{salePriceNew,jdbcType=DECIMAL},
+      </if>
+      <if test="giftPointOld != null">
+        #{giftPointOld,jdbcType=INTEGER},
+      </if>
+      <if test="giftPointNew != null">
+        #{giftPointNew,jdbcType=INTEGER},
+      </if>
+      <if test="usePointLimitOld != null">
+        #{usePointLimitOld,jdbcType=INTEGER},
+      </if>
+      <if test="usePointLimitNew != null">
+        #{usePointLimitNew,jdbcType=INTEGER},
+      </if>
+      <if test="operateMan != null">
+        #{operateMan,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+    on duplicate key update 
+    <trim suffixOverrides=",">
+      <if test="id != null">
+        id = #{id,jdbcType=BIGINT},
+      </if>
+      <if test="productId != null">
+        product_id = #{productId,jdbcType=BIGINT},
+      </if>
+      <if test="priceOld != null">
+        price_old = #{priceOld,jdbcType=DECIMAL},
+      </if>
+      <if test="priceNew != null">
+        price_new = #{priceNew,jdbcType=DECIMAL},
+      </if>
+      <if test="salePriceOld != null">
+        sale_price_old = #{salePriceOld,jdbcType=DECIMAL},
+      </if>
+      <if test="salePriceNew != null">
+        sale_price_new = #{salePriceNew,jdbcType=DECIMAL},
+      </if>
+      <if test="giftPointOld != null">
+        gift_point_old = #{giftPointOld,jdbcType=INTEGER},
+      </if>
+      <if test="giftPointNew != null">
+        gift_point_new = #{giftPointNew,jdbcType=INTEGER},
+      </if>
+      <if test="usePointLimitOld != null">
+        use_point_limit_old = #{usePointLimitOld,jdbcType=INTEGER},
+      </if>
+      <if test="usePointLimitNew != null">
+        use_point_limit_new = #{usePointLimitNew,jdbcType=INTEGER},
+      </if>
+      <if test="operateMan != null">
+        operate_man = #{operateMan,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

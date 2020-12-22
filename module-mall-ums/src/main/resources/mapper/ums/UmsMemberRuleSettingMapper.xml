@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.ums.mapper.UmsMemberRuleSettingMapper">
+  <resultMap id="BaseResultMap" type="com.ruoyi.ums.domain.UmsMemberRuleSetting">
+    <!--@mbg.generated-->
+    <!--@Table ums_member_rule_setting-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="continue_sign_day" jdbcType="INTEGER" property="continueSignDay" />
+    <result column="continue_sign_point" jdbcType="INTEGER" property="continueSignPoint" />
+    <result column="consume_per_point" jdbcType="DECIMAL" property="consumePerPoint" />
+    <result column="low_order_amount" jdbcType="DECIMAL" property="lowOrderAmount" />
+    <result column="max_point_per_order" jdbcType="INTEGER" property="maxPointPerOrder" />
+    <result column="type" jdbcType="INTEGER" property="type" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, continue_sign_day, continue_sign_point, consume_per_point, low_order_amount, 
+    max_point_per_order, `type`
+  </sql>
+  <update id="updateBatch" parameterType="java.util.List">
+    <!--@mbg.generated-->
+    update ums_member_rule_setting
+    <trim prefix="set" suffixOverrides=",">
+      <trim prefix="continue_sign_day = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.continueSignDay,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="continue_sign_point = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.continueSignPoint,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="consume_per_point = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.consumePerPoint,jdbcType=DECIMAL}
+        </foreach>
+      </trim>
+      <trim prefix="low_order_amount = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.lowOrderAmount,jdbcType=DECIMAL}
+        </foreach>
+      </trim>
+      <trim prefix="max_point_per_order = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.maxPointPerOrder,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="`type` = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.type,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+    </trim>
+    where id in
+    <foreach close=")" collection="list" item="item" open="(" separator=", ">
+      #{item.id,jdbcType=BIGINT}
+    </foreach>
+  </update>
+  <update id="updateBatchSelective" parameterType="java.util.List">
+    <!--@mbg.generated-->
+    update ums_member_rule_setting
+    <trim prefix="set" suffixOverrides=",">
+      <trim prefix="continue_sign_day = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.continueSignDay != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.continueSignDay,jdbcType=INTEGER}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="continue_sign_point = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.continueSignPoint != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.continueSignPoint,jdbcType=INTEGER}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="consume_per_point = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.consumePerPoint != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.consumePerPoint,jdbcType=DECIMAL}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="low_order_amount = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.lowOrderAmount != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.lowOrderAmount,jdbcType=DECIMAL}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="max_point_per_order = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.maxPointPerOrder != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.maxPointPerOrder,jdbcType=INTEGER}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="`type` = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.type != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.type,jdbcType=INTEGER}
+          </if>
+        </foreach>
+      </trim>
+    </trim>
+    where id in
+    <foreach close=")" collection="list" item="item" open="(" separator=", ">
+      #{item.id,jdbcType=BIGINT}
+    </foreach>
+  </update>
+  <insert id="batchInsert" keyColumn="id" keyProperty="id" parameterType="map" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into ums_member_rule_setting
+    (continue_sign_day, continue_sign_point, consume_per_point, low_order_amount, max_point_per_order, 
+      `type`)
+    values
+    <foreach collection="list" item="item" separator=",">
+      (#{item.continueSignDay,jdbcType=INTEGER}, #{item.continueSignPoint,jdbcType=INTEGER}, 
+        #{item.consumePerPoint,jdbcType=DECIMAL}, #{item.lowOrderAmount,jdbcType=DECIMAL}, 
+        #{item.maxPointPerOrder,jdbcType=INTEGER}, #{item.type,jdbcType=INTEGER})
+    </foreach>
+  </insert>
+  <insert id="insertOrUpdate" keyColumn="id" keyProperty="id" parameterType="com.ruoyi.ums.domain.UmsMemberRuleSetting" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into ums_member_rule_setting
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      continue_sign_day,
+      continue_sign_point,
+      consume_per_point,
+      low_order_amount,
+      max_point_per_order,
+      `type`,
+    </trim>
+    values
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      #{continueSignDay,jdbcType=INTEGER},
+      #{continueSignPoint,jdbcType=INTEGER},
+      #{consumePerPoint,jdbcType=DECIMAL},
+      #{lowOrderAmount,jdbcType=DECIMAL},
+      #{maxPointPerOrder,jdbcType=INTEGER},
+      #{type,jdbcType=INTEGER},
+    </trim>
+    on duplicate key update 
+    <trim suffixOverrides=",">
+      <if test="id != null">
+        id = #{id,jdbcType=BIGINT},
+      </if>
+      continue_sign_day = #{continueSignDay,jdbcType=INTEGER},
+      continue_sign_point = #{continueSignPoint,jdbcType=INTEGER},
+      consume_per_point = #{consumePerPoint,jdbcType=DECIMAL},
+      low_order_amount = #{lowOrderAmount,jdbcType=DECIMAL},
+      max_point_per_order = #{maxPointPerOrder,jdbcType=INTEGER},
+      `type` = #{type,jdbcType=INTEGER},
+    </trim>
+  </insert>
+  <insert id="insertOrUpdateSelective" keyColumn="id" keyProperty="id" parameterType="com.ruoyi.ums.domain.UmsMemberRuleSetting" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into ums_member_rule_setting
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="continueSignDay != null">
+        continue_sign_day,
+      </if>
+      <if test="continueSignPoint != null">
+        continue_sign_point,
+      </if>
+      <if test="consumePerPoint != null">
+        consume_per_point,
+      </if>
+      <if test="lowOrderAmount != null">
+        low_order_amount,
+      </if>
+      <if test="maxPointPerOrder != null">
+        max_point_per_order,
+      </if>
+      <if test="type != null">
+        `type`,
+      </if>
+    </trim>
+    values
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="continueSignDay != null">
+        #{continueSignDay,jdbcType=INTEGER},
+      </if>
+      <if test="continueSignPoint != null">
+        #{continueSignPoint,jdbcType=INTEGER},
+      </if>
+      <if test="consumePerPoint != null">
+        #{consumePerPoint,jdbcType=DECIMAL},
+      </if>
+      <if test="lowOrderAmount != null">
+        #{lowOrderAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="maxPointPerOrder != null">
+        #{maxPointPerOrder,jdbcType=INTEGER},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=INTEGER},
+      </if>
+    </trim>
+    on duplicate key update 
+    <trim suffixOverrides=",">
+      <if test="id != null">
+        id = #{id,jdbcType=BIGINT},
+      </if>
+      <if test="continueSignDay != null">
+        continue_sign_day = #{continueSignDay,jdbcType=INTEGER},
+      </if>
+      <if test="continueSignPoint != null">
+        continue_sign_point = #{continueSignPoint,jdbcType=INTEGER},
+      </if>
+      <if test="consumePerPoint != null">
+        consume_per_point = #{consumePerPoint,jdbcType=DECIMAL},
+      </if>
+      <if test="lowOrderAmount != null">
+        low_order_amount = #{lowOrderAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="maxPointPerOrder != null">
+        max_point_per_order = #{maxPointPerOrder,jdbcType=INTEGER},
+      </if>
+      <if test="type != null">
+        `type` = #{type,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

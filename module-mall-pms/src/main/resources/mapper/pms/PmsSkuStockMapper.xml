@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.pms.mapper.PmsSkuStockMapper">
+  <resultMap id="BaseResultMap" type="com.ruoyi.pms.domain.PmsSkuStock">
+    <!--@mbg.generated-->
+    <!--@Table pms_sku_stock-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="product_id" jdbcType="BIGINT" property="productId" />
+    <result column="sku_code" jdbcType="VARCHAR" property="skuCode" />
+    <result column="price" jdbcType="DECIMAL" property="price" />
+    <result column="stock" jdbcType="INTEGER" property="stock" />
+    <result column="low_stock" jdbcType="INTEGER" property="lowStock" />
+    <result column="pic" jdbcType="VARCHAR" property="pic" />
+    <result column="sale" jdbcType="INTEGER" property="sale" />
+    <result column="promotion_price" jdbcType="DECIMAL" property="promotionPrice" />
+    <result column="lock_stock" jdbcType="INTEGER" property="lockStock" />
+    <result column="sp_data" jdbcType="VARCHAR" property="spData" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, product_id, sku_code, price, stock, low_stock, pic, sale, promotion_price, lock_stock, 
+    sp_data
+  </sql>
+  <update id="updateBatch" parameterType="java.util.List">
+    <!--@mbg.generated-->
+    update pms_sku_stock
+    <trim prefix="set" suffixOverrides=",">
+      <trim prefix="product_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.productId,jdbcType=BIGINT}
+        </foreach>
+      </trim>
+      <trim prefix="sku_code = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.skuCode,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="price = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.price,jdbcType=DECIMAL}
+        </foreach>
+      </trim>
+      <trim prefix="stock = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.stock,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="low_stock = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.lowStock,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="pic = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.pic,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="sale = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.sale,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="promotion_price = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.promotionPrice,jdbcType=DECIMAL}
+        </foreach>
+      </trim>
+      <trim prefix="lock_stock = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.lockStock,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="sp_data = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.spData,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+    </trim>
+    where id in
+    <foreach close=")" collection="list" item="item" open="(" separator=", ">
+      #{item.id,jdbcType=BIGINT}
+    </foreach>
+  </update>
+  <update id="updateBatchSelective" parameterType="java.util.List">
+    <!--@mbg.generated-->
+    update pms_sku_stock
+    <trim prefix="set" suffixOverrides=",">
+      <trim prefix="product_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.productId != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.productId,jdbcType=BIGINT}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="sku_code = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.skuCode != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.skuCode,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="price = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.price != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.price,jdbcType=DECIMAL}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="stock = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.stock != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.stock,jdbcType=INTEGER}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="low_stock = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.lowStock != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.lowStock,jdbcType=INTEGER}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="pic = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.pic != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.pic,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="sale = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.sale != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.sale,jdbcType=INTEGER}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="promotion_price = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.promotionPrice != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.promotionPrice,jdbcType=DECIMAL}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="lock_stock = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.lockStock != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.lockStock,jdbcType=INTEGER}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="sp_data = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.spData != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.spData,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+    </trim>
+    where id in
+    <foreach close=")" collection="list" item="item" open="(" separator=", ">
+      #{item.id,jdbcType=BIGINT}
+    </foreach>
+  </update>
+  <insert id="batchInsert" keyColumn="id" keyProperty="id" parameterType="map" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into pms_sku_stock
+    (product_id, sku_code, price, stock, low_stock, pic, sale, promotion_price, lock_stock, 
+      sp_data)
+    values
+    <foreach collection="list" item="item" separator=",">
+      (#{item.productId,jdbcType=BIGINT}, #{item.skuCode,jdbcType=VARCHAR}, #{item.price,jdbcType=DECIMAL}, 
+        #{item.stock,jdbcType=INTEGER}, #{item.lowStock,jdbcType=INTEGER}, #{item.pic,jdbcType=VARCHAR}, 
+        #{item.sale,jdbcType=INTEGER}, #{item.promotionPrice,jdbcType=DECIMAL}, #{item.lockStock,jdbcType=INTEGER}, 
+        #{item.spData,jdbcType=VARCHAR})
+    </foreach>
+  </insert>
+  <insert id="insertOrUpdate" keyColumn="id" keyProperty="id" parameterType="com.ruoyi.pms.domain.PmsSkuStock" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into pms_sku_stock
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      product_id,
+      sku_code,
+      price,
+      stock,
+      low_stock,
+      pic,
+      sale,
+      promotion_price,
+      lock_stock,
+      sp_data,
+    </trim>
+    values
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      #{productId,jdbcType=BIGINT},
+      #{skuCode,jdbcType=VARCHAR},
+      #{price,jdbcType=DECIMAL},
+      #{stock,jdbcType=INTEGER},
+      #{lowStock,jdbcType=INTEGER},
+      #{pic,jdbcType=VARCHAR},
+      #{sale,jdbcType=INTEGER},
+      #{promotionPrice,jdbcType=DECIMAL},
+      #{lockStock,jdbcType=INTEGER},
+      #{spData,jdbcType=VARCHAR},
+    </trim>
+    on duplicate key update 
+    <trim suffixOverrides=",">
+      <if test="id != null">
+        id = #{id,jdbcType=BIGINT},
+      </if>
+      product_id = #{productId,jdbcType=BIGINT},
+      sku_code = #{skuCode,jdbcType=VARCHAR},
+      price = #{price,jdbcType=DECIMAL},
+      stock = #{stock,jdbcType=INTEGER},
+      low_stock = #{lowStock,jdbcType=INTEGER},
+      pic = #{pic,jdbcType=VARCHAR},
+      sale = #{sale,jdbcType=INTEGER},
+      promotion_price = #{promotionPrice,jdbcType=DECIMAL},
+      lock_stock = #{lockStock,jdbcType=INTEGER},
+      sp_data = #{spData,jdbcType=VARCHAR},
+    </trim>
+  </insert>
+  <insert id="insertOrUpdateSelective" keyColumn="id" keyProperty="id" parameterType="com.ruoyi.pms.domain.PmsSkuStock" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into pms_sku_stock
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="productId != null">
+        product_id,
+      </if>
+      <if test="skuCode != null">
+        sku_code,
+      </if>
+      <if test="price != null">
+        price,
+      </if>
+      <if test="stock != null">
+        stock,
+      </if>
+      <if test="lowStock != null">
+        low_stock,
+      </if>
+      <if test="pic != null">
+        pic,
+      </if>
+      <if test="sale != null">
+        sale,
+      </if>
+      <if test="promotionPrice != null">
+        promotion_price,
+      </if>
+      <if test="lockStock != null">
+        lock_stock,
+      </if>
+      <if test="spData != null">
+        sp_data,
+      </if>
+    </trim>
+    values
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="productId != null">
+        #{productId,jdbcType=BIGINT},
+      </if>
+      <if test="skuCode != null">
+        #{skuCode,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null">
+        #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="stock != null">
+        #{stock,jdbcType=INTEGER},
+      </if>
+      <if test="lowStock != null">
+        #{lowStock,jdbcType=INTEGER},
+      </if>
+      <if test="pic != null">
+        #{pic,jdbcType=VARCHAR},
+      </if>
+      <if test="sale != null">
+        #{sale,jdbcType=INTEGER},
+      </if>
+      <if test="promotionPrice != null">
+        #{promotionPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="lockStock != null">
+        #{lockStock,jdbcType=INTEGER},
+      </if>
+      <if test="spData != null">
+        #{spData,jdbcType=VARCHAR},
+      </if>
+    </trim>
+    on duplicate key update 
+    <trim suffixOverrides=",">
+      <if test="id != null">
+        id = #{id,jdbcType=BIGINT},
+      </if>
+      <if test="productId != null">
+        product_id = #{productId,jdbcType=BIGINT},
+      </if>
+      <if test="skuCode != null">
+        sku_code = #{skuCode,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null">
+        price = #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="stock != null">
+        stock = #{stock,jdbcType=INTEGER},
+      </if>
+      <if test="lowStock != null">
+        low_stock = #{lowStock,jdbcType=INTEGER},
+      </if>
+      <if test="pic != null">
+        pic = #{pic,jdbcType=VARCHAR},
+      </if>
+      <if test="sale != null">
+        sale = #{sale,jdbcType=INTEGER},
+      </if>
+      <if test="promotionPrice != null">
+        promotion_price = #{promotionPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="lockStock != null">
+        lock_stock = #{lockStock,jdbcType=INTEGER},
+      </if>
+      <if test="spData != null">
+        sp_data = #{spData,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

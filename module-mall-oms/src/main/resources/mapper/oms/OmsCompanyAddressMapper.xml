@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.oms.mapper.OmsCompanyAddressMapper">
+  <resultMap id="BaseResultMap" type="com.ruoyi.oms.domain.OmsCompanyAddress">
+    <!--@mbg.generated-->
+    <!--@Table oms_company_address-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="address_name" jdbcType="VARCHAR" property="addressName" />
+    <result column="send_status" jdbcType="INTEGER" property="sendStatus" />
+    <result column="receive_status" jdbcType="INTEGER" property="receiveStatus" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="province" jdbcType="VARCHAR" property="province" />
+    <result column="city" jdbcType="VARCHAR" property="city" />
+    <result column="region" jdbcType="VARCHAR" property="region" />
+    <result column="detail_address" jdbcType="VARCHAR" property="detailAddress" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, address_name, send_status, receive_status, `name`, phone, province, city, region, 
+    detail_address
+  </sql>
+  <update id="updateBatch" parameterType="java.util.List">
+    <!--@mbg.generated-->
+    update oms_company_address
+    <trim prefix="set" suffixOverrides=",">
+      <trim prefix="address_name = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.addressName,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="send_status = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.sendStatus,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="receive_status = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.receiveStatus,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="`name` = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.name,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="phone = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.phone,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="province = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.province,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="city = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.city,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="region = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.region,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="detail_address = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.detailAddress,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+    </trim>
+    where id in
+    <foreach close=")" collection="list" item="item" open="(" separator=", ">
+      #{item.id,jdbcType=BIGINT}
+    </foreach>
+  </update>
+  <update id="updateBatchSelective" parameterType="java.util.List">
+    <!--@mbg.generated-->
+    update oms_company_address
+    <trim prefix="set" suffixOverrides=",">
+      <trim prefix="address_name = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.addressName != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.addressName,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="send_status = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.sendStatus != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.sendStatus,jdbcType=INTEGER}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="receive_status = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.receiveStatus != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.receiveStatus,jdbcType=INTEGER}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="`name` = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.name != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.name,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="phone = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.phone != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.phone,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="province = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.province != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.province,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="city = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.city != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.city,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="region = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.region != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.region,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="detail_address = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.detailAddress != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.detailAddress,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+    </trim>
+    where id in
+    <foreach close=")" collection="list" item="item" open="(" separator=", ">
+      #{item.id,jdbcType=BIGINT}
+    </foreach>
+  </update>
+  <insert id="batchInsert" keyColumn="id" keyProperty="id" parameterType="map" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into oms_company_address
+    (address_name, send_status, receive_status, `name`, phone, province, city, region, 
+      detail_address)
+    values
+    <foreach collection="list" item="item" separator=",">
+      (#{item.addressName,jdbcType=VARCHAR}, #{item.sendStatus,jdbcType=INTEGER}, #{item.receiveStatus,jdbcType=INTEGER}, 
+        #{item.name,jdbcType=VARCHAR}, #{item.phone,jdbcType=VARCHAR}, #{item.province,jdbcType=VARCHAR}, 
+        #{item.city,jdbcType=VARCHAR}, #{item.region,jdbcType=VARCHAR}, #{item.detailAddress,jdbcType=VARCHAR}
+        )
+    </foreach>
+  </insert>
+  <insert id="insertOrUpdate" keyColumn="id" keyProperty="id" parameterType="com.ruoyi.oms.domain.OmsCompanyAddress" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into oms_company_address
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      address_name,
+      send_status,
+      receive_status,
+      `name`,
+      phone,
+      province,
+      city,
+      region,
+      detail_address,
+    </trim>
+    values
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      #{addressName,jdbcType=VARCHAR},
+      #{sendStatus,jdbcType=INTEGER},
+      #{receiveStatus,jdbcType=INTEGER},
+      #{name,jdbcType=VARCHAR},
+      #{phone,jdbcType=VARCHAR},
+      #{province,jdbcType=VARCHAR},
+      #{city,jdbcType=VARCHAR},
+      #{region,jdbcType=VARCHAR},
+      #{detailAddress,jdbcType=VARCHAR},
+    </trim>
+    on duplicate key update 
+    <trim suffixOverrides=",">
+      <if test="id != null">
+        id = #{id,jdbcType=BIGINT},
+      </if>
+      address_name = #{addressName,jdbcType=VARCHAR},
+      send_status = #{sendStatus,jdbcType=INTEGER},
+      receive_status = #{receiveStatus,jdbcType=INTEGER},
+      `name` = #{name,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      province = #{province,jdbcType=VARCHAR},
+      city = #{city,jdbcType=VARCHAR},
+      region = #{region,jdbcType=VARCHAR},
+      detail_address = #{detailAddress,jdbcType=VARCHAR},
+    </trim>
+  </insert>
+  <insert id="insertOrUpdateSelective" keyColumn="id" keyProperty="id" parameterType="com.ruoyi.oms.domain.OmsCompanyAddress" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into oms_company_address
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="addressName != null">
+        address_name,
+      </if>
+      <if test="sendStatus != null">
+        send_status,
+      </if>
+      <if test="receiveStatus != null">
+        receive_status,
+      </if>
+      <if test="name != null">
+        `name`,
+      </if>
+      <if test="phone != null">
+        phone,
+      </if>
+      <if test="province != null">
+        province,
+      </if>
+      <if test="city != null">
+        city,
+      </if>
+      <if test="region != null">
+        region,
+      </if>
+      <if test="detailAddress != null">
+        detail_address,
+      </if>
+    </trim>
+    values
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="addressName != null">
+        #{addressName,jdbcType=VARCHAR},
+      </if>
+      <if test="sendStatus != null">
+        #{sendStatus,jdbcType=INTEGER},
+      </if>
+      <if test="receiveStatus != null">
+        #{receiveStatus,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null">
+        #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null">
+        #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="region != null">
+        #{region,jdbcType=VARCHAR},
+      </if>
+      <if test="detailAddress != null">
+        #{detailAddress,jdbcType=VARCHAR},
+      </if>
+    </trim>
+    on duplicate key update 
+    <trim suffixOverrides=",">
+      <if test="id != null">
+        id = #{id,jdbcType=BIGINT},
+      </if>
+      <if test="addressName != null">
+        address_name = #{addressName,jdbcType=VARCHAR},
+      </if>
+      <if test="sendStatus != null">
+        send_status = #{sendStatus,jdbcType=INTEGER},
+      </if>
+      <if test="receiveStatus != null">
+        receive_status = #{receiveStatus,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        `name` = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null">
+        province = #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null">
+        city = #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="region != null">
+        region = #{region,jdbcType=VARCHAR},
+      </if>
+      <if test="detailAddress != null">
+        detail_address = #{detailAddress,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

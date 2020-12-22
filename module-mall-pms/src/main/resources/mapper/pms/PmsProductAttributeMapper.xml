@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.pms.mapper.PmsProductAttributeMapper">
+  <resultMap id="BaseResultMap" type="com.ruoyi.pms.domain.PmsProductAttribute">
+    <!--@mbg.generated-->
+    <!--@Table pms_product_attribute-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="product_attribute_category_id" jdbcType="BIGINT" property="productAttributeCategoryId" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="select_type" jdbcType="INTEGER" property="selectType" />
+    <result column="input_type" jdbcType="INTEGER" property="inputType" />
+    <result column="input_list" jdbcType="VARCHAR" property="inputList" />
+    <result column="sort" jdbcType="INTEGER" property="sort" />
+    <result column="filter_type" jdbcType="INTEGER" property="filterType" />
+    <result column="search_type" jdbcType="INTEGER" property="searchType" />
+    <result column="related_status" jdbcType="INTEGER" property="relatedStatus" />
+    <result column="hand_add_status" jdbcType="INTEGER" property="handAddStatus" />
+    <result column="type" jdbcType="INTEGER" property="type" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, product_attribute_category_id, `name`, select_type, input_type, input_list, sort, 
+    filter_type, search_type, related_status, hand_add_status, `type`
+  </sql>
+  <update id="updateBatch" parameterType="java.util.List">
+    <!--@mbg.generated-->
+    update pms_product_attribute
+    <trim prefix="set" suffixOverrides=",">
+      <trim prefix="product_attribute_category_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.productAttributeCategoryId,jdbcType=BIGINT}
+        </foreach>
+      </trim>
+      <trim prefix="`name` = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.name,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="select_type = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.selectType,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="input_type = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.inputType,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="input_list = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.inputList,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="sort = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.sort,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="filter_type = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.filterType,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="search_type = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.searchType,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="related_status = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.relatedStatus,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="hand_add_status = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.handAddStatus,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="`type` = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.type,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+    </trim>
+    where id in
+    <foreach close=")" collection="list" item="item" open="(" separator=", ">
+      #{item.id,jdbcType=BIGINT}
+    </foreach>
+  </update>
+  <update id="updateBatchSelective" parameterType="java.util.List">
+    <!--@mbg.generated-->
+    update pms_product_attribute
+    <trim prefix="set" suffixOverrides=",">
+      <trim prefix="product_attribute_category_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.productAttributeCategoryId != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.productAttributeCategoryId,jdbcType=BIGINT}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="`name` = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.name != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.name,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="select_type = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.selectType != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.selectType,jdbcType=INTEGER}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="input_type = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.inputType != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.inputType,jdbcType=INTEGER}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="input_list = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.inputList != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.inputList,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="sort = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.sort != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.sort,jdbcType=INTEGER}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="filter_type = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.filterType != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.filterType,jdbcType=INTEGER}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="search_type = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.searchType != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.searchType,jdbcType=INTEGER}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="related_status = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.relatedStatus != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.relatedStatus,jdbcType=INTEGER}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="hand_add_status = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.handAddStatus != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.handAddStatus,jdbcType=INTEGER}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="`type` = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.type != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.type,jdbcType=INTEGER}
+          </if>
+        </foreach>
+      </trim>
+    </trim>
+    where id in
+    <foreach close=")" collection="list" item="item" open="(" separator=", ">
+      #{item.id,jdbcType=BIGINT}
+    </foreach>
+  </update>
+  <insert id="batchInsert" keyColumn="id" keyProperty="id" parameterType="map" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into pms_product_attribute
+    (product_attribute_category_id, `name`, select_type, input_type, input_list, sort, 
+      filter_type, search_type, related_status, hand_add_status, `type`)
+    values
+    <foreach collection="list" item="item" separator=",">
+      (#{item.productAttributeCategoryId,jdbcType=BIGINT}, #{item.name,jdbcType=VARCHAR}, 
+        #{item.selectType,jdbcType=INTEGER}, #{item.inputType,jdbcType=INTEGER}, #{item.inputList,jdbcType=VARCHAR}, 
+        #{item.sort,jdbcType=INTEGER}, #{item.filterType,jdbcType=INTEGER}, #{item.searchType,jdbcType=INTEGER}, 
+        #{item.relatedStatus,jdbcType=INTEGER}, #{item.handAddStatus,jdbcType=INTEGER}, 
+        #{item.type,jdbcType=INTEGER})
+    </foreach>
+  </insert>
+  <insert id="insertOrUpdate" keyColumn="id" keyProperty="id" parameterType="com.ruoyi.pms.domain.PmsProductAttribute" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into pms_product_attribute
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      product_attribute_category_id,
+      `name`,
+      select_type,
+      input_type,
+      input_list,
+      sort,
+      filter_type,
+      search_type,
+      related_status,
+      hand_add_status,
+      `type`,
+    </trim>
+    values
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      #{productAttributeCategoryId,jdbcType=BIGINT},
+      #{name,jdbcType=VARCHAR},
+      #{selectType,jdbcType=INTEGER},
+      #{inputType,jdbcType=INTEGER},
+      #{inputList,jdbcType=VARCHAR},
+      #{sort,jdbcType=INTEGER},
+      #{filterType,jdbcType=INTEGER},
+      #{searchType,jdbcType=INTEGER},
+      #{relatedStatus,jdbcType=INTEGER},
+      #{handAddStatus,jdbcType=INTEGER},
+      #{type,jdbcType=INTEGER},
+    </trim>
+    on duplicate key update 
+    <trim suffixOverrides=",">
+      <if test="id != null">
+        id = #{id,jdbcType=BIGINT},
+      </if>
+      product_attribute_category_id = #{productAttributeCategoryId,jdbcType=BIGINT},
+      `name` = #{name,jdbcType=VARCHAR},
+      select_type = #{selectType,jdbcType=INTEGER},
+      input_type = #{inputType,jdbcType=INTEGER},
+      input_list = #{inputList,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=INTEGER},
+      filter_type = #{filterType,jdbcType=INTEGER},
+      search_type = #{searchType,jdbcType=INTEGER},
+      related_status = #{relatedStatus,jdbcType=INTEGER},
+      hand_add_status = #{handAddStatus,jdbcType=INTEGER},
+      `type` = #{type,jdbcType=INTEGER},
+    </trim>
+  </insert>
+  <insert id="insertOrUpdateSelective" keyColumn="id" keyProperty="id" parameterType="com.ruoyi.pms.domain.PmsProductAttribute" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into pms_product_attribute
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="productAttributeCategoryId != null">
+        product_attribute_category_id,
+      </if>
+      <if test="name != null">
+        `name`,
+      </if>
+      <if test="selectType != null">
+        select_type,
+      </if>
+      <if test="inputType != null">
+        input_type,
+      </if>
+      <if test="inputList != null">
+        input_list,
+      </if>
+      <if test="sort != null">
+        sort,
+      </if>
+      <if test="filterType != null">
+        filter_type,
+      </if>
+      <if test="searchType != null">
+        search_type,
+      </if>
+      <if test="relatedStatus != null">
+        related_status,
+      </if>
+      <if test="handAddStatus != null">
+        hand_add_status,
+      </if>
+      <if test="type != null">
+        `type`,
+      </if>
+    </trim>
+    values
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="productAttributeCategoryId != null">
+        #{productAttributeCategoryId,jdbcType=BIGINT},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="selectType != null">
+        #{selectType,jdbcType=INTEGER},
+      </if>
+      <if test="inputType != null">
+        #{inputType,jdbcType=INTEGER},
+      </if>
+      <if test="inputList != null">
+        #{inputList,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null">
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="filterType != null">
+        #{filterType,jdbcType=INTEGER},
+      </if>
+      <if test="searchType != null">
+        #{searchType,jdbcType=INTEGER},
+      </if>
+      <if test="relatedStatus != null">
+        #{relatedStatus,jdbcType=INTEGER},
+      </if>
+      <if test="handAddStatus != null">
+        #{handAddStatus,jdbcType=INTEGER},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=INTEGER},
+      </if>
+    </trim>
+    on duplicate key update 
+    <trim suffixOverrides=",">
+      <if test="id != null">
+        id = #{id,jdbcType=BIGINT},
+      </if>
+      <if test="productAttributeCategoryId != null">
+        product_attribute_category_id = #{productAttributeCategoryId,jdbcType=BIGINT},
+      </if>
+      <if test="name != null">
+        `name` = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="selectType != null">
+        select_type = #{selectType,jdbcType=INTEGER},
+      </if>
+      <if test="inputType != null">
+        input_type = #{inputType,jdbcType=INTEGER},
+      </if>
+      <if test="inputList != null">
+        input_list = #{inputList,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null">
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="filterType != null">
+        filter_type = #{filterType,jdbcType=INTEGER},
+      </if>
+      <if test="searchType != null">
+        search_type = #{searchType,jdbcType=INTEGER},
+      </if>
+      <if test="relatedStatus != null">
+        related_status = #{relatedStatus,jdbcType=INTEGER},
+      </if>
+      <if test="handAddStatus != null">
+        hand_add_status = #{handAddStatus,jdbcType=INTEGER},
+      </if>
+      <if test="type != null">
+        `type` = #{type,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.sms.mapper.SmsCouponProductCategoryRelationMapper">
+  <resultMap id="BaseResultMap" type="com.ruoyi.sms.domain.SmsCouponProductCategoryRelation">
+    <!--@mbg.generated-->
+    <!--@Table sms_coupon_product_category_relation-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="coupon_id" jdbcType="BIGINT" property="couponId" />
+    <result column="product_category_id" jdbcType="BIGINT" property="productCategoryId" />
+    <result column="product_category_name" jdbcType="VARCHAR" property="productCategoryName" />
+    <result column="parent_category_name" jdbcType="VARCHAR" property="parentCategoryName" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, coupon_id, product_category_id, product_category_name, parent_category_name
+  </sql>
+  <update id="updateBatch" parameterType="java.util.List">
+    <!--@mbg.generated-->
+    update sms_coupon_product_category_relation
+    <trim prefix="set" suffixOverrides=",">
+      <trim prefix="coupon_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.couponId,jdbcType=BIGINT}
+        </foreach>
+      </trim>
+      <trim prefix="product_category_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.productCategoryId,jdbcType=BIGINT}
+        </foreach>
+      </trim>
+      <trim prefix="product_category_name = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.productCategoryName,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="parent_category_name = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.parentCategoryName,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+    </trim>
+    where id in
+    <foreach close=")" collection="list" item="item" open="(" separator=", ">
+      #{item.id,jdbcType=BIGINT}
+    </foreach>
+  </update>
+  <update id="updateBatchSelective" parameterType="java.util.List">
+    <!--@mbg.generated-->
+    update sms_coupon_product_category_relation
+    <trim prefix="set" suffixOverrides=",">
+      <trim prefix="coupon_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.couponId != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.couponId,jdbcType=BIGINT}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="product_category_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.productCategoryId != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.productCategoryId,jdbcType=BIGINT}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="product_category_name = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.productCategoryName != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.productCategoryName,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="parent_category_name = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.parentCategoryName != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.parentCategoryName,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+    </trim>
+    where id in
+    <foreach close=")" collection="list" item="item" open="(" separator=", ">
+      #{item.id,jdbcType=BIGINT}
+    </foreach>
+  </update>
+  <insert id="batchInsert" keyColumn="id" keyProperty="id" parameterType="map" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into sms_coupon_product_category_relation
+    (coupon_id, product_category_id, product_category_name, parent_category_name)
+    values
+    <foreach collection="list" item="item" separator=",">
+      (#{item.couponId,jdbcType=BIGINT}, #{item.productCategoryId,jdbcType=BIGINT}, #{item.productCategoryName,jdbcType=VARCHAR}, 
+        #{item.parentCategoryName,jdbcType=VARCHAR})
+    </foreach>
+  </insert>
+  <insert id="insertOrUpdate" keyColumn="id" keyProperty="id" parameterType="com.ruoyi.sms.domain.SmsCouponProductCategoryRelation" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into sms_coupon_product_category_relation
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      coupon_id,
+      product_category_id,
+      product_category_name,
+      parent_category_name,
+    </trim>
+    values
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      #{couponId,jdbcType=BIGINT},
+      #{productCategoryId,jdbcType=BIGINT},
+      #{productCategoryName,jdbcType=VARCHAR},
+      #{parentCategoryName,jdbcType=VARCHAR},
+    </trim>
+    on duplicate key update 
+    <trim suffixOverrides=",">
+      <if test="id != null">
+        id = #{id,jdbcType=BIGINT},
+      </if>
+      coupon_id = #{couponId,jdbcType=BIGINT},
+      product_category_id = #{productCategoryId,jdbcType=BIGINT},
+      product_category_name = #{productCategoryName,jdbcType=VARCHAR},
+      parent_category_name = #{parentCategoryName,jdbcType=VARCHAR},
+    </trim>
+  </insert>
+  <insert id="insertOrUpdateSelective" keyColumn="id" keyProperty="id" parameterType="com.ruoyi.sms.domain.SmsCouponProductCategoryRelation" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into sms_coupon_product_category_relation
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="couponId != null">
+        coupon_id,
+      </if>
+      <if test="productCategoryId != null">
+        product_category_id,
+      </if>
+      <if test="productCategoryName != null">
+        product_category_name,
+      </if>
+      <if test="parentCategoryName != null">
+        parent_category_name,
+      </if>
+    </trim>
+    values
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="couponId != null">
+        #{couponId,jdbcType=BIGINT},
+      </if>
+      <if test="productCategoryId != null">
+        #{productCategoryId,jdbcType=BIGINT},
+      </if>
+      <if test="productCategoryName != null">
+        #{productCategoryName,jdbcType=VARCHAR},
+      </if>
+      <if test="parentCategoryName != null">
+        #{parentCategoryName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+    on duplicate key update 
+    <trim suffixOverrides=",">
+      <if test="id != null">
+        id = #{id,jdbcType=BIGINT},
+      </if>
+      <if test="couponId != null">
+        coupon_id = #{couponId,jdbcType=BIGINT},
+      </if>
+      <if test="productCategoryId != null">
+        product_category_id = #{productCategoryId,jdbcType=BIGINT},
+      </if>
+      <if test="productCategoryName != null">
+        product_category_name = #{productCategoryName,jdbcType=VARCHAR},
+      </if>
+      <if test="parentCategoryName != null">
+        parent_category_name = #{parentCategoryName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

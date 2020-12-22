@@ -1,0 +1,470 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.ums.mapper.UmsMemberStatisticsInfoMapper">
+  <resultMap id="BaseResultMap" type="com.ruoyi.ums.domain.UmsMemberStatisticsInfo">
+    <!--@mbg.generated-->
+    <!--@Table ums_member_statistics_info-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="member_id" jdbcType="BIGINT" property="memberId" />
+    <result column="consume_amount" jdbcType="DECIMAL" property="consumeAmount" />
+    <result column="order_count" jdbcType="INTEGER" property="orderCount" />
+    <result column="coupon_count" jdbcType="INTEGER" property="couponCount" />
+    <result column="comment_count" jdbcType="INTEGER" property="commentCount" />
+    <result column="return_order_count" jdbcType="INTEGER" property="returnOrderCount" />
+    <result column="login_count" jdbcType="INTEGER" property="loginCount" />
+    <result column="attend_count" jdbcType="INTEGER" property="attendCount" />
+    <result column="fans_count" jdbcType="INTEGER" property="fansCount" />
+    <result column="collect_product_count" jdbcType="INTEGER" property="collectProductCount" />
+    <result column="collect_subject_count" jdbcType="INTEGER" property="collectSubjectCount" />
+    <result column="collect_topic_count" jdbcType="INTEGER" property="collectTopicCount" />
+    <result column="collect_comment_count" jdbcType="INTEGER" property="collectCommentCount" />
+    <result column="invite_friend_count" jdbcType="INTEGER" property="inviteFriendCount" />
+    <result column="recent_order_time" jdbcType="TIMESTAMP" property="recentOrderTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, member_id, consume_amount, order_count, coupon_count, comment_count, return_order_count, 
+    login_count, attend_count, fans_count, collect_product_count, collect_subject_count, 
+    collect_topic_count, collect_comment_count, invite_friend_count, recent_order_time
+  </sql>
+  <update id="updateBatch" parameterType="java.util.List">
+    <!--@mbg.generated-->
+    update ums_member_statistics_info
+    <trim prefix="set" suffixOverrides=",">
+      <trim prefix="member_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.memberId,jdbcType=BIGINT}
+        </foreach>
+      </trim>
+      <trim prefix="consume_amount = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.consumeAmount,jdbcType=DECIMAL}
+        </foreach>
+      </trim>
+      <trim prefix="order_count = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.orderCount,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="coupon_count = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.couponCount,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="comment_count = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.commentCount,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="return_order_count = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.returnOrderCount,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="login_count = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.loginCount,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="attend_count = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.attendCount,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="fans_count = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.fansCount,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="collect_product_count = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.collectProductCount,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="collect_subject_count = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.collectSubjectCount,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="collect_topic_count = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.collectTopicCount,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="collect_comment_count = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.collectCommentCount,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="invite_friend_count = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.inviteFriendCount,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="recent_order_time = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.recentOrderTime,jdbcType=TIMESTAMP}
+        </foreach>
+      </trim>
+    </trim>
+    where id in
+    <foreach close=")" collection="list" item="item" open="(" separator=", ">
+      #{item.id,jdbcType=BIGINT}
+    </foreach>
+  </update>
+  <update id="updateBatchSelective" parameterType="java.util.List">
+    <!--@mbg.generated-->
+    update ums_member_statistics_info
+    <trim prefix="set" suffixOverrides=",">
+      <trim prefix="member_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.memberId != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.memberId,jdbcType=BIGINT}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="consume_amount = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.consumeAmount != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.consumeAmount,jdbcType=DECIMAL}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="order_count = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.orderCount != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.orderCount,jdbcType=INTEGER}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="coupon_count = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.couponCount != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.couponCount,jdbcType=INTEGER}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="comment_count = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.commentCount != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.commentCount,jdbcType=INTEGER}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="return_order_count = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.returnOrderCount != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.returnOrderCount,jdbcType=INTEGER}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="login_count = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.loginCount != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.loginCount,jdbcType=INTEGER}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="attend_count = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.attendCount != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.attendCount,jdbcType=INTEGER}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="fans_count = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.fansCount != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.fansCount,jdbcType=INTEGER}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="collect_product_count = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.collectProductCount != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.collectProductCount,jdbcType=INTEGER}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="collect_subject_count = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.collectSubjectCount != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.collectSubjectCount,jdbcType=INTEGER}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="collect_topic_count = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.collectTopicCount != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.collectTopicCount,jdbcType=INTEGER}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="collect_comment_count = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.collectCommentCount != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.collectCommentCount,jdbcType=INTEGER}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="invite_friend_count = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.inviteFriendCount != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.inviteFriendCount,jdbcType=INTEGER}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="recent_order_time = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.recentOrderTime != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.recentOrderTime,jdbcType=TIMESTAMP}
+          </if>
+        </foreach>
+      </trim>
+    </trim>
+    where id in
+    <foreach close=")" collection="list" item="item" open="(" separator=", ">
+      #{item.id,jdbcType=BIGINT}
+    </foreach>
+  </update>
+  <insert id="batchInsert" keyColumn="id" keyProperty="id" parameterType="map" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into ums_member_statistics_info
+    (member_id, consume_amount, order_count, coupon_count, comment_count, return_order_count, 
+      login_count, attend_count, fans_count, collect_product_count, collect_subject_count, 
+      collect_topic_count, collect_comment_count, invite_friend_count, recent_order_time
+      )
+    values
+    <foreach collection="list" item="item" separator=",">
+      (#{item.memberId,jdbcType=BIGINT}, #{item.consumeAmount,jdbcType=DECIMAL}, #{item.orderCount,jdbcType=INTEGER}, 
+        #{item.couponCount,jdbcType=INTEGER}, #{item.commentCount,jdbcType=INTEGER}, #{item.returnOrderCount,jdbcType=INTEGER}, 
+        #{item.loginCount,jdbcType=INTEGER}, #{item.attendCount,jdbcType=INTEGER}, #{item.fansCount,jdbcType=INTEGER}, 
+        #{item.collectProductCount,jdbcType=INTEGER}, #{item.collectSubjectCount,jdbcType=INTEGER}, 
+        #{item.collectTopicCount,jdbcType=INTEGER}, #{item.collectCommentCount,jdbcType=INTEGER}, 
+        #{item.inviteFriendCount,jdbcType=INTEGER}, #{item.recentOrderTime,jdbcType=TIMESTAMP}
+        )
+    </foreach>
+  </insert>
+  <insert id="insertOrUpdate" keyColumn="id" keyProperty="id" parameterType="com.ruoyi.ums.domain.UmsMemberStatisticsInfo" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into ums_member_statistics_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      member_id,
+      consume_amount,
+      order_count,
+      coupon_count,
+      comment_count,
+      return_order_count,
+      login_count,
+      attend_count,
+      fans_count,
+      collect_product_count,
+      collect_subject_count,
+      collect_topic_count,
+      collect_comment_count,
+      invite_friend_count,
+      recent_order_time,
+    </trim>
+    values
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      #{memberId,jdbcType=BIGINT},
+      #{consumeAmount,jdbcType=DECIMAL},
+      #{orderCount,jdbcType=INTEGER},
+      #{couponCount,jdbcType=INTEGER},
+      #{commentCount,jdbcType=INTEGER},
+      #{returnOrderCount,jdbcType=INTEGER},
+      #{loginCount,jdbcType=INTEGER},
+      #{attendCount,jdbcType=INTEGER},
+      #{fansCount,jdbcType=INTEGER},
+      #{collectProductCount,jdbcType=INTEGER},
+      #{collectSubjectCount,jdbcType=INTEGER},
+      #{collectTopicCount,jdbcType=INTEGER},
+      #{collectCommentCount,jdbcType=INTEGER},
+      #{inviteFriendCount,jdbcType=INTEGER},
+      #{recentOrderTime,jdbcType=TIMESTAMP},
+    </trim>
+    on duplicate key update 
+    <trim suffixOverrides=",">
+      <if test="id != null">
+        id = #{id,jdbcType=BIGINT},
+      </if>
+      member_id = #{memberId,jdbcType=BIGINT},
+      consume_amount = #{consumeAmount,jdbcType=DECIMAL},
+      order_count = #{orderCount,jdbcType=INTEGER},
+      coupon_count = #{couponCount,jdbcType=INTEGER},
+      comment_count = #{commentCount,jdbcType=INTEGER},
+      return_order_count = #{returnOrderCount,jdbcType=INTEGER},
+      login_count = #{loginCount,jdbcType=INTEGER},
+      attend_count = #{attendCount,jdbcType=INTEGER},
+      fans_count = #{fansCount,jdbcType=INTEGER},
+      collect_product_count = #{collectProductCount,jdbcType=INTEGER},
+      collect_subject_count = #{collectSubjectCount,jdbcType=INTEGER},
+      collect_topic_count = #{collectTopicCount,jdbcType=INTEGER},
+      collect_comment_count = #{collectCommentCount,jdbcType=INTEGER},
+      invite_friend_count = #{inviteFriendCount,jdbcType=INTEGER},
+      recent_order_time = #{recentOrderTime,jdbcType=TIMESTAMP},
+    </trim>
+  </insert>
+  <insert id="insertOrUpdateSelective" keyColumn="id" keyProperty="id" parameterType="com.ruoyi.ums.domain.UmsMemberStatisticsInfo" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into ums_member_statistics_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="memberId != null">
+        member_id,
+      </if>
+      <if test="consumeAmount != null">
+        consume_amount,
+      </if>
+      <if test="orderCount != null">
+        order_count,
+      </if>
+      <if test="couponCount != null">
+        coupon_count,
+      </if>
+      <if test="commentCount != null">
+        comment_count,
+      </if>
+      <if test="returnOrderCount != null">
+        return_order_count,
+      </if>
+      <if test="loginCount != null">
+        login_count,
+      </if>
+      <if test="attendCount != null">
+        attend_count,
+      </if>
+      <if test="fansCount != null">
+        fans_count,
+      </if>
+      <if test="collectProductCount != null">
+        collect_product_count,
+      </if>
+      <if test="collectSubjectCount != null">
+        collect_subject_count,
+      </if>
+      <if test="collectTopicCount != null">
+        collect_topic_count,
+      </if>
+      <if test="collectCommentCount != null">
+        collect_comment_count,
+      </if>
+      <if test="inviteFriendCount != null">
+        invite_friend_count,
+      </if>
+      <if test="recentOrderTime != null">
+        recent_order_time,
+      </if>
+    </trim>
+    values
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="memberId != null">
+        #{memberId,jdbcType=BIGINT},
+      </if>
+      <if test="consumeAmount != null">
+        #{consumeAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="orderCount != null">
+        #{orderCount,jdbcType=INTEGER},
+      </if>
+      <if test="couponCount != null">
+        #{couponCount,jdbcType=INTEGER},
+      </if>
+      <if test="commentCount != null">
+        #{commentCount,jdbcType=INTEGER},
+      </if>
+      <if test="returnOrderCount != null">
+        #{returnOrderCount,jdbcType=INTEGER},
+      </if>
+      <if test="loginCount != null">
+        #{loginCount,jdbcType=INTEGER},
+      </if>
+      <if test="attendCount != null">
+        #{attendCount,jdbcType=INTEGER},
+      </if>
+      <if test="fansCount != null">
+        #{fansCount,jdbcType=INTEGER},
+      </if>
+      <if test="collectProductCount != null">
+        #{collectProductCount,jdbcType=INTEGER},
+      </if>
+      <if test="collectSubjectCount != null">
+        #{collectSubjectCount,jdbcType=INTEGER},
+      </if>
+      <if test="collectTopicCount != null">
+        #{collectTopicCount,jdbcType=INTEGER},
+      </if>
+      <if test="collectCommentCount != null">
+        #{collectCommentCount,jdbcType=INTEGER},
+      </if>
+      <if test="inviteFriendCount != null">
+        #{inviteFriendCount,jdbcType=INTEGER},
+      </if>
+      <if test="recentOrderTime != null">
+        #{recentOrderTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+    on duplicate key update 
+    <trim suffixOverrides=",">
+      <if test="id != null">
+        id = #{id,jdbcType=BIGINT},
+      </if>
+      <if test="memberId != null">
+        member_id = #{memberId,jdbcType=BIGINT},
+      </if>
+      <if test="consumeAmount != null">
+        consume_amount = #{consumeAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="orderCount != null">
+        order_count = #{orderCount,jdbcType=INTEGER},
+      </if>
+      <if test="couponCount != null">
+        coupon_count = #{couponCount,jdbcType=INTEGER},
+      </if>
+      <if test="commentCount != null">
+        comment_count = #{commentCount,jdbcType=INTEGER},
+      </if>
+      <if test="returnOrderCount != null">
+        return_order_count = #{returnOrderCount,jdbcType=INTEGER},
+      </if>
+      <if test="loginCount != null">
+        login_count = #{loginCount,jdbcType=INTEGER},
+      </if>
+      <if test="attendCount != null">
+        attend_count = #{attendCount,jdbcType=INTEGER},
+      </if>
+      <if test="fansCount != null">
+        fans_count = #{fansCount,jdbcType=INTEGER},
+      </if>
+      <if test="collectProductCount != null">
+        collect_product_count = #{collectProductCount,jdbcType=INTEGER},
+      </if>
+      <if test="collectSubjectCount != null">
+        collect_subject_count = #{collectSubjectCount,jdbcType=INTEGER},
+      </if>
+      <if test="collectTopicCount != null">
+        collect_topic_count = #{collectTopicCount,jdbcType=INTEGER},
+      </if>
+      <if test="collectCommentCount != null">
+        collect_comment_count = #{collectCommentCount,jdbcType=INTEGER},
+      </if>
+      <if test="inviteFriendCount != null">
+        invite_friend_count = #{inviteFriendCount,jdbcType=INTEGER},
+      </if>
+      <if test="recentOrderTime != null">
+        recent_order_time = #{recentOrderTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

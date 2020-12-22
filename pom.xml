@@ -400,6 +400,36 @@
 
             <dependency>
                 <groupId>com.ruoyi</groupId>
+                <artifactId>module-mall-cms</artifactId>
+                <version>${ruoyi.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.ruoyi</groupId>
+                <artifactId>module-mall-oms</artifactId>
+                <version>${ruoyi.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.ruoyi</groupId>
+                <artifactId>module-mall-pms</artifactId>
+                <version>${ruoyi.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.ruoyi</groupId>
+                <artifactId>module-mall-sms</artifactId>
+                <version>${ruoyi.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.ruoyi</groupId>
+                <artifactId>module-mall-ums</artifactId>
+                <version>${ruoyi.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.ruoyi</groupId>
                 <artifactId>module-oss</artifactId>
                 <version>${ruoyi.version}</version>
             </dependency>
@@ -470,6 +500,11 @@
         <module>module-sys-qrtz</module>
         <module>module-sys-demo</module>
         <module>module-crawler</module>
+        <module>module-mall-cms</module>
+        <module>module-mall-oms</module>
+        <module>module-mall-pms</module>
+        <module>module-mall-sms</module>
+        <module>module-mall-ums</module>
         <module>service-oss-blog</module>
         <module>service-oss</module>
         <module>service-sys</module>
