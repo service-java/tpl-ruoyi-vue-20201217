@@ -1,11 +1,11 @@
 package com.ruoyi.mall.security;
 
-import com.ruoyi.mall.domain.OssUser;
+import com.ruoyi.common.constant.HttpStatusConstants;
+import com.ruoyi.common.exception.CustomException;
+import com.ruoyi.mall.security.login.LoginUser;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import com.ruoyi.common.constant.HttpStatusConstants;
-import com.ruoyi.common.exception.CustomException;
 
 /**
  * 安全服务工具类
@@ -27,9 +27,9 @@ public class SecurityUtils {
     /**
      * 获取用户
      **/
-    public static OssUser getLoginUser() {
+    public static LoginUser getLoginUser() {
         try {
-            return (OssUser) getAuthentication().getPrincipal();
+            return (LoginUser) getAuthentication().getPrincipal();
         } catch (Exception e) {
             throw new CustomException("获取用户信息异常", HttpStatusConstants.UNAUTHORIZED);
         }

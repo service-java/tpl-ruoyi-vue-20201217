@@ -507,6 +507,7 @@
         <module>module-mall-ums</module>
         <module>service-oss-blog</module>
         <module>service-oss</module>
+        <module>service-mall</module>
         <module>service-sys</module>
         <module>service-crawler</module>
         <module>service-crawler-datav</module>

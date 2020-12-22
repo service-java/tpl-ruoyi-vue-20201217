@@ -1,9 +1,10 @@
 package com.ruoyi.mall.controller;
 
 import com.ruoyi.common.util.DateUtils;
-import com.ruoyi.mall.domain.OssUser;
+
 
 import com.ruoyi.mall.security.SecurityUtils;
+import com.ruoyi.mall.security.login.LoginUser;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 
@@ -31,12 +32,12 @@ public class BaseController {
         });
     }
 
-    protected OssUser getUser() {
+    protected LoginUser getUser() {
         return SecurityUtils.getLoginUser();
     }
 
     protected Long getUserId() {
-        return getUser().getId();
+        return getUser().getUser().getUserId();
     }
 
 

@@ -1,18 +1,18 @@
 package com.ruoyi.mall.security;
 
-import java.io.IOException;
-import java.io.Serializable;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
+import com.alibaba.fastjson.JSON;
+import com.ruoyi.common.constant.HttpStatusConstants;
+import com.ruoyi.common.util.ServletUtils;
+import com.ruoyi.common.util.StringUtils;
+import com.ruoyi.common.vo.ResultVo;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.stereotype.Component;
-import com.alibaba.fastjson.JSON;
-import com.ruoyi.common.constant.HttpStatusConstants;
-import com.ruoyi.common.vo.ResultVo;
-import com.ruoyi.common.util.ServletUtils;
-import com.ruoyi.common.util.StringUtils;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.Serializable;
 
 /**
  * 认证失败处理类 返回未授权
