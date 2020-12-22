@@ -246,7 +246,8 @@ HttpUtil.post(ossUrl + "/oss/upload", paramMap);
     - 目前我最钟意的模块拆分方法
     - https://gitee.com/y_project/RuoYi-Vue
 
-- mall-learning
+- mall-learning @nice
+    - 入门学习
     - https://github.com/macrozheng/mall-learning
 
 - litemall @todo
