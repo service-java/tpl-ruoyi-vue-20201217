@@ -58,6 +58,7 @@ BaseEntity --> params + GMTDate + OpUser
     - IDEA的MybatisCodeHelperPro($)/EasyCode插件可以支持(大部分)代码的自动生成
     - IDEA的JRebel-MybatisPlus插件可以支持xml改动时触发热更新
     - http://localhost:8100/swagger-ui.html
+    - http://localhost:8100/api/oss/excel/download --> 下载Excel
     - http://localhost:8100/oss/listDemo --> 因为配了个不存在的权限, 登录后访问会返回权限不足
     - http://localhost:8100/oss/list
     - http://localhost:8110/oss/page?isAsc=false&orderByColumn=name&pageNum=1&pageSize=3

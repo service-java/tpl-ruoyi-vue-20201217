@@ -43,16 +43,16 @@ public class OssExcelController {
 
     @ApiOperation("下载")
     @GetMapping("/download")
-    @ResponseBody
     public void download(HttpServletResponse response) throws IOException {
         response.setContentType("application/vnd.ms-excel");
+//        response.setContentType("application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
         response.setCharacterEncoding("utf-8");
 
         List<OssUser> ossUsers = ossUserMapper.selectList(new QueryWrapper<>());
         log.info("当前用户列表 {}", ossUsers);
 
         String fileName = URLEncoder.encode("测试", "UTF-8");
-        response.setHeader("Content-disposition", "attachment;filename=" + fileName + ".xls");
+        response.setHeader("Content-disposition", "attachment;filename=" + fileName + ".xlsx");
         EasyExcel.write(response.getOutputStream(), OssUser.class).sheet("模板").doWrite(ossUsers);
     }
 
