@@ -73,19 +73,16 @@ BaseEntity --> params + GMTDate + OpUser
     - 类似冲顶大会, 题目是服务端推送过去的
     - 在OSS模块基础上加点东西
 
-- Mall模块 (EasyRules) @todo
-    - 在OSS模块基础上加点东西
-
+- Mall模块 (SMS + Email + Pay + EasyRules) @todo
 - Game模块 (JCTools) @todo           
 - Book模块 (App向 + OkHttp + Token验证??) @todo
-
 
 # 常见问题 @faq
 
 - service-xxx新模块里引入swaggerConfig等配置的注入, 取值会报错 @fix --> Application放到com/ruoyi才能保证扫描到...还是太嫩了 
 - JSON序列化时存取失败 --> 如果调整过实体所在的目录结构, _class信息已过时，则需要清空Redis相关数据重启
 - 在idea内新增或调整module之后typeAlias一直诡异报错 --> 删除./idea后重启就好了(或者顺便mvn clean)
-- BeetlSql没有在 '[com]' 包中找到任何Mapper，请检查配置 @ignore --> 暂时只是提示不影响实际运行
+- BeetlSql没有在 '[com]' 包中找到任何Mapper，请检查配置 @ignore --> 只是提示但并不影响实际的运行
 - 怎么把beetlsql的markdown文件放到com/ruoyi/**/mapper下也能找到并生效
     - 目前的写法是很low的, 性能就更不用说了, 等我变强了再来优化吧ε=(´ο｀*))
     - 不知道干了啥, getSQL() 每次都会执行两遍... , 40ms打底的查询时间 @todo
@@ -248,11 +245,20 @@ HttpUtil.post(ossUrl + "/oss/upload", paramMap);
     - 目前我最钟意的模块拆分方法
     - https://gitee.com/y_project/RuoYi-Vue
 
+- mall-learning
+    - https://github.com/macrozheng/mall-learning
+
+- litemall @todo
+    - https://github.com/linlinjava/litemall
+
 - renren-fast
     - 单模块快速开发, 适合用来做外包
     - https://gitee.com/renrenio/renren-fast
 
-- ruoyi-plus 
+- jeecg-boot @todo
+    - https://gitee.com/jeecg/jeecg-boot
+
+- ruoyi-plus @todo
     - 集成了很多扩展功能, 值得参考
     - https://gitee.com/markbro/ruoyi-plus
 

@@ -1,5 +1,6 @@
 package com.ruoyi.oss.service;
 
+import cn.hutool.core.date.DateUtil;
 import com.ruoyi.common.constant.Constants;
 import com.ruoyi.common.redis.RedisCache;
 import com.ruoyi.common.util.StringUtils;
@@ -118,6 +119,7 @@ public class TokenService {
     public String createToken(OssUser ossUser) {
         String uuid = IdUtils.fastUUID();
         ossUser.setUuid(uuid);
+        ossUser.setExpireTime(DateUtil.current() + expireTime * MILLIS_MINUTE);
         refreshToken(ossUser);
 
         Map<String, Object> claims = new HashMap<>();
