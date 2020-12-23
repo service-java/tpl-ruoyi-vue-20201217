@@ -35,6 +35,7 @@ import com.ruoyi.oss.mapper.OssUserMapper;
 import com.ruoyi.oss.service.OssBucketService;
 import com.ruoyi.oss.service.OssConfigService;
 import com.ruoyi.oss.service.TokenService;
+import com.ruoyi.oss.shiro.ShiroUtils;
 import com.ruoyi.oss.util.PageQueryUtils;
 import com.ruoyi.oss.vo.PageDataVo;
 import io.swagger.annotations.Api;
@@ -250,5 +251,14 @@ public class OssController {
 
         return ResultVo.success();
     }
+
+
+    @ApiOperation("currentUser")
+    @GetMapping("/currentUser")
+    @ResponseBody
+    public Object currentUser() {
+        return ResultVo.success(ShiroUtils.getUserEntity());
+    }
+
 
 }

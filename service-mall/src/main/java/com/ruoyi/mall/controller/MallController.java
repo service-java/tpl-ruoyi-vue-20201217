@@ -8,19 +8,12 @@
 
 package com.ruoyi.mall.controller;
 
-import cn.hutool.crypto.digest.BCrypt;
 import com.ruoyi.common.constant.Constants;
 import com.ruoyi.common.exception.CustomException;
-import com.ruoyi.common.exception.user.CaptchaException;
-import com.ruoyi.common.exception.user.CaptchaExpireException;
 import com.ruoyi.common.exception.user.UserPasswordNotMatchException;
 import com.ruoyi.common.redis.RedisCache;
 import com.ruoyi.common.util.MessageUtils;
-import com.ruoyi.common.validator.ValidatorUtils;
-import com.ruoyi.common.validator.group.AddGroup;
 import com.ruoyi.common.vo.ResultVo;
-import com.ruoyi.mall.constant.StorageConstant;
-
 import com.ruoyi.mall.manager.AsyncFactory;
 import com.ruoyi.mall.manager.AsyncManager;
 import com.ruoyi.mall.security.login.LoginBody;
@@ -30,7 +23,6 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -38,7 +30,6 @@ import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
 
 /**
  * 文件上传
@@ -102,10 +93,5 @@ public class MallController {
 
         return ResultVo.success().set(Constants.TOKEN, token);
     }
-
-
-
-
-
 
 }

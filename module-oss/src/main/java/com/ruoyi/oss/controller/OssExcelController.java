@@ -33,7 +33,7 @@ import java.util.List;
  */
 @Api(tags = "OSS-EXCEL模块")
 @RestController
-@RequestMapping("/api/oss/excel")
+@RequestMapping("/api/ossExcel")
 @Slf4j
 public class OssExcelController {
 
