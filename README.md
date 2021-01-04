@@ -39,6 +39,7 @@ BaseController --> initBinder
 BaseEntity --> params + GMTDate + OpUser
 ```
 
+- 基于OAuth2的单点登录 @todo
 - Crawler模块 (beetlsql + webmagic + OpenFeign) @building
     - feign不放在SpringCloud里而单独使用很不顺手, 这时候Hutool的HttpUtil好用多了
     - http://localhost:8099/swagger-ui.html

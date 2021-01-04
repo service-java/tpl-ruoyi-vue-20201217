@@ -224,9 +224,9 @@ public class OssController {
         String suffix = file.getOriginalFilename().substring(file.getOriginalFilename().lastIndexOf("."));
         String url = OSSFactory.build().uploadSuffix(file.getBytes(), suffix);
 
-        String fileName = FileUploadUtils.upload(CommonConfig.getUploadPath(), file);
-        String downloadPath = CommonConfig.getProfile() + StringUtils.substringAfter(fileName, Constants.RESOURCE_PREFIX);
-        String downloadName = StringUtils.substringAfterLast(downloadPath, "/");
+//        String fileName = FileUploadUtils.upload(CommonConfig.getUploadPath(), file);
+//        String downloadPath = CommonConfig.getProfile() + StringUtils.substringAfter(fileName, Constants.RESOURCE_PREFIX);
+//        String downloadName = StringUtils.substringAfterLast(downloadPath, "/");
 
         //保存文件信息
         OssBucket ossEntity = new OssBucket();
@@ -235,8 +235,9 @@ public class OssController {
 
         return ResultVo.success()
                 .setData(ossEntity.getName())
-                .set("fileName", downloadName)
-                .set("localPath", downloadPath);
+//                .set("fileName", downloadName)
+//                .set("localPath", downloadPath)
+                ;
     }
 
 
