@@ -6,7 +6,7 @@
  * 版权所有，侵权必究！
  */
 
-package com.ruoyi.blog.controller;
+package com.ruoyi.cms.controller;
 
 import cn.hutool.crypto.digest.BCrypt;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
@@ -17,10 +17,10 @@ import com.ruoyi.common.dto.PageQuery;
 import com.ruoyi.common.exception.CustomException;
 import com.ruoyi.common.validator.ValidatorUtils;
 import com.ruoyi.common.validator.group.AddGroup;
-import com.ruoyi.common.vo.ResultVo;
 import com.ruoyi.cms.annotation.AliyunGroup;
 import com.ruoyi.cms.annotation.QcloudGroup;
 import com.ruoyi.cms.annotation.QiniuGroup;
+import com.ruoyi.common.vo.ResultVo;
 import com.ruoyi.cms.cloud.CloudStorageConfig;
 import com.ruoyi.cms.cloud.OSSFactory;
 import com.ruoyi.cms.constant.OssConstant;

@@ -1,12 +1,11 @@
 package com.ruoyi.blog.service;
 
+import com.ruoyi.blog.domain.BlogArticle;
+import com.ruoyi.blog.mapper.BlogArticleMapper;
 import org.springframework.stereotype.Service;
-import javax.annotation.Resource;
+
 import java.util.List;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import java.util.List;
-import com.ruoyi.blog.mapper.BlogArticleMapper;
-import com.ruoyi.blog.domain.BlogArticle;
 
 /**
  * Description: 模块功能描述
