@@ -20,7 +20,7 @@ ruoyi-vue的底子
 后台功能比较完善
 几乎都是原始技术，比较纯粹，不用担心别人不会其中某个框架
 
-// framework-oss
+// framework-cms
 renren-fast的底子
 集成了一些流行框架, 适合快速开发
 
@@ -54,7 +54,7 @@ BaseEntity --> params + GMTDate + OpUser
     - 仅统计材料特征, 没有增删改操作, 不需要权限
     - http://localhost:8112/swagger-ui.html
     
-- OSS模块 (shiro + mybatis-plus + cqengine + easyexcel) @building
+- CMS模块 (shiro + mybatis-plus + cqengine + easyexcel) @building
     - RefreshToken的操作 @ok
     - IDEA的MybatisCodeHelperPro($)/EasyCode插件可以支持(大部分)代码的自动生成
     - IDEA的JRebel-MybatisPlus插件可以支持xml改动时触发热更新
@@ -66,14 +66,14 @@ BaseEntity --> params + GMTDate + OpUser
     - http://localhost:8110/oss/pageByXml?isAsc=false&orderByColumn=name&pageNum=1&pageSize=3
 
 - Blog模块 @todo
-    - 在OSS模块基础上加点东西
+    - 在CMS模块基础上加点东西
     - 分享内容卡片
-    - 所以命名是service-oss-blog(依赖module-oss+module-oss-blog)
+    - 所以命名是service-cms-blog(依赖module-cms+module-cms-blog)
     - http://localhost:8110/swagger-ui.html
 
 - Exam模块 (WebSocket) @todo 
     - 类似冲顶大会, 题目是服务端推送过去的
-    - 在OSS模块基础上加点东西
+    - 在CMS模块基础上加点东西
 
 - Mall模块 (SMS + Email + Pay + EasyRules) @todo
 - Game模块 (JCTools) @todo           
@@ -244,7 +244,7 @@ HttpUtil.post(ossUrl + "/oss/upload", paramMap);
 # 参考
 
 - ruoyi-vue
-    - 目前我最钟意的模块拆分方法
+    - 目前最钟意的模块拆分方法
     - https://gitee.com/y_project/RuoYi-Vue
 
 - mall-learning @nice
