@@ -121,7 +121,7 @@ request.interceptors.response.use(async (response, info) => {
 
     // 登录超时
     // 16 -> token格式可能被改了
-    if ([16, 17, 18].includes(data.code)) {
+    if ([16, 17, 18, 401].includes(data.code)) {
       // @fixme 登录判断 是否已经提示过踢人
       // @ts-ignore
       window.g_app._store.dispatch({

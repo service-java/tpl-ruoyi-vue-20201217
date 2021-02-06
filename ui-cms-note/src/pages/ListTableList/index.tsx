@@ -101,7 +101,7 @@ const TableList: React.FC<{}> = () => {
           defaultMessage="规则名称"
         />
       ),
-      dataIndex: 'name',
+      dataIndex: 'title',
       tip: '规则名称是唯一的 key',
       render: (dom, entity) => {
         return (
@@ -118,7 +118,7 @@ const TableList: React.FC<{}> = () => {
     },
     {
       title: <FormattedMessage id="pages.searchTable.titleDesc" defaultMessage="描述" />,
-      dataIndex: 'desc',
+      dataIndex: 'content',
       valueType: 'textarea',
     },
     {

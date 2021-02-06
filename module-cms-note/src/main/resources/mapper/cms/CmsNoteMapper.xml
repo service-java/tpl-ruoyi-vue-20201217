@@ -3,30 +3,22 @@
 <mapper namespace="com.ruoyi.cms.mapper.CmsNoteMapper">
   <resultMap id="BaseResultMap" type="com.ruoyi.cms.domain.CmsNote">
     <!--@mbg.generated-->
-    <!--@Table ry-vue.cms_note-->
+    <!--@Table cms_note-->
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="title" jdbcType="VARCHAR" property="title" />
     <result column="type" jdbcType="TINYINT" property="type" />
+    <result column="content" jdbcType="BLOB" property="content" />
     <result column="gmt_create" jdbcType="TIMESTAMP" property="gmtCreate" />
     <result column="gmt_modified" jdbcType="TIMESTAMP" property="gmtModified" />
     <result column="is_deleted" jdbcType="TINYINT" property="isDeleted" />
   </resultMap>
-  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.ruoyi.cms.domain.CmsNote">
-    <!--@mbg.generated-->
-    <!--@Table ry-vue.cms_note-->
-    <result column="content" jdbcType="BLOB" property="content" />
-  </resultMap>
   <sql id="Base_Column_List">
     <!--@mbg.generated-->
-    id, title, `type`, gmt_create, gmt_modified, is_deleted
-  </sql>
-  <sql id="Blob_Column_List">
-    <!--@mbg.generated-->
-    content
+    id, title, `type`, content, gmt_create, gmt_modified, is_deleted
   </sql>
   <update id="updateBatch" parameterType="java.util.List">
     <!--@mbg.generated-->
-    update ry-vue.cms_note
+    update cms_note
     <trim prefix="set" suffixOverrides=",">
       <trim prefix="title = case" suffix="end,">
         <foreach collection="list" index="index" item="item">
@@ -36,6 +28,11 @@
       <trim prefix="`type` = case" suffix="end,">
         <foreach collection="list" index="index" item="item">
           when id = #{item.id,jdbcType=INTEGER} then #{item.type,jdbcType=TINYINT}
+        </foreach>
+      </trim>
+      <trim prefix="content = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.content,jdbcType=BLOB}
         </foreach>
       </trim>
       <trim prefix="gmt_create = case" suffix="end,">
@@ -53,11 +50,6 @@
           when id = #{item.id,jdbcType=INTEGER} then #{item.isDeleted,jdbcType=TINYINT}
         </foreach>
       </trim>
-      <trim prefix="content = case" suffix="end,">
-        <foreach collection="list" index="index" item="item">
-          when id = #{item.id,jdbcType=INTEGER} then #{item.content,jdbcType=BLOB}
-        </foreach>
-      </trim>
     </trim>
     where id in
     <foreach close=")" collection="list" item="item" open="(" separator=", ">
@@ -66,7 +58,7 @@
   </update>
   <update id="updateBatchSelective" parameterType="java.util.List">
     <!--@mbg.generated-->
-    update ry-vue.cms_note
+    update cms_note
     <trim prefix="set" suffixOverrides=",">
       <trim prefix="title = case" suffix="end,">
         <foreach collection="list" index="index" item="item">
@@ -79,6 +71,13 @@
         <foreach collection="list" index="index" item="item">
           <if test="item.type != null">
             when id = #{item.id,jdbcType=INTEGER} then #{item.type,jdbcType=TINYINT}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="content = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.content != null">
+            when id = #{item.id,jdbcType=INTEGER} then #{item.content,jdbcType=BLOB}
           </if>
         </foreach>
       </trim>
@@ -103,13 +102,6 @@
           </if>
         </foreach>
       </trim>
-      <trim prefix="content = case" suffix="end,">
-        <foreach collection="list" index="index" item="item">
-          <if test="item.content != null">
-            when id = #{item.id,jdbcType=INTEGER} then #{item.content,jdbcType=BLOB}
-          </if>
-        </foreach>
-      </trim>
     </trim>
     where id in
     <foreach close=")" collection="list" item="item" open="(" separator=", ">
@@ -118,64 +110,28 @@
   </update>
   <insert id="batchInsert" keyColumn="id" keyProperty="id" parameterType="map" useGeneratedKeys="true">
     <!--@mbg.generated-->
-    insert into ry-vue.cms_note
-    (title, `type`, gmt_create, gmt_modified, is_deleted, content)
+    insert into cms_note
+    (title, `type`, content, gmt_create, gmt_modified, is_deleted)
     values
     <foreach collection="list" item="item" separator=",">
-      (#{item.title,jdbcType=VARCHAR}, #{item.type,jdbcType=TINYINT}, #{item.gmtCreate,jdbcType=TIMESTAMP},
-        #{item.gmtModified,jdbcType=TIMESTAMP}, #{item.isDeleted,jdbcType=TINYINT}, #{item.content,jdbcType=BLOB}
+      (#{item.title,jdbcType=VARCHAR}, #{item.type,jdbcType=TINYINT}, #{item.content,jdbcType=BLOB}, 
+        #{item.gmtCreate,jdbcType=TIMESTAMP}, #{item.gmtModified,jdbcType=TIMESTAMP}, #{item.isDeleted,jdbcType=TINYINT}
         )
     </foreach>
   </insert>
   <insert id="insertOrUpdate" keyColumn="id" keyProperty="id" parameterType="com.ruoyi.cms.domain.CmsNote" useGeneratedKeys="true">
     <!--@mbg.generated-->
-    insert into ry-vue.cms_note
+    insert into cms_note
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
         id,
       </if>
       title,
       `type`,
-      gmt_create,
-      gmt_modified,
-      is_deleted,
-    </trim>
-    values
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        #{id,jdbcType=INTEGER},
-      </if>
-      #{title,jdbcType=VARCHAR},
-      #{type,jdbcType=TINYINT},
-      #{gmtCreate,jdbcType=TIMESTAMP},
-      #{gmtModified,jdbcType=TIMESTAMP},
-      #{isDeleted,jdbcType=TINYINT},
-    </trim>
-    on duplicate key update
-    <trim suffixOverrides=",">
-      <if test="id != null">
-        id = #{id,jdbcType=INTEGER},
-      </if>
-      title = #{title,jdbcType=VARCHAR},
-      `type` = #{type,jdbcType=TINYINT},
-      gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
-      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
-      is_deleted = #{isDeleted,jdbcType=TINYINT},
-    </trim>
-  </insert>
-  <insert id="insertOrUpdateWithBLOBs" keyColumn="id" keyProperty="id" parameterType="com.ruoyi.cms.domain.CmsNote" useGeneratedKeys="true">
-    <!--@mbg.generated-->
-    insert into ry-vue.cms_note
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        id,
-      </if>
-      title,
-      `type`,
-      gmt_create,
-      gmt_modified,
-      is_deleted,
       content,
+      gmt_create,
+      gmt_modified,
+      is_deleted,
     </trim>
     values
     <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -184,27 +140,27 @@
       </if>
       #{title,jdbcType=VARCHAR},
       #{type,jdbcType=TINYINT},
+      #{content,jdbcType=BLOB},
       #{gmtCreate,jdbcType=TIMESTAMP},
       #{gmtModified,jdbcType=TIMESTAMP},
       #{isDeleted,jdbcType=TINYINT},
-      #{content,jdbcType=BLOB},
     </trim>
-    on duplicate key update
+    on duplicate key update 
     <trim suffixOverrides=",">
       <if test="id != null">
         id = #{id,jdbcType=INTEGER},
       </if>
       title = #{title,jdbcType=VARCHAR},
       `type` = #{type,jdbcType=TINYINT},
+      content = #{content,jdbcType=BLOB},
       gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
       gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
       is_deleted = #{isDeleted,jdbcType=TINYINT},
-      content = #{content,jdbcType=BLOB},
     </trim>
   </insert>
   <insert id="insertOrUpdateSelective" keyColumn="id" keyProperty="id" parameterType="com.ruoyi.cms.domain.CmsNote" useGeneratedKeys="true">
     <!--@mbg.generated-->
-    insert into ry-vue.cms_note
+    insert into cms_note
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
         id,
@@ -215,6 +171,9 @@
       <if test="type != null">
         `type`,
       </if>
+      <if test="content != null">
+        content,
+      </if>
       <if test="gmtCreate != null">
         gmt_create,
       </if>
@@ -223,9 +182,6 @@
       </if>
       <if test="isDeleted != null">
         is_deleted,
-      </if>
-      <if test="content != null">
-        content,
       </if>
     </trim>
     values
@@ -239,6 +195,9 @@
       <if test="type != null">
         #{type,jdbcType=TINYINT},
       </if>
+      <if test="content != null">
+        #{content,jdbcType=BLOB},
+      </if>
       <if test="gmtCreate != null">
         #{gmtCreate,jdbcType=TIMESTAMP},
       </if>
@@ -248,11 +207,8 @@
       <if test="isDeleted != null">
         #{isDeleted,jdbcType=TINYINT},
       </if>
-      <if test="content != null">
-        #{content,jdbcType=BLOB},
-      </if>
     </trim>
-    on duplicate key update
+    on duplicate key update 
     <trim suffixOverrides=",">
       <if test="id != null">
         id = #{id,jdbcType=INTEGER},
@@ -263,6 +219,9 @@
       <if test="type != null">
         `type` = #{type,jdbcType=TINYINT},
       </if>
+      <if test="content != null">
+        content = #{content,jdbcType=BLOB},
+      </if>
       <if test="gmtCreate != null">
         gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
       </if>
@@ -271,9 +230,6 @@
       </if>
       <if test="isDeleted != null">
         is_deleted = #{isDeleted,jdbcType=TINYINT},
-      </if>
-      <if test="content != null">
-        content = #{content,jdbcType=BLOB},
       </if>
     </trim>
   </insert>

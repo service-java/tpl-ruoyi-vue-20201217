@@ -3,7 +3,7 @@
 <mapper namespace="com.ruoyi.cms.mapper.CmsNoteTagMapper">
   <resultMap id="BaseResultMap" type="com.ruoyi.cms.domain.CmsNoteTag">
     <!--@mbg.generated-->
-    <!--@Table ry-vue.cms_note_tag-->
+    <!--@Table cms_note_tag-->
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="note_id" jdbcType="INTEGER" property="noteId" />
     <result column="tag_id" jdbcType="INTEGER" property="tagId" />
@@ -14,7 +14,7 @@
   </sql>
   <update id="updateBatch" parameterType="java.util.List">
     <!--@mbg.generated-->
-    update ry-vue.cms_note_tag
+    update cms_note_tag
     <trim prefix="set" suffixOverrides=",">
       <trim prefix="note_id = case" suffix="end,">
         <foreach collection="list" index="index" item="item">
@@ -34,7 +34,7 @@
   </update>
   <update id="updateBatchSelective" parameterType="java.util.List">
     <!--@mbg.generated-->
-    update ry-vue.cms_note_tag
+    update cms_note_tag
     <trim prefix="set" suffixOverrides=",">
       <trim prefix="note_id = case" suffix="end,">
         <foreach collection="list" index="index" item="item">
@@ -58,7 +58,7 @@
   </update>
   <insert id="batchInsert" keyColumn="id" keyProperty="id" parameterType="map" useGeneratedKeys="true">
     <!--@mbg.generated-->
-    insert into ry-vue.cms_note_tag
+    insert into cms_note_tag
     (note_id, tag_id)
     values
     <foreach collection="list" item="item" separator=",">
@@ -67,7 +67,7 @@
   </insert>
   <insert id="insertOrUpdate" keyColumn="id" keyProperty="id" parameterType="com.ruoyi.cms.domain.CmsNoteTag" useGeneratedKeys="true">
     <!--@mbg.generated-->
-    insert into ry-vue.cms_note_tag
+    insert into cms_note_tag
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
         id,
@@ -94,7 +94,7 @@
   </insert>
   <insert id="insertOrUpdateSelective" keyColumn="id" keyProperty="id" parameterType="com.ruoyi.cms.domain.CmsNoteTag" useGeneratedKeys="true">
     <!--@mbg.generated-->
-    insert into ry-vue.cms_note_tag
+    insert into cms_note_tag
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
         id,

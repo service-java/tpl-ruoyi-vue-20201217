@@ -17,7 +17,7 @@ import lombok.Data;
  */
 @ApiModel(value="com-ruoyi-note-domain-CmsUserNote")
 @Data
-@TableName(value = "ry-vue.cms_user_note")
+@TableName(value = "cms_user_note")
 public class CmsUserNote implements Serializable {
     @TableId(value = "id", type = IdType.AUTO)
     @ApiModelProperty(value="")

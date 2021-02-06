@@ -31,7 +31,7 @@
     "prettier": "prettier -c --write \"src/**/*\"",
     "site": "npm run fetch:blocks && npm run build",
     "start": "umi dev",
-    "start:dev": "cross-env REACT_APP_ENV=dev MOCK=none umi dev",
+    "start:dev": "cross-env REACT_APP_ENV=dev PORT=80 MOCK=none umi dev",
     "start:no-mock": "cross-env MOCK=none umi dev",
     "start:no-ui": "cross-env UMI_UI=none umi dev",
     "start:pre": "cross-env REACT_APP_ENV=pre umi dev",

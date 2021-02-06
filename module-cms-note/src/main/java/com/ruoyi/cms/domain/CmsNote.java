@@ -12,41 +12,41 @@ import lombok.Data;
 
 /**
  * Description: 模块功能描述
- *
+ * <p>
  * User: luo0412
- * Date: 2021-02-07 1:12
+ * Date: 2021-02-07 1:54
  */
-@ApiModel(value="com-ruoyi-note-domain-CmsNote")
+@ApiModel(value = "com-ruoyi-cms-domain-CmsNote")
 @Data
-@TableName(value = "ry-vue.cms_note")
+@TableName(value = "cms_note")
 public class CmsNote implements Serializable {
     @TableId(value = "id", type = IdType.AUTO)
-    @ApiModelProperty(value="")
+    @ApiModelProperty(value = "")
     private Integer id;
 
     @TableField(value = "title")
-    @ApiModelProperty(value="")
+    @ApiModelProperty(value = "")
     private String title;
 
     @TableField(value = "`type`")
-    @ApiModelProperty(value="")
+    @ApiModelProperty(value = "")
     private Byte type;
 
+    @TableField(value = "content")
+    @ApiModelProperty(value = "")
+    private byte[] content;
+
     @TableField(value = "gmt_create")
-    @ApiModelProperty(value="")
+    @ApiModelProperty(value = "")
     private Date gmtCreate;
 
     @TableField(value = "gmt_modified")
-    @ApiModelProperty(value="")
+    @ApiModelProperty(value = "")
     private Date gmtModified;
 
     @TableField(value = "is_deleted")
-    @ApiModelProperty(value="")
+    @ApiModelProperty(value = "")
     private Byte isDeleted;
-
-    @TableField(value = "content")
-    @ApiModelProperty(value="")
-    private byte[] content;
 
     private static final long serialVersionUID = 1L;
 
@@ -56,11 +56,11 @@ public class CmsNote implements Serializable {
 
     public static final String COL_TYPE = "type";
 
+    public static final String COL_CONTENT = "content";
+
     public static final String COL_GMT_CREATE = "gmt_create";
 
     public static final String COL_GMT_MODIFIED = "gmt_modified";
 
     public static final String COL_IS_DELETED = "is_deleted";
-
-    public static final String COL_CONTENT = "content";
 }

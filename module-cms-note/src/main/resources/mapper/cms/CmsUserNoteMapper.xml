@@ -3,7 +3,7 @@
 <mapper namespace="com.ruoyi.cms.mapper.CmsUserNoteMapper">
   <resultMap id="BaseResultMap" type="com.ruoyi.cms.domain.CmsUserNote">
     <!--@mbg.generated-->
-    <!--@Table ry-vue.cms_user_note-->
+    <!--@Table cms_user_note-->
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="oss_user_id" jdbcType="INTEGER" property="ossUserId" />
     <result column="note_note_id" jdbcType="INTEGER" property="noteNoteId" />
@@ -14,7 +14,7 @@
   </sql>
   <update id="updateBatch" parameterType="java.util.List">
     <!--@mbg.generated-->
-    update ry-vue.cms_user_note
+    update cms_user_note
     <trim prefix="set" suffixOverrides=",">
       <trim prefix="oss_user_id = case" suffix="end,">
         <foreach collection="list" index="index" item="item">
@@ -34,7 +34,7 @@
   </update>
   <update id="updateBatchSelective" parameterType="java.util.List">
     <!--@mbg.generated-->
-    update ry-vue.cms_user_note
+    update cms_user_note
     <trim prefix="set" suffixOverrides=",">
       <trim prefix="oss_user_id = case" suffix="end,">
         <foreach collection="list" index="index" item="item">
@@ -58,7 +58,7 @@
   </update>
   <insert id="batchInsert" keyColumn="id" keyProperty="id" parameterType="map" useGeneratedKeys="true">
     <!--@mbg.generated-->
-    insert into ry-vue.cms_user_note
+    insert into cms_user_note
     (oss_user_id, note_note_id)
     values
     <foreach collection="list" item="item" separator=",">
@@ -67,7 +67,7 @@
   </insert>
   <insert id="insertOrUpdate" keyColumn="id" keyProperty="id" parameterType="com.ruoyi.cms.domain.CmsUserNote" useGeneratedKeys="true">
     <!--@mbg.generated-->
-    insert into ry-vue.cms_user_note
+    insert into cms_user_note
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
         id,
@@ -94,7 +94,7 @@
   </insert>
   <insert id="insertOrUpdateSelective" keyColumn="id" keyProperty="id" parameterType="com.ruoyi.cms.domain.CmsUserNote" useGeneratedKeys="true">
     <!--@mbg.generated-->
-    insert into ry-vue.cms_user_note
+    insert into cms_user_note
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
         id,

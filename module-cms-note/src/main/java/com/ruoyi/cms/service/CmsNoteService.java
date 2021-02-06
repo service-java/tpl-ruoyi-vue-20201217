@@ -9,7 +9,7 @@ import com.ruoyi.cms.domain.CmsNote;
 
 /**
  * Description: 模块功能描述
- *
+ * <p>
  * User: luo0412
  * Date: 2021-02-07 1:12
  */
@@ -41,3 +41,4 @@ public class CmsNoteService extends ServiceImpl<CmsNoteMapper, CmsNote> {
         return baseMapper.insertOrUpdateWithBLOBs(record);
     }
 }
+
