@@ -447,6 +447,12 @@
                 <version>${ruoyi.version}</version>
             </dependency>
 
+            <dependency>
+                <groupId>com.ruoyi</groupId>
+                <artifactId>module-cms-note</artifactId>
+                <version>${ruoyi.version}</version>
+            </dependency>
+
             <!-- 系统模块-->
             <dependency>
                 <groupId>com.ruoyi</groupId>
@@ -501,6 +507,7 @@
         <module>framework-ext</module>
         <module>module-cms</module>
         <module>module-cms-blog</module>
+        <module>module-cms-note</module>
         <module>module-ext-datav</module>
         <module>module-sys</module>
         <module>module-sys-gen</module>
@@ -515,6 +522,7 @@
         <module>module-mall-ums</module>
         <module>service-cms</module>
         <module>service-cms-blog</module>
+        <module>service-cms-note</module>
         <module>service-mall</module>
         <module>service-sys</module>
         <module>service-ext</module>
