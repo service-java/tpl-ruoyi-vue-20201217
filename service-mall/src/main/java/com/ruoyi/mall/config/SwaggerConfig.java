@@ -1,6 +1,6 @@
 package com.ruoyi.mall.config;
 
-import com.ruoyi.common.config.CommonConfig;
+import com.ruoyi.common.property.CommonProperties;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -29,7 +29,7 @@ public class SwaggerConfig
 {
     /** 系统基础配置 */
     @Autowired
-    private CommonConfig commonConfig;
+    private CommonProperties commonConfig;
 
     /** 是否开启swagger */
     @Value("${swagger.enabled}")

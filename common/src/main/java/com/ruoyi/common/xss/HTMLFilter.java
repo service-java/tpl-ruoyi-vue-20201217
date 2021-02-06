@@ -1,4 +1,4 @@
-package com.ruoyi.common.filter.xss;
+package com.ruoyi.common.xss;
 
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;

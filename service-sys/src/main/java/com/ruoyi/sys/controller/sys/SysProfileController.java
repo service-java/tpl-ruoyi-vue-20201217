@@ -13,12 +13,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 import com.ruoyi.common.annotation.Log;
-import com.ruoyi.common.config.CommonConfig;
+import com.ruoyi.common.property.CommonProperties;
 import com.ruoyi.sys.controller.BaseController;
 import com.ruoyi.common.vo.ResultVo;
 import com.ruoyi.common.domain.sys.SysUser;
 import com.ruoyi.sys.security.login.LoginUser;
-import com.ruoyi.common.constant.enums.BusinessTypeEnum;
+import com.ruoyi.common.enums.BusinessTypeEnum;
 import com.ruoyi.sys.security.SecurityUtils;
 import com.ruoyi.common.util.ServletUtils;
 import com.ruoyi.common.util.file.FileUploadUtils;
@@ -102,7 +102,7 @@ public class SysProfileController extends BaseController {
     public ResultVo avatar(@RequestParam("avatarfile") MultipartFile file) throws IOException {
         if (!file.isEmpty()) {
             LoginUser loginUser = tokenService.getLoginUser(ServletUtils.getRequest());
-            String avatar = FileUploadUtils.upload(CommonConfig.getAvatarPath(), file);
+            String avatar = FileUploadUtils.upload(CommonProperties.getAvatarPath(), file);
             if (userService.updateUserAvatar(loginUser.getUsername(), avatar)) {
                 ResultVo ajax = ResultVo.success();
                 ajax.put("imgUrl", avatar);

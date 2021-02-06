@@ -9,7 +9,7 @@ import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import com.ruoyi.common.filter.RepeatableFilter;
-import com.ruoyi.common.filter.xss.XssFilter;
+import com.ruoyi.common.xss.XssFilter;
 import com.ruoyi.common.util.StringUtils;
 
 /**

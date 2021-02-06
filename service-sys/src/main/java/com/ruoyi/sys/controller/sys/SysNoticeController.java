@@ -17,7 +17,7 @@ import com.ruoyi.common.annotation.Log;
 import com.ruoyi.sys.controller.BaseController;
 import com.ruoyi.common.vo.ResultVo;
 import com.ruoyi.common.vo.TableDataVo;
-import com.ruoyi.common.constant.enums.BusinessTypeEnum;
+import com.ruoyi.common.enums.BusinessTypeEnum;
 import com.ruoyi.sys.security.SecurityUtils;
 import com.ruoyi.sys.domain.SysNotice;
 import com.ruoyi.sys.service.ISysNoticeService;

@@ -21,7 +21,7 @@ import com.ruoyi.common.vo.ResultVo;
 import com.ruoyi.sys.security.login.LoginUser;
 import com.ruoyi.common.vo.TableDataVo;
 import com.ruoyi.common.redis.RedisCache;
-import com.ruoyi.common.constant.enums.BusinessTypeEnum;
+import com.ruoyi.common.enums.BusinessTypeEnum;
 import com.ruoyi.common.util.StringUtils;
 
 

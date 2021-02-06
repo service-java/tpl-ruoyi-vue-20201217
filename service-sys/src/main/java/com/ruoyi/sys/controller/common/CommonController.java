@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
-import com.ruoyi.common.config.CommonConfig;
+import com.ruoyi.common.property.CommonProperties;
 import com.ruoyi.common.constant.Constants;
 import com.ruoyi.common.vo.ResultVo;
 import com.ruoyi.common.util.StringUtils;
@@ -45,7 +45,7 @@ public class CommonController {
                 throw new Exception(StringUtils.format("文件名称({})非法，不允许下载。 ", fileName));
             }
             String realFileName = System.currentTimeMillis() + fileName.substring(fileName.indexOf("_") + 1);
-            String filePath = CommonConfig.getDownloadPath() + fileName;
+            String filePath = CommonProperties.getDownloadPath() + fileName;
 
             response.setContentType(MediaType.APPLICATION_OCTET_STREAM_VALUE);
             FileUtils.setAttachmentResponseHeader(response, realFileName);
@@ -66,7 +66,7 @@ public class CommonController {
     public ResultVo uploadFile(MultipartFile file) throws Exception {
         try {
             // 上传文件路径
-            String filePath = CommonConfig.getUploadPath();
+            String filePath = CommonProperties.getUploadPath();
             // 上传并返回新文件名称
             String fileName = FileUploadUtils.upload(filePath, file);
             String url = serverConfig.getUrl() + fileName;
@@ -91,7 +91,7 @@ public class CommonController {
                 throw new Exception(StringUtils.format("资源文件({})非法，不允许下载。 ", resource));
             }
             // 本地资源路径
-            String localPath = CommonConfig.getProfile();
+            String localPath = CommonProperties.getProfile();
             // 数据库资源地址
             String downloadPath = localPath + StringUtils.substringAfter(resource, Constants.RESOURCE_PREFIX);
             // 下载名称

@@ -25,7 +25,7 @@ import com.ruoyi.common.domain.sys.SysRole;
 import com.ruoyi.common.domain.sys.SysUser;
 import com.ruoyi.sys.security.login.LoginUser;
 import com.ruoyi.common.vo.TableDataVo;
-import com.ruoyi.common.constant.enums.BusinessTypeEnum;
+import com.ruoyi.common.enums.BusinessTypeEnum;
 import com.ruoyi.sys.security.SecurityUtils;
 import com.ruoyi.common.util.ServletUtils;
 import com.ruoyi.common.util.StringUtils;

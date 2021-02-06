@@ -2,8 +2,8 @@ package com.ruoyi.mall.aspect;
 
 import com.alibaba.fastjson.JSON;
 import com.ruoyi.common.annotation.Log;
-import com.ruoyi.common.constant.enums.BusinessStatusEnum;
-import com.ruoyi.common.constant.enums.HttpMethodEnum;
+import com.ruoyi.common.enums.BusinessStatusEnum;
+import com.ruoyi.common.enums.HttpMethodEnum;
 import com.ruoyi.common.domain.sys.SysOperLog;
 import com.ruoyi.common.util.ServletUtils;
 import com.ruoyi.common.util.StringUtils;

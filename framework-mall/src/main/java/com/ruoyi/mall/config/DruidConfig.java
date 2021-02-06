@@ -5,7 +5,7 @@ import com.alibaba.druid.pool.DruidDataSource;
 import com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceBuilder;
 import com.alibaba.druid.spring.boot.autoconfigure.properties.DruidStatProperties;
 import com.alibaba.druid.util.Utils;
-import com.ruoyi.common.constant.enums.DataSourceTypeEnum;
+import com.ruoyi.common.enums.DataSourceTypeEnum;
 import com.ruoyi.common.util.spring.SpringUtils;
 
 import com.ruoyi.mall.config.properties.DruidProperties;

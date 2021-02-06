@@ -1,6 +1,6 @@
 package com.ruoyi.mall.service;
 
-import com.ruoyi.common.constant.enums.UserStatusEnum;
+import com.ruoyi.common.enums.UserStatusEnum;
 import com.ruoyi.common.domain.sys.SysUser;
 import com.ruoyi.common.exception.BaseException;
 import com.ruoyi.common.util.StringUtils;

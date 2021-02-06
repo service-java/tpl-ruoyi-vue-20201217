@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import com.ruoyi.common.config.CommonConfig;
+import com.ruoyi.common.property.CommonProperties;
 import io.swagger.annotations.ApiOperation;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
@@ -34,7 +34,7 @@ public class SwaggerConfig {
      * 系统基础配置
      */
     @Autowired
-    private CommonConfig commonConfig;
+    private CommonProperties commonConfig;
 
     /**
      * 是否开启swagger

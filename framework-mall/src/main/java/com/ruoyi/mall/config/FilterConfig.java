@@ -1,12 +1,11 @@
 package com.ruoyi.mall.config;
 
 import com.ruoyi.common.filter.RepeatableFilter;
-import com.ruoyi.common.filter.xss.XssFilter;
+import com.ruoyi.common.xss.XssFilter;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.filter.DelegatingFilterProxy;
 
 import javax.servlet.DispatcherType;
 

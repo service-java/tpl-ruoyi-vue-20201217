@@ -7,7 +7,7 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-import com.ruoyi.common.constant.enums.DataSourceTypeEnum;
+import com.ruoyi.common.enums.DataSourceTypeEnum;
 
 /**
  * 自定义多数据源切换注解

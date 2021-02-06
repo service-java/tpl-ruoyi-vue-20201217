@@ -1,4 +1,4 @@
-package com.ruoyi.common.filter.xss;
+package com.ruoyi.common.xss;
 
 import com.ruoyi.common.exception.CustomException;
 import org.apache.commons.lang.StringUtils;

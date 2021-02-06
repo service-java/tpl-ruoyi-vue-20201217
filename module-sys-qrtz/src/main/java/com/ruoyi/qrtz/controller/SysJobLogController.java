@@ -14,7 +14,7 @@ import com.ruoyi.common.annotation.Log;
 import com.ruoyi.sys.controller.BaseController;
 import com.ruoyi.common.vo.ResultVo;
 import com.ruoyi.common.vo.TableDataVo;
-import com.ruoyi.common.constant.enums.BusinessTypeEnum;
+import com.ruoyi.common.enums.BusinessTypeEnum;
 import com.ruoyi.common.util.poi.ExcelUtils;
 import com.ruoyi.qrtz.domain.SysJobLog;
 

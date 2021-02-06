@@ -8,7 +8,7 @@ import cn.hutool.http.HttpUtil;
 import cn.hutool.json.JSONObject;
 import cn.hutool.json.JSONUtil;
 import com.alibaba.fastjson.JSON;
-import com.ruoyi.common.config.CommonConfig;
+import com.ruoyi.common.property.CommonProperties;
 import com.ruoyi.common.constant.Constants;
 import com.ruoyi.common.util.StringUtils;
 import com.ruoyi.common.util.file.FileUploadUtils;
@@ -154,9 +154,9 @@ public class ExtController {
         // 2) 先存储到本地再发送, 权当备份了
         // 文件上传只需将参数中的键指定（默认file），值设为文件对象即可
         // 对于使用者来说，文件上传与普通表单提交并无区别
-        String fileName = FileUploadUtils.upload(CommonConfig.getUploadPath(), file);
+        String fileName = FileUploadUtils.upload(CommonProperties.getUploadPath(), file);
         log.info("fileName {} :", fileName);
-        String downloadPath = CommonConfig.getProfile() + StringUtils.substringAfter(fileName, Constants.RESOURCE_PREFIX);
+        String downloadPath = CommonProperties.getProfile() + StringUtils.substringAfter(fileName, Constants.RESOURCE_PREFIX);
         String downloadName = StringUtils.substringAfterLast(downloadPath, "/");
         log.info("downloadPath {} :", downloadPath);
         log.info("downloadName {} :", downloadName);

@@ -20,7 +20,7 @@ import com.ruoyi.common.constant.UserConstants;
 import com.ruoyi.sys.controller.BaseController;
 import com.ruoyi.common.vo.ResultVo;
 import com.ruoyi.common.domain.sys.SysDept;
-import com.ruoyi.common.constant.enums.BusinessTypeEnum;
+import com.ruoyi.common.enums.BusinessTypeEnum;
 import com.ruoyi.sys.security.SecurityUtils;
 import com.ruoyi.common.util.StringUtils;
 import com.ruoyi.sys.service.ISysDeptService;

@@ -1,4 +1,4 @@
-package com.ruoyi.common.config;
+package com.ruoyi.common.property;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
  */
 @Component
 @ConfigurationProperties(prefix = "common-config")
-public class CommonConfig {
+public class CommonProperties {
     /**
      * 项目名称
      */
@@ -78,7 +78,7 @@ public class CommonConfig {
     }
 
     public void setProfile(String profile) {
-        CommonConfig.profile = profile;
+        CommonProperties.profile = profile;
     }
 
     public static boolean isAddressEnabled() {
@@ -86,7 +86,7 @@ public class CommonConfig {
     }
 
     public void setAddressEnabled(boolean addressEnabled) {
-        CommonConfig.addressEnabled = addressEnabled;
+        CommonProperties.addressEnabled = addressEnabled;
     }
 
     /**

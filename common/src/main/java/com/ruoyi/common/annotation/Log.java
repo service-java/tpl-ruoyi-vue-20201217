@@ -6,8 +6,8 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-import com.ruoyi.common.constant.enums.BusinessTypeEnum;
-import com.ruoyi.common.constant.enums.OperatorTypeEnum;
+import com.ruoyi.common.enums.BusinessTypeEnum;
+import com.ruoyi.common.enums.OperatorTypeEnum;
 
 /**
  * 自定义操作日志记录注解

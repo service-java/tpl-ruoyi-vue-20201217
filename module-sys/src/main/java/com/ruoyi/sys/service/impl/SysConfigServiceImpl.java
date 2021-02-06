@@ -11,7 +11,7 @@ import com.ruoyi.common.constant.Constants;
 import com.ruoyi.common.constant.UserConstants;
 import com.ruoyi.common.redis.RedisCache;
 import com.ruoyi.common.util.text.Convert;
-import com.ruoyi.common.constant.enums.DataSourceTypeEnum;
+import com.ruoyi.common.enums.DataSourceTypeEnum;
 import com.ruoyi.common.exception.CustomException;
 import com.ruoyi.common.util.StringUtils;
 import com.ruoyi.sys.domain.SysConfig;

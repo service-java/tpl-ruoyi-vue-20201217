@@ -45,7 +45,7 @@ import com.ruoyi.common.annotation.Excel;
 import com.ruoyi.common.annotation.Excel.ColumnType;
 import com.ruoyi.common.annotation.Excel.Type;
 import com.ruoyi.common.annotation.Excels;
-import com.ruoyi.common.config.CommonConfig;
+import com.ruoyi.common.property.CommonProperties;
 import com.ruoyi.common.vo.ResultVo;
 import com.ruoyi.common.util.text.Convert;
 import com.ruoyi.common.exception.CustomException;
@@ -699,7 +699,7 @@ public class ExcelUtils<T> {
      * @param filename 文件名称
      */
     public String getAbsoluteFile(String filename) {
-        String downloadPath = CommonConfig.getDownloadPath() + filename;
+        String downloadPath = CommonProperties.getDownloadPath() + filename;
         File desc = new File(downloadPath);
         if (!desc.getParentFile().exists()) {
             desc.getParentFile().mkdirs();

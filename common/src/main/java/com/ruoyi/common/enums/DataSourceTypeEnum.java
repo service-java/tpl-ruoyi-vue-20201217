@@ -1,4 +1,4 @@
-package com.ruoyi.common.constant.enums;
+package com.ruoyi.common.enums;
 
 /**
  * 数据源

@@ -3,7 +3,7 @@ package com.ruoyi.common.util.ip;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import com.alibaba.fastjson.JSONObject;
-import com.ruoyi.common.config.CommonConfig;
+import com.ruoyi.common.property.CommonProperties;
 import com.ruoyi.common.constant.Constants;
 import com.ruoyi.common.util.StringUtils;
 import com.ruoyi.common.util.http.HttpUtils;
@@ -28,7 +28,7 @@ public class AddressUtils {
         if (IpUtils.internalIp(ip)) {
             return "内网IP";
         }
-        if (CommonConfig.isAddressEnabled()) {
+        if (CommonProperties.isAddressEnabled()) {
             try {
                 String rspStr = HttpUtils.sendGet(IP_URL, "ip=" + ip + "&json=true", Constants.GBK);
                 if (StringUtils.isEmpty(rspStr)) {

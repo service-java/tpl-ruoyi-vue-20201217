@@ -7,7 +7,7 @@ import com.alibaba.druid.spring.boot.autoconfigure.properties.DruidStatPropertie
 import com.alibaba.druid.util.Utils;
 import com.ruoyi.cms.config.properties.DruidProperties;
 import com.ruoyi.cms.datasource.DynamicDataSource;
-import com.ruoyi.common.constant.enums.DataSourceTypeEnum;
+import com.ruoyi.common.enums.DataSourceTypeEnum;
 import com.ruoyi.common.util.spring.SpringUtils;
 
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;

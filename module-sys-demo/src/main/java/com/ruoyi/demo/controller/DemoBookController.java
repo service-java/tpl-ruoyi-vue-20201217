@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.ruoyi.common.annotation.Log;
 import com.ruoyi.common.vo.ResultVo;
-import com.ruoyi.common.constant.enums.BusinessTypeEnum;
+import com.ruoyi.common.enums.BusinessTypeEnum;
 import com.ruoyi.demo.domain.DemoBook;
 import com.ruoyi.demo.service.IDemoBookService;
 import com.ruoyi.common.util.poi.ExcelUtils;
