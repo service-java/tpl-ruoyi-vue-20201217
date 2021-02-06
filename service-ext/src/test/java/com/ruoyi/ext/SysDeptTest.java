@@ -2,7 +2,7 @@ package com.ruoyi.ext;
 
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.date.DateUtil;
-import com.ruoyi.CrawlerApplication;
+import com.ruoyi.ExtApplication;
 import com.ruoyi.ext.domain.SysDept;
 import com.ruoyi.ext.mapper.SysDeptMapper;
 import lombok.extern.slf4j.Slf4j;
@@ -17,7 +17,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import java.util.List;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = CrawlerApplication.class)
+@SpringBootTest(classes = ExtApplication.class)
 @Slf4j
 public class SysDeptTest {
 

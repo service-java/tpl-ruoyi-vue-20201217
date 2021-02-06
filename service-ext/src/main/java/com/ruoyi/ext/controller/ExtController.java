@@ -40,7 +40,7 @@ import java.util.*;
 @Controller
 @RequestMapping("/beetlsql")
 @Slf4j
-public class CrawlerController {
+public class ExtController {
 
     @Autowired
     SysUserMapper sysUserMapper;

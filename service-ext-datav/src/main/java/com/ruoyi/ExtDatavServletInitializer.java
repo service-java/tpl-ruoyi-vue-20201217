@@ -8,9 +8,9 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
  *
  * @author ruoyi
  */
-public class CrawlerDatavServletInitializer extends SpringBootServletInitializer {
+public class ExtDatavServletInitializer extends SpringBootServletInitializer {
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-        return application.sources(CrawlerDatavApplication.class);
+        return application.sources(ExtDatavApplication.class);
     }
 }

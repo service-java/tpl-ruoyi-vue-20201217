@@ -14,7 +14,7 @@ import org.springframework.util.StringUtils;
  * @author ruoyi
  */
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
-public class CrawlerDatavApplication {
+public class ExtDatavApplication {
     public static class SpringBeanNameGenerator extends AnnotationBeanNameGenerator {
         @Override
         protected String buildDefaultBeanName(BeanDefinition definition) {
@@ -35,7 +35,7 @@ public class CrawlerDatavApplication {
 
     public static void main(String[] args) {
         // System.setProperty("spring.devtools.restart.enabled", "false");
-        SpringApplication.run(CrawlerDatavApplication.class, args);
+        SpringApplication.run(ExtDatavApplication.class, args);
         System.out.println("(♥◠‿◠)ﾉﾞ  若依启动成功   ლ(´ڡ`ლ)ﾞ  \n" +
                 " .-------.       ____     __        \n" +
                 " |  _ _   \\      \\   \\   /  /    \n" +

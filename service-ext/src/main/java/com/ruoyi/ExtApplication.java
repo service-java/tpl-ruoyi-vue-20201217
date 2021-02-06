@@ -6,9 +6,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.context.annotation.AnnotationBeanNameGenerator;
-import org.springframework.context.annotation.Bean;
 import org.springframework.util.StringUtils;
-import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 
 /**
  * 启动程序
@@ -16,7 +14,7 @@ import org.springframework.web.multipart.commons.CommonsMultipartResolver;
  * @author ruoyi
  */
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
-public class CrawlerApplication {
+public class ExtApplication {
     public static class SpringBeanNameGenerator extends AnnotationBeanNameGenerator {
         @Override
         protected String buildDefaultBeanName(BeanDefinition definition) {
@@ -36,7 +34,7 @@ public class CrawlerApplication {
 
     public static void main(String[] args) {
         // System.setProperty("spring.devtools.restart.enabled", "false");
-        SpringApplication.run(CrawlerApplication.class, args);
+        SpringApplication.run(ExtApplication.class, args);
         System.out.println("(♥◠‿◠)ﾉﾞ  若依启动成功   ლ(´ڡ`ლ)ﾞ  \n" +
                 " .-------.       ____     __        \n" +
                 " |  _ _   \\      \\   \\   /  /    \n" +
