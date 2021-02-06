@@ -47,6 +47,4 @@ public class ShiroUtils {
     public static boolean isLogin() {
         return SecurityUtils.getSubject().getPrincipal() != null;
     }
-
-
 }

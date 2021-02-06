@@ -18,13 +18,12 @@
 # 结构说明
 
 ```
-依赖顺序调整为 
-common 
+依赖调整为目录名恰好从上到下的单向顺序 
+--> common 
 --> framework-xxx 
 --> module-xxx 
 --> service-xxx 
 --> ui-xxx 
-的目录名恰好从上到下的单向顺序
 
 ===
 // common
@@ -36,6 +35,11 @@ common
 不过core这个单词表意不明
 
 ===
+// framework
+各种框架的配置等
+为了复用, 尽量不要涉及业务的增删改查实际代码
+安全模块要涉及到的用户查询, 仅调用接口, 到module才真正实现
+
 // framework-sys
 ruoyi-vue的底子
 后台功能比较完善

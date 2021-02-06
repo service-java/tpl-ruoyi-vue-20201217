@@ -31,12 +31,14 @@ import java.util.Map;
  * @author Mark sunlightcs@gmail.com
  */
 @Service("OssConfigService")
-public class OssConfigService extends ServiceImpl<OssConfigMapper, OssConfig> {
+public class OssConfigService extends ServiceImpl<OssConfigMapper, OssConfig>  {
     @Autowired
     private OssConfigRedisUtils sysConfigRedis;
 
     @Autowired
     private OssConfigMapper ossConfigMapper;
+
+    // @todo
 
     public PageDataVo queryPage(Map<String, Object> params) {
   /*      String paramKey = (String)params.get("paramKey");
@@ -66,11 +68,14 @@ public class OssConfigService extends ServiceImpl<OssConfigMapper, OssConfig> {
     }
 
 
+
+
     @Transactional(rollbackFor = Exception.class)
     public void updateValueByKey(String key, String value) {
         baseMapper.updateValueByKey(key, value);
         sysConfigRedis.delete(key);
     }
+
 
 
     @Transactional(rollbackFor = Exception.class)
@@ -95,6 +100,7 @@ public class OssConfigService extends ServiceImpl<OssConfigMapper, OssConfig> {
     }
 
 
+
     public <T> T getConfigObject(String key, Class<T> clazz) {
         String value = getValue(key);
         if (StringUtils.isNotBlank(value)) {
@@ -108,21 +114,26 @@ public class OssConfigService extends ServiceImpl<OssConfigMapper, OssConfig> {
         }
     }
 
+
     public int updateBatch(List<OssConfig> list) {
         return baseMapper.updateBatch(list);
     }
+
 
     public int updateBatchSelective(List<OssConfig> list) {
         return baseMapper.updateBatchSelective(list);
     }
 
+
     public int batchInsert(List<OssConfig> list) {
         return baseMapper.batchInsert(list);
     }
 
+
     public int insertOrUpdate(OssConfig record) {
         return baseMapper.insertOrUpdate(record);
     }
+
 
     public int insertOrUpdateSelective(OssConfig record) {
         return baseMapper.insertOrUpdateSelective(record);

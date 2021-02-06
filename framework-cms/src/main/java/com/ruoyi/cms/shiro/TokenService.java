@@ -1,4 +1,4 @@
-package com.ruoyi.cms.service;
+package com.ruoyi.cms.shiro;
 
 import cn.hutool.core.date.DateUtil;
 import com.ruoyi.common.constant.Constants;

@@ -37,6 +37,4 @@ public class BaseController {
     protected Long getUserId() {
         return getUser().getId();
     }
-
-
 }

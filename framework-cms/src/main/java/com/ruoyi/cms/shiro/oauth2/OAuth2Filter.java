@@ -10,7 +10,7 @@ package com.ruoyi.cms.shiro.oauth2;
 
 import com.google.gson.Gson;
 
-import com.ruoyi.cms.service.TokenService;
+import com.ruoyi.cms.shiro.TokenService;
 import com.ruoyi.cms.util.HttpContextUtils;
 import com.ruoyi.common.vo.ResultVo;
 import lombok.extern.slf4j.Slf4j;

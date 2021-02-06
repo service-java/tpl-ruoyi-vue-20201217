@@ -31,7 +31,7 @@ import com.ruoyi.cms.mapper.OssBucketMapper;
 import com.ruoyi.cms.mapper.OssUserMapper;
 import com.ruoyi.cms.service.OssBucketService;
 import com.ruoyi.cms.service.OssConfigService;
-import com.ruoyi.cms.service.TokenService;
+import com.ruoyi.cms.shiro.TokenService;
 import com.ruoyi.cms.shiro.ShiroUtils;
 import com.ruoyi.cms.util.PageQueryUtils;
 import com.ruoyi.cms.vo.PageDataVo;

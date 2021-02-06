@@ -15,10 +15,11 @@ import java.util.List;
  * Date: 2020-12-16 9:11
  */
 @Service
-public class OssUserService extends ServiceImpl<OssUserMapper, OssUser>  {
+public class OssUserService extends ServiceImpl<OssUserMapper, OssUser> {
 
     @Resource
     private OssUserMapper ossUserMapper;
+
 
 
     public int deleteByPrimaryKey(Long id) {
@@ -44,6 +45,7 @@ public class OssUserService extends ServiceImpl<OssUserMapper, OssUser>  {
     public int insertSelective(OssUser record) {
         return ossUserMapper.insertSelective(record);
     }
+
 
 
     public OssUser selectByPrimaryKey(Long id) {

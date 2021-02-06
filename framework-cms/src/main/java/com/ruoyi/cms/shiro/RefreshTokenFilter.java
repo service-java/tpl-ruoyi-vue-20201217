@@ -1,7 +1,5 @@
 package com.ruoyi.cms.shiro;
 
-import com.ruoyi.cms.service.TokenService;
-
 import com.ruoyi.cms.domain.OssUser;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

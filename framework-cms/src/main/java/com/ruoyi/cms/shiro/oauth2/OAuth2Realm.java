@@ -8,11 +8,11 @@
 
 package com.ruoyi.cms.shiro.oauth2;
 
-import com.ruoyi.cms.service.TokenService;
+import com.ruoyi.cms.shiro.TokenService;
 import com.ruoyi.common.constant.HttpStatusConstants;
 import com.ruoyi.common.exception.CustomException;
 import com.ruoyi.cms.domain.OssUser;
-import com.ruoyi.cms.service.ShiroService;
+import com.ruoyi.cms.shiro.ShiroService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
