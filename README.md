@@ -20,14 +20,14 @@ ruoyi-vue的底子
 后台功能比较完善
 几乎都是原始技术，比较纯粹，不用担心别人不会其中某个框架
 
-// framework-cms
+// framework-cms/mall
 renren-fast的底子
-集成了一些流行框架, 适合快速开发
+集成了一些流行框架(mybatis-plus), 适合快速开发
 
-// framework-ext @ignore
-因为贪图beetlsql能直接在markdown里写sql 
-beetl(js-like)语法 ==> 天下苦xml久矣
-但因为非主流, 主要用在联表查询统计的地方(不涉及增删改)
+// framework-ext @minor @ignore
+天下苦xml久矣
+beetl(js-like)语法 ==> beetlsql能直接在markdown里写sql 
+但因为非主流, 目前主要用在需要大量联表查询统计的个人系统(最好不涉及增删改)
 ```
 
 # 代办列表
