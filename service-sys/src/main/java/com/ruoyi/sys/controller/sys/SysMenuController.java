@@ -25,7 +25,7 @@ import com.ruoyi.common.enums.BusinessTypeEnum;
 import com.ruoyi.sys.security.SecurityUtils;
 import com.ruoyi.common.util.ServletUtils;
 import com.ruoyi.common.util.StringUtils;
-import com.ruoyi.sys.service.TokenService;
+import com.ruoyi.sys.security.TokenService;
 
 /**
  * 菜单信息

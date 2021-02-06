@@ -1,4 +1,4 @@
-package com.ruoyi.sys.service;
+package com.ruoyi.sys.security;
 
 import javax.annotation.Resource;
 

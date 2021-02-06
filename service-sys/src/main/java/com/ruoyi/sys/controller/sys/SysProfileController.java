@@ -22,7 +22,7 @@ import com.ruoyi.common.enums.BusinessTypeEnum;
 import com.ruoyi.sys.security.SecurityUtils;
 import com.ruoyi.common.util.ServletUtils;
 import com.ruoyi.common.util.file.FileUploadUtils;
-import com.ruoyi.sys.service.TokenService;
+import com.ruoyi.sys.security.TokenService;
 
 /**
  * 个人信息 业务处理

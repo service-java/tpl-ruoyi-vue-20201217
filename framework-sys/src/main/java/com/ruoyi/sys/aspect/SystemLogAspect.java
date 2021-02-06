@@ -30,7 +30,7 @@ import com.ruoyi.common.util.ip.IpUtils;
 import com.ruoyi.common.util.spring.SpringUtils;
 import com.ruoyi.sys.manager.AsyncManager;
 import com.ruoyi.sys.manager.AsyncFactory;
-import com.ruoyi.sys.service.TokenService;
+import com.ruoyi.sys.security.TokenService;
 import com.ruoyi.common.domain.sys.SysOperLog;
 
 /**

@@ -11,14 +11,12 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.logout.LogoutSuccessHandler;
 import com.alibaba.fastjson.JSON;
 import com.ruoyi.common.constant.Constants;
-import com.ruoyi.common.constant.HttpStatusConstants;
 import com.ruoyi.common.vo.ResultVo;
 import com.ruoyi.sys.security.login.LoginUser;
 import com.ruoyi.common.util.ServletUtils;
 import com.ruoyi.common.util.StringUtils;
 import com.ruoyi.sys.manager.AsyncManager;
 import com.ruoyi.sys.manager.AsyncFactory;
-import com.ruoyi.sys.service.TokenService;
 
 /**
  * 自定义退出处理类 返回成功

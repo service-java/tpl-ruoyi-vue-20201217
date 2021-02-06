@@ -1,8 +1,10 @@
-package com.ruoyi.sys.service;
+package com.ruoyi.sys.security;
 
 import java.util.HashSet;
 import java.util.Set;
 
+import com.ruoyi.sys.service.ISysMenuService;
+import com.ruoyi.sys.service.ISysRoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import com.ruoyi.common.domain.sys.SysUser;

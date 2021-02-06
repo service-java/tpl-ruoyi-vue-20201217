@@ -15,7 +15,6 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 import com.ruoyi.sys.security.login.LoginUser;
 import com.ruoyi.common.util.StringUtils;
-import com.ruoyi.sys.service.TokenService;
 
 /**
  * token过滤器 验证token有效性

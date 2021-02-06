@@ -16,9 +16,9 @@ import com.ruoyi.common.domain.sys.SysUser;
 import com.ruoyi.sys.security.login.LoginBody;
 import com.ruoyi.sys.security.login.LoginUser;
 import com.ruoyi.common.util.ServletUtils;
-import com.ruoyi.sys.service.SysLoginService;
-import com.ruoyi.sys.service.SysPermissionService;
-import com.ruoyi.sys.service.TokenService;
+import com.ruoyi.sys.security.SysLoginService;
+import com.ruoyi.sys.security.SysPermissionService;
+import com.ruoyi.sys.security.TokenService;
 
 /**
  * 登录验证

@@ -17,7 +17,7 @@ import com.ruoyi.sys.security.login.LoginUser;
 import com.ruoyi.common.util.ServletUtils;
 import com.ruoyi.common.util.StringUtils;
 import com.ruoyi.common.util.spring.SpringUtils;
-import com.ruoyi.sys.service.TokenService;
+import com.ruoyi.sys.security.TokenService;
 
 /**
  * 数据过滤处理
