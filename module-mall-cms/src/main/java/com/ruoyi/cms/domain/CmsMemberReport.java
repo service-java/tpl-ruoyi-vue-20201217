@@ -1,17 +1,16 @@
 package com.ruoyi.cms.domain;
 
-import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Date;
 import lombok.Data;
+
+import java.util.Date;
 
 /**
  * Description: 模块功能描述
- * 
+ *
  * User: luo0412
  * Date: 2020-12-22 16:14
  */

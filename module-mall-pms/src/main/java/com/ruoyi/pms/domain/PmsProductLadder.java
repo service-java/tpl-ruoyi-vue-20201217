@@ -6,12 +6,13 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.math.BigDecimal;
 import lombok.Data;
+
+import java.math.BigDecimal;
 
 /**
  * Description: 模块功能描述
- * 
+ *
  * User: luo0412
  * Date: 2020-12-22 16:32
  */

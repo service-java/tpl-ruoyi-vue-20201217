@@ -1,6 +1,7 @@
 package com.ruoyi.mall.service;
 
 import com.ruoyi.common.domain.sys.SysUser;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -27,6 +28,41 @@ public interface ISysUserService {
     public SysUser selectUserByUserName(String userName);
 
 
+    SysUser selectUserById(Long userId);
 
+    String selectUserRoleGroup(String userName);
 
+    String selectUserPostGroup(String userName);
+
+    String checkUserNameUnique(String userName);
+
+    String checkPhoneUnique(SysUser user);
+
+    String checkEmailUnique(SysUser user);
+
+    void checkUserAllowed(SysUser user);
+
+    @Transactional
+    int insertUser(SysUser user);
+
+    @Transactional
+    int updateUser(SysUser user);
+
+    int updateUserStatus(SysUser user);
+
+    int updateUserProfile(SysUser user);
+
+    boolean updateUserAvatar(String userName, String avatar);
+
+    int resetPwd(SysUser user);
+
+    int resetUserPwd(String userName, String password);
+
+    @Transactional
+    int deleteUserById(Long userId);
+
+    @Transactional
+    int deleteUserByIds(Long[] userIds);
+
+    String importUser(List<SysUser> userList, Boolean isUpdateSupport, String operName);
 }

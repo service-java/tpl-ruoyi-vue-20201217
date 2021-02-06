@@ -1,12 +1,11 @@
 package com.ruoyi.cms.service;
 
-import org.springframework.stereotype.Service;
-import javax.annotation.Resource;
-import java.util.List;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import java.util.List;
-import com.ruoyi.cms.mapper.CmsTopicMapper;
 import com.ruoyi.cms.domain.CmsTopic;
+import com.ruoyi.cms.mapper.CmsTopicMapper;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * Description: 模块功能描述

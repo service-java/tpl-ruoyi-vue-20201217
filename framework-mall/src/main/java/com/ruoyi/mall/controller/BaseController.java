@@ -1,8 +1,6 @@
 package com.ruoyi.mall.controller;
 
 import com.ruoyi.common.util.DateUtils;
-
-
 import com.ruoyi.mall.security.SecurityUtils;
 import com.ruoyi.mall.security.login.LoginUser;
 import org.springframework.web.bind.WebDataBinder;

@@ -51,6 +51,11 @@
 
         <dependency>
             <groupId>com.ruoyi</groupId>
+            <artifactId>module-mall</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.ruoyi</groupId>
             <artifactId>module-mall-cms</artifactId>
         </dependency>
 

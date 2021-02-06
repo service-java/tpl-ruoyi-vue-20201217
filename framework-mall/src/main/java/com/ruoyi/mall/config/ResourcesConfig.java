@@ -1,7 +1,7 @@
 package com.ruoyi.mall.config;
 
-import com.ruoyi.common.property.CommonProperties;
 import com.ruoyi.common.constant.Constants;
+import com.ruoyi.common.property.CommonProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.cors.CorsConfiguration;

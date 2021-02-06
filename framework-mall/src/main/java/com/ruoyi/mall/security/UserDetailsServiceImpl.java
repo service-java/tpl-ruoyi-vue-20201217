@@ -1,10 +1,11 @@
-package com.ruoyi.mall.service;
+package com.ruoyi.mall.security;
 
-import com.ruoyi.common.enums.UserStatusEnum;
 import com.ruoyi.common.domain.sys.SysUser;
+import com.ruoyi.common.enums.UserStatusEnum;
 import com.ruoyi.common.exception.BaseException;
 import com.ruoyi.common.util.StringUtils;
 import com.ruoyi.mall.security.login.LoginUser;
+import com.ruoyi.mall.service.ISysUserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

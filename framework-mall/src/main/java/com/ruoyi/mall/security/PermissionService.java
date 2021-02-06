@@ -1,4 +1,4 @@
-package com.ruoyi.mall.service;
+package com.ruoyi.mall.security;
 
 import com.ruoyi.common.domain.sys.SysRole;
 import com.ruoyi.common.util.ServletUtils;

@@ -1,7 +1,8 @@
-package com.ruoyi.mall.service;
+package com.ruoyi.mall.service.impl;
 
 import com.ruoyi.common.domain.sys.SysLogininfor;
 import com.ruoyi.mall.mapper.SysLogininforMapper;
+import com.ruoyi.mall.service.ISysLogininforService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

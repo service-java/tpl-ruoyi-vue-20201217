@@ -18,4 +18,11 @@ public interface ISysOperLogService {
     public void insertOperlog(SysOperLog operLog);
 
 
+    List<SysOperLog> selectOperLogList(SysOperLog operLog);
+
+    int deleteOperLogByIds(Long[] operIds);
+
+    SysOperLog selectOperLogById(Long operId);
+
+    void cleanOperLog();
 }

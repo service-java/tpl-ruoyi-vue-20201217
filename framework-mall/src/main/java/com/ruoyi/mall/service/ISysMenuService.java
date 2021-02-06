@@ -15,6 +15,8 @@ import java.util.Set;
 public interface ISysMenuService {
 
 
+    List<SysMenu> selectMenuList(Long userId);
+
     /**
      * 根据用户查询系统菜单列表
      *
@@ -33,4 +35,33 @@ public interface ISysMenuService {
     public Set<String> selectMenuPermsByUserId(Long userId);
 
 
+    List<SysMenu> selectMenuTreeByUserId(Long userId);
+
+    List<Integer> selectMenuListByRoleId(Long roleId);
+
+    List<RouterVo> buildMenus(List<SysMenu> menus);
+
+    List<SysMenu> buildMenuTree(List<SysMenu> menus);
+
+    List<TreeSelectEntity> buildMenuTreeSelect(List<SysMenu> menus);
+
+    SysMenu selectMenuById(Long menuId);
+
+    boolean hasChildByMenuId(Long menuId);
+
+    boolean checkMenuExistRole(Long menuId);
+
+    int insertMenu(SysMenu menu);
+
+    int updateMenu(SysMenu menu);
+
+    int deleteMenuById(Long menuId);
+
+    String checkMenuNameUnique(SysMenu menu);
+
+    String getRouteName(SysMenu menu);
+
+    String getRouterPath(SysMenu menu);
+
+    String getComponent(SysMenu menu);
 }

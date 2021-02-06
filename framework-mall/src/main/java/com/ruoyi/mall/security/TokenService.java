@@ -1,4 +1,4 @@
-package com.ruoyi.mall.service;
+package com.ruoyi.mall.security;
 
 import com.ruoyi.common.constant.Constants;
 import com.ruoyi.common.redis.RedisCache;

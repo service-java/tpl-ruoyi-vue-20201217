@@ -400,6 +400,13 @@
 
             <dependency>
                 <groupId>com.ruoyi</groupId>
+                <artifactId>module-mall</artifactId>
+                <version>${ruoyi.version}</version>
+            </dependency>
+
+
+            <dependency>
+                <groupId>com.ruoyi</groupId>
                 <artifactId>module-mall-cms</artifactId>
                 <version>${ruoyi.version}</version>
             </dependency>
@@ -500,6 +507,7 @@
         <module>module-sys-qrtz</module>
         <module>module-sys-demo</module>
         <module>module-ext</module>
+        <module>module-mall</module>
         <module>module-mall-cms</module>
         <module>module-mall-oms</module>
         <module>module-mall-pms</module>

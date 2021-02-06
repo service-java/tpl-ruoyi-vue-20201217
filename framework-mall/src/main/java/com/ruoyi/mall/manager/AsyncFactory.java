@@ -8,7 +8,6 @@ import com.ruoyi.common.util.ServletUtils;
 import com.ruoyi.common.util.ip.AddressUtils;
 import com.ruoyi.common.util.ip.IpUtils;
 import com.ruoyi.common.util.spring.SpringUtils;
-
 import com.ruoyi.mall.service.ISysLogininforService;
 import com.ruoyi.mall.service.ISysOperLogService;
 import eu.bitwalker.useragentutils.UserAgent;

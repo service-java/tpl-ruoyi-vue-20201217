@@ -7,9 +7,8 @@ import com.ruoyi.common.domain.sys.SysUser;
 import com.ruoyi.common.util.ServletUtils;
 import com.ruoyi.common.util.StringUtils;
 import com.ruoyi.common.util.spring.SpringUtils;
-
+import com.ruoyi.mall.security.TokenService;
 import com.ruoyi.mall.security.login.LoginUser;
-import com.ruoyi.mall.service.TokenService;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.Signature;
 import org.aspectj.lang.annotation.Aspect;

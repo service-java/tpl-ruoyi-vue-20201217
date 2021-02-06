@@ -1,4 +1,4 @@
-package com.ruoyi.mall.service;
+package com.ruoyi.mall.security;
 
 import com.ruoyi.common.constant.Constants;
 import com.ruoyi.common.exception.CustomException;
@@ -7,7 +7,6 @@ import com.ruoyi.common.exception.user.CaptchaExpireException;
 import com.ruoyi.common.exception.user.UserPasswordNotMatchException;
 import com.ruoyi.common.redis.RedisCache;
 import com.ruoyi.common.util.MessageUtils;
-
 import com.ruoyi.mall.manager.AsyncFactory;
 import com.ruoyi.mall.manager.AsyncManager;
 import com.ruoyi.mall.security.login.LoginUser;

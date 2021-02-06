@@ -2,18 +2,17 @@ package com.ruoyi.mall.aspect;
 
 import com.alibaba.fastjson.JSON;
 import com.ruoyi.common.annotation.Log;
+import com.ruoyi.common.domain.sys.SysOperLog;
 import com.ruoyi.common.enums.BusinessStatusEnum;
 import com.ruoyi.common.enums.HttpMethodEnum;
-import com.ruoyi.common.domain.sys.SysOperLog;
 import com.ruoyi.common.util.ServletUtils;
 import com.ruoyi.common.util.StringUtils;
 import com.ruoyi.common.util.ip.IpUtils;
 import com.ruoyi.common.util.spring.SpringUtils;
-
 import com.ruoyi.mall.manager.AsyncFactory;
 import com.ruoyi.mall.manager.AsyncManager;
+import com.ruoyi.mall.security.TokenService;
 import com.ruoyi.mall.security.login.LoginUser;
-import com.ruoyi.mall.service.TokenService;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.Signature;
 import org.aspectj.lang.annotation.AfterReturning;

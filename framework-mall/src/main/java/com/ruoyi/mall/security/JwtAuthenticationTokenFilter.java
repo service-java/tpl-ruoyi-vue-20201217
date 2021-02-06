@@ -1,9 +1,7 @@
 package com.ruoyi.mall.security;
 
 import com.ruoyi.common.util.StringUtils;
-
 import com.ruoyi.mall.security.login.LoginUser;
-import com.ruoyi.mall.service.TokenService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;

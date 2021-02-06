@@ -8,7 +8,6 @@ import com.ruoyi.common.vo.ResultVo;
 import com.ruoyi.mall.manager.AsyncFactory;
 import com.ruoyi.mall.manager.AsyncManager;
 import com.ruoyi.mall.security.login.LoginUser;
-import com.ruoyi.mall.service.TokenService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.core.Authentication;

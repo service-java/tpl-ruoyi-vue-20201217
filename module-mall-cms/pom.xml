@@ -17,10 +17,9 @@
 
     <dependencies>
 
-        <!-- 通用工具-->
         <dependency>
             <groupId>com.ruoyi</groupId>
-            <artifactId>framework-mall</artifactId>
+            <artifactId>module-mall</artifactId>
         </dependency>
 
     </dependencies>

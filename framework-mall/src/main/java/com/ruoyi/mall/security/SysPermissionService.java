@@ -1,6 +1,8 @@
-package com.ruoyi.mall.service;
+package com.ruoyi.mall.security;
 
 import com.ruoyi.common.domain.sys.SysUser;
+import com.ruoyi.mall.service.ISysMenuService;
+import com.ruoyi.mall.service.ISysRoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
