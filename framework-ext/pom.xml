@@ -9,10 +9,10 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>framework-crawler</artifactId>
+    <artifactId>framework-ext</artifactId>
 
     <description>
-        framework-crawler框架核心
+        framework-ext框架核心
     </description>
 
     <dependencies>

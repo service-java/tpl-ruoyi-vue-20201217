@@ -9,21 +9,18 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>module-crawler-datav</artifactId>
+    <artifactId>module-ext</artifactId>
 
     <description>
-        datav示例模块
+        system-beetlsql系统模块
     </description>
 
     <dependencies>
 
-        <!-- 通用工具-->
         <dependency>
             <groupId>com.ruoyi</groupId>
-            <artifactId>framework-crawler</artifactId>
+            <artifactId>framework-ext</artifactId>
         </dependency>
-
-
 
     </dependencies>
 
@@ -44,5 +41,6 @@
             </resource>
         </resources>
     </build>
+
 
 </project>

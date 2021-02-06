@@ -394,7 +394,7 @@
 
             <dependency>
                 <groupId>com.ruoyi</groupId>
-                <artifactId>framework-crawler</artifactId>
+                <artifactId>framework-ext</artifactId>
                 <version>${ruoyi.version}</version>
             </dependency>
 
@@ -470,14 +470,14 @@
 
             <dependency>
                 <groupId>com.ruoyi</groupId>
-                <artifactId>module-crawler</artifactId>
+                <artifactId>module-ext</artifactId>
                 <version>${ruoyi.version}</version>
             </dependency>
 
 
             <dependency>
                 <groupId>com.ruoyi</groupId>
-                <artifactId>module-crawler-datav</artifactId>
+                <artifactId>module-ext-datav</artifactId>
                 <version>${ruoyi.version}</version>
             </dependency>
 
@@ -491,15 +491,15 @@
         <module>framework-cms</module>
         <module>framework-mall</module>
         <module>framework-sys</module>
-        <module>framework-crawler</module>
+        <module>framework-ext</module>
         <module>module-cms</module>
         <module>module-cms-blog</module>
-        <module>module-crawler-datav</module>
+        <module>module-ext-datav</module>
         <module>module-sys</module>
         <module>module-sys-gen</module>
         <module>module-sys-qrtz</module>
         <module>module-sys-demo</module>
-        <module>module-crawler</module>
+        <module>module-ext</module>
         <module>module-mall-cms</module>
         <module>module-mall-oms</module>
         <module>module-mall-pms</module>
@@ -509,8 +509,8 @@
         <module>service-cms-blog</module>
         <module>service-mall</module>
         <module>service-sys</module>
-        <module>service-crawler</module>
-        <module>service-crawler-datav</module>
+        <module>service-ext</module>
+        <module>service-ext-datav</module>
     </modules>
     <packaging>pom</packaging>
 
