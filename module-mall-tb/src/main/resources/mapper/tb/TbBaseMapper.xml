@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.tb.mapper.TbBaseMapper">
+  <resultMap id="BaseResultMap" type="com.ruoyi.tb.domain.TbBase">
+    <!--@mbg.generated-->
+    <!--@Table tb_base-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="web_name" jdbcType="VARCHAR" property="webName" />
+    <result column="key_word" jdbcType="VARCHAR" property="keyWord" />
+    <result column="description" jdbcType="VARCHAR" property="description" />
+    <result column="source_path" jdbcType="VARCHAR" property="sourcePath" />
+    <result column="upload_path" jdbcType="VARCHAR" property="uploadPath" />
+    <result column="copyright" jdbcType="VARCHAR" property="copyright" />
+    <result column="count_code" jdbcType="VARCHAR" property="countCode" />
+    <result column="has_log_notice" jdbcType="INTEGER" property="hasLogNotice" />
+    <result column="log_notice" jdbcType="VARCHAR" property="logNotice" />
+    <result column="has_all_notice" jdbcType="INTEGER" property="hasAllNotice" />
+    <result column="all_notice" jdbcType="VARCHAR" property="allNotice" />
+    <result column="notice" jdbcType="VARCHAR" property="notice" />
+    <result column="update_log" jdbcType="VARCHAR" property="updateLog" />
+    <result column="front_url" jdbcType="VARCHAR" property="frontUrl" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, web_name, key_word, description, source_path, upload_path, copyright, count_code, 
+    has_log_notice, log_notice, has_all_notice, all_notice, notice, update_log, front_url
+  </sql>
+</mapper>

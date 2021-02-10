@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.tb.mapper.TbThanksMapper">
+  <resultMap id="BaseResultMap" type="com.ruoyi.tb.domain.TbThanks">
+    <!--@mbg.generated-->
+    <!--@Table tb_thanks-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="nick_name" jdbcType="VARCHAR" property="nickName" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="money" jdbcType="DECIMAL" property="money" />
+    <result column="info" jdbcType="VARCHAR" property="info" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="state" jdbcType="INTEGER" property="state" />
+    <result column="pay_type" jdbcType="VARCHAR" property="payType" />
+    <result column="order_id" jdbcType="VARCHAR" property="orderId" />
+    <result column="date" jdbcType="TIMESTAMP" property="date" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, nick_name, username, money, info, email, `state`, pay_type, order_id, `date`
+  </sql>
+</mapper>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.tb.mapper.TbExpressMapper">
+  <resultMap id="BaseResultMap" type="com.ruoyi.tb.domain.TbExpress">
+    <!--@mbg.generated-->
+    <!--@Table tb_express-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="express_name" jdbcType="VARCHAR" property="expressName" />
+    <result column="sort_order" jdbcType="INTEGER" property="sortOrder" />
+    <result column="created" jdbcType="TIMESTAMP" property="created" />
+    <result column="updated" jdbcType="TIMESTAMP" property="updated" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, express_name, sort_order, created, updated
+  </sql>
+</mapper>

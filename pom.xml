@@ -425,6 +425,12 @@
 
             <dependency>
                 <groupId>com.ruoyi</groupId>
+                <artifactId>module-mall-tb</artifactId>
+                <version>${ruoyi.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.ruoyi</groupId>
                 <artifactId>module-mall-sms</artifactId>
                 <version>${ruoyi.version}</version>
             </dependency>
@@ -527,6 +533,7 @@
         <module>module-mall-pms</module>
         <module>module-mall-sms</module>
         <module>module-mall-ums</module>
+        <module>module-mall-tb</module>
         <module>service-cms</module>
         <module>service-cms-blog</module>
         <module>service-cms-note</module>
