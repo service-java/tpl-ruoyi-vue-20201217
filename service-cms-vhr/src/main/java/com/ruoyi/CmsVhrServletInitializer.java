@@ -8,9 +8,9 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
  *
  * @author ruoyi
  */
-public class CmsNoteServletInitializer extends SpringBootServletInitializer {
+public class CmsVhrServletInitializer extends SpringBootServletInitializer {
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-        return application.sources(CmsNoteApplication.class);
+        return application.sources(CmsVhrApplication.class);
     }
 }

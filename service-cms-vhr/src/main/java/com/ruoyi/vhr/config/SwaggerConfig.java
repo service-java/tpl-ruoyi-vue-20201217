@@ -1,4 +1,4 @@
-package com.ruoyi.cms.config;
+package com.ruoyi.vhr.config;
 
 import com.ruoyi.common.property.CommonProperties;
 import io.swagger.annotations.ApiOperation;
