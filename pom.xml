@@ -514,6 +514,7 @@
         <module>module-cms</module>
         <module>module-cms-blog</module>
         <module>module-cms-note</module>
+        <module>module-cms-vhr</module>
         <module>module-ext-datav</module>
         <module>module-sys</module>
         <module>module-sys-gen</module>
