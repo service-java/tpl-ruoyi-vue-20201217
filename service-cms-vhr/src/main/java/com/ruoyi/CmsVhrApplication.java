@@ -14,7 +14,7 @@ import org.springframework.util.StringUtils;
  * @author ruoyi
  */
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
-public class CmsNoteApplication {
+public class CmsVhrApplication {
     public static class SpringBeanNameGenerator extends AnnotationBeanNameGenerator {
         @Override
         protected String buildDefaultBeanName(BeanDefinition definition) {
@@ -35,7 +35,7 @@ public class CmsNoteApplication {
 
     public static void main(String[] args) {
         // System.setProperty("spring.devtools.restart.enabled", "false");
-        SpringApplication.run(CmsNoteApplication.class, args);
+        SpringApplication.run(CmsVhrApplication.class, args);
         System.out.println("(♥◠‿◠)ﾉﾞ  若依启动成功   ლ(´ڡ`ლ)ﾞ  \n" +
                 " .-------.       ____     __        \n" +
                 " |  _ _   \\      \\   \\   /  /    \n" +
