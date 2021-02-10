@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.vhr.mapper.VhrEmployeetrainMapper">
+  <resultMap id="BaseResultMap" type="com.ruoyi.vhr.domain.VhrEmployeetrain">
+    <!--@mbg.generated-->
+    <!--@Table vhr_employeetrain-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="eid" jdbcType="INTEGER" property="eid" />
+    <result column="trainDate" jdbcType="DATE" property="traindate" />
+    <result column="trainContent" jdbcType="VARCHAR" property="traincontent" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, eid, trainDate, trainContent, remark
+  </sql>
+</mapper>

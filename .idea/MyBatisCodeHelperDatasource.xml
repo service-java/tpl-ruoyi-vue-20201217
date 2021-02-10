@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="MyBatisCodeHelperDatasource">
+    <option name="projectProfile">
+      <ProjectProfile>
+        <option name="generateService" value="true" />
+        <option name="javaMapperPackage" value="com.ruoyi.vhr.mapper" />
+        <option name="javaMapperPath" value="$PROJECT_DIR$/module-cms-vhr/src/main/java" />
+        <option name="javaModelPackage" value="com.ruoyi.vhr.domain" />
+        <option name="javaModelPath" value="$PROJECT_DIR$/module-cms-vhr/src/main/java" />
+        <option name="lastDatabaseCrudChooseModuleName" value="module-cms-vhr" />
+        <option name="lombokDataAnnotation" value="true" />
+        <option name="mapperAnnotaion" value="true" />
+        <option name="moduleNameToPackageAndPathMap">
+          <map>
+            <entry key="module-cms-vhr">
+              <value>
+                <UserPackageAndPathInfoByModule>
+                  <option name="javaMapperPackage" value="com.ruoyi.vhr.mapper" />
+                  <option name="javaMapperPath" value="$PROJECT_DIR$/module-cms-vhr/src/main/java" />
+                  <option name="javaModelPacakge" value="com.ruoyi.vhr.domain" />
+                  <option name="javaModelPath" value="$PROJECT_DIR$/module-cms-vhr/src/main/java" />
+                  <option name="javaServicePackage" value="com.ruoyi.vhr.service" />
+                  <option name="javaServicePath" value="$PROJECT_DIR$/module-cms-vhr/src/main/java" />
+                  <option name="xmlPackage" value="mapper.vhr" />
+                  <option name="xmlPath" value="$PROJECT_DIR$/module-cms-vhr/src/main/resources" />
+                </UserPackageAndPathInfoByModule>
+              </value>
+            </entry>
+          </map>
+        </option>
+        <option name="p3CComment" value="true" />
+        <option name="useSwagger" value="true" />
+        <option name="userMybatisPlus" value="true" />
+        <option name="xmlMapperPackage" value="mapper.vhr" />
+        <option name="xmlMapperPath" value="$PROJECT_DIR$/module-cms-vhr/src/main/resources" />
+      </ProjectProfile>
+    </option>
+  </component>
+</project>

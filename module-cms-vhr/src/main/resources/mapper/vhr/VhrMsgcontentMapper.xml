@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.vhr.mapper.VhrMsgcontentMapper">
+  <resultMap id="BaseResultMap" type="com.ruoyi.vhr.domain.VhrMsgcontent">
+    <!--@mbg.generated-->
+    <!--@Table vhr_msgcontent-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="message" jdbcType="VARCHAR" property="message" />
+    <result column="createDate" jdbcType="TIMESTAMP" property="createdate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, title, message, createDate
+  </sql>
+</mapper>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.vhr.mapper.VhrJoblevelMapper">
+  <resultMap id="BaseResultMap" type="com.ruoyi.vhr.domain.VhrJoblevel">
+    <!--@mbg.generated-->
+    <!--@Table vhr_joblevel-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="titleLevel" jdbcType="OTHER" property="titlelevel" />
+    <result column="createDate" jdbcType="TIMESTAMP" property="createdate" />
+    <result column="enabled" jdbcType="BOOLEAN" property="enabled" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, `name`, titleLevel, createDate, enabled
+  </sql>
+</mapper>

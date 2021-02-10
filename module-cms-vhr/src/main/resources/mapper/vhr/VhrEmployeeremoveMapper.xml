@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.vhr.mapper.VhrEmployeeremoveMapper">
+  <resultMap id="BaseResultMap" type="com.ruoyi.vhr.domain.VhrEmployeeremove">
+    <!--@mbg.generated-->
+    <!--@Table vhr_employeeremove-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="eid" jdbcType="INTEGER" property="eid" />
+    <result column="afterDepId" jdbcType="INTEGER" property="afterdepid" />
+    <result column="afterJobId" jdbcType="INTEGER" property="afterjobid" />
+    <result column="removeDate" jdbcType="DATE" property="removedate" />
+    <result column="reason" jdbcType="VARCHAR" property="reason" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, eid, afterDepId, afterJobId, removeDate, reason, remark
+  </sql>
+</mapper>

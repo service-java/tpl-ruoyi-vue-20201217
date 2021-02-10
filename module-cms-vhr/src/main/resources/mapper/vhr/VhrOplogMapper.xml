@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.vhr.mapper.VhrOplogMapper">
+  <resultMap id="BaseResultMap" type="com.ruoyi.vhr.domain.VhrOplog">
+    <!--@mbg.generated-->
+    <!--@Table vhr_oplog-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="addDate" jdbcType="DATE" property="adddate" />
+    <result column="operate" jdbcType="VARCHAR" property="operate" />
+    <result column="hrid" jdbcType="INTEGER" property="hrid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, addDate, operate, hrid
+  </sql>
+</mapper>

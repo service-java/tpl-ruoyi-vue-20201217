@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.vhr.mapper.VhrMailSendLogMapper">
+  <resultMap id="BaseResultMap" type="com.ruoyi.vhr.domain.VhrMailSendLog">
+    <!--@mbg.generated-->
+    <!--@Table vhr_mail_send_log-->
+    <result column="msgId" jdbcType="VARCHAR" property="msgid" />
+    <result column="empId" jdbcType="INTEGER" property="empid" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="routeKey" jdbcType="VARCHAR" property="routekey" />
+    <result column="exchange" jdbcType="VARCHAR" property="exchange" />
+    <result column="count" jdbcType="INTEGER" property="count" />
+    <result column="tryTime" jdbcType="DATE" property="trytime" />
+    <result column="createTime" jdbcType="DATE" property="createtime" />
+    <result column="updateTime" jdbcType="DATE" property="updatetime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    msgId, empId, `status`, routeKey, exchange, `count`, tryTime, createTime, updateTime
+  </sql>
+</mapper>

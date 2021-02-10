@@ -530,6 +530,7 @@
         <module>service-cms</module>
         <module>service-cms-blog</module>
         <module>service-cms-note</module>
+        <module>service-cms-vhr</module>
         <module>service-mall</module>
         <module>service-sys</module>
         <module>service-ext</module>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.vhr.mapper.VhrAdjustsalaryMapper">
+  <resultMap id="BaseResultMap" type="com.ruoyi.vhr.domain.VhrAdjustsalary">
+    <!--@mbg.generated-->
+    <!--@Table vhr_adjustsalary-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="eid" jdbcType="INTEGER" property="eid" />
+    <result column="asDate" jdbcType="DATE" property="asdate" />
+    <result column="beforeSalary" jdbcType="INTEGER" property="beforesalary" />
+    <result column="afterSalary" jdbcType="INTEGER" property="aftersalary" />
+    <result column="reason" jdbcType="VARCHAR" property="reason" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, eid, asDate, beforeSalary, afterSalary, reason, remark
+  </sql>
+</mapper>

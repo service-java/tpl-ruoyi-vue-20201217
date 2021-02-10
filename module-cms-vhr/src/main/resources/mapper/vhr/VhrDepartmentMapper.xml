@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.vhr.mapper.VhrDepartmentMapper">
+  <resultMap id="BaseResultMap" type="com.ruoyi.vhr.domain.VhrDepartment">
+    <!--@mbg.generated-->
+    <!--@Table vhr_department-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="parentId" jdbcType="INTEGER" property="parentid" />
+    <result column="depPath" jdbcType="VARCHAR" property="deppath" />
+    <result column="enabled" jdbcType="BOOLEAN" property="enabled" />
+    <result column="isParent" jdbcType="BOOLEAN" property="isparent" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, `name`, parentId, depPath, enabled, isParent
+  </sql>
+</mapper>
