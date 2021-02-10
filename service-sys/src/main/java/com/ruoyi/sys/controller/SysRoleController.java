@@ -51,7 +51,7 @@ public class SysRoleController extends BaseController {
     @Autowired
     private ISysUserService userService;
 
-    @PreAuthorize("@ss.hasPermi('system:role:list')")
+    @PreAuthorize("@ss.hasPermission('system:role:list')")
     @GetMapping("/list")
     public TableDataVo list(SysRole role) {
         startPage();
@@ -60,7 +60,7 @@ public class SysRoleController extends BaseController {
     }
 
     @Log(title = "角色管理", businessType = BusinessTypeEnum.EXPORT)
-    @PreAuthorize("@ss.hasPermi('system:role:export')")
+    @PreAuthorize("@ss.hasPermission('system:role:export')")
     @GetMapping("/export")
     public ResultVo export(SysRole role) {
         List<SysRole> list = roleService.selectRoleList(role);
@@ -71,7 +71,7 @@ public class SysRoleController extends BaseController {
     /**
      * 根据角色编号获取详细信息
      */
-    @PreAuthorize("@ss.hasPermi('system:role:query')")
+    @PreAuthorize("@ss.hasPermission('system:role:query')")
     @GetMapping(value = "/{roleId}")
     public ResultVo getInfo(@PathVariable Long roleId) {
         return ResultVo.success(roleService.selectRoleById(roleId));
@@ -80,7 +80,7 @@ public class SysRoleController extends BaseController {
     /**
      * 新增角色
      */
-    @PreAuthorize("@ss.hasPermi('system:role:add')")
+    @PreAuthorize("@ss.hasPermission('system:role:add')")
     @Log(title = "角色管理", businessType = BusinessTypeEnum.INSERT)
     @PostMapping
     public ResultVo add(@Validated @RequestBody SysRole role) {
@@ -97,7 +97,7 @@ public class SysRoleController extends BaseController {
     /**
      * 修改保存角色
      */
-    @PreAuthorize("@ss.hasPermi('system:role:edit')")
+    @PreAuthorize("@ss.hasPermission('system:role:edit')")
     @Log(title = "角色管理", businessType = BusinessTypeEnum.UPDATE)
     @PutMapping
     public ResultVo edit(@Validated @RequestBody SysRole role) {
@@ -125,7 +125,7 @@ public class SysRoleController extends BaseController {
     /**
      * 修改保存数据权限
      */
-    @PreAuthorize("@ss.hasPermi('system:role:edit')")
+    @PreAuthorize("@ss.hasPermission('system:role:edit')")
     @Log(title = "角色管理", businessType = BusinessTypeEnum.UPDATE)
     @PutMapping("/dataScope")
     public ResultVo dataScope(@RequestBody SysRole role) {
@@ -136,7 +136,7 @@ public class SysRoleController extends BaseController {
     /**
      * 状态修改
      */
-    @PreAuthorize("@ss.hasPermi('system:role:edit')")
+    @PreAuthorize("@ss.hasPermission('system:role:edit')")
     @Log(title = "角色管理", businessType = BusinessTypeEnum.UPDATE)
     @PutMapping("/changeStatus")
     public ResultVo changeStatus(@RequestBody SysRole role) {
@@ -148,7 +148,7 @@ public class SysRoleController extends BaseController {
     /**
      * 删除角色
      */
-    @PreAuthorize("@ss.hasPermi('system:role:remove')")
+    @PreAuthorize("@ss.hasPermission('system:role:remove')")
     @Log(title = "角色管理", businessType = BusinessTypeEnum.DELETE)
     @DeleteMapping("/{roleIds}")
     public ResultVo remove(@PathVariable Long[] roleIds) {
@@ -158,7 +158,7 @@ public class SysRoleController extends BaseController {
     /**
      * 获取角色选择框列表
      */
-    @PreAuthorize("@ss.hasPermi('system:role:query')")
+    @PreAuthorize("@ss.hasPermission('system:role:query')")
     @GetMapping("/optionselect")
     public ResultVo optionselect() {
         return ResultVo.success(roleService.selectRoleAll());

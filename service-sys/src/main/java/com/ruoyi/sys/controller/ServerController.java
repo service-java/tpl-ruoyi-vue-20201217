@@ -15,7 +15,7 @@ import com.ruoyi.sys.domain.metrics.Server;
 @RestController
 @RequestMapping("/monitor/server")
 public class ServerController {
-    @PreAuthorize("@ss.hasPermi('monitor:server:list')")
+    @PreAuthorize("@ss.hasPermission('monitor:server:list')")
     @GetMapping()
     public ResultVo getInfo() throws Exception {
         Server server = new Server();

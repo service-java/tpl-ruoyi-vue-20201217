@@ -35,7 +35,7 @@ public class SysDictTypeController extends BaseController {
     @Autowired
     private ISysDictTypeService dictTypeService;
 
-    @PreAuthorize("@ss.hasPermi('system:dict:list')")
+    @PreAuthorize("@ss.hasPermission('system:dict:list')")
     @GetMapping("/list")
     public TableDataVo list(SysDictType dictType) {
         startPage();
@@ -44,7 +44,7 @@ public class SysDictTypeController extends BaseController {
     }
 
     @Log(title = "字典类型", businessType = BusinessTypeEnum.EXPORT)
-    @PreAuthorize("@ss.hasPermi('system:dict:export')")
+    @PreAuthorize("@ss.hasPermission('system:dict:export')")
     @GetMapping("/export")
     public ResultVo export(SysDictType dictType) {
         List<SysDictType> list = dictTypeService.selectDictTypeList(dictType);
@@ -55,7 +55,7 @@ public class SysDictTypeController extends BaseController {
     /**
      * 查询字典类型详细
      */
-    @PreAuthorize("@ss.hasPermi('system:dict:query')")
+    @PreAuthorize("@ss.hasPermission('system:dict:query')")
     @GetMapping(value = "/{dictId}")
     public ResultVo getInfo(@PathVariable Long dictId) {
         return ResultVo.success(dictTypeService.selectDictTypeById(dictId));
@@ -64,7 +64,7 @@ public class SysDictTypeController extends BaseController {
     /**
      * 新增字典类型
      */
-    @PreAuthorize("@ss.hasPermi('system:dict:add')")
+    @PreAuthorize("@ss.hasPermission('system:dict:add')")
     @Log(title = "字典类型", businessType = BusinessTypeEnum.INSERT)
     @PostMapping
     public ResultVo add(@Validated @RequestBody SysDictType dict) {
@@ -78,7 +78,7 @@ public class SysDictTypeController extends BaseController {
     /**
      * 修改字典类型
      */
-    @PreAuthorize("@ss.hasPermi('system:dict:edit')")
+    @PreAuthorize("@ss.hasPermission('system:dict:edit')")
     @Log(title = "字典类型", businessType = BusinessTypeEnum.UPDATE)
     @PutMapping
     public ResultVo edit(@Validated @RequestBody SysDictType dict) {
@@ -92,7 +92,7 @@ public class SysDictTypeController extends BaseController {
     /**
      * 删除字典类型
      */
-    @PreAuthorize("@ss.hasPermi('system:dict:remove')")
+    @PreAuthorize("@ss.hasPermission('system:dict:remove')")
     @Log(title = "字典类型", businessType = BusinessTypeEnum.DELETE)
     @DeleteMapping("/{dictIds}")
     public ResultVo remove(@PathVariable Long[] dictIds) {
@@ -102,7 +102,7 @@ public class SysDictTypeController extends BaseController {
     /**
      * 清空缓存
      */
-    @PreAuthorize("@ss.hasPermi('system:dict:remove')")
+    @PreAuthorize("@ss.hasPermission('system:dict:remove')")
     @Log(title = "字典类型", businessType = BusinessTypeEnum.CLEAN)
     @DeleteMapping("/clearCache")
     public ResultVo clearCache() {

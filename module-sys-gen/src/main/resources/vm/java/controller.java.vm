@@ -38,7 +38,7 @@ public class ${ClassName}Controller extends BaseController {
     /**
      * 查询${functionName}列表
      */
-    @PreAuthorize("@ss.hasPermi('${permissionPrefix}:list')")
+    @PreAuthorize("@ss.hasPermission('${permissionPrefix}:list')"${permissionPrefix}:list')")
     @GetMapping("/list")
 #if($table.crud)
     public TableDataVo list(${ClassName} ${className}) {
@@ -56,7 +56,7 @@ public class ${ClassName}Controller extends BaseController {
     /**
      * 导出${functionName}列表
      */
-    @PreAuthorize("@ss.hasPermi('${permissionPrefix}:export')")
+    @PreAuthorize("@ss.hasPermission('${permissionPrefix}:export')"${permissionPrefix}:export')")
     @Log(title = "${functionName}", businessType = BusinessTypeEnum.EXPORT)
     @GetMapping("/export")
     public ResultVo export(${ClassName} ${className}) {
@@ -68,7 +68,7 @@ public class ${ClassName}Controller extends BaseController {
     /**
      * 获取${functionName}详细信息
      */
-    @PreAuthorize("@ss.hasPermi('${permissionPrefix}:query')")
+    @PreAuthorize("@ss.hasPermission('${permissionPrefix}:query')"${permissionPrefix}:query')")
     @GetMapping(value = "/{${pkColumn.javaField}}")
     public ResultVo getInfo(@PathVariable("${pkColumn.javaField}") ${pkColumn.javaType} ${pkColumn.javaField}) {
         return ResultVo.success(${className}Service.select${ClassName}ById(${pkColumn.javaField}));
@@ -77,7 +77,7 @@ public class ${ClassName}Controller extends BaseController {
     /**
      * 新增${functionName}
      */
-    @PreAuthorize("@ss.hasPermi('${permissionPrefix}:add')")
+    @PreAuthorize("@ss.hasPermission('${permissionPrefix}:add')"${permissionPrefix}:add')")
     @Log(title = "${functionName}", businessType = BusinessTypeEnum.INSERT)
     @PostMapping
     public ResultVo add(@RequestBody ${ClassName} ${className}) {
@@ -87,7 +87,7 @@ public class ${ClassName}Controller extends BaseController {
     /**
      * 修改${functionName}
      */
-    @PreAuthorize("@ss.hasPermi('${permissionPrefix}:edit')")
+    @PreAuthorize("@ss.hasPermission('${permissionPrefix}:edit')"${permissionPrefix}:edit')")
     @Log(title = "${functionName}", businessType = BusinessTypeEnum.UPDATE)
     @PutMapping
     public ResultVo edit(@RequestBody ${ClassName} ${className}) {
@@ -97,7 +97,7 @@ public class ${ClassName}Controller extends BaseController {
     /**
      * 删除${functionName}
      */
-    @PreAuthorize("@ss.hasPermi('${permissionPrefix}:remove')")
+    @PreAuthorize("@ss.hasPermission('${permissionPrefix}:remove')"${permissionPrefix}:remove')")
     @Log(title = "${functionName}", businessType = BusinessTypeEnum.DELETE)
 	@DeleteMapping("/{${pkColumn.javaField}s}")
     public ResultVo remove(@PathVariable ${pkColumn.javaType}[] ${pkColumn.javaField}s) {

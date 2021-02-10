@@ -30,7 +30,7 @@ public class SysOperlogController extends BaseController {
     @Autowired
     private ISysOperLogService operLogService;
 
-    @PreAuthorize("@ss.hasPermi('monitor:operlog:list')")
+    @PreAuthorize("@ss.hasPermission('monitor:operlog:list')")
     @GetMapping("/list")
     public TableDataVo list(SysOperLog operLog) {
         startPage();
@@ -39,7 +39,7 @@ public class SysOperlogController extends BaseController {
     }
 
     @Log(title = "操作日志", businessType = BusinessTypeEnum.EXPORT)
-    @PreAuthorize("@ss.hasPermi('monitor:operlog:export')")
+    @PreAuthorize("@ss.hasPermission('monitor:operlog:export')")
     @GetMapping("/export")
     public ResultVo export(SysOperLog operLog) {
         List<SysOperLog> list = operLogService.selectOperLogList(operLog);
@@ -47,14 +47,14 @@ public class SysOperlogController extends BaseController {
         return util.exportExcel(list, "操作日志");
     }
 
-    @PreAuthorize("@ss.hasPermi('monitor:operlog:remove')")
+    @PreAuthorize("@ss.hasPermission('monitor:operlog:remove')")
     @DeleteMapping("/{operIds}")
     public ResultVo remove(@PathVariable Long[] operIds) {
         return responseByRows(operLogService.deleteOperLogByIds(operIds));
     }
 
     @Log(title = "操作日志", businessType = BusinessTypeEnum.CLEAN)
-    @PreAuthorize("@ss.hasPermi('monitor:operlog:remove')")
+    @PreAuthorize("@ss.hasPermission('monitor:operlog:remove')")
     @DeleteMapping("/clean")
     public ResultVo clean() {
         operLogService.cleanOperLog();

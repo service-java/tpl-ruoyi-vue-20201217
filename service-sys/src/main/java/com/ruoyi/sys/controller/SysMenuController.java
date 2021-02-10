@@ -44,7 +44,7 @@ public class SysMenuController extends BaseController {
     /**
      * 获取菜单列表
      */
-    @PreAuthorize("@ss.hasPermi('system:menu:list')")
+    @PreAuthorize("@ss.hasPermission('system:menu:list')")
     @GetMapping("/list")
     public ResultVo list(SysMenu menu) {
         LoginUser loginUser = tokenService.getLoginUser(ServletUtils.getRequest());
@@ -56,7 +56,7 @@ public class SysMenuController extends BaseController {
     /**
      * 根据菜单编号获取详细信息
      */
-    @PreAuthorize("@ss.hasPermi('system:menu:query')")
+    @PreAuthorize("@ss.hasPermission('system:menu:query')")
     @GetMapping(value = "/{menuId}")
     public ResultVo getInfo(@PathVariable Long menuId) {
         return ResultVo.success(menuService.selectMenuById(menuId));
@@ -89,7 +89,7 @@ public class SysMenuController extends BaseController {
     /**
      * 新增菜单
      */
-    @PreAuthorize("@ss.hasPermi('system:menu:add')")
+    @PreAuthorize("@ss.hasPermission('system:menu:add')")
     @Log(title = "菜单管理", businessType = BusinessTypeEnum.INSERT)
     @PostMapping
     public ResultVo add(@Validated @RequestBody SysMenu menu) {
@@ -106,7 +106,7 @@ public class SysMenuController extends BaseController {
     /**
      * 修改菜单
      */
-    @PreAuthorize("@ss.hasPermi('system:menu:edit')")
+    @PreAuthorize("@ss.hasPermission('system:menu:edit')")
     @Log(title = "菜单管理", businessType = BusinessTypeEnum.UPDATE)
     @PutMapping
     public ResultVo edit(@Validated @RequestBody SysMenu menu) {
@@ -125,7 +125,7 @@ public class SysMenuController extends BaseController {
     /**
      * 删除菜单
      */
-    @PreAuthorize("@ss.hasPermi('system:menu:remove')")
+    @PreAuthorize("@ss.hasPermission('system:menu:remove')")
     @Log(title = "菜单管理", businessType = BusinessTypeEnum.DELETE)
     @DeleteMapping("/{menuId}")
     public ResultVo remove(@PathVariable("menuId") Long menuId) {

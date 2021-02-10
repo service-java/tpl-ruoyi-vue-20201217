@@ -57,7 +57,7 @@ public class SysUserController extends BaseController {
     /**
      * 获取用户列表
      */
-    @PreAuthorize("@ss.hasPermi('system:user:list')")
+    @PreAuthorize("@ss.hasPermission('system:user:list')")
     @GetMapping("/list")
     public TableDataVo list(SysUser user) {
         startPage();
@@ -66,7 +66,7 @@ public class SysUserController extends BaseController {
     }
 
     @Log(title = "用户管理", businessType = BusinessTypeEnum.EXPORT)
-    @PreAuthorize("@ss.hasPermi('system:user:export')")
+    @PreAuthorize("@ss.hasPermission('system:user:export')")
     @GetMapping("/export")
     public ResultVo export(SysUser user) {
         List<SysUser> list = userService.selectUserList(user);
@@ -75,7 +75,7 @@ public class SysUserController extends BaseController {
     }
 
     @Log(title = "用户管理", businessType = BusinessTypeEnum.IMPORT)
-    @PreAuthorize("@ss.hasPermi('system:user:import')")
+    @PreAuthorize("@ss.hasPermission('system:user:import')")
     @PostMapping("/importData")
     public ResultVo importData(MultipartFile file, boolean updateSupport) throws Exception {
         ExcelUtils<SysUser> util = new ExcelUtils<SysUser>(SysUser.class);
@@ -95,7 +95,7 @@ public class SysUserController extends BaseController {
     /**
      * 根据用户编号获取详细信息
      */
-    @PreAuthorize("@ss.hasPermi('system:user:query')")
+    @PreAuthorize("@ss.hasPermission('system:user:query')")
     @GetMapping(value = {"/", "/{userId}"})
     public ResultVo getInfo(@PathVariable(value = "userId", required = false) Long userId) {
         ResultVo ajax = ResultVo.success();
@@ -113,7 +113,7 @@ public class SysUserController extends BaseController {
     /**
      * 新增用户
      */
-    @PreAuthorize("@ss.hasPermi('system:user:add')")
+    @PreAuthorize("@ss.hasPermission('system:user:add')")
     @Log(title = "用户管理", businessType = BusinessTypeEnum.INSERT)
     @PostMapping
     public ResultVo add(@Validated @RequestBody SysUser user) {
@@ -134,7 +134,7 @@ public class SysUserController extends BaseController {
     /**
      * 修改用户
      */
-    @PreAuthorize("@ss.hasPermi('system:user:edit')")
+    @PreAuthorize("@ss.hasPermission('system:user:edit')")
     @Log(title = "用户管理", businessType = BusinessTypeEnum.UPDATE)
     @PutMapping
     public ResultVo edit(@Validated @RequestBody SysUser user) {
@@ -153,7 +153,7 @@ public class SysUserController extends BaseController {
     /**
      * 删除用户
      */
-    @PreAuthorize("@ss.hasPermi('system:user:remove')")
+    @PreAuthorize("@ss.hasPermission('system:user:remove')")
     @Log(title = "用户管理", businessType = BusinessTypeEnum.DELETE)
     @DeleteMapping("/{userIds}")
     public ResultVo remove(@PathVariable Long[] userIds) {
@@ -163,7 +163,7 @@ public class SysUserController extends BaseController {
     /**
      * 重置密码
      */
-    @PreAuthorize("@ss.hasPermi('system:user:resetPwd')")
+    @PreAuthorize("@ss.hasPermission('system:user:resetPwd')")
     @Log(title = "用户管理", businessType = BusinessTypeEnum.UPDATE)
     @PutMapping("/resetPwd")
     public ResultVo resetPwd(@RequestBody SysUser user) {
@@ -176,7 +176,7 @@ public class SysUserController extends BaseController {
     /**
      * 状态修改
      */
-    @PreAuthorize("@ss.hasPermi('system:user:edit')")
+    @PreAuthorize("@ss.hasPermission('system:user:edit')")
     @Log(title = "用户管理", businessType = BusinessTypeEnum.UPDATE)
     @PutMapping("/changeStatus")
     public ResultVo changeStatus(@RequestBody SysUser user) {

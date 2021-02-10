@@ -30,7 +30,7 @@ public class SysLogininforController extends BaseController {
     @Autowired
     private ISysLogininforService logininforService;
 
-    @PreAuthorize("@ss.hasPermi('monitor:logininfor:list')")
+    @PreAuthorize("@ss.hasPermission('monitor:logininfor:list')")
     @GetMapping("/list")
     public TableDataVo list(SysLogininfor logininfor) {
         // 开启分页
@@ -40,7 +40,7 @@ public class SysLogininforController extends BaseController {
     }
 
     @Log(title = "登录日志", businessType = BusinessTypeEnum.EXPORT)
-    @PreAuthorize("@ss.hasPermi('monitor:logininfor:export')")
+    @PreAuthorize("@ss.hasPermission('monitor:logininfor:export')")
     @GetMapping("/export")
     public ResultVo export(SysLogininfor logininfor) {
         List<SysLogininfor> list = logininforService.selectLogininforList(logininfor);
@@ -48,14 +48,14 @@ public class SysLogininforController extends BaseController {
         return util.exportExcel(list, "登录日志");
     }
 
-    @PreAuthorize("@ss.hasPermi('monitor:logininfor:remove')")
+    @PreAuthorize("@ss.hasPermission('monitor:logininfor:remove')")
     @Log(title = "登录日志", businessType = BusinessTypeEnum.DELETE)
     @DeleteMapping("/{infoIds}")
     public ResultVo remove(@PathVariable Long[] infoIds) {
         return responseByRows(logininforService.deleteLogininforByIds(infoIds));
     }
 
-    @PreAuthorize("@ss.hasPermi('monitor:logininfor:remove')")
+    @PreAuthorize("@ss.hasPermission('monitor:logininfor:remove')")
     @Log(title = "登录日志", businessType = BusinessTypeEnum.CLEAN)
     @DeleteMapping("/clean")
     public ResultVo clean() {

@@ -38,7 +38,7 @@ public class SysPostController extends BaseController {
     /**
      * 获取岗位列表
      */
-    @PreAuthorize("@ss.hasPermi('system:post:list')")
+    @PreAuthorize("@ss.hasPermission('system:post:list')")
     @GetMapping("/list")
     public TableDataVo list(SysPost post) {
         startPage();
@@ -47,7 +47,7 @@ public class SysPostController extends BaseController {
     }
 
     @Log(title = "岗位管理", businessType = BusinessTypeEnum.EXPORT)
-    @PreAuthorize("@ss.hasPermi('system:post:export')")
+    @PreAuthorize("@ss.hasPermission('system:post:export')")
     @GetMapping("/export")
     public ResultVo export(SysPost post) {
         List<SysPost> list = postService.selectPostList(post);
@@ -58,7 +58,7 @@ public class SysPostController extends BaseController {
     /**
      * 根据岗位编号获取详细信息
      */
-    @PreAuthorize("@ss.hasPermi('system:post:query')")
+    @PreAuthorize("@ss.hasPermission('system:post:query')")
     @GetMapping(value = "/{postId}")
     public ResultVo getInfo(@PathVariable Long postId) {
         return ResultVo.success(postService.selectPostById(postId));
@@ -67,7 +67,7 @@ public class SysPostController extends BaseController {
     /**
      * 新增岗位
      */
-    @PreAuthorize("@ss.hasPermi('system:post:add')")
+    @PreAuthorize("@ss.hasPermission('system:post:add')")
     @Log(title = "岗位管理", businessType = BusinessTypeEnum.INSERT)
     @PostMapping
     public ResultVo add(@Validated @RequestBody SysPost post) {
@@ -83,7 +83,7 @@ public class SysPostController extends BaseController {
     /**
      * 修改岗位
      */
-    @PreAuthorize("@ss.hasPermi('system:post:edit')")
+    @PreAuthorize("@ss.hasPermission('system:post:edit')")
     @Log(title = "岗位管理", businessType = BusinessTypeEnum.UPDATE)
     @PutMapping
     public ResultVo edit(@Validated @RequestBody SysPost post) {
@@ -99,7 +99,7 @@ public class SysPostController extends BaseController {
     /**
      * 删除岗位
      */
-    @PreAuthorize("@ss.hasPermi('system:post:remove')")
+    @PreAuthorize("@ss.hasPermission('system:post:remove')")
     @Log(title = "岗位管理", businessType = BusinessTypeEnum.DELETE)
     @DeleteMapping("/{postIds}")
     public ResultVo remove(@PathVariable Long[] postIds) {

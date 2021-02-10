@@ -43,7 +43,7 @@ public class SysJobController extends BaseController {
      * 查询定时任务列表
      */
     @ApiOperation("查询定时任务列表")
-    @PreAuthorize("@ss.hasPermi('monitor:job:list')")
+    @PreAuthorize("@ss.hasPermission('monitor:job:list')")
     @GetMapping("/list")
     public TableDataVo list(SysJob sysJob) {
         startPage();
@@ -55,7 +55,7 @@ public class SysJobController extends BaseController {
      * 导出定时任务列表
      */
     @ApiOperation("导出定时任务列表")
-    @PreAuthorize("@ss.hasPermi('monitor:job:export')")
+    @PreAuthorize("@ss.hasPermission('monitor:job:export')")
     @Log(title = "定时任务", businessType = BusinessTypeEnum.EXPORT)
     @GetMapping("/export")
     public ResultVo export(SysJob sysJob) {
@@ -67,7 +67,7 @@ public class SysJobController extends BaseController {
     /**
      * 获取定时任务详细信息
      */
-    @PreAuthorize("@ss.hasPermi('monitor:job:query')")
+    @PreAuthorize("@ss.hasPermission('monitor:job:query')")
     @GetMapping(value = "/{jobId}")
     public ResultVo getInfo(@PathVariable("jobId") Long jobId) {
         return ResultVo.success(jobService.selectJobById(jobId));
@@ -76,7 +76,7 @@ public class SysJobController extends BaseController {
     /**
      * 新增定时任务
      */
-    @PreAuthorize("@ss.hasPermi('monitor:job:add')")
+    @PreAuthorize("@ss.hasPermission('monitor:job:add')")
     @Log(title = "定时任务", businessType = BusinessTypeEnum.INSERT)
     @PostMapping
     public ResultVo add(@RequestBody SysJob sysJob) throws SchedulerException, TaskException {
@@ -90,7 +90,7 @@ public class SysJobController extends BaseController {
     /**
      * 修改定时任务
      */
-    @PreAuthorize("@ss.hasPermi('monitor:job:edit')")
+    @PreAuthorize("@ss.hasPermission('monitor:job:edit')")
     @Log(title = "定时任务", businessType = BusinessTypeEnum.UPDATE)
     @PutMapping
     public ResultVo edit(@RequestBody SysJob sysJob) throws SchedulerException, TaskException {
@@ -104,7 +104,7 @@ public class SysJobController extends BaseController {
     /**
      * 定时任务状态修改
      */
-    @PreAuthorize("@ss.hasPermi('monitor:job:changeStatus')")
+    @PreAuthorize("@ss.hasPermission('monitor:job:changeStatus')")
     @Log(title = "定时任务", businessType = BusinessTypeEnum.UPDATE)
     @PutMapping("/changeStatus")
     public ResultVo changeStatus(@RequestBody SysJob job) throws SchedulerException {
@@ -116,7 +116,7 @@ public class SysJobController extends BaseController {
     /**
      * 定时任务立即执行一次
      */
-    @PreAuthorize("@ss.hasPermi('monitor:job:changeStatus')")
+    @PreAuthorize("@ss.hasPermission('monitor:job:changeStatus')")
     @Log(title = "定时任务", businessType = BusinessTypeEnum.UPDATE)
     @PutMapping("/run")
     public ResultVo run(@RequestBody SysJob job) throws SchedulerException {
@@ -127,7 +127,7 @@ public class SysJobController extends BaseController {
     /**
      * 删除定时任务
      */
-    @PreAuthorize("@ss.hasPermi('monitor:job:remove')")
+    @PreAuthorize("@ss.hasPermission('monitor:job:remove')")
     @Log(title = "定时任务", businessType = BusinessTypeEnum.DELETE)
     @DeleteMapping("/{jobIds}")
     public ResultVo remove(@PathVariable Long[] jobIds) throws SchedulerException, TaskException {

@@ -36,7 +36,7 @@ public class SysNoticeController extends BaseController {
     /**
      * 获取通知公告列表
      */
-    @PreAuthorize("@ss.hasPermi('system:notice:list')")
+    @PreAuthorize("@ss.hasPermission('system:notice:list')")
     @GetMapping("/list")
     public TableDataVo list(SysNotice notice) {
         startPage();
@@ -47,7 +47,7 @@ public class SysNoticeController extends BaseController {
     /**
      * 根据通知公告编号获取详细信息
      */
-    @PreAuthorize("@ss.hasPermi('system:notice:query')")
+    @PreAuthorize("@ss.hasPermission('system:notice:query')")
     @GetMapping(value = "/{noticeId}")
     public ResultVo getInfo(@PathVariable Long noticeId) {
         return ResultVo.success(noticeService.selectNoticeById(noticeId));
@@ -56,7 +56,7 @@ public class SysNoticeController extends BaseController {
     /**
      * 新增通知公告
      */
-    @PreAuthorize("@ss.hasPermi('system:notice:add')")
+    @PreAuthorize("@ss.hasPermission('system:notice:add')")
     @Log(title = "通知公告", businessType = BusinessTypeEnum.INSERT)
     @PostMapping
     public ResultVo add(@Validated @RequestBody SysNotice notice) {
@@ -67,7 +67,7 @@ public class SysNoticeController extends BaseController {
     /**
      * 修改通知公告
      */
-    @PreAuthorize("@ss.hasPermi('system:notice:edit')")
+    @PreAuthorize("@ss.hasPermission('system:notice:edit')")
     @Log(title = "通知公告", businessType = BusinessTypeEnum.UPDATE)
     @PutMapping
     public ResultVo edit(@Validated @RequestBody SysNotice notice) {
@@ -78,7 +78,7 @@ public class SysNoticeController extends BaseController {
     /**
      * 删除通知公告
      */
-    @PreAuthorize("@ss.hasPermi('system:notice:remove')")
+    @PreAuthorize("@ss.hasPermission('system:notice:remove')")
     @Log(title = "通知公告", businessType = BusinessTypeEnum.DELETE)
     @DeleteMapping("/{noticeIds}")
     public ResultVo remove(@PathVariable Long[] noticeIds) {

@@ -36,7 +36,7 @@ public class DemoBookController extends BaseController {
     /**
      * 查询图书列表
      */
-    @PreAuthorize("@ss.hasPermi('system:book:list')")
+    @PreAuthorize("@ss.hasPermission('system:book:list')")
     @GetMapping("/list")
     public TableDataVo list(DemoBook demoBook) {
         startPage();
@@ -47,7 +47,7 @@ public class DemoBookController extends BaseController {
     /**
      * 导出图书列表
      */
-    @PreAuthorize("@ss.hasPermi('system:book:export')")
+    @PreAuthorize("@ss.hasPermission('system:book:export')")
     @Log(title = "图书", businessType = BusinessTypeEnum.EXPORT)
     @GetMapping("/export")
     public ResultVo export(DemoBook demoBook) {
@@ -59,7 +59,7 @@ public class DemoBookController extends BaseController {
     /**
      * 获取图书详细信息
      */
-    @PreAuthorize("@ss.hasPermi('system:book:query')")
+    @PreAuthorize("@ss.hasPermission('system:book:query')")
     @GetMapping(value = "/{id}")
     public ResultVo getInfo(@PathVariable("id") Long id) {
         return ResultVo.success(demoBookService.selectDemoBookById(id));
@@ -68,7 +68,7 @@ public class DemoBookController extends BaseController {
     /**
      * 新增图书
      */
-    @PreAuthorize("@ss.hasPermi('system:book:add')")
+    @PreAuthorize("@ss.hasPermission('system:book:add')")
     @Log(title = "图书", businessType = BusinessTypeEnum.INSERT)
     @PostMapping
     public ResultVo add(@RequestBody DemoBook demoBook) {
@@ -78,7 +78,7 @@ public class DemoBookController extends BaseController {
     /**
      * 修改图书
      */
-    @PreAuthorize("@ss.hasPermi('system:book:edit')")
+    @PreAuthorize("@ss.hasPermission('system:book:edit')")
     @Log(title = "图书", businessType = BusinessTypeEnum.UPDATE)
     @PutMapping
     public ResultVo edit(@RequestBody DemoBook demoBook) {
@@ -88,7 +88,7 @@ public class DemoBookController extends BaseController {
     /**
      * 删除图书
      */
-    @PreAuthorize("@ss.hasPermi('system:book:remove')")
+    @PreAuthorize("@ss.hasPermission('system:book:remove')")
     @Log(title = "图书", businessType = BusinessTypeEnum.DELETE)
     @DeleteMapping("/{ids}")
     public ResultVo remove(@PathVariable Long[] ids) {
