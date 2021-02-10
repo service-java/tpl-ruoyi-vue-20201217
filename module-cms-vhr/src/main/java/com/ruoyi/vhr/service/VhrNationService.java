@@ -6,7 +6,9 @@ import java.util.List;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.ruoyi.vhr.mapper.VhrNationMapper;
 import com.ruoyi.vhr.domain.VhrNation;
+
 @Service
 public class VhrNationService extends ServiceImpl<VhrNationMapper, VhrNation> {
 
 }
+

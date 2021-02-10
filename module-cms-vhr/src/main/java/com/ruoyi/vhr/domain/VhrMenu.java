@@ -8,48 +8,48 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
-@ApiModel(value="com-ruoyi-vhr-domain-VhrMenu")
+@ApiModel(value = "com-ruoyi-vhr-domain-VhrMenu")
 @Data
 @TableName(value = "vhr_menu")
 public class VhrMenu {
     @TableId(value = "id", type = IdType.INPUT)
-    @ApiModelProperty(value="")
+    @ApiModelProperty(value = "")
     private Integer id;
 
     @TableField(value = "url")
-    @ApiModelProperty(value="")
+    @ApiModelProperty(value = "")
     private String url;
 
     @TableField(value = "`path`")
-    @ApiModelProperty(value="")
+    @ApiModelProperty(value = "")
     private String path;
 
     @TableField(value = "component")
-    @ApiModelProperty(value="")
+    @ApiModelProperty(value = "")
     private String component;
 
     @TableField(value = "`name`")
-    @ApiModelProperty(value="")
+    @ApiModelProperty(value = "")
     private String name;
 
     @TableField(value = "iconCls")
-    @ApiModelProperty(value="")
+    @ApiModelProperty(value = "")
     private String iconcls;
 
     @TableField(value = "keepAlive")
-    @ApiModelProperty(value="")
+    @ApiModelProperty(value = "")
     private Boolean keepalive;
 
     @TableField(value = "requireAuth")
-    @ApiModelProperty(value="")
+    @ApiModelProperty(value = "")
     private Boolean requireauth;
 
     @TableField(value = "parentId")
-    @ApiModelProperty(value="")
+    @ApiModelProperty(value = "")
     private Integer parentid;
 
     @TableField(value = "enabled")
-    @ApiModelProperty(value="")
+    @ApiModelProperty(value = "")
     private Boolean enabled;
 
     public static final String COL_ID = "id";

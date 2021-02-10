@@ -9,27 +9,27 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.Date;
 import lombok.Data;
 
-@ApiModel(value="com-ruoyi-vhr-domain-VhrPosition")
+@ApiModel(value = "com-ruoyi-vhr-domain-VhrPosition")
 @Data
 @TableName(value = "vhr_position")
 public class VhrPosition {
     @TableId(value = "id", type = IdType.INPUT)
-    @ApiModelProperty(value="")
+    @ApiModelProperty(value = "")
     private Integer id;
 
     /**
      * 职位
      */
     @TableField(value = "`name`")
-    @ApiModelProperty(value="职位")
+    @ApiModelProperty(value = "职位")
     private String name;
 
     @TableField(value = "createDate")
-    @ApiModelProperty(value="")
+    @ApiModelProperty(value = "")
     private Date createdate;
 
     @TableField(value = "enabled")
-    @ApiModelProperty(value="")
+    @ApiModelProperty(value = "")
     private Boolean enabled;
 
     public static final String COL_ID = "id";

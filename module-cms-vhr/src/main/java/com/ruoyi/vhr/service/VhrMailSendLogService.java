@@ -6,7 +6,9 @@ import java.util.List;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.ruoyi.vhr.mapper.VhrMailSendLogMapper;
 import com.ruoyi.vhr.domain.VhrMailSendLog;
+
 @Service
 public class VhrMailSendLogService extends ServiceImpl<VhrMailSendLogMapper, VhrMailSendLog> {
 
 }
+

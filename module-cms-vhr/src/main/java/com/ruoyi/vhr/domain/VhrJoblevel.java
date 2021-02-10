@@ -9,31 +9,31 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.Date;
 import lombok.Data;
 
-@ApiModel(value="com-ruoyi-vhr-domain-VhrJoblevel")
+@ApiModel(value = "com-ruoyi-vhr-domain-VhrJoblevel")
 @Data
 @TableName(value = "vhr_joblevel")
 public class VhrJoblevel {
     @TableId(value = "id", type = IdType.INPUT)
-    @ApiModelProperty(value="")
+    @ApiModelProperty(value = "")
     private Integer id;
 
     /**
      * 职称名称
      */
     @TableField(value = "`name`")
-    @ApiModelProperty(value="职称名称")
+    @ApiModelProperty(value = "职称名称")
     private String name;
 
     @TableField(value = "titleLevel")
-    @ApiModelProperty(value="")
+    @ApiModelProperty(value = "")
     private Object titlelevel;
 
     @TableField(value = "createDate")
-    @ApiModelProperty(value="")
+    @ApiModelProperty(value = "")
     private Date createdate;
 
     @TableField(value = "enabled")
-    @ApiModelProperty(value="")
+    @ApiModelProperty(value = "")
     private Boolean enabled;
 
     public static final String COL_ID = "id";

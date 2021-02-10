@@ -9,48 +9,48 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.Date;
 import lombok.Data;
 
-@ApiModel(value="com-ruoyi-vhr-domain-VhrEmployeeremove")
+@ApiModel(value = "com-ruoyi-vhr-domain-VhrEmployeeremove")
 @Data
 @TableName(value = "vhr_employeeremove")
 public class VhrEmployeeremove {
     @TableId(value = "id", type = IdType.INPUT)
-    @ApiModelProperty(value="")
+    @ApiModelProperty(value = "")
     private Integer id;
 
     @TableField(value = "eid")
-    @ApiModelProperty(value="")
+    @ApiModelProperty(value = "")
     private Integer eid;
 
     /**
      * 调动后部门
      */
     @TableField(value = "afterDepId")
-    @ApiModelProperty(value="调动后部门")
+    @ApiModelProperty(value = "调动后部门")
     private Integer afterdepid;
 
     /**
      * 调动后职位
      */
     @TableField(value = "afterJobId")
-    @ApiModelProperty(value="调动后职位")
+    @ApiModelProperty(value = "调动后职位")
     private Integer afterjobid;
 
     /**
      * 调动日期
      */
     @TableField(value = "removeDate")
-    @ApiModelProperty(value="调动日期")
+    @ApiModelProperty(value = "调动日期")
     private Date removedate;
 
     /**
      * 调动原因
      */
     @TableField(value = "reason")
-    @ApiModelProperty(value="调动原因")
+    @ApiModelProperty(value = "调动原因")
     private String reason;
 
     @TableField(value = "remark")
-    @ApiModelProperty(value="")
+    @ApiModelProperty(value = "")
     private String remark;
 
     public static final String COL_ID = "id";

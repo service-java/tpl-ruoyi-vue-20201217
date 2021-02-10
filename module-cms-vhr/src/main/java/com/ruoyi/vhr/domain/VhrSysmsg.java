@@ -8,40 +8,40 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
-@ApiModel(value="com-ruoyi-vhr-domain-VhrSysmsg")
+@ApiModel(value = "com-ruoyi-vhr-domain-VhrSysmsg")
 @Data
 @TableName(value = "vhr_sysmsg")
 public class VhrSysmsg {
     @TableId(value = "id", type = IdType.INPUT)
-    @ApiModelProperty(value="")
+    @ApiModelProperty(value = "")
     private Integer id;
 
     /**
      * 消息id
      */
     @TableField(value = "mid")
-    @ApiModelProperty(value="消息id")
+    @ApiModelProperty(value = "消息id")
     private Integer mid;
 
     /**
      * 0表示群发消息
      */
     @TableField(value = "`type`")
-    @ApiModelProperty(value="0表示群发消息")
+    @ApiModelProperty(value = "0表示群发消息")
     private Integer type;
 
     /**
      * 这条消息是给谁的
      */
     @TableField(value = "hrid")
-    @ApiModelProperty(value="这条消息是给谁的")
+    @ApiModelProperty(value = "这条消息是给谁的")
     private Integer hrid;
 
     /**
      * 0 未读 1 已读
      */
     @TableField(value = "`state`")
-    @ApiModelProperty(value="0 未读 1 已读")
+    @ApiModelProperty(value = "0 未读 1 已读")
     private Integer state;
 
     public static final String COL_ID = "id";

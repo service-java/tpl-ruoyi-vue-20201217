@@ -8,23 +8,23 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
-@ApiModel(value="com-ruoyi-vhr-domain-VhrRole")
+@ApiModel(value = "com-ruoyi-vhr-domain-VhrRole")
 @Data
 @TableName(value = "vhr_role")
 public class VhrRole {
     @TableId(value = "id", type = IdType.INPUT)
-    @ApiModelProperty(value="")
+    @ApiModelProperty(value = "")
     private Integer id;
 
     @TableField(value = "`name`")
-    @ApiModelProperty(value="")
+    @ApiModelProperty(value = "")
     private String name;
 
     /**
      * 角色名称
      */
     @TableField(value = "nameZh")
-    @ApiModelProperty(value="角色名称")
+    @ApiModelProperty(value = "角色名称")
     private String namezh;
 
     public static final String COL_ID = "id";

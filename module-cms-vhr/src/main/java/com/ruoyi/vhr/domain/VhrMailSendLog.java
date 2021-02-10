@@ -9,53 +9,53 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.Date;
 import lombok.Data;
 
-@ApiModel(value="com-ruoyi-vhr-domain-VhrMailSendLog")
+@ApiModel(value = "com-ruoyi-vhr-domain-VhrMailSendLog")
 @Data
 @TableName(value = "vhr_mail_send_log")
 public class VhrMailSendLog {
     @TableField(value = "msgId")
-    @ApiModelProperty(value="")
+    @ApiModelProperty(value = "")
     private String msgid;
 
     @TableField(value = "empId")
-    @ApiModelProperty(value="")
+    @ApiModelProperty(value = "")
     private Integer empid;
 
     /**
      * 0发送中，1发送成功，2发送失败
      */
     @TableField(value = "`status`")
-    @ApiModelProperty(value="0发送中，1发送成功，2发送失败")
+    @ApiModelProperty(value = "0发送中，1发送成功，2发送失败")
     private Integer status;
 
     @TableField(value = "routeKey")
-    @ApiModelProperty(value="")
+    @ApiModelProperty(value = "")
     private String routekey;
 
     @TableField(value = "exchange")
-    @ApiModelProperty(value="")
+    @ApiModelProperty(value = "")
     private String exchange;
 
     /**
      * 重试次数
      */
     @TableField(value = "`count`")
-    @ApiModelProperty(value="重试次数")
+    @ApiModelProperty(value = "重试次数")
     private Integer count;
 
     /**
      * 第一次重试时间
      */
     @TableField(value = "tryTime")
-    @ApiModelProperty(value="第一次重试时间")
+    @ApiModelProperty(value = "第一次重试时间")
     private Date trytime;
 
     @TableField(value = "createTime")
-    @ApiModelProperty(value="")
+    @ApiModelProperty(value = "")
     private Date createtime;
 
     @TableField(value = "updateTime")
-    @ApiModelProperty(value="")
+    @ApiModelProperty(value = "")
     private Date updatetime;
 
     public static final String COL_MSGID = "msgId";

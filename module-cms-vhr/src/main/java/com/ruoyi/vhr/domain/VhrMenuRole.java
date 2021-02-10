@@ -8,20 +8,20 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
-@ApiModel(value="com-ruoyi-vhr-domain-VhrMenuRole")
+@ApiModel(value = "com-ruoyi-vhr-domain-VhrMenuRole")
 @Data
 @TableName(value = "vhr_menu_role")
 public class VhrMenuRole {
     @TableId(value = "id", type = IdType.INPUT)
-    @ApiModelProperty(value="")
+    @ApiModelProperty(value = "")
     private Integer id;
 
     @TableField(value = "mid")
-    @ApiModelProperty(value="")
+    @ApiModelProperty(value = "")
     private Integer mid;
 
     @TableField(value = "rid")
-    @ApiModelProperty(value="")
+    @ApiModelProperty(value = "")
     private Integer rid;
 
     public static final String COL_ID = "id";

@@ -9,24 +9,24 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.Date;
 import lombok.Data;
 
-@ApiModel(value="com-ruoyi-vhr-domain-VhrMsgcontent")
+@ApiModel(value = "com-ruoyi-vhr-domain-VhrMsgcontent")
 @Data
 @TableName(value = "vhr_msgcontent")
 public class VhrMsgcontent {
     @TableId(value = "id", type = IdType.INPUT)
-    @ApiModelProperty(value="")
+    @ApiModelProperty(value = "")
     private Integer id;
 
     @TableField(value = "title")
-    @ApiModelProperty(value="")
+    @ApiModelProperty(value = "")
     private String title;
 
     @TableField(value = "message")
-    @ApiModelProperty(value="")
+    @ApiModelProperty(value = "")
     private String message;
 
     @TableField(value = "createDate")
-    @ApiModelProperty(value="")
+    @ApiModelProperty(value = "")
     private Date createdate;
 
     public static final String COL_ID = "id";
