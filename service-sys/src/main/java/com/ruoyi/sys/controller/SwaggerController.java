@@ -1,4 +1,4 @@
-package com.ruoyi.sys.controller.tool;
+package com.ruoyi.sys.controller;
 
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;

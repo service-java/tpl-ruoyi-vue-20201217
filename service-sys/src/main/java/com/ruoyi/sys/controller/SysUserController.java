@@ -1,4 +1,4 @@
-package com.ruoyi.sys.controller.sys;
+package com.ruoyi.sys.controller;
 
 import java.util.List;
 import java.util.stream.Collectors;

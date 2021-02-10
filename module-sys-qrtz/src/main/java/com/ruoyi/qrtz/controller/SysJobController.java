@@ -4,6 +4,8 @@ import java.util.List;
 
 import com.ruoyi.sys.security.SecurityUtils;
 import com.ruoyi.qrtz.service.ISysJobService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.quartz.SchedulerException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -30,6 +32,7 @@ import com.ruoyi.qrtz.util.CronUtils;
  *
  * @author ruoyi
  */
+@Api(tags="调度任务")
 @RestController
 @RequestMapping("/monitor/job")
 public class SysJobController extends BaseController {
@@ -39,6 +42,7 @@ public class SysJobController extends BaseController {
     /**
      * 查询定时任务列表
      */
+    @ApiOperation("查询定时任务列表")
     @PreAuthorize("@ss.hasPermi('monitor:job:list')")
     @GetMapping("/list")
     public TableDataVo list(SysJob sysJob) {
@@ -50,6 +54,7 @@ public class SysJobController extends BaseController {
     /**
      * 导出定时任务列表
      */
+    @ApiOperation("导出定时任务列表")
     @PreAuthorize("@ss.hasPermi('monitor:job:export')")
     @Log(title = "定时任务", businessType = BusinessTypeEnum.EXPORT)
     @GetMapping("/export")

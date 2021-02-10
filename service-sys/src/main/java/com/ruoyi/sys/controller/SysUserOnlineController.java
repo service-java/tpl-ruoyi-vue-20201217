@@ -1,4 +1,4 @@
-package com.ruoyi.sys.controller.monitor;
+package com.ruoyi.sys.controller;
 
 import java.util.ArrayList;
 import java.util.Collection;

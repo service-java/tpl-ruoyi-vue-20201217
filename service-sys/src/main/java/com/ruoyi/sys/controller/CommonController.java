@@ -1,4 +1,4 @@
-package com.ruoyi.sys.controller.common;
+package com.ruoyi.sys.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

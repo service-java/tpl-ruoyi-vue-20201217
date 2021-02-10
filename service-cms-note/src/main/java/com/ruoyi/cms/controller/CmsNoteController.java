@@ -34,7 +34,7 @@ import java.util.stream.Collectors;
  * User: luo0412
  * Date: 2020-12-17 10:16
  */
-@Api(tags="云同步模块")
+@Api(tags="云同步笔记模块")
 @RestController
 @RequestMapping("/api/sync")
 @Slf4j
@@ -50,7 +50,6 @@ public class CmsNoteController {
     private CmsUserNoteMapper syncUserNoteMapper;
 
 
-
     @ApiOperation("listNote")
     @GetMapping("/listNote")
     public ResultVo listNote() {
@@ -63,6 +62,8 @@ public class CmsNoteController {
         if (CollUtil.isEmpty(collect)) {
             return ResultVo.success(Collections.EMPTY_LIST);
         }
+
+
 
         return ResultVo.success(syncNoteService.listByIds(collect));
     }

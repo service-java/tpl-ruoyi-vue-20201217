@@ -1,4 +1,4 @@
-package com.ruoyi.sys.controller.common;
+package com.ruoyi.sys.controller;
 
 import java.awt.image.BufferedImage;
 import java.io.IOException;

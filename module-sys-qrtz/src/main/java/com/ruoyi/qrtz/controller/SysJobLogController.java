@@ -3,6 +3,7 @@ package com.ruoyi.qrtz.controller;
 import java.util.List;
 
 import com.ruoyi.qrtz.service.ISysJobLogService;
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -23,6 +24,7 @@ import com.ruoyi.qrtz.domain.SysJobLog;
  *
  * @author ruoyi
  */
+@Api(tags="调度日志操作处理")
 @RestController
 @RequestMapping("/monitor/jobLog")
 public class SysJobLogController extends BaseController {

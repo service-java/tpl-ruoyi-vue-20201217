@@ -1,4 +1,4 @@
-package com.ruoyi.sys.controller.tool;
+package com.ruoyi.sys.controller;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.ruoyi.sys.controller.BaseController;
 import com.ruoyi.common.vo.ResultVo;
 import com.ruoyi.common.util.StringUtils;
 import io.swagger.annotations.Api;
