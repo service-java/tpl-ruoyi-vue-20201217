@@ -8,35 +8,35 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
-@ApiModel(value="com-ruoyi-vhr-domain-VhrDepartment")
+@ApiModel(value = "com-ruoyi-vhr-domain-VhrDepartment")
 @Data
 @TableName(value = "vhr_department")
 public class VhrDepartment {
     @TableId(value = "id", type = IdType.INPUT)
-    @ApiModelProperty(value="")
+    @ApiModelProperty(value = "")
     private Integer id;
 
     /**
      * 部门名称
      */
     @TableField(value = "`name`")
-    @ApiModelProperty(value="部门名称")
+    @ApiModelProperty(value = "部门名称")
     private String name;
 
     @TableField(value = "parentId")
-    @ApiModelProperty(value="")
+    @ApiModelProperty(value = "")
     private Integer parentid;
 
     @TableField(value = "depPath")
-    @ApiModelProperty(value="")
+    @ApiModelProperty(value = "")
     private String deppath;
 
     @TableField(value = "enabled")
-    @ApiModelProperty(value="")
+    @ApiModelProperty(value = "")
     private Boolean enabled;
 
     @TableField(value = "isParent")
-    @ApiModelProperty(value="")
+    @ApiModelProperty(value = "")
     private Boolean isparent;
 
     public static final String COL_ID = "id";

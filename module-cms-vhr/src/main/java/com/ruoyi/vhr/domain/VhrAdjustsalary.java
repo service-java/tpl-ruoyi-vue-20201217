@@ -9,51 +9,51 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.Date;
 import lombok.Data;
 
-@ApiModel(value="com-ruoyi-vhr-domain-VhrAdjustsalary")
+@ApiModel(value = "com-ruoyi-vhr-domain-VhrAdjustsalary")
 @Data
 @TableName(value = "vhr_adjustsalary")
 public class VhrAdjustsalary {
     @TableId(value = "id", type = IdType.INPUT)
-    @ApiModelProperty(value="")
+    @ApiModelProperty(value = "")
     private Integer id;
 
     @TableField(value = "eid")
-    @ApiModelProperty(value="")
+    @ApiModelProperty(value = "")
     private Integer eid;
 
     /**
      * 调薪日期
      */
     @TableField(value = "asDate")
-    @ApiModelProperty(value="调薪日期")
+    @ApiModelProperty(value = "调薪日期")
     private Date asdate;
 
     /**
      * 调前薪资
      */
     @TableField(value = "beforeSalary")
-    @ApiModelProperty(value="调前薪资")
+    @ApiModelProperty(value = "调前薪资")
     private Integer beforesalary;
 
     /**
      * 调后薪资
      */
     @TableField(value = "afterSalary")
-    @ApiModelProperty(value="调后薪资")
+    @ApiModelProperty(value = "调后薪资")
     private Integer aftersalary;
 
     /**
      * 调薪原因
      */
     @TableField(value = "reason")
-    @ApiModelProperty(value="调薪原因")
+    @ApiModelProperty(value = "调薪原因")
     private String reason;
 
     /**
      * 备注
      */
     @TableField(value = "remark")
-    @ApiModelProperty(value="备注")
+    @ApiModelProperty(value = "备注")
     private String remark;
 
     public static final String COL_ID = "id";
