@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <artifactId>ruoyi</artifactId>
+        <groupId>com.ruoyi</groupId>
+        <version>3.2.1</version>
+    </parent>
+
+    <artifactId>module-mall-dora</artifactId>
+    <groupId>cn.iocoder</groupId>
+    <packaging>pom</packaging>
+    <version>0.1024-SNAPSHOT</version>
+
+    <description>
+        module-mall-dora示例模块
+    </description>
+
+</project>
