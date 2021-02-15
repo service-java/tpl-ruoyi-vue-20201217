@@ -465,6 +465,12 @@
                 <version>${ruoyi.version}</version>
             </dependency>
 
+            <dependency>
+                <groupId>com.ruoyi</groupId>
+                <artifactId>module-cms-nvc</artifactId>
+                <version>${ruoyi.version}</version>
+            </dependency>
+
             <!-- 系统模块-->
             <dependency>
                 <groupId>com.ruoyi</groupId>
@@ -521,6 +527,7 @@
         <module>module-cms-blog</module>
         <module>module-cms-note</module>
         <module>module-cms-vhr</module>
+        <module>module-cms-nvc</module>
         <module>module-ext-datav</module>
         <module>module-sys</module>
         <module>module-sys-gen</module>

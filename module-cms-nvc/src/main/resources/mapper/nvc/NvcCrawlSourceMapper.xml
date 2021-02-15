@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.nvc.mapper.NvcCrawlSourceMapper">
+  <resultMap id="BaseResultMap" type="com.ruoyi.nvc.domain.NvcCrawlSource">
+    <!--@mbg.generated-->
+    <!--@Table nvc_crawl_source-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="source_name" jdbcType="VARCHAR" property="sourceName" />
+    <result column="crawl_rule" jdbcType="LONGVARCHAR" property="crawlRule" />
+    <result column="source_status" jdbcType="BOOLEAN" property="sourceStatus" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, source_name, crawl_rule, source_status, create_time, update_time
+  </sql>
+</mapper>

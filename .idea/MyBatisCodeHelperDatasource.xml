@@ -32,8 +32,8 @@
         <option name="p3CComment" value="true" />
         <option name="useSwagger" value="true" />
         <option name="userMybatisPlus" value="true" />
-        <option name="xmlMapperPackage" value="mapper.vhr" />
-        <option name="xmlMapperPath" value="$PROJECT_DIR$/module-cms-vhr/src/main/resources" />
+        <option name="xmlMapperPackage" value="vhr" />
+        <option name="xmlMapperPath" value="$PROJECT_DIR$/module-cms-vhr/src/main/resources/mapper" />
       </ProjectProfile>
     </option>
   </component>

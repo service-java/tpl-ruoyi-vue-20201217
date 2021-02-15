@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.nvc.mapper.NvcBookMapper">
+  <resultMap id="BaseResultMap" type="com.ruoyi.nvc.domain.NvcBook">
+    <!--@mbg.generated-->
+    <!--@Table nvc_book-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="work_direction" jdbcType="BOOLEAN" property="workDirection" />
+    <result column="cat_id" jdbcType="INTEGER" property="catId" />
+    <result column="cat_name" jdbcType="VARCHAR" property="catName" />
+    <result column="pic_url" jdbcType="VARCHAR" property="picUrl" />
+    <result column="book_name" jdbcType="VARCHAR" property="bookName" />
+    <result column="author_id" jdbcType="BIGINT" property="authorId" />
+    <result column="author_name" jdbcType="VARCHAR" property="authorName" />
+    <result column="book_desc" jdbcType="VARCHAR" property="bookDesc" />
+    <result column="score" jdbcType="FLOAT" property="score" />
+    <result column="book_status" jdbcType="BOOLEAN" property="bookStatus" />
+    <result column="visit_count" jdbcType="BIGINT" property="visitCount" />
+    <result column="word_count" jdbcType="INTEGER" property="wordCount" />
+    <result column="comment_count" jdbcType="INTEGER" property="commentCount" />
+    <result column="last_index_id" jdbcType="BIGINT" property="lastIndexId" />
+    <result column="last_index_name" jdbcType="VARCHAR" property="lastIndexName" />
+    <result column="last_index_update_time" jdbcType="TIMESTAMP" property="lastIndexUpdateTime" />
+    <result column="is_vip" jdbcType="BOOLEAN" property="isVip" />
+    <result column="status" jdbcType="BOOLEAN" property="status" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="crawl_source_id" jdbcType="INTEGER" property="crawlSourceId" />
+    <result column="crawl_book_id" jdbcType="VARCHAR" property="crawlBookId" />
+    <result column="crawl_last_time" jdbcType="TIMESTAMP" property="crawlLastTime" />
+    <result column="crawl_is_stop" jdbcType="BOOLEAN" property="crawlIsStop" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, work_direction, cat_id, cat_name, pic_url, book_name, author_id, author_name, 
+    book_desc, score, book_status, visit_count, word_count, comment_count, last_index_id, 
+    last_index_name, last_index_update_time, is_vip, `status`, update_time, create_time, 
+    crawl_source_id, crawl_book_id, crawl_last_time, crawl_is_stop
+  </sql>
+</mapper>

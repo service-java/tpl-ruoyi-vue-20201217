@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.nvc.mapper.NvcNewsMapper">
+  <resultMap id="BaseResultMap" type="com.ruoyi.nvc.domain.NvcNews">
+    <!--@mbg.generated-->
+    <!--@Table nvc_news-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="cat_id" jdbcType="INTEGER" property="catId" />
+    <result column="cat_name" jdbcType="VARCHAR" property="catName" />
+    <result column="source_name" jdbcType="VARCHAR" property="sourceName" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="content" jdbcType="LONGVARCHAR" property="content" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="create_user_id" jdbcType="BIGINT" property="createUserId" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="update_user_id" jdbcType="BIGINT" property="updateUserId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, cat_id, cat_name, source_name, title, content, create_time, create_user_id, update_time, 
+    update_user_id
+  </sql>
+</mapper>

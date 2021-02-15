@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.nvc.mapper.NvcHomeBookMapper">
+  <resultMap id="BaseResultMap" type="com.ruoyi.nvc.domain.NvcHomeBook">
+    <!--@mbg.generated-->
+    <!--@Table nvc_home_book-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="book_id" jdbcType="BIGINT" property="bookId" />
+    <result column="sort" jdbcType="TINYINT" property="sort" />
+    <result column="type" jdbcType="BOOLEAN" property="type" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="create_user_id" jdbcType="BIGINT" property="createUserId" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="update_user_id" jdbcType="BIGINT" property="updateUserId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, book_id, sort, `type`, create_time, create_user_id, update_time, update_user_id
+  </sql>
+</mapper>

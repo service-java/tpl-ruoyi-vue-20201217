@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.nvc.mapper.NvcAuthorCodeMapper">
+  <resultMap id="BaseResultMap" type="com.ruoyi.nvc.domain.NvcAuthorCode">
+    <!--@mbg.generated-->
+    <!--@Table nvc_author_code-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="invite_code" jdbcType="VARCHAR" property="inviteCode" />
+    <result column="validity_time" jdbcType="TIMESTAMP" property="validityTime" />
+    <result column="is_use" jdbcType="BOOLEAN" property="isUse" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="create_user_id" jdbcType="BIGINT" property="createUserId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, invite_code, validity_time, is_use, create_time, create_user_id
+  </sql>
+</mapper>

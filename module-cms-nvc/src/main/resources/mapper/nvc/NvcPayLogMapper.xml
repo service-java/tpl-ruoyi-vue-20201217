@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.nvc.mapper.NvcPayLogMapper">
+  <resultMap id="BaseResultMap" type="com.ruoyi.nvc.domain.NvcPayLog">
+    <!--@mbg.generated-->
+    <!--@Table nvc_pay_log-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="out_trade_no" jdbcType="BIGINT" property="outTradeNo" />
+    <result column="trade_type" jdbcType="BOOLEAN" property="tradeType" />
+    <result column="trade_no" jdbcType="VARCHAR" property="tradeNo" />
+    <result column="pay_channel" jdbcType="BOOLEAN" property="payChannel" />
+    <result column="total_amount" jdbcType="INTEGER" property="totalAmount" />
+    <result column="user_id" jdbcType="BIGINT" property="userId" />
+    <result column="pay_status" jdbcType="VARCHAR" property="payStatus" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, out_trade_no, trade_type, trade_no, pay_channel, total_amount, user_id, pay_status, 
+    create_time, update_time
+  </sql>
+</mapper>

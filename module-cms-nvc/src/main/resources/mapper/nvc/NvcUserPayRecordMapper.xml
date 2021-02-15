@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.nvc.mapper.NvcUserPayRecordMapper">
+  <resultMap id="BaseResultMap" type="com.ruoyi.nvc.domain.NvcUserPayRecord">
+    <!--@mbg.generated-->
+    <!--@Table nvc_user_pay_record-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="user_id" jdbcType="BIGINT" property="userId" />
+    <result column="pay_channel" jdbcType="BOOLEAN" property="payChannel" />
+    <result column="out_trade_no" jdbcType="BIGINT" property="outTradeNo" />
+    <result column="total_amount" jdbcType="INTEGER" property="totalAmount" />
+    <result column="wu_amount" jdbcType="INTEGER" property="wuAmount" />
+    <result column="pay_time" jdbcType="TIMESTAMP" property="payTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, user_id, pay_channel, out_trade_no, total_amount, wu_amount, pay_time
+  </sql>
+</mapper>

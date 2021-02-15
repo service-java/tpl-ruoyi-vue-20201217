@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.nvc.mapper.NvcBookCommentReplyMapper">
+  <resultMap id="BaseResultMap" type="com.ruoyi.nvc.domain.NvcBookCommentReply">
+    <!--@mbg.generated-->
+    <!--@Table nvc_book_comment_reply-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="comment_id" jdbcType="BIGINT" property="commentId" />
+    <result column="reply_content" jdbcType="VARCHAR" property="replyContent" />
+    <result column="audit_status" jdbcType="BOOLEAN" property="auditStatus" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="create_user_id" jdbcType="BIGINT" property="createUserId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, comment_id, reply_content, audit_status, create_time, create_user_id
+  </sql>
+</mapper>
