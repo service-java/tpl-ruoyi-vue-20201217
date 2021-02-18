@@ -547,7 +547,7 @@
         <module>module-mall-sms</module>
         <module>module-mall-ums</module>
         <module>module-mall-tb</module>
-        <module>module-mall-dora@todo</module>
+        <module>module-mall-dora</module>
         <module>service-cms</module>
         <module>service-cms-blog</module>
         <module>service-cms-note</module>
