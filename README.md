@@ -31,7 +31,7 @@
 不是必要的代码不要下沉
 尽量不要污染这个模块
 
-sys相关 @todo
+sys相关代码转移 @todo
 
 之前想过叫core
 不过core这个单词表意不明
@@ -58,7 +58,7 @@ beetl(js-like)语法 ==> beetlsql能直接在markdown里写sql
 
 ===
 // module
-模块名称由数据库表前缀决定 
+模块名称由数据库表前缀(最好3-5个字母)决定 
 @eg sys, oss ==> sql建表语句放在对应模块下
 
 ===

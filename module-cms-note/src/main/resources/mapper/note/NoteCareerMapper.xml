@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.note.mapper.NoteCareerMapper">
+  <resultMap id="BaseResultMap" type="com.ruoyi.note.domain.NoteCareer">
+    <!--@mbg.generated-->
+    <!--@Table note_career-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="parent_id" jdbcType="BIGINT" property="parentId" />
+    <result column="is_recommended" jdbcType="TINYINT" property="isRecommended" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, `name`, parent_id, is_recommended
+  </sql>
+</mapper>
