@@ -1,4 +1,4 @@
-package com.ruoyi.common.dto;
+package com.ruoyi.common.query;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.ruoyi.common.util.StringUtils;

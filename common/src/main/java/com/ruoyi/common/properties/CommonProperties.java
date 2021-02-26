@@ -1,4 +1,4 @@
-package com.ruoyi.common.property;
+package com.ruoyi.common.properties;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;

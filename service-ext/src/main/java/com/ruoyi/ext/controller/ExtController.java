@@ -8,7 +8,7 @@ import cn.hutool.http.HttpUtil;
 import cn.hutool.json.JSONObject;
 import cn.hutool.json.JSONUtil;
 import com.alibaba.fastjson.JSON;
-import com.ruoyi.common.property.CommonProperties;
+import com.ruoyi.common.properties.CommonProperties;
 import com.ruoyi.common.constant.Constants;
 import com.ruoyi.common.util.StringUtils;
 import com.ruoyi.common.util.file.FileUploadUtils;
@@ -178,7 +178,7 @@ public class ExtController {
     @ApiOperation("调用远程接口分页")
     @GetMapping("/remotePageByFeign")
     @ResponseBody
-    public Object remotePage(com.ruoyi.common.dto.PageQuery pageQuery) {
+    public Object remotePage(com.ruoyi.common.query.PageQuery pageQuery) {
 //        return feignService.page(BeanUtil.beanToMap(pageQuery));
         return feignService.page(pageQuery.getPageNum(), pageQuery.getPageSize());
     }
@@ -192,7 +192,7 @@ public class ExtController {
     @ApiOperation("调用远程接口分页(hutool)")
     @GetMapping("/remotePageByHutool")
     @ResponseBody
-    public Object remotePageByHutool(com.ruoyi.common.dto.PageQuery pageQuery) {
+    public Object remotePageByHutool(com.ruoyi.common.query.PageQuery pageQuery) {
         JSONObject paramMap = JSONUtil.parseObj(BeanUtil.beanToMap(pageQuery));
 
         String result = HttpRequest

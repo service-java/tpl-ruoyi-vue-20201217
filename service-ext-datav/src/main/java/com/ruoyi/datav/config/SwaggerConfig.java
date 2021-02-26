@@ -1,6 +1,6 @@
 package com.ruoyi.datav.config;
 
-import com.ruoyi.common.property.CommonProperties;
+import com.ruoyi.common.properties.CommonProperties;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;

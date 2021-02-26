@@ -4,7 +4,7 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.ruoyi.cms.domain.OssBucket;
-import com.ruoyi.common.dto.PageQuery;
+import com.ruoyi.common.query.PageQuery;
 import com.ruoyi.cms.util.PageQueryUtils;
 import com.ruoyi.cms.mapper.OssBucketMapper;
 import com.ruoyi.cms.vo.PageDataVo;

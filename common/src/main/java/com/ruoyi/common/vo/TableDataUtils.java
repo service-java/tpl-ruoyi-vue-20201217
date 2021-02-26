@@ -1,6 +1,6 @@
 package com.ruoyi.common.vo;
 
-import com.ruoyi.common.dto.PageQuery;
+import com.ruoyi.common.query.PageQuery;
 import com.ruoyi.common.util.ServletUtils;
 import com.ruoyi.common.util.text.Convert;
 

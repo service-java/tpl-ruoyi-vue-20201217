@@ -45,7 +45,7 @@ import com.ruoyi.common.annotation.Excel;
 import com.ruoyi.common.annotation.Excel.ColumnType;
 import com.ruoyi.common.annotation.Excel.Type;
 import com.ruoyi.common.annotation.Excels;
-import com.ruoyi.common.property.CommonProperties;
+import com.ruoyi.common.properties.CommonProperties;
 import com.ruoyi.common.vo.ResultVo;
 import com.ruoyi.common.util.text.Convert;
 import com.ruoyi.common.exception.CustomException;

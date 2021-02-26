@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
-import com.ruoyi.common.property.CommonProperties;
+import com.ruoyi.common.properties.CommonProperties;
 import com.ruoyi.common.constant.Constants;
 import com.ruoyi.common.vo.ResultVo;
 import com.ruoyi.common.util.StringUtils;

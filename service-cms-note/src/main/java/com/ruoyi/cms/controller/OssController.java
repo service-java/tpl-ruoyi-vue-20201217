@@ -30,7 +30,7 @@ import com.ruoyi.cms.shiro.ShiroUtils;
 import com.ruoyi.cms.shiro.TokenService;
 import com.ruoyi.cms.util.PageQueryUtils;
 import com.ruoyi.cms.vo.PageDataVo;
-import com.ruoyi.common.dto.PageQuery;
+import com.ruoyi.common.query.PageQuery;
 import com.ruoyi.common.exception.CustomException;
 import com.ruoyi.common.validator.ValidatorUtils;
 import com.ruoyi.common.validator.group.AddGroup;
