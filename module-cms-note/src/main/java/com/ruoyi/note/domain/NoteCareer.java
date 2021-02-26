@@ -8,6 +8,8 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
+import java.util.List;
+
 /**
  * Description: 模块功能描述
  * <p>
@@ -46,6 +48,9 @@ public class NoteCareer {
     @TableField(value = "is_recommended")
     @ApiModelProperty(value = "是否推荐")
     private Byte isRecommended;
+
+    @TableField(exist = false)
+    private List<NoteCareer> children;
 
     public static final String COL_ID = "id";
 
